@@ -18,7 +18,7 @@ export function DiagonalNav() {
   const [activeIndex, setActiveIndex] = useState(0)
 
   return (
-    <nav className="absolute right-0 top-0 h-screen z-50 hidden md:flex">
+    <nav className="absolute right-0 top-0 min-h-screen h-full z-50 hidden md:flex">
       {/* Logo badge */}
       <div className="absolute top-6 right-6 z-60">
         <div className="w-16 h-16 rounded-full bg-foreground flex items-center justify-center">

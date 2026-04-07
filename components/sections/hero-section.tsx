@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 
 export function HeroSection() {
   return (
-    <section id="home" className="min-h-screen flex flex-col justify-center px-6 lg:px-16 pt-24 md:pt-12 pb-12">
+    <section id="home" className="min-h-screen flex flex-col justify-center px-6 lg:px-16 pt-16 md:pt-0 pb-12 -mt-[5vh]">
       <div className="max-w-6xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           {/* Left content */}
