@@ -30,41 +30,9 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="space-y-4"
             >
-              <h2 className="font-[var(--font-display)] text-2xl sm:text-3xl font-bold text-foreground">
-                I work with people who feel different.
-              </h2>
-              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-md">
-                Maybe you have an autism, ADHD, or OCD diagnosis (including self-diagnosis) 
-                or you simply describe yourself as &quot;weird.&quot; Your difference isn&apos;t 
-                a sign that something is wrong with you.
+              <p className="text-muted-foreground text-lg sm:text-xl leading-relaxed max-w-md">
+                Therapy and Tools for people who feel different.
               </p>
-            </motion.div>
-
-            {/* CTA Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-[var(--font-display)] font-bold text-sm tracking-wider uppercase hover:scale-105 hover:shadow-lg transition-all duration-300"
-              >
-                Schedule a Consultation
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </a>
             </motion.div>
 
           </div>

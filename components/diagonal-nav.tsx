@@ -1,12 +1,15 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 
 const navItems = [
-  { id: "01", label: "HOME", color: "bg-nav-teal", href: "#home" },
-  { id: "02", label: "ABOUT", color: "bg-nav-coral", href: "#about" },
-  { id: "03", label: "SERVICES", color: "bg-nav-salmon", href: "#services" },
-  { id: "04", label: "CONTACT", color: "bg-nav-amber", href: "#contact" },
+  { id: "01", label: "TESTS", color: "bg-nav-teal", href: "/tests" },
+  { id: "02", label: "AUTISM", color: "bg-nav-coral", href: "/autism-affirming" },
+  { id: "03", label: "ADHD", color: "bg-nav-salmon", href: "/adhd-support" },
+  { id: "04", label: "BRAIN GAMES", color: "bg-nav-amber", href: "/brain-games" },
+  { id: "05", label: "MINDFULNESS", color: "bg-nav-teal", href: "/mindfulness" },
+  { id: "06", label: "THERAPY", color: "bg-nav-coral", href: "/individual-therapy" },
 ]
 
 export function DiagonalNav() {
@@ -14,7 +17,7 @@ export function DiagonalNav() {
   const [activeIndex, setActiveIndex] = useState(0)
 
   return (
-    <nav className="fixed right-0 top-0 h-full z-50 hidden md:flex">
+    <nav className="absolute right-0 top-0 h-screen z-50 hidden md:flex">
       {/* Logo badge */}
       <div className="absolute top-6 right-6 z-60">
         <div className="w-16 h-16 rounded-full bg-foreground flex items-center justify-center">
@@ -31,16 +34,16 @@ export function DiagonalNav() {
         {navItems.map((item, index) => {
           const isHovered = hoveredIndex === index
           const isActive = activeIndex === index
-          const baseHeight = 100 - index * 12
-          const height = isHovered ? baseHeight + 5 : baseHeight
+          const baseHeight = 100 - index * 8
+          const height = isHovered ? baseHeight + 3 : baseHeight
 
           return (
-            <a
+            <Link
               key={item.id}
               href={item.href}
               className={`${item.color} relative flex items-center justify-center transition-all duration-300 ease-out`}
               style={{
-                width: isHovered ? "72px" : "64px",
+                width: isHovered ? "56px" : "48px",
                 height: `${height}%`,
               }}
               onMouseEnter={() => setHoveredIndex(index)}
@@ -63,7 +66,7 @@ export function DiagonalNav() {
               {isActive && (
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-white rounded-r" />
               )}
-            </a>
+            </Link>
           )
         })}
       </div>
@@ -76,7 +79,7 @@ export function MobileNav() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="md:hidden fixed top-0 left-0 right-0 z-50">
+    <div className="md:hidden absolute top-0 left-0 right-0 z-50">
       <div className="flex items-center justify-between p-4 bg-background/95 backdrop-blur-sm">
         <div className="w-12 h-12 rounded-full bg-foreground flex items-center justify-center">
           <span className="text-background font-[var(--font-display)] text-[10px] font-bold text-center leading-tight">
@@ -101,7 +104,7 @@ export function MobileNav() {
       {isOpen && (
         <div className="bg-background border-t border-border">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.id}
               href={item.href}
               className="flex items-center gap-4 p-4 border-b border-border"
@@ -111,7 +114,7 @@ export function MobileNav() {
               <span className="font-[var(--font-display)] font-bold tracking-wider">
                 ({item.id}) {item.label}
               </span>
-            </a>
+            </Link>
           ))}
         </div>
       )}
