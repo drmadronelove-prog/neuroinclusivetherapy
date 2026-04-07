@@ -9,7 +9,7 @@ const navItems = [
   { id: "02", label: "AUTISM", color: "bg-nav-coral", href: "/autism-affirming" },
   { id: "03", label: "ADHD", color: "bg-nav-salmon", href: "/adhd-support" },
   { id: "04", label: "BRAIN GAMES", color: "bg-nav-amber", href: "/brain-games" },
-  { id: "05", label: "MINDFULNESS", color: "bg-nav-teal", href: "/mindfulness" },
+  { id: "05", label: "SLOWING DOWN", color: "bg-nav-teal", href: "/slowing-down" },
   { id: "06", label: "THERAPY", color: "bg-nav-coral", href: "/individual-therapy" },
 ]
 

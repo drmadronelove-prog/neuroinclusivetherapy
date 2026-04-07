@@ -34,11 +34,11 @@ const cards = [
     href: "/brain-games",
   },
   {
-    title: "Mindfulness",
+    title: "Slowing Down",
     color: "border-nav-teal",
     bgAccent: "bg-nav-teal/10",
     rotation: -1,
-    href: "/mindfulness",
+    href: "/slowing-down",
   },
   {
     title: "Individual Therapy",

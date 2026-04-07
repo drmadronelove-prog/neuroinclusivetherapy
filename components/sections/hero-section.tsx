@@ -16,7 +16,7 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="font-[var(--font-display)] text-7xl sm:text-8xl lg:text-9xl font-black text-foreground leading-[0.85] tracking-tight">
+              <h1 className="font-[var(--font-display)] text-6xl sm:text-7xl lg:text-8xl font-black text-foreground leading-[0.85] tracking-tight">
                 <span className="block">NEURO</span>
                 <span className="block text-nav-coral">INCLU</span>
                 <span className="block">SIVE</span>
