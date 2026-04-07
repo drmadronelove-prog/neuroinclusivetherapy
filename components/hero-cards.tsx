@@ -50,10 +50,15 @@ const cards = [
 
 export function HeroCards() {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6 mt-12 lg:mt-0 max-w-4xl mx-auto">
-      {cards.map((card, index) => (
-        <HeroCard key={card.title} card={card} index={index} />
-      ))}
+    <div className="mt-12 lg:mt-0">
+      <h3 className="font-[var(--font-display)] text-xl sm:text-2xl font-bold text-foreground mb-6 text-center lg:text-left">
+        Neuroinclusive Tools
+      </h3>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6 max-w-4xl mx-auto">
+        {cards.map((card, index) => (
+          <HeroCard key={card.title} card={card} index={index} />
+        ))}
+      </div>
     </div>
   )
 }

@@ -5,30 +5,30 @@ import { motion } from "framer-motion"
 const services = [
   {
     number: "01",
-    title: "Anxiety & OCD",
+    title: "Anxiety",
     description:
-      "Trained in Exposure Response Prevention (ERP) through the International OCD Foundation. Evidence-based treatment for anxiety and obsessive-compulsive disorders.",
+      "Evidence-based treatment for anxiety disorders, helping you develop skills to manage worry, fear, and avoidance patterns.",
     color: "bg-nav-teal",
   },
   {
     number: "02",
-    title: "Trauma & PTSD",
+    title: "OCD",
     description:
-      "Dedicated space to explore the things that are harder to talk about: childhood trauma, low self-esteem, and the impacts of difficult experiences.",
+      "Trained in Exposure Response Prevention (ERP) through the International OCD Foundation. Specialized treatment for obsessive-compulsive disorders.",
     color: "bg-nav-coral",
   },
   {
     number: "03",
-    title: "ADHD & Autism",
+    title: "ADHD",
     description:
-      "Specialized support for neurodivergent adults. I integrate executive functioning coaching, somatic and mindfulness-based skills into our work together.",
+      "Executive functioning coaching woven into therapeutic work. Strategies for focus, organization, and emotional regulation.",
     color: "bg-nav-salmon",
   },
   {
     number: "04",
-    title: "Grief & Life Transitions",
+    title: "Autism",
     description:
-      "Death, divorce, major life transitions, identity questions, existential anxiety, and work-related stress—I can help you navigate these challenges.",
+      "Affirming support for autistic adults. Addressing masking burnout, social navigation, and thriving on your own terms.",
     color: "bg-nav-amber",
   },
 ]
@@ -88,41 +88,7 @@ export function ServicesSection() {
           ))}
         </div>
 
-        {/* Additional info */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 p-8 bg-card rounded-lg border border-border"
-        >
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <h4 className="font-[var(--font-display)] font-bold text-foreground mb-2">
-                Session Rate
-              </h4>
-              <p className="text-sm text-muted-foreground">
-                $250 per session. Weekly or biweekly available with therapy-focused assignments between sessions.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-[var(--font-display)] font-bold text-foreground mb-2">
-                Insurance
-              </h4>
-              <p className="text-sm text-muted-foreground">
-                Out of network. Superbills provided for reimbursement.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-[var(--font-display)] font-bold text-foreground mb-2">
-                Modalities
-              </h4>
-              <p className="text-sm text-muted-foreground">
-                In-person (SF &amp; Berkeley) or telehealth throughout California.
-              </p>
-            </div>
-          </div>
-        </motion.div>
+
       </div>
     </section>
   )

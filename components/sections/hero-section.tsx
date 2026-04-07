@@ -31,12 +31,12 @@ export function HeroSection() {
               className="space-y-4"
             >
               <h2 className="font-[var(--font-display)] text-2xl sm:text-3xl font-bold text-foreground">
-                Still your mind. Open your heart.
+                I work with people who feel different.
               </h2>
               <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-md">
-                I work with people who feel different. Maybe you have an autism, ADHD, or OCD 
-                diagnosis (including self-diagnosis) or you simply describe yourself as 
-                &quot;weird.&quot; Your difference isn&apos;t a sign that something is wrong with you.
+                Maybe you have an autism, ADHD, or OCD diagnosis (including self-diagnosis) 
+                or you simply describe yourself as &quot;weird.&quot; Your difference isn&apos;t 
+                a sign that something is wrong with you.
               </p>
             </motion.div>
 
@@ -67,30 +67,6 @@ export function HeroSection() {
               </a>
             </motion.div>
 
-            {/* Micro info grid */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="grid grid-cols-2 gap-6 pt-8 border-t border-border"
-            >
-              <div>
-                <span className="text-xs font-bold tracking-wider text-muted-foreground uppercase">
-                  Approach:
-                </span>
-                <p className="text-sm text-foreground mt-1">
-                  Neuro-inclusive, Buddhist-inspired, mindfulness &amp; compassion focused
-                </p>
-              </div>
-              <div>
-                <span className="text-xs font-bold tracking-wider text-muted-foreground uppercase">
-                  Training:
-                </span>
-                <p className="text-sm text-foreground mt-1">
-                  ERP, DBT, ACT, Ketamine-assisted therapy, executive function coaching
-                </p>
-              </div>
-            </motion.div>
           </div>
 
           {/* Right content - Hero Cards */}
