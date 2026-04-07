@@ -5,31 +5,52 @@ import { motion } from "framer-motion"
 
 const cards = [
   {
-    title: "Affirming Care",
-    description: "Neurodivergent-affirming therapeutic approaches",
+    title: "Tests",
+    description: "Comprehensive psychological assessments and evaluations",
     color: "border-nav-teal",
     bgAccent: "bg-nav-teal/10",
     rotation: -3,
   },
   {
-    title: "ADHD & Autism",
-    description: "Specialized support for neurodivergent minds",
+    title: "Autism-Affirming Care",
+    description: "Supportive therapy that honors autistic identity",
     color: "border-nav-coral",
     bgAccent: "bg-nav-coral/10",
     rotation: 2,
   },
   {
-    title: "Holistic Wellness",
-    description: "Mind-body integration for lasting change",
+    title: "ADHD Support",
+    description: "Strategies and tools for thriving with ADHD",
     color: "border-nav-salmon",
     bgAccent: "bg-nav-salmon/10",
     rotation: -2,
+  },
+  {
+    title: "Brain Games",
+    description: "Cognitive exercises to strengthen mental agility",
+    color: "border-nav-amber",
+    bgAccent: "bg-nav-amber/10",
+    rotation: 3,
+  },
+  {
+    title: "Mindfulness",
+    description: "Grounding practices for calm and clarity",
+    color: "border-nav-teal",
+    bgAccent: "bg-nav-teal/10",
+    rotation: -1,
+  },
+  {
+    title: "Individual Therapy",
+    description: "One-on-one sessions tailored to your needs",
+    color: "border-nav-coral",
+    bgAccent: "bg-nav-coral/10",
+    rotation: 2,
   },
 ]
 
 export function HeroCards() {
   return (
-    <div className="flex flex-wrap justify-center gap-6 lg:gap-8 mt-12 lg:mt-0">
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6 mt-12 lg:mt-0 max-w-4xl mx-auto">
       {cards.map((card, index) => (
         <HeroCard key={card.title} card={card} index={index} />
       ))}
@@ -48,7 +69,7 @@ function HeroCard({
 
   return (
     <motion.div
-      className={`relative w-48 lg:w-56 h-64 lg:h-72 bg-card rounded-lg border-2 ${card.color} shadow-lg cursor-pointer overflow-hidden`}
+      className={`relative w-full h-48 sm:h-56 lg:h-64 bg-card rounded-lg border-2 ${card.color} shadow-lg cursor-pointer overflow-hidden`}
       initial={{ rotate: card.rotation }}
       animate={{
         rotate: isHovered ? 0 : card.rotation,
