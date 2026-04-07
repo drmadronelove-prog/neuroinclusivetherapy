@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import { useHover } from "./hover-context"
 
 const navItems = [
   { id: "01", label: "TESTS", color: "bg-nav-teal", href: "/tests" },
@@ -13,7 +14,7 @@ const navItems = [
 ]
 
 export function DiagonalNav() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const { hoveredIndex, setHoveredIndex } = useHover()
   const [activeIndex, setActiveIndex] = useState(0)
 
   return (

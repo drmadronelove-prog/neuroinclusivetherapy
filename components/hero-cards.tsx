@@ -1,8 +1,8 @@
 "use client"
 
-import { useState } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { useHover } from "./hover-context"
 
 const cards = [
   {
@@ -66,12 +66,13 @@ function HeroCard({
   card: (typeof cards)[0]
   index: number
 }) {
-  const [isHovered, setIsHovered] = useState(false)
+  const { hoveredIndex, setHoveredIndex } = useHover()
+  const isHovered = hoveredIndex === index
 
   return (
     <Link href={card.href}>
       <motion.div
-        className={`relative w-full h-32 sm:h-40 lg:h-48 bg-card rounded-lg border-2 ${card.color} shadow-lg cursor-pointer overflow-hidden`}
+        className={`relative w-full h-40 sm:h-48 lg:h-56 bg-card rounded-lg border-2 ${card.color} shadow-lg cursor-pointer overflow-hidden`}
         initial={{ rotate: card.rotation }}
         animate={{
           rotate: isHovered ? 0 : card.rotation,
@@ -83,8 +84,8 @@ function HeroCard({
           stiffness: 200,
           damping: 12,
         }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        onMouseEnter={() => setHoveredIndex(index)}
+        onMouseLeave={() => setHoveredIndex(null)}
         style={{
           zIndex: isHovered ? 10 : index,
         }}

@@ -30,7 +30,7 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="space-y-4"
             >
-              <p className="text-muted-foreground text-lg sm:text-xl leading-relaxed max-w-md">
+              <p className="font-[var(--font-display)] text-foreground text-2xl sm:text-3xl font-bold leading-snug max-w-md">
                 Therapy and Tools for people who feel different.
               </p>
             </motion.div>
