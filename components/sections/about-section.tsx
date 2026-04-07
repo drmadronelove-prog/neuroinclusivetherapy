@@ -45,21 +45,23 @@ export function AboutSection() {
             className="space-y-6"
           >
             <p className="text-lg text-foreground leading-relaxed">
-              Dr. Madrone Love is a licensed clinical psychologist specializing in 
-              neurodivergent-affirming care. With over a decade of experience, 
-              Dr. Love brings deep expertise in working with adults navigating 
-              ADHD, autism, and complex trauma.
+              My approach to psychotherapy draws deeply from my Buddhist practice, 
+              allowing me to be fully present with clients as they navigate life&apos;s 
+              inevitable challenges. I specialize in helping people work through grief 
+              and loss, divorce, major life transitions, identity questions, existential 
+              anxiety, and work-related stress.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              The practice is grounded in the belief that neurodivergence is a 
-              natural form of human diversity—not a deficit to be corrected. 
-              Therapy here focuses on understanding your unique neurotype, 
-              building on your strengths, and developing strategies that actually 
-              work for your brain.
+              I&apos;m particularly passionate about working with neurodivergent individuals, 
+              including those with ADHD, autism spectrum differences, giftedness, or 
+              multiple neurodivergencies. I also have experience supporting partners 
+              and family members of neurodivergent people.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Whether you&apos;re newly diagnosed, questioning, or have known for years, 
-              you deserve support that meets you where you are.
+              Working with me is about understanding who you are and the life that you 
+              are building for yourself. From there, I can support you to gain clarity 
+              about your path ahead, understand yourself more compassionately, and develop 
+              psychological skills that help you thrive on your own terms.
             </p>
 
             {/* Credentials */}
@@ -67,17 +69,21 @@ export function AboutSection() {
               <div className="space-y-2">
                 <h4 className="font-[var(--font-display)] font-bold text-foreground">Education</h4>
                 <p className="text-sm text-muted-foreground">
-                  PsyD, Clinical Psychology
+                  BA, University of Pennsylvania
                   <br />
-                  Specialized training in neurodevelopmental conditions
+                  MA, UC Berkeley
+                  <br />
+                  PsyD, Wright Institute
+                  <br />
+                  Post-doc, UCSF
                 </p>
               </div>
               <div className="space-y-2">
-                <h4 className="font-[var(--font-display)] font-bold text-foreground">Approach</h4>
+                <h4 className="font-[var(--font-display)] font-bold text-foreground">Also</h4>
                 <p className="text-sm text-muted-foreground">
-                  Integrative, collaborative
+                  Host, Multiracial Mental Health Podcast
                   <br />
-                  Trauma-informed, identity-affirming
+                  Assistant Professor, CIIS
                 </p>
               </div>
             </div>

@@ -31,12 +31,12 @@ export function HeroSection() {
               className="space-y-4"
             >
               <h2 className="font-[var(--font-display)] text-2xl sm:text-3xl font-bold text-foreground">
-                therapy partner
+                Still your mind. Open your heart.
               </h2>
               <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-md">
-                Dr. Madrone Love, PsyD offers compassionate, affirming therapy services 
-                for neurodivergent individuals. Specializing in ADHD, autism, and 
-                holistic mental wellness.
+                I work with people who feel different. Maybe you have an autism, ADHD, or OCD 
+                diagnosis (including self-diagnosis) or you simply describe yourself as 
+                &quot;weird.&quot; Your difference isn&apos;t a sign that something is wrong with you.
               </p>
             </motion.div>
 
@@ -79,15 +79,15 @@ export function HeroSection() {
                   Approach:
                 </span>
                 <p className="text-sm text-foreground mt-1">
-                  Neurodivergent-affirming, trauma-informed, strengths-based
+                  Neuro-inclusive, Buddhist-inspired, mindfulness &amp; compassion focused
                 </p>
               </div>
               <div>
                 <span className="text-xs font-bold tracking-wider text-muted-foreground uppercase">
-                  Modalities:
+                  Training:
                 </span>
                 <p className="text-sm text-foreground mt-1">
-                  Individual therapy, couples, family systems, consultation
+                  ERP, DBT, ACT, Ketamine-assisted therapy, executive function coaching
                 </p>
               </div>
             </motion.div>

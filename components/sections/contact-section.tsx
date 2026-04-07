@@ -50,9 +50,9 @@ export function ContactSection() {
             </h2>
 
             <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
-              Taking the first step can feel daunting. Send a message to schedule 
-              a free 15-minute consultation call. No pressure—just a chance to 
-              see if we&apos;re a good fit.
+              Something brought you here, and that&apos;s worth paying attention to. 
+              Schedule a free 20-minute consultation to explore whether we&apos;re a 
+              good fit. If we&apos;re not, I&apos;m happy to point you in the right direction.
             </p>
 
             {/* Contact info blocks */}
@@ -76,7 +76,7 @@ export function ContactSection() {
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
                   <p className="text-foreground font-medium">
-                    hello@drmadronelove.com
+                    therapy@madronelove.com
                   </p>
                 </div>
               </div>
@@ -104,9 +104,9 @@ export function ContactSection() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Location</p>
+                  <p className="text-sm text-muted-foreground">Locations</p>
                   <p className="text-foreground font-medium">
-                    Telehealth (California Licensed)
+                    San Francisco &bull; Berkeley &bull; Telehealth
                   </p>
                 </div>
               </div>
@@ -221,11 +221,11 @@ export function ContactSection() {
                     }
                     className="w-full px-4 py-3 bg-card border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary appearance-none"
                   >
-                    <option value="">Select service</option>
-                    <option value="individual">Individual Therapy</option>
-                    <option value="adhd">ADHD Support</option>
-                    <option value="autism">Autism-Affirming Care</option>
-                    <option value="couples">Couples & Family</option>
+                    <option value="">Select area of interest</option>
+                    <option value="anxiety-ocd">Anxiety & OCD</option>
+                    <option value="trauma">Trauma & PTSD</option>
+                    <option value="adhd-autism">ADHD & Autism</option>
+                    <option value="grief">Grief & Life Transitions</option>
                     <option value="other">Not sure yet</option>
                   </select>
                 </div>
@@ -273,10 +273,10 @@ export function ContactSection() {
           className="mt-24 pt-8 border-t border-border text-center"
         >
           <p className="text-sm text-muted-foreground">
-            © 2026 Dr. Madrone Love, PsyD. All rights reserved.
+            © 2026 Madrone Love, PsyD &bull; Licensed Clinical Psychologist &bull; CA License #PSY35899
           </p>
           <p className="text-xs text-muted-foreground mt-2">
-            This is a placeholder website for demonstration purposes.
+            110 Gough Street, San Francisco &bull; 2915 MLK Jr Way, Berkeley &bull; Telehealth throughout California
           </p>
         </motion.div>
       </div>

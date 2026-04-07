@@ -5,30 +5,30 @@ import { motion } from "framer-motion"
 const services = [
   {
     number: "01",
-    title: "Individual Therapy",
+    title: "Anxiety & OCD",
     description:
-      "One-on-one sessions tailored to your unique needs, focusing on understanding your neurotype and building sustainable strategies for daily life.",
+      "Trained in Exposure Response Prevention (ERP) through the International OCD Foundation. Evidence-based treatment for anxiety and obsessive-compulsive disorders.",
     color: "bg-nav-teal",
   },
   {
     number: "02",
-    title: "ADHD Support",
+    title: "Trauma & PTSD",
     description:
-      "Specialized support for adults with ADHD, including executive function coaching, emotional regulation, and practical life management tools.",
+      "Dedicated space to explore the things that are harder to talk about: childhood trauma, low self-esteem, and the impacts of difficult experiences.",
     color: "bg-nav-coral",
   },
   {
     number: "03",
-    title: "Autism-Affirming Care",
+    title: "ADHD & Autism",
     description:
-      "Therapeutic support that honors autistic identity, addresses masking burnout, and helps navigate a neurotypical world on your terms.",
+      "Specialized support for neurodivergent adults. I integrate executive functioning coaching, somatic and mindfulness-based skills into our work together.",
     color: "bg-nav-salmon",
   },
   {
     number: "04",
-    title: "Couples & Family",
+    title: "Grief & Life Transitions",
     description:
-      "Supporting neurodiverse relationships and families in building understanding, improving communication, and celebrating differences.",
+      "Death, divorce, major life transitions, identity questions, existential anxiety, and work-related stress—I can help you navigate these challenges.",
     color: "bg-nav-amber",
   },
 ]
@@ -99,10 +99,10 @@ export function ServicesSection() {
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <h4 className="font-[var(--font-display)] font-bold text-foreground mb-2">
-                Session Format
+                Session Rate
               </h4>
               <p className="text-sm text-muted-foreground">
-                50-minute sessions, weekly or biweekly. Telehealth available.
+                $250 per session. Weekly or biweekly available with therapy-focused assignments between sessions.
               </p>
             </div>
             <div>
@@ -110,15 +110,15 @@ export function ServicesSection() {
                 Insurance
               </h4>
               <p className="text-sm text-muted-foreground">
-                Superbills provided for out-of-network reimbursement.
+                Out of network. Superbills provided for reimbursement.
               </p>
             </div>
             <div>
               <h4 className="font-[var(--font-display)] font-bold text-foreground mb-2">
-                Sliding Scale
+                Modalities
               </h4>
               <p className="text-sm text-muted-foreground">
-                Limited sliding scale spots available. Let&apos;s discuss.
+                In-person (SF &amp; Berkeley) or telehealth throughout California.
               </p>
             </div>
           </div>
