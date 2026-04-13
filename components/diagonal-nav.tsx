@@ -5,12 +5,14 @@ import Link from "next/link"
 import { useHover } from "./hover-context"
 
 const navItems = [
-  { id: "01", label: "TESTS", color: "bg-nav-teal", href: "/tests" },
-  { id: "02", label: "AUTISM", color: "bg-nav-coral", href: "/autism-affirming" },
-  { id: "03", label: "ADHD", color: "bg-nav-salmon", href: "/adhd-support" },
-  { id: "04", label: "BRAIN GAMES", color: "bg-nav-amber", href: "/brain-games" },
-  { id: "05", label: "BLOG", color: "bg-nav-teal", href: "/blog" },
-  { id: "06", label: "THERAPY", color: "bg-nav-coral", href: "/individual-therapy" },
+  { id: "01", label: "NEURODIV",    color: "bg-nav-amber",  href: "/neurodiversity" },
+  { id: "02", label: "TESTS",       color: "bg-nav-teal",   href: "/tests" },
+  { id: "03", label: "ADHD SKILLS", color: "bg-nav-salmon", href: "/adhd-skills" },
+  { id: "04", label: "AUTISM",      color: "bg-nav-coral",  href: "/autism-affirming" },
+  { id: "05", label: "ADHD",        color: "bg-nav-salmon", href: "/adhd-support" },
+  { id: "06", label: "BRAIN GAMES", color: "bg-nav-amber",  href: "/brain-games" },
+  { id: "07", label: "BLOG",        color: "bg-nav-teal",   href: "/blog" },
+  { id: "08", label: "THERAPY",     color: "bg-nav-coral",  href: "/individual-therapy" },
 ]
 
 export function DiagonalNav() {
