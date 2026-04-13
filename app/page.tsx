@@ -12,7 +12,7 @@ export default function Home() {
         <LeftAccent />
 
         {/* Main content area - leaving space for diagonal nav on desktop */}
-        <div className="md:mr-[288px] lg:mr-[336px]">
+        <div className="md:mr-[384px]">
           <HeroSection />
         </div>
       </main>

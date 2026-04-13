@@ -2,6 +2,7 @@
 
 import { DiagonalNav, MobileNav } from "@/components/diagonal-nav"
 import { LeftAccent } from "@/components/left-accent"
+import { HoverProvider } from "@/components/hover-context"
 import { motion } from "framer-motion"
 import Link from "next/link"
 
@@ -13,12 +14,13 @@ interface ToolPageLayoutProps {
 
 export function ToolPageLayout({ title, color, children }: ToolPageLayoutProps) {
   return (
+    <HoverProvider>
     <main className="relative min-h-screen bg-background overflow-x-hidden">
       <DiagonalNav />
       <MobileNav />
       <LeftAccent />
 
-      <div className="md:mr-[288px] lg:mr-[336px]">
+      <div className="md:mr-[384px]">
         <section className="min-h-screen flex flex-col px-6 lg:px-16 pt-24 md:pt-12 pb-12">
           <div className="max-w-4xl mx-auto w-full">
             {/* Back link */}
@@ -62,5 +64,6 @@ export function ToolPageLayout({ title, color, children }: ToolPageLayoutProps) 
         </section>
       </div>
     </main>
+    </HoverProvider>
   )
 }

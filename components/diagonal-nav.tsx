@@ -11,6 +11,8 @@ const navItems = [
   { id: "04", label: "BRAIN GAMES", color: "bg-nav-amber", href: "/brain-games" },
   { id: "05", label: "SLOWING DOWN", color: "bg-nav-teal", href: "/slowing-down" },
   { id: "06", label: "THERAPY", color: "bg-nav-coral", href: "/individual-therapy" },
+  { id: "07", label: "BLOG", color: "bg-nav-salmon", href: "/blog" },
+  { id: "08", label: "FRIENDS", color: "bg-nav-amber", href: "/friends" },
 ]
 
 export function DiagonalNav() {
@@ -18,7 +20,7 @@ export function DiagonalNav() {
   const [activeIndex, setActiveIndex] = useState(0)
 
   return (
-    <nav className="absolute right-0 top-0 min-h-screen h-full z-50 hidden md:flex">
+    <nav className="fixed right-0 top-0 h-screen z-50 hidden md:flex">
       {/* Logo badge */}
       <div className="absolute top-6 right-6 z-60">
         <div className="w-16 h-16 rounded-full bg-foreground flex items-center justify-center">

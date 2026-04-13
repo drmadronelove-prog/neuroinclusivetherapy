@@ -98,11 +98,11 @@ function HeroCard({
           transition={{ duration: 0.2 }}
         />
 
-        <div className="relative p-6 h-full flex flex-col justify-center items-center">
+        <div className="relative p-3 sm:p-4 h-full flex flex-col justify-center items-center">
           <span className="text-muted-foreground text-xs font-medium tracking-wider mb-2">
             0{index + 1}
           </span>
-          <h3 className="font-[var(--font-display)] text-xl sm:text-2xl font-bold text-foreground text-center">
+          <h3 className="font-[var(--font-display)] text-base sm:text-lg lg:text-xl font-bold text-foreground text-center leading-tight">
             {card.title}
           </h3>
         </div>
