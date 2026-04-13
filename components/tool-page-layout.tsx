@@ -20,7 +20,7 @@ export function ToolPageLayout({ title, color, children }: ToolPageLayoutProps) 
       <MobileNav />
       <LeftAccent />
 
-      <div className="md:mr-[384px]">
+      <div className="md:mr-[378px]">
         <section className="min-h-screen flex flex-col px-6 lg:px-16 pt-24 md:pt-12 pb-12">
           <div className="max-w-4xl mx-auto w-full">
             {/* Back link */}

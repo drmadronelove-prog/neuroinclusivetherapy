@@ -8,11 +8,12 @@ const navItems = [
   { id: "01", label: "NEURODIV",    color: "bg-nav-amber",  href: "/neurodiversity" },
   { id: "02", label: "TESTS",       color: "bg-nav-teal",   href: "/tests" },
   { id: "03", label: "ADHD SKILLS", color: "bg-nav-salmon", href: "/adhd-skills" },
-  { id: "04", label: "AUTISM",      color: "bg-nav-coral",  href: "/autism-affirming" },
-  { id: "05", label: "ADHD",        color: "bg-nav-salmon", href: "/adhd-support" },
-  { id: "06", label: "BRAIN GAMES", color: "bg-nav-amber",  href: "/brain-games" },
-  { id: "07", label: "BLOG",        color: "bg-nav-teal",   href: "/blog" },
-  { id: "08", label: "THERAPY",     color: "bg-nav-coral",  href: "/individual-therapy" },
+  { id: "04", label: "ASD SKILLS",  color: "bg-nav-coral",  href: "/asd-skills" },
+  { id: "05", label: "OCD SKILLS",  color: "bg-nav-teal",   href: "/ocd-skills" },
+  { id: "06", label: "MINDFULNESS", color: "bg-nav-amber",  href: "/mindfulness" },
+  { id: "07", label: "BRAIN GAMES", color: "bg-nav-salmon", href: "/brain-games" },
+  { id: "08", label: "BLOG",        color: "bg-nav-teal",   href: "/blog" },
+  { id: "09", label: "THERAPY",     color: "bg-nav-coral",  href: "/individual-therapy" },
 ]
 
 export function DiagonalNav() {
@@ -44,7 +45,7 @@ export function DiagonalNav() {
               href={item.href}
               className={`${item.color} relative flex items-center justify-center transition-all duration-300 ease-out`}
               style={{
-                width: isHovered ? "56px" : "48px",
+                width: isHovered ? "50px" : "42px",
                 height: "100%",
               }}
               onMouseEnter={() => setHoveredIndex(index)}

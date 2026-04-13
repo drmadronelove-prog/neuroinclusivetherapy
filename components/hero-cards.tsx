@@ -6,52 +6,73 @@ import { useHover } from "./hover-context"
 
 const cards = [
   {
+    title: "Neurodiversity",
+    color: "border-nav-amber",
+    bgAccent: "bg-nav-amber/10",
+    rotation: -3,
+    href: "/neurodiversity",
+  },
+  {
     title: "Tests",
     color: "border-nav-teal",
     bgAccent: "bg-nav-teal/10",
-    rotation: -3,
+    rotation: 2,
     href: "/tests",
   },
   {
-    title: "Autism-Affirming",
-    color: "border-nav-coral",
-    bgAccent: "bg-nav-coral/10",
-    rotation: 2,
-    href: "/autism-affirming",
-  },
-  {
-    title: "ADHD Support",
+    title: "ADHD Skills",
     color: "border-nav-salmon",
     bgAccent: "bg-nav-salmon/10",
     rotation: -2,
-    href: "/adhd-support",
+    href: "/adhd-skills",
+  },
+  {
+    title: "ASD Skills",
+    color: "border-nav-coral",
+    bgAccent: "bg-nav-coral/10",
+    rotation: 3,
+    href: "/asd-skills",
+  },
+  {
+    title: "OCD Skills",
+    color: "border-nav-teal",
+    bgAccent: "bg-nav-teal/10",
+    rotation: -1,
+    href: "/ocd-skills",
+  },
+  {
+    title: "Mindfulness",
+    color: "border-nav-amber",
+    bgAccent: "bg-nav-amber/10",
+    rotation: 2,
+    href: "/mindfulness",
   },
   {
     title: "Brain Games",
-    color: "border-nav-amber",
-    bgAccent: "bg-nav-amber/10",
-    rotation: 3,
+    color: "border-nav-salmon",
+    bgAccent: "bg-nav-salmon/10",
+    rotation: -3,
     href: "/brain-games",
   },
   {
     title: "Blog",
     color: "border-nav-teal",
     bgAccent: "bg-nav-teal/10",
-    rotation: -1,
+    rotation: 1,
     href: "/blog",
   },
   {
     title: "Individual Therapy",
     color: "border-nav-coral",
     bgAccent: "bg-nav-coral/10",
-    rotation: 2,
+    rotation: -2,
     href: "/individual-therapy",
   },
 ]
 
 export function HeroCards() {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6 max-w-4xl mx-auto mt-12 lg:mt-0">
+    <div className="grid grid-cols-3 gap-3 lg:gap-4 max-w-4xl mx-auto mt-12 lg:mt-0">
       {cards.map((card, index) => (
         <HeroCard key={card.title} card={card} index={index} />
       ))}
@@ -72,7 +93,7 @@ function HeroCard({
   return (
     <Link href={card.href}>
       <motion.div
-        className={`relative w-full h-40 sm:h-48 lg:h-56 bg-card rounded-lg border-2 ${card.color} shadow-lg cursor-pointer overflow-hidden`}
+        className={`relative w-full h-32 sm:h-36 lg:h-40 bg-card rounded-lg border-2 ${card.color} shadow-lg cursor-pointer overflow-hidden`}
         initial={{ rotate: card.rotation }}
         animate={{
           rotate: isHovered ? 0 : card.rotation,
@@ -100,9 +121,9 @@ function HeroCard({
 
         <div className="relative p-3 sm:p-4 h-full flex flex-col justify-center items-center">
           <span className="text-muted-foreground text-xs font-medium tracking-wider mb-2">
-            0{index + 1}
+            {String(index + 1).padStart(2, "0")}
           </span>
-          <h3 className="font-[var(--font-display)] text-base sm:text-lg lg:text-xl font-bold text-foreground text-center leading-tight">
+          <h3 className="font-[var(--font-display)] text-sm sm:text-base lg:text-lg font-bold text-foreground text-center leading-tight">
             {card.title}
           </h3>
         </div>

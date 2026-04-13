@@ -13,7 +13,7 @@ export default function Home() {
         <LeftAccent />
 
         {/* Main content area — leaving space for fixed nav on desktop */}
-        <div className="md:mr-[384px]">
+        <div className="md:mr-[378px]">
           <HeroSection />
 
           {/* Network visualization */}

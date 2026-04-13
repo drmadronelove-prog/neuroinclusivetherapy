@@ -115,7 +115,7 @@ export default function NeurodiversityPage() {
         <MobileNav />
         <LeftAccent />
 
-        <div className="md:mr-[384px]">
+        <div className="md:mr-[378px]">
           <section className="min-h-screen px-6 lg:px-16 pt-24 md:pt-12 pb-20">
             <div className="max-w-6xl mx-auto w-full">
 
