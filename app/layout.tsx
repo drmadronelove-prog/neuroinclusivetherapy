@@ -1,18 +1,24 @@
 import type { Metadata } from 'next'
-import { Barlow_Condensed, DM_Sans } from 'next/font/google'
+import { Barlow_Condensed, DM_Sans, Dancing_Script } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const barlowCondensed = Barlow_Condensed({ 
+const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
   weight: ["700", "800", "900"],
   variable: "--font-display"
 });
 
-const dmSans = DM_Sans({ 
+const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   variable: "--font-body"
+});
+
+const dancingScript = Dancing_Script({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-script",
 });
 
 export const metadata: Metadata = {
@@ -44,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${barlowCondensed.variable} ${dmSans.variable}`}>
+    <html lang="en" className={`${barlowCondensed.variable} ${dmSans.variable} ${dancingScript.variable}`}>
       <body className="font-body antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

@@ -1,6 +1,7 @@
 "use client"
 
 import { HeroCards } from "@/components/hero-cards"
+import { AnimatedHeading } from "@/components/animated-heading"
 import { motion } from "framer-motion"
 
 export function HeroSection() {
@@ -23,16 +24,13 @@ export function HeroSection() {
               </h1>
             </motion.div>
 
-            {/* Secondary headline */}
+            {/* Animated subheading */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-4"
             >
-              <p className="font-[var(--font-display)] text-foreground text-2xl sm:text-3xl font-bold leading-snug max-w-md">
-                Therapy and Tools for people who feel different.
-              </p>
+              <AnimatedHeading />
             </motion.div>
 
           </div>
