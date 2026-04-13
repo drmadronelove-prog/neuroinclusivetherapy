@@ -18,7 +18,7 @@ export function DiagonalNav() {
   const [activeIndex, setActiveIndex] = useState(0)
 
   return (
-    <nav className="fixed right-0 top-0 h-screen z-50 hidden md:flex">
+    <nav className="no-print fixed right-0 top-0 h-screen z-50 hidden md:flex">
       {/* Logo badge */}
       <div className="absolute top-6 right-6 z-60">
         <div className="w-16 h-16 rounded-full bg-foreground flex items-center justify-center">
@@ -78,7 +78,7 @@ export function MobileNav() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="md:hidden absolute top-0 left-0 right-0 z-50">
+    <div className="no-print md:hidden absolute top-0 left-0 right-0 z-50">
       <div className="flex items-center justify-between p-4 bg-background/95 backdrop-blur-sm">
         <div className="w-12 h-12 rounded-full bg-foreground flex items-center justify-center">
           <span className="text-background font-[var(--font-display)] text-[10px] font-bold text-center leading-tight">

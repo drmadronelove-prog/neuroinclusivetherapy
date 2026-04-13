@@ -137,3 +137,35 @@
     @apply bg-background text-foreground;
   }
 }
+
+@media print {
+  /* Hide all navigation and UI chrome */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Force assessment content visible even when the accordion is collapsed */
+  .assessment-content {
+    display: block !important;
+  }
+
+  /* Remove right margin reserved for the fixed nav */
+  body > * [class*="md:mr-"] {
+    margin-right: 0 !important;
+  }
+
+  /* Clean white background */
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Avoid page breaks inside checklist items */
+  li, label {
+    break-inside: avoid;
+  }
+
+  section {
+    break-inside: avoid;
+  }
+}

@@ -2,7 +2,7 @@
 
 export function LeftAccent({ label = "M.", subtitle = "PsyD" }: { label?: string; subtitle?: string }) {
   return (
-    <div className="fixed left-0 top-1/2 -translate-y-1/2 z-40 hidden lg:block">
+    <div className="no-print fixed left-0 top-1/2 -translate-y-1/2 z-40 hidden lg:block">
       <div className="bg-nav-teal w-12 h-32 flex flex-col items-center justify-center">
         <span
           className="text-white font-[var(--font-display)] font-bold text-sm tracking-wider"
