@@ -9,10 +9,8 @@ const navItems = [
   { id: "02", label: "AUTISM", color: "bg-nav-coral", href: "/autism-affirming" },
   { id: "03", label: "ADHD", color: "bg-nav-salmon", href: "/adhd-support" },
   { id: "04", label: "BRAIN GAMES", color: "bg-nav-amber", href: "/brain-games" },
-  { id: "05", label: "SLOWING DOWN", color: "bg-nav-teal", href: "/slowing-down" },
+  { id: "05", label: "BLOG", color: "bg-nav-teal", href: "/blog" },
   { id: "06", label: "THERAPY", color: "bg-nav-coral", href: "/individual-therapy" },
-  { id: "07", label: "BLOG", color: "bg-nav-salmon", href: "/blog" },
-  { id: "08", label: "FRIENDS", color: "bg-nav-amber", href: "/friends" },
 ]
 
 export function DiagonalNav() {
@@ -32,13 +30,11 @@ export function DiagonalNav() {
         </div>
       </div>
 
-      {/* Diagonal navigation columns */}
-      <div className="flex h-full items-end">
+      {/* Navigation columns */}
+      <div className="flex h-full">
         {navItems.map((item, index) => {
           const isHovered = hoveredIndex === index
           const isActive = activeIndex === index
-          const baseHeight = 100 - index * 8
-          const height = isHovered ? baseHeight + 3 : baseHeight
 
           return (
             <Link
@@ -47,7 +43,7 @@ export function DiagonalNav() {
               className={`${item.color} relative flex items-center justify-center transition-all duration-300 ease-out`}
               style={{
                 width: isHovered ? "56px" : "48px",
-                height: `${height}%`,
+                height: "100%",
               }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
