@@ -2,31 +2,25 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { useHover } from "./hover-context"
 
 const navItems = [
-  { id: "01", label: "NEURODIV",    color: "bg-nav-amber",    href: "/neurodiversity" },
-  { id: "02", label: "TESTS",       color: "bg-nav-teal",     href: "/tests" },
-  { id: "03", label: "ADHD SKILLS", color: "bg-nav-salmon",   href: "/adhd-skills" },
-  { id: "04", label: "ASD SKILLS",  color: "bg-nav-coral",    href: "/asd-skills" },
-  { id: "05", label: "OCD SKILLS",  color: "bg-nav-rose",     href: "/ocd-skills" },
-  { id: "06", label: "MINDFULNESS", color: "bg-nav-seafoam",  href: "/mindfulness" },
-  { id: "07", label: "BRAIN GAMES", color: "bg-nav-orange",   href: "/brain-games" },
-  { id: "08", label: "BLOG",        color: "bg-nav-gold",     href: "/blog" },
-  { id: "09", label: "THERAPY",     color: "bg-nav-mauve",    href: "/individual-therapy" },
+  { id: "01", label: "TESTS",           color: "bg-nav-teal",   href: "/tests" },
+  { id: "02", label: "NEURODIVERGENCE", color: "bg-nav-amber",  href: "/neurodiversity" },
+  { id: "03", label: "BRAIN GAMES",     color: "bg-nav-orange", href: "/brain-games" },
+  { id: "04", label: "BLOG",            color: "bg-nav-gold",   href: "/blog" },
+  { id: "05", label: "THERAPY",         color: "bg-nav-mauve",  href: "/individual-therapy" },
 ]
 
 export function DiagonalNav() {
-  const { hoveredIndex, setHoveredIndex } = useHover()
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const [activeIndex,  setActiveIndex]  = useState(0)
 
   return (
     <nav className="no-print fixed right-0 top-0 h-screen z-50 hidden md:flex">
-      {/* Navigation columns */}
       <div className="flex h-full">
         {navItems.map((item, index) => {
           const isHovered = hoveredIndex === index
-          const isActive = activeIndex === index
+          const isActive  = activeIndex  === index
 
           return (
             <Link

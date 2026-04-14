@@ -2,72 +2,127 @@
 
 import { useEffect, useRef, useState } from "react"
 
-// ── Config ────────────────────────────────────────────────────────────────────
+// ── Config ─────────────────────────────────────────────────────────────────────
+const WORDS        = ["feel", "think", "are"] as const
+const STATIC_TEXT  = " different."
+const CURSIVE_WORD = "different"
 
-const WORDS    = ["feel", "think", "are", "different"] as const
-const TYPE_MS  = 80    // ms per letter while typing
-const DEL_MS   = 80    // ms per letter while deleting
-const HOLD_MS  = 2500  // display time for feel / think / are
-const HOLD_LAST = 3500 // display time for "different"
-const PAUSE_MS = 200   // pause after full deletion before next word
+const TYPE_MS      = 80    // ms per letter typing
+const DEL_MS       = 60    // ms per letter deleting
+const HOLD_MS      = 2000  // hold time for feel / think
+const HOLD_ARE_MS  = 1200  // pause after "are" before deleting static text
+const HOLD_FINAL   = 4000  // hold time for the signed "different"
+const PAUSE_MS     = 200   // pause between words
 
-type Phase = "typing" | "holding" | "deleting" | "pausing"
+type Phase =
+  | "typing"       // typing the current word
+  | "holding"      // word fully displayed, waiting
+  | "deleting"     // deleting current word (feel/think) OR deleting "are" on loop-back
+  | "pausing"      // brief pause before next word
+  | "del-static"   // deleting the static " different." one char at a time
+  | "type-cursive" // typing teal cursive "different"
+  | "hold-final"   // displaying signed state with underline
+  | "del-cursive"  // deleting cursive "different" on loop-back
 
-// ── Component ─────────────────────────────────────────────────────────────────
-
+// ── Component ──────────────────────────────────────────────────────────────────
 export function AnimatedHeading() {
   const [wordIdx,   setWordIdx]   = useState(0)
   const [displayed, setDisplayed] = useState("")
   const [phase,     setPhase]     = useState<Phase>("typing")
+  const [staticLen, setStaticLen] = useState(STATIC_TEXT.length)
+  const [cursive,   setCursive]   = useState("")
   const [underline, setUnderline] = useState(false)
 
-  // Stable ref so the cleanup in the effect doesn't depend on stale state
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
-    // Clear any pending timer from the previous render
     if (timerRef.current !== null) {
       clearTimeout(timerRef.current)
       timerRef.current = null
     }
 
-    const word   = WORDS[wordIdx]
-    const isLast = wordIdx === WORDS.length - 1
+    const word = WORDS[wordIdx]
 
-    if (phase === "typing") {
-      if (displayed.length < word.length) {
-        // Type the next letter
+    switch (phase) {
+      case "typing":
+        if (displayed.length < word.length) {
+          timerRef.current = setTimeout(
+            () => setDisplayed(word.slice(0, displayed.length + 1)),
+            TYPE_MS,
+          )
+        } else {
+          setPhase("holding")
+        }
+        break
+
+      case "holding":
+        // "are" (wordIdx 2) stays — start deleting the static text instead
         timerRef.current = setTimeout(
-          () => setDisplayed(word.slice(0, displayed.length + 1)),
-          TYPE_MS
+          () => setPhase(wordIdx === 2 ? "del-static" : "deleting"),
+          wordIdx === 2 ? HOLD_ARE_MS : HOLD_MS,
         )
-      } else {
-        // Word fully typed — activate underline for "different", then hold
-        if (isLast) setUnderline(true)
-        setPhase("holding")
-      }
+        break
 
-    } else if (phase === "holding") {
-      timerRef.current = setTimeout(() => {
-        setUnderline(false)
-        setPhase("deleting")
-      }, isLast ? HOLD_LAST : HOLD_MS)
+      case "deleting":
+        if (displayed.length > 0) {
+          timerRef.current = setTimeout(
+            () => setDisplayed(d => d.slice(0, -1)),
+            DEL_MS,
+          )
+        } else {
+          // 0→1, 1→2, 2→0 (loop-back after full cycle)
+          setWordIdx(wordIdx < 2 ? wordIdx + 1 : 0)
+          setPhase("pausing")
+        }
+        break
 
-    } else if (phase === "deleting") {
-      if (displayed.length > 0) {
-        timerRef.current = setTimeout(
-          () => setDisplayed(d => d.slice(0, -1)),
-          DEL_MS
-        )
-      } else {
-        setPhase("pausing")
-      }
+      case "pausing":
+        timerRef.current = setTimeout(() => setPhase("typing"), PAUSE_MS)
+        break
 
-    } else if (phase === "pausing") {
-      timerRef.current = setTimeout(() => {
-        setWordIdx(i => (i + 1) % WORDS.length)
-        setPhase("typing")
-      }, PAUSE_MS)
+      case "del-static":
+        if (staticLen > 0) {
+          timerRef.current = setTimeout(
+            () => setStaticLen(n => n - 1),
+            DEL_MS,
+          )
+        } else {
+          setCursive("")
+          setPhase("type-cursive")
+        }
+        break
+
+      case "type-cursive":
+        if (cursive.length < CURSIVE_WORD.length) {
+          timerRef.current = setTimeout(
+            () => setCursive(CURSIVE_WORD.slice(0, cursive.length + 1)),
+            TYPE_MS,
+          )
+        } else {
+          setUnderline(true)
+          setPhase("hold-final")
+        }
+        break
+
+      case "hold-final":
+        timerRef.current = setTimeout(() => {
+          setUnderline(false)
+          setPhase("del-cursive")
+        }, HOLD_FINAL)
+        break
+
+      case "del-cursive":
+        if (cursive.length > 0) {
+          timerRef.current = setTimeout(
+            () => setCursive(c => c.slice(0, -1)),
+            DEL_MS,
+          )
+        } else {
+          // Restore static text, then fall into "deleting" to remove "are"
+          setStaticLen(STATIC_TEXT.length)
+          setPhase("deleting")
+        }
+        break
     }
 
     return () => {
@@ -77,58 +132,47 @@ export function AnimatedHeading() {
       }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [phase, displayed, wordIdx])
+  }, [phase, displayed, wordIdx, staticLen, cursive])
 
-  const word   = WORDS[wordIdx]
-  const isLast = wordIdx === WORDS.length - 1
-
-  // Show terminal period once "different" is fully typed
-  const showPeriod = isLast && displayed.length === word.length
+  // Show cursive span only during the three phases that involve it
+  const showCursive =
+    wordIdx === 2 &&
+    (phase === "type-cursive" || phase === "hold-final" || phase === "del-cursive")
 
   return (
     <p className="font-[var(--font-display)] text-foreground text-2xl sm:text-3xl font-bold leading-snug max-w-md">
       Therapy and Tools for people who{" "}
 
-      {/* Animated word */}
-      <span className="relative inline-block">
-        <span
-          className={
-            isLast
-              ? "text-nav-teal font-[var(--font-script)] font-bold"
-              : "text-foreground"
-          }
-        >
-          {displayed}
-        </span>
+      {/* The cycling word (feel / think / are) */}
+      <span>{displayed}</span>
 
-        {/* Fade-in underline — only for "different" */}
-        {isLast && (
-          <span
-            aria-hidden
-            className="pointer-events-none absolute left-0 -bottom-1 right-0 h-[2px] rounded-full bg-nav-teal"
-            style={{
-              opacity: underline ? 1 : 0,
-              transition: underline
-                ? "opacity 350ms ease-in"
-                : "opacity 150ms ease-out",
-            }}
-          />
-        )}
-      </span>
+      {/* Static " different." — shrinks to nothing during del-static, restored on loop */}
+      {STATIC_TEXT.slice(0, staticLen)}
 
-      {/* Static " different." when cycling through feel / think / are */}
-      {!isLast && " different."}
+      {/* Teal cursive "different" with signature underline */}
+      {showCursive && (
+        <>
+          {" "}
+          <span className="relative inline-block">
+            <span className="text-nav-teal font-[var(--font-script)] font-bold">
+              {cursive}
+            </span>
 
-      {/* Period that appears after the script "different" finishes typing */}
-      {isLast && (
-        <span
-          style={{
-            opacity: showPeriod ? 1 : 0,
-            transition: "opacity 200ms ease-in",
-          }}
-        >
-          .
-        </span>
+            {/* Underline draws left-to-right like a pen stroke */}
+            <span
+              aria-hidden
+              className="pointer-events-none absolute left-0 -bottom-1 h-[2px] bg-nav-teal"
+              style={{
+                width: "calc(100% + 10px)",
+                transformOrigin: "left center",
+                transform: underline ? "scaleX(1)" : "scaleX(0)",
+                transition: underline
+                  ? "transform 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94)"
+                  : "transform 200ms ease-in",
+              }}
+            />
+          </span>
+        </>
       )}
     </p>
   )
