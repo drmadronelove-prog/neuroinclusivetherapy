@@ -172,6 +172,17 @@ export function AnimatedHeading() {
               }}
             />
           </span>
+
+          {/* Period fades in once the word is fully typed */}
+          <span
+            className="text-nav-teal font-[var(--font-script)] font-bold"
+            style={{
+              opacity: cursive.length === CURSIVE_WORD.length ? 1 : 0,
+              transition: "opacity 200ms ease-in",
+            }}
+          >
+            .
+          </span>
         </>
       )}
     </p>
