@@ -1,7 +1,6 @@
 import { DiagonalNav, MobileNav } from "@/components/diagonal-nav"
 import { HeroSection } from "@/components/sections/hero-section"
 import { HoverProvider } from "@/components/hover-context"
-import { NetworkViz } from "@/components/network-viz"
 
 export default function Home() {
   return (
@@ -13,11 +12,6 @@ export default function Home() {
         {/* Main content area — leaving space for fixed nav on desktop */}
         <div className="md:mr-[378px]">
           <HeroSection />
-
-          {/* Network visualization */}
-          <div className="px-6 lg:px-16 pb-20">
-            <NetworkViz />
-          </div>
         </div>
       </main>
     </HoverProvider>
