@@ -1,0 +1,311 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); }
+#game { padding: 1.5rem 0; max-width: 580px; margin: 0 auto; }
+.screen { display: none; }
+.screen.active { display: block; }
+#confetti-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999; }
+
+.intro-title { font-size: 28px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 8px; }
+.intro-sub { font-size: 15px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 20px; }
+.intro-note { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; padding: 12px 14px; background: var(--color-background-secondary); border-radius: var(--border-radius-md); margin-bottom: 24px; }
+
+.progress-row { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.progress-bar-bg { flex: 1; height: 4px; background: var(--color-background-secondary); border-radius: 2px; }
+.progress-bar-fill { height: 4px; background: #378ADD; border-radius: 2px; transition: width 0.4s ease; }
+.progress-label { font-size: 13px; color: var(--color-text-secondary); white-space: nowrap; }
+
+.incoming-label { font-size: 11px; font-weight: 500; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+
+.thought-card { border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-secondary); background: var(--color-background-primary); padding: 28px 24px; margin-bottom: 24px; min-height: 100px; display: flex; align-items: center; justify-content: center; transition: opacity 0.3s; }
+.thought-card.arriving { animation: arrive 0.35s ease; }
+@keyframes arrive { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.thought-text { font-size: 18px; color: var(--color-text-primary); line-height: 1.6; text-align: center; font-style: italic; }
+
+.question { font-size: 14px; color: var(--color-text-secondary); text-align: center; margin-bottom: 14px; }
+
+.btn-row { display: flex; gap: 12px; margin-bottom: 20px; }
+.choice-btn { flex: 1; padding: 15px 10px; border-radius: var(--border-radius-lg); border: none; cursor: pointer; font-size: 14px; font-weight: 500; transition: transform 0.1s; line-height: 1.4; }
+.choice-btn:active { transform: scale(0.97); }
+.choice-btn:disabled { opacity: 0.4; cursor: default; transform: none; }
+.btn-real { background: #FAEEDA; color: #633806; }
+.btn-real:hover:not(:disabled) { background: #FAC775; }
+.btn-thought { background: #E6F1FB; color: #0C447C; }
+.btn-thought:hover:not(:disabled) { background: #B5D4F4; }
+
+.result-area { min-height: 120px; }
+
+.caught-box { background: #E6F1FB; border: 0.5px solid #85B7EB; border-radius: var(--border-radius-lg); padding: 14px 16px; animation: fadein 0.2s ease; }
+.caught-header { font-size: 14px; font-weight: 500; color: #0C447C; margin-bottom: 4px; }
+.caught-body { font-size: 13px; color: #185FA5; line-height: 1.6; }
+
+.missed-box { border-radius: var(--border-radius-lg); overflow: hidden; border: 0.5px solid var(--color-border-secondary); animation: fadein 0.2s ease; }
+.missed-strip { background: #E24B4A; color: #fff; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; padding: 6px 14px; display: flex; align-items: center; gap: 8px; }
+.missed-dot { width: 5px; height: 5px; border-radius: 50%; background: #fff; flex-shrink: 0; }
+.tucker-row { display: flex; align-items: flex-start; gap: 10px; padding: 14px; background: #FAEEDA; }
+.tucker-avatar { width: 28px; height: 28px; border-radius: 50%; background: #EF9F27; color: #412402; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; flex-shrink: 0; margin-top: 1px; }
+.tucker-content { flex: 1; }
+.tucker-name { font-size: 12px; font-weight: 500; color: #633806; margin-bottom: 4px; }
+.tucker-text { font-size: 13px; color: #633806; line-height: 1.6; }
+.missed-explain { padding: 12px 14px; background: var(--color-background-secondary); font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+
+.score-row { display: flex; gap: 12px; margin: 16px 0; }
+.score-card { flex: 1; background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 14px; text-align: center; }
+.score-num { font-size: 32px; font-weight: 500; color: var(--color-text-primary); }
+.score-lbl { font-size: 13px; color: var(--color-text-secondary); margin-top: 2px; }
+.end-title { font-size: 24px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 8px; }
+.end-msg { font-size: 15px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 20px; }
+.key-idea { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 16px 18px; margin-bottom: 16px; }
+.key-idea-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px; }
+.key-idea-body { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; }
+.big-btn { width: 100%; padding: 14px; background: var(--color-background-primary); border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-lg); cursor: pointer; font-size: 15px; color: var(--color-text-primary); margin-top: 8px; }
+.big-btn:hover { background: var(--color-background-secondary); }
+.big-btn.primary { background: #378ADD; color: #fff; border: none; }
+.big-btn.primary:hover { background: #185FA5; }
+</style>
+
+<canvas id="confetti-canvas"></canvas>
+<div id="game">
+<h2 class="sr-only">Incoming: a game about catching thoughts before they become stories</h2>
+
+<div id="intro" class="screen active">
+  <p class="intro-title">Incoming</p>
+  <p class="intro-sub">Some thoughts arrive feeling completely real. Urgent. True. Like they're reporting a fact rather than just passing through.</p>
+  <p class="intro-sub">But a thought feeling real is not the same as it being real. The feeling is part of the thought -- not evidence.</p>
+  <p class="intro-note">Ten thoughts are about to arrive. Your only job is to catch each one before it becomes a story. If you miss it -- watch what Tucker does with it.</p>
+  <button class="big-btn primary" onclick="startGame()">Ready</button>
+</div>
+
+<div id="play" class="screen">
+  <div class="progress-row">
+    <div class="progress-bar-bg"><div class="progress-bar-fill" id="pbar" style="width:0%"></div></div>
+    <span class="progress-label" id="plabel">0 / 10</span>
+  </div>
+  <div class="incoming-label">Incoming thought</div>
+  <div class="thought-card" id="thought-card">
+    <div class="thought-text" id="thought-text"></div>
+  </div>
+  <p class="question">What just happened?</p>
+  <div class="btn-row">
+    <button class="choice-btn btn-real" id="btn-real" onclick="choose('real')">This is real</button>
+    <button class="choice-btn btn-thought" id="btn-thought" onclick="choose('thought')">A thought just arrived</button>
+  </div>
+  <div class="result-area" id="result-area"></div>
+</div>
+
+<div id="end" class="screen">
+  <div class="end-title" id="end-title"></div>
+  <div class="end-msg" id="end-msg"></div>
+  <div class="score-row">
+    <div class="score-card"><div class="score-num" id="final-score"></div><div class="score-lbl">caught</div></div>
+    <div class="score-card"><div class="score-num" id="final-tucker"></div><div class="score-lbl">Tucker got</div></div>
+  </div>
+  <div class="key-idea">
+    <div class="key-idea-title">The catch</div>
+    <div class="key-idea-body">The feeling of reality that arrives with a scary thought is part of the thought itself -- not evidence that it's true. Catching it at moment one, before it becomes a story, is the whole move. Tucker can't broadcast what never became news.</div>
+  </div>
+  <button class="big-btn primary" onclick="startGame()">Play again</button>
+</div>
+</div>
+
+<script>
+const DATA = [
+  {
+    thought: "The stove might be on.",
+    caught: "You caught it. That thought arrived -- and that's all that happened. The stove's status didn't change when the thought appeared.",
+    tucker: "If that stove is on right now, we could be talking about a fire. A serious fire. The kind that spreads before anyone realizes what's happening.",
+    explain: "Tucker treated the thought as a report. But the thought arrived with no evidence -- just urgency. That urgency was part of the thought, not a signal about the stove."
+  },
+  {
+    thought: "I might have hurt someone.",
+    caught: "Caught. A frightening thought arrived. That's a thought arriving -- not a news report about what happened.",
+    tucker: "If there's even a chance someone was hurt because of you, sitting here doing nothing makes you complicit. You need to know.",
+    explain: "Tucker turned the arrival of a thought into a moral emergency. But the thought feeling urgent doesn't make it a fact."
+  },
+  {
+    thought: "Something is seriously wrong.",
+    caught: "Caught. That feeling of wrongness is part of the thought. It arrived with the thought -- it isn't separate evidence confirming the thought.",
+    tucker: "That feeling doesn't come from nowhere. Your instincts are telling you something. The question is whether you're going to listen.",
+    explain: "Tucker used the feeling itself as proof. But the feeling of dread is a feature of the thought, not a separate signal confirming it."
+  },
+  {
+    thought: "What if I can't control myself?",
+    caught: "Caught. That thought arrived. It brought fear with it. The fear is part of the thought -- not confirmation that the thought is describing something real.",
+    tucker: "People who ask this question usually have a reason to. The very fact that you're worried about it suggests this deserves serious attention.",
+    explain: "Tucker made the worry into evidence. But worrying about something has no bearing on whether it's actually true or likely."
+  },
+  {
+    thought: "I might have made a terrible mistake.",
+    caught: "Caught. A thought arrived carrying a sense of dread. The dread traveled with the thought -- it isn't proof the mistake happened.",
+    tucker: "Mistakes like this have consequences that compound. The longer you wait to address it, the worse the damage.",
+    explain: "Tucker took the thought's urgency as confirmation and immediately moved to consequences. The mistake itself was never verified."
+  },
+  {
+    thought: "What if I don't really love them?",
+    caught: "Caught. A thought arrived that feels significant. Feeling significant is what scary thoughts do -- it isn't evidence of what they're claiming.",
+    tucker: "If you have to ask, that's usually your gut giving you an honest answer. Real certainty doesn't come with this much doubt.",
+    explain: "Tucker treated doubt as revelation. But the arrival of a doubtful thought tells you only that a thought arrived -- not that the doubt is well-founded."
+  },
+  {
+    thought: "Something bad is about to happen.",
+    caught: "Caught. That sense of impending threat arrived as a thought. The feeling of foreboding is inside the thought -- it isn't a separate early warning system.",
+    tucker: "You feel it for a reason. Ignoring that kind of signal has consequences. The people who dismiss these feelings are the ones who end up blindsided.",
+    explain: "Tucker validated the feeling as a signal. But a feeling of dread isn't a reliable predictor of anything -- it's an experience, not a forecast."
+  },
+  {
+    thought: "I might be a bad person.",
+    caught: "Caught. A thought arrived with a heavy feeling attached. That weight is part of the thought -- not evidence confirming what the thought is saying.",
+    tucker: "The fact that this thought keeps visiting you is worth examining. Good people tend to ask this question. But so do people who have real reasons to.",
+    explain: "Tucker made the recurrence of the thought into a clue about character. But thoughts recur because of the distress attached to them, not because of what they reveal."
+  },
+  {
+    thought: "I said something wrong and now everything is ruined.",
+    caught: "Caught. That arrived as a thought with a feeling of certainty baked in. The certainty is part of the thought -- not independent confirmation that it's describing reality.",
+    tucker: "Words land differently than we intend. Once something is said it can't be unsaid. If you're feeling this, there's usually a reason.",
+    explain: "Tucker accepted the thought's built-in certainty and ran with it. But certainty is something thoughts can carry -- it doesn't make them accurate."
+  },
+  {
+    thought: "What if this thought means something about me?",
+    caught: "Caught. A thought arrived and brought a question about its own meaning. The question is part of the thought. You don't have to answer it.",
+    tucker: "That's not a question you can just let sit. Thoughts like this have a way of revealing things we'd rather not look at. The discomfort is telling you something.",
+    explain: "Tucker treated the discomfort as a signal demanding investigation. But the discomfort is what all intrusive thoughts produce -- it isn't pointing at anything real about your character."
+  }
+];
+
+const COLORS = ['#378ADD','#1D9E75','#D4537E','#EF9F27','#7F77DD','#D85A30'];
+let questions = [], current = 0, caught = 0, answered = 0;
+
+function launchConfetti() {
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  const particles = Array.from({length: 100}, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height * 0.3,
+    r: Math.random() * 6 + 3,
+    d: Math.random() * 4 + 1,
+    color: COLORS[Math.floor(Math.random() * COLORS.length)],
+    tilt: 0, tiltAngle: 0,
+    tiltSpeed: Math.random() * 0.1 + 0.05
+  }));
+  let frame = 0;
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.fillStyle = p.color;
+      ctx.ellipse(p.x, p.y, p.r, p.r * 0.5, p.tilt, 0, Math.PI * 2);
+      ctx.fill();
+      p.tiltAngle += p.tiltSpeed;
+      p.y += p.d;
+      p.tilt = Math.sin(p.tiltAngle) * 12;
+      p.x += Math.sin(p.tiltAngle) * 1.5;
+    });
+    frame++;
+    if (frame < 80) requestAnimationFrame(draw);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  draw();
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function show(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function startGame() {
+  questions = shuffle(DATA);
+  current = 0; caught = 0; answered = 0;
+  loadQuestion();
+  show('play');
+}
+
+function updateProgress() {
+  document.getElementById('pbar').style.width = Math.round((answered / 10) * 100) + '%';
+  document.getElementById('plabel').textContent = answered + ' / 10';
+}
+
+function loadQuestion() {
+  const q = questions[current];
+  const card = document.getElementById('thought-card');
+  card.className = 'thought-card arriving';
+  document.getElementById('thought-text').textContent = q.thought;
+  document.getElementById('result-area').innerHTML = '';
+  document.getElementById('btn-real').disabled = false;
+  document.getElementById('btn-thought').disabled = false;
+  updateProgress();
+}
+
+function choose(choice) {
+  const q = questions[current];
+  const correct = choice === 'thought';
+  answered++;
+  if (correct) caught++;
+  document.getElementById('btn-real').disabled = true;
+  document.getElementById('btn-thought').disabled = true;
+
+  let html = '';
+  if (correct) {
+    launchConfetti();
+    html = `<div class="caught-box">
+      <div class="caught-header">Caught.</div>
+      <div class="caught-body">${q.caught}</div>
+    </div>`;
+  } else {
+    html = `<div class="missed-box">
+      <div class="missed-strip"><div class="missed-dot"></div>Breaking report</div>
+      <div class="tucker-row">
+        <div class="tucker-avatar">T</div>
+        <div class="tucker-content">
+          <div class="tucker-name">Tucker</div>
+          <div class="tucker-text">${q.tucker}</div>
+        </div>
+      </div>
+      <div class="missed-explain">${q.explain}</div>
+    </div>`;
+  }
+
+  document.getElementById('result-area').innerHTML = html;
+  updateProgress();
+
+  setTimeout(() => {
+    current++;
+    if (current >= 10) showEnd();
+    else loadQuestion();
+  }, correct ? 1600 : 2800);
+}
+
+function showEnd() {
+  const missed = 10 - caught;
+  document.getElementById('final-score').textContent = caught;
+  document.getElementById('final-tucker').textContent = missed;
+  let title, msg;
+  if (caught >= 9) {
+    title = "Strong catch reflex";
+    msg = "You caught almost every thought before it became a story. That gap -- between a thought arriving and treating it as real -- is everything. Tucker never got the airtime.";
+  } else if (caught >= 7) {
+    title = "Getting there";
+    msg = "You caught most of them. The ones that slipped through probably felt the most urgent and real. That urgency is what makes them hard -- and it's part of the thought, not evidence.";
+  } else {
+    title = "Tucker had a good night";
+    msg = "The thoughts that feel most real are the hardest to catch. The key is that the feeling of reality arrives with the thought -- it isn't separate confirmation that the thought is true.";
+  }
+  document.getElementById('end-title').textContent = title;
+  document.getElementById('end-msg').textContent = msg;
+  if (caught >= 9) launchConfetti();
+  show('end');
+}
+</script>

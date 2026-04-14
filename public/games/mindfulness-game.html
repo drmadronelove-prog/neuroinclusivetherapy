@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What Do I Do With This?</title>
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/fredoka-one@4/400.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/nunito@5/400.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/nunito@5/800.css" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --coral:#FF6B6B;--coral-l:#FFE8E8;--coral-d:#D94040;
+  --teal:#00C49A;--teal-l:#D0FFF4;--teal-d:#009B79;
+  --violet:#8B5CF6;--violet-l:#EDE9FE;--violet-d:#6D28D9;
+  --gold:#FFD93D;--ink:#1E1612;--muted:#7A6858;--bg:#FFF8F0;
+  --ffd:'Fredoka One','Comic Sans MS',cursive;
+  --ffb:'Nunito','Segoe UI',sans-serif;
+}
+body{font-family:var(--ffb);background:var(--bg);color:var(--ink);margin:0;}
+canvas#cc{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:50;}
+#co{position:fixed;top:45%;left:50%;transform:translate(-50%,-50%);font-family:var(--ffd);font-size:clamp(3rem,8vw,5.5rem);color:white;text-shadow:4px 4px 0 var(--ink);pointer-events:none;z-index:60;display:none;text-align:center;}
+#mb{position:fixed;top:14px;right:14px;z-index:70;background:white;border:2.5px solid var(--ink);border-radius:50%;width:44px;height:44px;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:3px 3px 0 var(--ink);transition:transform .1s,box-shadow .1s;}
+#mb:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink);}
+.sc{display:none;min-height:100vh;}.sc.on{display:block;}
+#is{padding:44px 20px 60px;}
+.iw{max-width:1080px;margin:0 auto;}
+.gt{font-family:var(--ffd);font-size:clamp(1.9rem,5vw,3.2rem);text-align:center;line-height:1.1;margin-bottom:6px;}
+.gsub{text-align:center;font-size:1rem;font-weight:700;color:var(--muted);margin-bottom:36px;}
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:32px;}
+@media(max-width:660px){.cg{grid-template-columns:1fr;}}
+.tc{border-radius:22px;padding:26px 20px;border:2.5px solid var(--ink);box-shadow:5px 5px 0 var(--ink);transition:transform .2s,box-shadow .2s;}
+.tc:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink);}
+.tc.t{background:var(--coral-l);}.tc.e{background:var(--teal-l);}.tc.s{background:var(--violet-l);}
+.ci{display:block;margin:0 auto 12px;}
+.cl{font-family:var(--ffd);font-size:1.5rem;text-align:center;margin-bottom:6px;}
+.t .cl{color:var(--coral-d);}.e .cl{color:var(--teal-d);}.s .cl{color:var(--violet-d);}
+.cx{font-style:italic;font-size:.86rem;text-align:center;color:var(--muted);margin-bottom:12px;line-height:1.45;font-weight:700;}
+.cv{font-family:var(--ffd);font-size:1.8rem;display:block;text-align:center;}
+.t .cv{color:var(--coral-d);}.e .cv{color:var(--teal-d);}.s .cv{color:var(--violet-d);}
+.cdesc{font-size:.83rem;font-weight:700;color:var(--muted);text-align:center;line-height:1.4;margin-top:4px;}
+.il{text-align:center;font-size:1rem;font-weight:800;margin-bottom:24px;padding:0 12px;}
+.pb{display:block;margin:0 auto;background:var(--gold);color:var(--ink);font-family:var(--ffd);font-size:1.65rem;padding:14px 48px;border:2.5px solid var(--ink);border-radius:60px;box-shadow:5px 5px 0 var(--ink);cursor:pointer;transition:transform .1s,box-shadow .1s;}
+.pb:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink);}
+.pb:active{transform:translate(2px,2px);box-shadow:3px 3px 0 var(--ink);}
+#gsc{display:none;align-items:center;flex-direction:column;padding:14px 16px 48px;}
+#gsc.on{display:flex;}
+.gi{width:100%;max-width:680px;display:flex;flex-direction:column;align-items:center;padding-top:52px;}
+.pw{width:100%;margin-bottom:20px;}
+.plbl{font-weight:800;font-size:.88rem;color:var(--muted);text-align:center;margin-bottom:5px;}
+.pt{height:10px;background:#E8DDD0;border-radius:10px;border:2px solid var(--ink);overflow:hidden;}
+.pf{height:100%;background:linear-gradient(90deg,var(--coral),var(--gold));transition:width .5s ease;}
+.scard{background:white;border:2.5px solid var(--ink);border-radius:22px;padding:32px 26px;width:100%;box-shadow:5px 5px 0 var(--ink);margin-bottom:22px;text-align:center;}
+@keyframes sIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.stxt{font-size:clamp(1.1rem,2.8vw,1.35rem);font-weight:800;line-height:1.45;font-style:italic;}
+.stxt::before{content:'\201C';}.stxt::after{content:'\201D';}
+.ss{width:100%;margin-bottom:16px;}
+.slbl{font-family:var(--ffd);font-size:.98rem;color:var(--muted);text-align:center;margin-bottom:9px;}
+.bg{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;}
+.cb{font-family:var(--ffb);font-weight:800;font-size:.95rem;padding:11px 18px;border-radius:13px;border:2px solid var(--ink);cursor:pointer;box-shadow:3px 3px 0 var(--ink);background:white;color:var(--ink);transition:transform .1s,box-shadow .1s;min-width:108px;}
+.cb:hover:not(:disabled){transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink);}
+.cb:active:not(:disabled){transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink);}
+.cb:disabled{cursor:default;opacity:.6;}
+.st-t{background:var(--coral)!important;color:white!important;box-shadow:3px 3px 0 var(--coral-d)!important;}
+.st-e{background:var(--teal)!important;color:white!important;box-shadow:3px 3px 0 var(--teal-d)!important;}
+.st-s{background:var(--violet)!important;color:white!important;box-shadow:3px 3px 0 var(--violet-d)!important;}
+.sr-n{background:var(--coral)!important;color:white!important;box-shadow:3px 3px 0 var(--coral-d)!important;}
+.sr-i{background:var(--teal)!important;color:white!important;box-shadow:3px 3px 0 var(--teal-d)!important;}
+.sr-f{background:var(--violet)!important;color:white!important;box-shadow:3px 3px 0 var(--violet-d)!important;}
+.fb{width:100%;border-radius:16px;padding:17px 20px;border:2px solid var(--ink);margin-bottom:12px;display:none;}
+@keyframes pIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+.fb.ok{background:#DCFCE7;}.fb.wr{background:#FEF9C3;}
+.fh{font-family:var(--ffd);font-size:1.45rem;margin-bottom:5px;}
+.ft{font-size:.91rem;font-weight:700;line-height:1.5;}
+.cdt{font-family:var(--ffd);font-size:.9rem;color:var(--muted);text-align:center;margin-top:6px;display:none;}
+#es{display:none;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:48px 20px;min-height:100vh;}
+#es.on{display:flex;}
+.ee{font-size:4.5rem;margin-bottom:14px;}
+@keyframes bounce{from{transform:translateY(0)}to{transform:translateY(-13px)}}
+.etit{font-family:var(--ffd);font-size:clamp(2rem,5vw,3.2rem);margin-bottom:9px;}
+.esc{font-family:var(--ffd);font-size:clamp(2.8rem,8vw,5rem);color:var(--coral);margin-bottom:5px;}
+.esr{display:flex;gap:7px;justify-content:center;margin-bottom:16px;}
+@keyframes sp{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+.star{font-size:2rem;}
+.emsg{font-size:1rem;font-weight:700;color:var(--muted);max-width:460px;line-height:1.55;margin-bottom:30px;}
+.ab{background:var(--coral);color:white;font-family:var(--ffd);font-size:1.5rem;padding:14px 44px;border:2.5px solid var(--ink);border-radius:60px;box-shadow:5px 5px 0 var(--ink);cursor:pointer;transition:transform .1s,box-shadow .1s;}
+.ab:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink);}
+.ab:active{transform:translate(2px,2px);box-shadow:3px 3px 0 var(--ink);}
+@keyframes cPop{0%{opacity:0;transform:translate(-50%,-50%) scale(.35)}60%{opacity:1;transform:translate(-50%,-50%) scale(1.2)}100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes cFade{0%{opacity:1}70%{opacity:1}100%{opacity:0}}
+</style>
+</head>
+<body>
+<canvas id="cc"></canvas>
+<div id="co"></div>
+<button id="mb">🔊</button>
+
+<!-- INTRO -->
+<div id="is" class="sc on"><div class="iw">
+  <h1 class="gt">What Do I Do With This?</h1>
+  <p class="gsub">A mindfulness game for your inner world</p>
+  <div class="cg">
+    <div class="tc t">
+      <svg class="ci" width="72" height="72" viewBox="0 0 72 72" fill="none">
+        <ellipse cx="36" cy="48" rx="22" ry="14" fill="#FF6B6B" opacity=".22" stroke="#D94040" stroke-width="2"/>
+        <circle cx="26" cy="29" r="3.5" fill="#FF6B6B" opacity=".4"/>
+        <circle cx="33" cy="22" r="5" fill="#FF6B6B" opacity=".55"/>
+        <circle cx="43" cy="19" r="7" fill="#FF6B6B" opacity=".7"/>
+        <ellipse cx="27" cy="48" rx="6.5" ry="4" fill="#FF6B6B" opacity=".4"/>
+        <ellipse cx="37" cy="46" rx="7.5" ry="4" fill="#FF6B6B" opacity=".4"/>
+        <ellipse cx="46" cy="49" rx="5" ry="3.5" fill="#FF6B6B" opacity=".4"/>
+        <path d="M49 59 L60 59 M56 55.5 L60 59 L56 62.5" stroke="#D94040" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="cl">Thought</div>
+      <div class="cx">"I'll never get this right"<br>"Everyone must think I'm weird"</div>
+      <span class="cv">Notice it</span>
+      <p class="cdesc">Watch it pass like a cloud. No need to act on it.</p>
+    </div>
+    <div class="tc e">
+      <svg class="ci" width="72" height="72" viewBox="0 0 72 72" fill="none">
+        <circle cx="36" cy="36" r="30" stroke="#00C49A" stroke-width="1.5" opacity=".18"/>
+        <circle cx="36" cy="36" r="21" stroke="#00C49A" stroke-width="1.5" opacity=".32"/>
+        <circle cx="36" cy="36" r="13" stroke="#00C49A" stroke-width="1.5" opacity=".5"/>
+        <path d="M36 51C36 51 16 39 16 26C16 19 22 14 28 16C31 17 34 19 36 22C38 19 41 17 44 16C50 14 56 19 56 26C56 39 36 51 36 51Z" fill="#00C49A" opacity=".85" stroke="#009B79" stroke-width="2"/>
+      </svg>
+      <div class="cl">Emotion</div>
+      <div class="cx">"I feel anxious"<br>"A flood of sadness"</div>
+      <span class="cv">Identify it</span>
+      <p class="cdesc">Name it. You don't have to fix it.</p>
+    </div>
+    <div class="tc s">
+      <svg class="ci" width="72" height="72" viewBox="0 0 72 72" fill="none">
+        <ellipse cx="36" cy="13" rx="7" ry="7" fill="#8B5CF6" opacity=".5"/>
+        <rect x="28" y="20" width="16" height="21" rx="5" fill="#8B5CF6" opacity=".3" stroke="#6D28D9" stroke-width="1.8"/>
+        <rect x="20" y="21" width="8" height="15" rx="4" fill="#8B5CF6" opacity=".3"/>
+        <rect x="44" y="21" width="8" height="15" rx="4" fill="#8B5CF6" opacity=".3"/>
+        <rect x="30" y="41" width="5" height="17" rx="2.5" fill="#8B5CF6" opacity=".3"/>
+        <rect x="37" y="41" width="5" height="17" rx="2.5" fill="#8B5CF6" opacity=".3"/>
+        <ellipse cx="36" cy="28" rx="6" ry="5" fill="#8B5CF6" opacity=".9"/>
+        <line x1="36" y1="18" x2="36" y2="13" stroke="#6D28D9" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="42" y1="21" x2="46" y2="17" stroke="#6D28D9" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="30" y1="21" x2="26" y2="17" stroke="#6D28D9" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div class="cl">Sensation</div>
+      <div class="cx">"A tightness in my chest"<br>"A knot in my stomach"</div>
+      <span class="cv">Feel it</span>
+      <p class="cdesc">Turn toward it with curiosity. Let it be there.</p>
+    </div>
+  </div>
+  <p class="il">In this game, you'll practice matching each experience to its response.</p>
+  <button class="pb" id="play-btn">Let's Play!</button>
+</div></div>
+
+<!-- GAME -->
+<div id="gsc" class="sc"><div class="gi">
+  <div class="pw">
+    <div class="plbl" id="pl">Round 1 of 15</div>
+    <div class="pt"><div class="pf" id="pf" style="width:0%"></div></div>
+  </div>
+  <div class="scard" id="scard"><div class="stxt" id="stxt"></div></div>
+  <div class="ss">
+    <div class="slbl">What type of experience is this?</div>
+    <div class="bg" id="tb">
+      <button class="cb" data-v="thought" onclick="selT('thought')">Thought</button>
+      <button class="cb" data-v="emotion" onclick="selT('emotion')">Emotion</button>
+      <button class="cb" data-v="sensation" onclick="selT('sensation')">Sensation</button>
+    </div>
+  </div>
+  <div class="ss">
+    <div class="slbl">How do you respond?</div>
+    <div class="bg" id="rb">
+      <button class="cb" data-v="notice" onclick="selR('notice')">Notice it</button>
+      <button class="cb" data-v="identify" onclick="selR('identify')">Identify it</button>
+      <button class="cb" data-v="feel" onclick="selR('feel')">Feel it</button>
+    </div>
+  </div>
+  <div class="fb" id="fbb"><div class="fh" id="fbh"></div><div class="ft" id="fbt"></div></div>
+  <div class="cdt" id="cdt"></div>
+</div></div>
+
+<!-- END -->
+<div id="es" class="sc">
+  <div class="ee" id="ee">🎉</div>
+  <h2 class="etit" id="etit"></h2>
+  <div class="esc" id="esc"></div>
+  <div class="esr" id="esr"></div>
+  <p class="emsg" id="emsg"></p>
+  <button class="ab" onclick="playAgain()">Play Again!</button>
+</div>
+
+<script>
+var SC=[
+ {x:"There's a tightness in my chest",t:"sensation",r:"feel",fb:"This is a body sensation right now. Even when tightness shows up alongside worry, the physical quality itself is somatic -- the invitation is to turn toward it with curiosity."},
+ {x:"I keep thinking I said the wrong thing",t:"thought",r:"notice",fb:"This is mental content -- a story the mind keeps replaying. Noticing it as 'there's that thought again' gives you a little space without debating it."},
+ {x:"I feel like I'm not enough",t:"thought",r:"notice",fb:"Sneaky one! 'I feel like...' often introduces a thought, not an emotion. 'Not enough' is a belief -- mental content. Notice it without buying in."},
+ {x:"A tight knot in my stomach",t:"sensation",r:"feel",fb:"Even though a stomach knot often comes with anxiety, what's described here is the physical sensation itself -- not the emotion. Turn toward that body experience."},
+ {x:"I feel anxious",t:"emotion",r:"identify",fb:"Anxiety is an emotional state. Naming it -- 'I notice anxiety' -- is already a skilled move. You're acknowledging it without being swept away by it."},
+ {x:"Something in me believes this will never work out",t:"thought",r:"notice",fb:"This is a thought presenting as a feeling. 'Something in me believes...' is a belief the mind is holding. Notice it without treating it as prophecy."},
+ {x:"There's a wave of heaviness moving through me",t:"sensation",r:"feel",fb:"A physical wave of heaviness is a somatic sensation. The invitation is to let yourself actually feel it moving through rather than pushing it away."},
+ {x:"My heart is racing and my palms are sweaty",t:"sensation",r:"feel",fb:"Racing heart, sweaty palms -- physical body signals happening right now. Even if anxiety is nearby, what you're noticing is in the body. Feel it."},
+ {x:"I'm flooded with sadness",t:"emotion",r:"identify",fb:"Sadness is an emotion. Being flooded with it is an intense experience. Name it -- 'I notice a flood of sadness' -- without needing to make it stop."},
+ {x:"What if I completely mess this up?",t:"thought",r:"notice",fb:"A 'what if' question is thought activity -- the mind spinning into hypothetical futures. Notice the thought without following it down the rabbit hole."},
+ {x:"There's a deep ache behind my sternum",t:"sensation",r:"feel",fb:"An ache in a specific body location is a somatic sensation. Even if grief is nearby, what's present right now is a physical experience worth turning toward."},
+ {x:"I feel this deep sense of dread",t:"emotion",r:"identify",fb:"Dread is an emotional state -- a felt sense of something being wrong or feared. Naming it gives it definition and a bit of breathing room."},
+ {x:"I'll never figure this out",t:"thought",r:"notice",fb:"A categorical prediction like 'I'll never...' is thought content. The mind loves sweeping declarations. Notice it without treating it as fact."},
+ {x:"There's a fluttery feeling in my belly",t:"sensation",r:"feel",fb:"Flutter in the belly is a physical sensation. It might come with excitement or nervousness, but the sensation itself is a body experience to be felt with curiosity."},
+ {x:"I feel completely overwhelmed right now",t:"emotion",r:"identify",fb:"Overwhelm is an emotional state. Saying 'I notice I'm overwhelmed' acknowledges what's happening without being overwhelmed by the overwhelm."},
+ {x:"I should have handled that so much better",t:"thought",r:"notice",fb:"'Should have' is a judgment the mind is making -- classic thought content. Notice it as a thought, not a verdict. You don't have to agree with it."},
+ {x:"My shoulders are carrying enormous tension",t:"sensation",r:"feel",fb:"Shoulder tension is a somatic sensation in the body right now. Turning toward it -- noticing its weight and texture -- is how we work with it somatically."},
+ {x:"There's a warm rush of joy moving through me",t:"emotion",r:"identify",fb:"Joy is an emotion too! Identifying pleasant emotional states is just as valuable as identifying difficult ones. Let it register: 'I notice joy.'"},
+ {x:"I feel like something bad is about to happen",t:"thought",r:"notice",fb:"Another sneaky one: 'I feel like something bad...' sounds like a feeling but it's a prediction -- a thought about the future. Notice it without treating it as reliable forecast."},
+ {x:"My chest feels hollow and empty inside",t:"sensation",r:"feel",fb:"Hollowness in the chest is a somatic experience. Even if grief is present, the physical quality is a sensation to be felt with curiosity and openness."},
+ {x:"I'm embarrassed by what I said",t:"emotion",r:"identify",fb:"Embarrassment is an emotion -- a social, affective response. Identifying it gives it a name and some space. 'I notice embarrassment' -- that's enough."},
+ {x:"Everyone probably thinks I'm strange",t:"thought",r:"notice",fb:"Mind-reading ('everyone thinks...') is thought content -- a story the mind constructs about others. Notice it without treating it as a news report from reality."},
+ {x:"There's a buzzing, electric feeling in my legs",t:"sensation",r:"feel",fb:"Buzzing or electrical sensations in the legs are somatic experiences. Turning toward them with curiosity, rather than away from them, is the skillful response."}
+];
+var G={sc:[],idx:0,score:0,selT:null,selR:null,ans:false,muted:false};
+var actx=null,mgain=null,autoTimer=null,tickTimer=null;
+
+function initAudio(){
+  if(actx)return;
+  actx=new(window.AudioContext||window.webkitAudioContext)();
+  mgain=actx.createGain();mgain.gain.value=1;mgain.connect(actx.destination);
+}
+function tone(f,d,tp,v,del){
+  if(!actx||G.muted)return;
+  var o=actx.createOscillator(),g=actx.createGain();
+  o.connect(g);g.connect(mgain);o.type=tp||'sine';o.frequency.value=f;
+  var t=actx.currentTime+(del||0);
+  g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v||0.25,t+.015);g.gain.exponentialRampToValueAtTime(.001,t+d);
+  o.start(t);o.stop(t+d+.05);
+}
+function sClick(){tone(780,.07,'sine',.1);}
+function sCorrect(){[523,659,784,1047].forEach(function(f,i){tone(f,.35,'sine',.22,i*.085);});}
+function sWrong(){tone(185,.28,'triangle',.18);tone(160,.22,'triangle',.14,.06);}
+function sTrans(){tone(440,.13,'sine',.1);tone(554,.1,'sine',.07,.07);}
+function sPlay(){[261,329,392,523].forEach(function(f,i){tone(f,.4,'sine',.25,i*.1);});}
+function sFanfare(r){
+  var n=r>=.87?[523,659,784,1047,1319,1047,784,1319,1047]:r>=.6?[523,659,784,1047]:[392,523,659];
+  n.forEach(function(f,i){tone(f,.35,'sine',.28,i*.1);});
+}
+function toggleMute(){G.muted=!G.muted;document.getElementById('mb').textContent=G.muted?'🔇':'🔊';}
+
+var cvs=document.getElementById('cc');
+var parts=[];var rafId=null;
+var COLS=['#FF6B6B','#00C49A','#8B5CF6','#FFD93D','#FF9A3C','#FF85A1','#4ECDC4'];
+function rCvs(){cvs.width=window.innerWidth;cvs.height=window.innerHeight;}
+window.addEventListener('resize',rCvs);rCvs();
+
+function spawn(x,y,n,vb,fall){
+  vb=vb||6;fall=!!fall;
+  for(var i=0;i<n;i++){
+    var a=Math.random()*Math.PI*2,sp=Math.random()*vb+2;
+    parts.push({x:fall?Math.random()*cvs.width:x,y:fall?-10-Math.random()*50:y,vx:fall?(Math.random()-.5)*4:Math.cos(a)*sp,vy:fall?Math.random()*3+1.5:Math.sin(a)*sp-3,c:COLS[Math.floor(Math.random()*COLS.length)],w:Math.random()*10+5,h:Math.random()*6+3,rot:Math.random()*Math.PI*2,rv:(Math.random()-.5)*.18,life:1,dec:fall?.005+Math.random()*.004:.013+Math.random()*.009,grav:fall?.1:.17});
+  }
+  if(!rafId)animP();
+}
+function animP(){
+  var ctx=cvs.getContext('2d');ctx.clearRect(0,0,cvs.width,cvs.height);
+  parts=parts.filter(function(p){return p.life>0&&p.y<cvs.height+40;});
+  parts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.vy+=p.grav;p.rot+=p.rv;p.life-=p.dec;ctx.save();ctx.globalAlpha=Math.max(0,p.life);ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.fillStyle=p.c;ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);ctx.restore();});
+  if(parts.length>0)rafId=requestAnimationFrame(animP);
+  else{rafId=null;ctx.clearRect(0,0,cvs.width,cvs.height);}
+}
+function celebrate(txt){
+  var el=document.getElementById('co');
+  el.textContent=txt;el.style.display='block';el.style.animation='none';el.offsetHeight;
+  el.style.animation='cPop .5s cubic-bezier(.34,1.56,.64,1) forwards';
+  setTimeout(function(){el.style.animation='cFade .8s ease forwards';setTimeout(function(){el.style.display='none';},800);},1700);
+}
+function shuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tmp=b[i];b[i]=b[j];b[j]=tmp;}return b;}
+function showScr(id){document.querySelectorAll('.sc').forEach(function(s){s.classList.remove('on');});document.getElementById(id).classList.add('on');}
+
+function initGame(){
+  if(autoTimer){clearTimeout(autoTimer);autoTimer=null;}
+  if(tickTimer){clearInterval(tickTimer);tickTimer=null;}
+  G.sc=shuffle(SC).slice(0,15);G.idx=0;G.score=0;G.ans=false;G.selT=null;G.selR=null;
+  showScr('gsc');renderRound();
+}
+function renderRound(){
+  var s=G.sc[G.idx],tot=G.sc.length,cur=G.idx+1;
+  document.getElementById('pl').textContent='Round '+cur+' of '+tot;
+  document.getElementById('pf').style.width=((cur-1)/tot*100)+'%';
+  document.getElementById('stxt').textContent=s.x;
+  G.selT=null;G.selR=null;G.ans=false;
+  document.querySelectorAll('.cb').forEach(function(b){b.className='cb';b.disabled=false;});
+  document.getElementById('fbb').style.display='none';
+  document.getElementById('cdt').style.display='none';
+  var c=document.getElementById('scard');c.style.animation='none';c.offsetHeight;c.style.animation='sIn .4s ease';
+}
+function tryAns(){
+  if(!G.selT||!G.selR)return;
+  G.ans=true;
+  document.querySelectorAll('.cb').forEach(function(b){b.disabled=true;});
+  var s=G.sc[G.idx];
+  var ok=G.selT===s.t&&G.selR===s.r;
+  var tl={thought:'Thought',emotion:'Emotion',sensation:'Sensation'}[s.t];
+  var rl={notice:'Notice it',identify:'Identify it',feel:'Feel it'}[s.r];
+  var fb=document.getElementById('fbb');
+  if(ok){
+    G.score++;sCorrect();
+    var msgs=['YES!','NAILED IT!','EXACTLY!','PERFECT!','SPOT ON!','BRILLIANT!'];
+    celebrate(msgs[Math.floor(Math.random()*msgs.length)]);
+    spawn(window.innerWidth/2,window.innerHeight/2-60,70);
+    fb.className='fb ok';document.getElementById('fbh').textContent='You got it!';document.getElementById('fbt').textContent=s.fb;
+  } else {
+    sWrong();
+    var pre='';
+    if(G.selT===s.t) pre='You got the type right -- but a '+tl+' calls for: '+rl+'. ';
+    else if(G.selR===s.r) pre='Good response instinct -- this is indeed a '+tl+', so '+rl+' is correct. ';
+    else pre='This is a '+tl+' -- the response is to '+rl+'. ';
+    fb.className='fb wr';document.getElementById('fbh').textContent='Not quite.';document.getElementById('fbt').textContent=pre+s.fb;
+  }
+  fb.style.display='block';fb.style.animation='none';fb.offsetHeight;fb.style.animation='pIn .3s cubic-bezier(.34,1.56,.64,1)';
+  var delay=ok?3000:4500;
+  var cdEl=document.getElementById('cdt');
+  cdEl.style.display='block';
+  var rem=Math.round(delay/1000);
+  cdEl.textContent='Next in '+rem+'s';
+  tickTimer=setInterval(function(){
+    rem--;
+    if(rem>0)cdEl.textContent='Next in '+rem+'s';
+    else{clearInterval(tickTimer);tickTimer=null;cdEl.style.display='none';}
+  },1000);
+  autoTimer=setTimeout(function(){
+    if(tickTimer){clearInterval(tickTimer);tickTimer=null;}
+    sTrans();G.idx++;
+    if(G.idx>=G.sc.length)showEnd();else renderRound();
+  },delay);
+}
+function selT(t){
+  if(G.ans)return;sClick();G.selT=t;
+  document.querySelectorAll('#tb .cb').forEach(function(b){b.className='cb'+(b.dataset.v===t?' st-'+t[0]:'');});
+  tryAns();
+}
+function selR(r){
+  if(G.ans)return;sClick();G.selR=r;
+  var m={notice:'n',identify:'i',feel:'f'};
+  document.querySelectorAll('#rb .cb').forEach(function(b){b.className='cb'+(b.dataset.v===r?' sr-'+m[r]:'');});
+  tryAns();
+}
+function showEnd(){
+  showScr('es');var tot=G.sc.length,r=G.score/tot;
+  setTimeout(function(){
+    sFanfare(r);spawn(0,0,200,5,true);
+    setTimeout(function(){spawn(window.innerWidth*.2,window.innerHeight*.3,55);},300);
+    setTimeout(function(){spawn(window.innerWidth*.8,window.innerHeight*.3,55);},600);
+    setTimeout(function(){spawn(window.innerWidth*.5,window.innerHeight*.5,60);},900);
+  },250);
+  document.getElementById('esc').textContent=G.score+' / '+tot;
+  var emoji,title,msg;
+  if(r>=.93){emoji='🏆';title='Mindfulness Master!';msg='You have a deep intuitive understanding of how inner experiences work. That kind of awareness is genuinely rare and powerful.';}
+  else if(r>=.8){emoji='🌟';title='Beautifully Done!';msg="You're building real skill at distinguishing what's happening inside. This is the foundation of everything in mindfulness practice.";}
+  else if(r>=.6){emoji='🌱';title='Growing!';msg="You're getting it! The edge cases take practice -- keep at it and these distinctions will become second nature.";}
+  else{emoji='💪';title='Showing Up is Everything!';msg="The fact that you played is what matters. These distinctions are genuinely subtle. Your awareness is already expanding.";}
+  document.getElementById('ee').textContent=emoji;document.getElementById('ee').style.animation='bounce .8s ease infinite alternate';
+  document.getElementById('etit').textContent=title;document.getElementById('emsg').textContent=msg;
+  var stars=Math.max(1,Math.ceil(r*3));var sc=document.getElementById('esr');sc.innerHTML='';
+  for(var i=0;i<3;i++){var st=document.createElement('span');st.className='star';st.textContent=i<stars?'⭐':'☆';st.style.animation='sp .3s cubic-bezier(.34,1.56,.64,1) '+(i*.18)+'s both';sc.appendChild(st);}
+}
+function playAgain(){sClick();initGame();}
+document.getElementById('play-btn').addEventListener('click',function(){initAudio();sPlay();setTimeout(initGame,440);});
+document.getElementById('mb').addEventListener('click',function(){if(!actx)initAudio();toggleMute();});
+</script>
+</body>
+</html>

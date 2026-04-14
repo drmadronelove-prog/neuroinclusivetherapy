@@ -30,6 +30,11 @@
   --nav-coral: #E8637A;
   --nav-salmon: #E8855A;
   --nav-amber: #E8A83A;
+  --nav-rose: #C84E78;
+  --nav-seafoam: #4EA898;
+  --nav-orange: #E87A3A;
+  --nav-gold: #C49020;
+  --nav-mauve: #B87890;
   
   --chart-1: #6BBFB5;
   --chart-2: #E8637A;
@@ -91,6 +96,11 @@
   --color-nav-coral: var(--nav-coral);
   --color-nav-salmon: var(--nav-salmon);
   --color-nav-amber: var(--nav-amber);
+  --color-nav-rose: var(--nav-rose);
+  --color-nav-seafoam: var(--nav-seafoam);
+  --color-nav-orange: var(--nav-orange);
+  --color-nav-gold: var(--nav-gold);
+  --color-nav-mauve: var(--nav-mauve);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -136,6 +146,18 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Drop cap for blog article opening paragraphs */
+.prose-drop-cap::first-letter {
+  float: left;
+  font-family: var(--font-display), 'Barlow Condensed', sans-serif;
+  font-size: 4.5rem;
+  font-weight: 900;
+  line-height: 0.8;
+  color: #6BBFB5;
+  padding-right: 0.12em;
+  padding-top: 0.05em;
 }
 
 @media print {

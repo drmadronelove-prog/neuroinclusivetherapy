@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fake News — I-CBT Game</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      --color-background-primary: #FFFFFF;
+      --color-background-secondary: #F5F3EF;
+      --color-text-primary: #1A1A1A;
+      --color-text-secondary: #4A4A4A;
+      --color-text-tertiary: #888880;
+      --color-border-secondary: #E0DDD8;
+      --border-radius-lg: 12px;
+      --border-radius-md: 8px;
+    }
+
+    html, body {
+      font-family: var(--font-sans);
+      background: var(--color-background-primary);
+      color: var(--color-text-primary);
+      min-height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); }
+#game { padding: 1.5rem 0; max-width: 620px; margin: 0 auto; }
+.screen { display: none; }
+.screen.active { display: block; }
+#confetti-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999; }
+
+.intro-title { font-size: 28px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 8px; }
+.intro-sub { font-size: 15px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 24px; }
+.sources { display: flex; gap: 12px; margin-bottom: 16px; }
+.source-intro { flex: 1; border-radius: var(--border-radius-lg); padding: 14px; }
+.source-intro.jayne { background: #E6F1FB; }
+.source-intro.tucker { background: #FAEEDA; }
+.source-intro-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; flex-shrink: 0; }
+.jayne .avatar { background: #85B7EB; color: #042C53; }
+.tucker .avatar { background: #EF9F27; color: #412402; }
+.source-name { font-size: 14px; font-weight: 500; }
+.jayne .source-name { color: #0C447C; }
+.tucker .source-name { color: #633806; }
+.source-role { font-size: 12px; }
+.jayne .source-role { color: #185FA5; }
+.tucker .source-role { color: #854F0B; }
+.source-desc { font-size: 13px; line-height: 1.5; }
+.jayne .source-desc { color: #185FA5; }
+.tucker .source-desc { color: #854F0B; }
+.intro-note { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 24px; padding: 12px 14px; background: var(--color-background-secondary); border-radius: var(--border-radius-md); }
+
+.progress-row { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.progress-bar-bg { flex: 1; height: 4px; background: var(--color-background-secondary); border-radius: 2px; }
+.progress-bar-fill { height: 4px; background: #378ADD; border-radius: 2px; transition: width 0.4s ease; }
+.progress-label { font-size: 13px; color: var(--color-text-secondary); white-space: nowrap; }
+
+.stem-card { border-radius: var(--border-radius-lg); overflow: hidden; border: 0.5px solid var(--color-border-secondary); margin-bottom: 20px; }
+.breaking-strip { background: #E24B4A; color: #fff; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; padding: 7px 16px; display: flex; align-items: center; gap: 8px; }
+.breaking-dot { width: 6px; height: 6px; border-radius: 50%; background: #fff; flex-shrink: 0; }
+.stem-text { background: var(--color-background-secondary); padding: 14px 16px; font-size: 16px; color: var(--color-text-primary); line-height: 1.6; font-style: italic; }
+
+.sources-label { font-size: 11px; font-weight: 500; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+.source-cards { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 12px; margin-bottom: 14px; }
+.source-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-lg); padding: 14px; cursor: pointer; transition: transform 0.1s; }
+.source-card:hover { background: var(--color-background-secondary); }
+.source-card:active { transform: scale(0.98); }
+.source-card.disabled { pointer-events: none; }
+.source-card.correct { border: 2px solid #378ADD; background: #E6F1FB; }
+.source-card.wrong { border: 2px solid #E24B4A; background: #FCEBEB; }
+.source-card.reveal { border: 2px solid #378ADD; background: #E6F1FB; }
+.card-top { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.card-avatar { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; flex-shrink: 0; }
+.card-jayne .card-avatar { background: #85B7EB; color: #042C53; }
+.card-tucker .card-avatar { background: #EF9F27; color: #412402; }
+.card-name { font-size: 13px; font-weight: 500; }
+.card-jayne .card-name { color: #0C447C; }
+.card-tucker .card-name { color: #633806; }
+.card-role { font-size: 11px; }
+.card-jayne .card-role { color: #185FA5; }
+.card-tucker .card-role { color: #BA7517; }
+.card-text { font-size: 14px; color: var(--color-text-primary); line-height: 1.6; }
+.source-card.correct .card-text { color: #0C447C; }
+.source-card.wrong .card-text { color: #791F1F; }
+.source-card.reveal .card-text { color: #0C447C; }
+
+.feedback-area { min-height: 40px; text-align: center; margin-bottom: 4px; }
+.fb-main { font-size: 14px; font-weight: 500; }
+.fb-main.correct { color: #0C447C; }
+.fb-main.incorrect { color: #791F1F; }
+.fb-explain { font-size: 13px; color: var(--color-text-secondary); margin-top: 4px; line-height: 1.5; }
+
+.score-row { display: flex; gap: 12px; margin: 16px 0; }
+.score-card { flex: 1; background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 14px; text-align: center; }
+.score-num { font-size: 32px; font-weight: 500; color: var(--color-text-primary); }
+.score-lbl { font-size: 13px; color: var(--color-text-secondary); margin-top: 2px; }
+.end-title { font-size: 24px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 8px; }
+.end-msg { font-size: 15px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 20px; }
+.key-idea { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 16px 18px; margin-bottom: 16px; }
+.key-idea-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px; }
+.key-idea-body { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; }
+.big-btn { width: 100%; padding: 14px; background: var(--color-background-primary); border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-lg); cursor: pointer; font-size: 15px; color: var(--color-text-primary); margin-top: 8px; }
+.big-btn:hover { background: var(--color-background-secondary); }
+.big-btn.primary { background: #378ADD; color: #fff; border: none; }
+.big-btn.primary:hover { background: #185FA5; }
+</style>
+
+<canvas id="confetti-canvas"></canvas>
+<div id="game">
+<h2 class="sr-only">Fake News: an I-CBT game about spotting OCD's commentary</h2>
+
+<div id="intro" class="screen active">
+  <p class="intro-title">Fake News</p>
+  <p class="intro-sub">OCD hands you a doubt and immediately sends two people to cover it. One sticks to the hard, cold facts. One treats it like the crisis of the century. Your job: pick the journalist.</p>
+  <div class="sources">
+    <div class="source-intro jayne">
+      <div class="source-intro-top">
+        <div class="avatar">J</div>
+        <div>
+          <div class="source-name">Jayne</div>
+          <div class="source-role">Investigative journalist</div>
+        </div>
+      </div>
+      <div class="source-desc">Only files what she can verify. If it can't be pointed to, it doesn't make the story. No drama. Just facts.</div>
+    </div>
+    <div class="source-intro tucker">
+      <div class="source-intro-top">
+        <div class="avatar">T</div>
+        <div>
+          <div class="source-name">Tucker</div>
+          <div class="source-role">Political commentator</div>
+        </div>
+      </div>
+      <div class="source-desc">Never met a doubt he couldn't turn into a crisis. Filling airtime is his job -- and he is very, very good at it.</div>
+    </div>
+  </div>
+  <p class="intro-note">Tucker isn't lying. He's just doing his job. The problem is mistaking his show for the evening news.</p>
+  <button class="big-btn primary" onclick="startGame()">Go live</button>
+</div>
+
+<div id="play" class="screen">
+  <div class="progress-row">
+    <div class="progress-bar-bg"><div class="progress-bar-fill" id="pbar" style="width:0%"></div></div>
+    <span class="progress-label" id="plabel">0 / 10</span>
+  </div>
+  <div class="stem-card">
+    <div class="breaking-strip"><div class="breaking-dot"></div>Breaking report</div>
+    <div class="stem-text" id="stem-text"></div>
+  </div>
+  <div class="sources-label">Two sources respond -- pick the journalist</div>
+  <div class="source-cards" id="cards"></div>
+  <div class="feedback-area">
+    <div class="fb-main" id="fb-main"></div>
+    <div class="fb-explain" id="fb-explain"></div>
+  </div>
+</div>
+
+<div id="end" class="screen">
+  <div class="end-title" id="end-title"></div>
+  <div class="end-msg" id="end-msg"></div>
+  <div class="score-row">
+    <div class="score-card"><div class="score-num" id="final-score"></div><div class="score-lbl">out of 10</div></div>
+    <div class="score-card"><div class="score-num" id="final-pct"></div><div class="score-lbl">accuracy</div></div>
+  </div>
+  <div class="key-idea">
+    <div class="key-idea-title">What makes Tucker so convincing</div>
+    <div class="key-idea-body">Tucker doesn't make things up -- he takes the doubt seriously and runs with it. That's what OCD does too. The commentary sounds responsible, even wise. Jayne's move is simpler and harder: only report what's actually there. Let everything else go.</div>
+  </div>
+  <button class="big-btn primary" onclick="startGame()">Play again</button>
+</div>
+</div>
+
+<script>
+const DATA = [
+  {
+    stem: "It's possible I forgot to turn off the stove.",
+    jayne: { text: "No evidence the stove is on.", explain: "Jayne reports the absence of evidence. Nothing to file." },
+    tucker: { text: "If that stove is still burning, we could be looking at a complete loss. The house. Everything in it. These things escalate fast.", explain: "Tucker takes the doubt straight to catastrophe. Dramatic, urgent, and completely untethered from anything present." }
+  },
+  {
+    stem: "It's possible I forgot to lock the door.",
+    jayne: { text: "The door is locked.", explain: "That's the whole story. Jayne files it and moves on." },
+    tucker: { text: "An unlocked door is an open invitation. The consequences of getting this wrong are simply too serious to leave to chance.", explain: "Tucker reframes checking as responsible risk management. Sounds prudent -- but the risk itself has no grounding." }
+  },
+  {
+    stem: "It's possible that thought means something about me.",
+    jayne: { text: "A thought appeared. That's it.", explain: "A thought arose. No interpretation, no implication. Story closed." },
+    tucker: { text: "When a thought keeps coming back like this, you have to ask yourself what it's really trying to tell you about who you are.", explain: "Tucker uses recurrence as evidence of meaning. But thoughts recur because of the distress attached to them, not because of what they reveal." }
+  },
+  {
+    stem: "It's possible I said something offensive just now.",
+    jayne: { text: "My friend seemed at ease.", explain: "Directly observed. What was actually in the room. Story doesn't hold up." },
+    tucker: { text: "People are often too polite to say anything. The damage can be done long before you ever find out.", explain: "Tucker invents a hidden emotional reality that can never be verified. The unverifiability is the whole move." }
+  },
+  {
+    stem: "It's possible I hit someone while driving.",
+    jayne: { text: "The road is clear.", explain: "Present-moment visual evidence. Jayne points to it and closes the notebook." },
+    tucker: { text: "These things happen faster than people realize. By the time you know something went wrong, it's already too late.", explain: "Tucker manufactures urgency from a completely ungrounded premise. Speed and irreversibility make inaction feel reckless." }
+  },
+  {
+    stem: "It's possible I contaminated something I touched.",
+    jayne: { text: "My hands look and feel normal.", explain: "A direct sensory check. Nothing to report." },
+    tucker: { text: "Contamination spreads in ways you can't see or predict. The ripple effects could reach far more people than just you.", explain: "Tucker uses invisibility as the threat -- 'you can't see it' becomes evidence of danger rather than simply the absence of evidence." }
+  },
+  {
+    stem: "It's possible that feeling of irritation means I don't really love my partner.",
+    jayne: { text: "I felt irritated for a moment.", explain: "The emotion happened. Jayne names it and stops there. No story attached." },
+    tucker: { text: "Real love doesn't come with doubt. If you're questioning it, that's usually your gut telling you something important.", explain: "Tucker invents a rule about what real love looks like, then uses the doubt itself as confirmation. Circular and unfalsifiable." }
+  },
+  {
+    stem: "It's possible I made a mistake on that form.",
+    jayne: { text: "I checked it before submitting.", explain: "What actually happened. Jayne points to it and moves on." },
+    tucker: { text: "One small error on something like this can set off a chain of consequences that is very difficult to undo. You don't want to find out the hard way.", explain: "Tucker catastrophizes from an unverified premise and adds urgency to make sitting still feel irresponsible." }
+  },
+  {
+    stem: "It's possible I'm a bad person.",
+    jayne: { text: "I was considerate to people today.", explain: "Observable behavior. Something that actually happened. Full stop." },
+    tucker: { text: "The fact that you're even asking the question is worth taking seriously. People who aren't concerned about this usually aren't the ones who should be.", explain: "Tucker uses the worry itself as evidence. The distress becomes proof of the thing being worried about." }
+  },
+  {
+    stem: "It's possible I offended someone without realizing it.",
+    jayne: { text: "They seemed fine.", explain: "What was directly observed. Jayne files it and that's the story." },
+    tucker: { text: "People rarely say when they're hurt. The silence itself can be the loudest signal -- if you know how to read it.", explain: "Tucker turns silence into evidence. Now any outcome confirms the doubt. The story becomes impossible to kill." }
+  }
+];
+
+const COLORS = ['#378ADD','#1D9E75','#D4537E','#EF9F27','#7F77DD','#D85A30','#639922'];
+let questions = [], current = 0, score = 0, answered = 0;
+
+function launchConfetti() {
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  const particles = Array.from({length: 130}, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height * 0.3,
+    r: Math.random() * 7 + 3,
+    d: Math.random() * 4 + 1,
+    color: COLORS[Math.floor(Math.random() * COLORS.length)],
+    tilt: 0, tiltAngle: 0,
+    tiltSpeed: Math.random() * 0.1 + 0.05
+  }));
+  let frame = 0;
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.fillStyle = p.color;
+      ctx.ellipse(p.x, p.y, p.r, p.r * 0.5, p.tilt, 0, Math.PI * 2);
+      ctx.fill();
+      p.tiltAngle += p.tiltSpeed;
+      p.y += p.d;
+      p.tilt = Math.sin(p.tiltAngle) * 12;
+      p.x += Math.sin(p.tiltAngle) * 1.5;
+    });
+    frame++;
+    if (frame < 90) requestAnimationFrame(draw);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  draw();
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function show(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function startGame() {
+  questions = shuffle(DATA);
+  current = 0; score = 0; answered = 0;
+  loadQuestion();
+  show('play');
+}
+
+function updateProgress() {
+  document.getElementById('pbar').style.width = Math.round((answered / 10) * 100) + '%';
+  document.getElementById('plabel').textContent = answered + ' / 10';
+}
+
+function loadQuestion() {
+  const q = questions[current];
+  document.getElementById('stem-text').textContent = q.stem;
+  document.getElementById('fb-main').textContent = '';
+  document.getElementById('fb-explain').textContent = '';
+
+  const jayneLeft = Math.random() > 0.5;
+  const left = jayneLeft ? { type: 'jayne', data: q.jayne } : { type: 'tucker', data: q.tucker };
+  const right = jayneLeft ? { type: 'tucker', data: q.tucker } : { type: 'jayne', data: q.jayne };
+
+  const container = document.getElementById('cards');
+  container.innerHTML = '';
+  [left, right].forEach(source => {
+    const card = document.createElement('div');
+    card.className = 'source-card card-' + source.type;
+    card.innerHTML = `
+      <div class="card-top">
+        <div class="card-avatar">${source.type === 'jayne' ? 'J' : 'T'}</div>
+        <div>
+          <div class="card-name">${source.type === 'jayne' ? 'Jayne' : 'Tucker'}</div>
+          <div class="card-role">${source.type === 'jayne' ? 'Investigative journalist' : 'Political commentator'}</div>
+        </div>
+      </div>
+      <div class="card-text">${source.data.text}</div>`;
+    card.onclick = () => pick(source.type, source.data, card);
+    container.appendChild(card);
+  });
+  updateProgress();
+}
+
+function pick(type, data, clickedCard) {
+  const correct = type === 'jayne';
+  answered++;
+  if (correct) score++;
+
+  document.querySelectorAll('.source-card').forEach(c => {
+    c.classList.add('disabled');
+    c.onclick = null;
+  });
+
+  if (correct) {
+    clickedCard.classList.add('correct');
+    document.getElementById('fb-main').className = 'fb-main correct';
+    document.getElementById('fb-main').textContent = "That's Jayne.";
+    launchConfetti();
+  } else {
+    clickedCard.classList.add('wrong');
+    document.getElementById('fb-main').className = 'fb-main incorrect';
+    document.getElementById('fb-main').textContent = "That's Tucker. Jayne is on the other side.";
+    document.querySelectorAll('.source-card').forEach(c => {
+      if (!c.classList.contains('wrong')) c.classList.add('reveal');
+    });
+  }
+
+  document.getElementById('fb-explain').textContent = correct ? data.explain : questions[current].tucker.explain;
+  updateProgress();
+
+  setTimeout(() => {
+    current++;
+    if (current >= 10) showEnd();
+    else loadQuestion();
+  }, correct ? 1500 : 2400);
+}
+
+function showEnd() {
+  const pct = Math.round((score / 10) * 100);
+  document.getElementById('final-score').textContent = score;
+  document.getElementById('final-pct').textContent = pct + '%';
+  let title, msg;
+  if (pct >= 90) {
+    title = "Sharp editorial instincts";
+    msg = "You can reliably tell Jayne from Tucker -- which means you can spot when OCD is filling the airtime. That's the whole skill.";
+  } else if (pct >= 70) {
+    title = "Getting the byline right";
+    msg = "Tucker is convincing -- he sounds measured and wise. The tell is always that his statements travel far from anything actually present.";
+  } else {
+    title = "Tucker got you";
+    msg = "Tucker is very good at his job. His commentary sounds responsible, even careful. Jayne's move is simpler: if you can't point to it, it doesn't make the story.";
+  }
+  document.getElementById('end-title').textContent = title;
+  document.getElementById('end-msg').textContent = msg;
+  if (pct >= 90) launchConfetti();
+  show('end');
+}
+</script>
+
+</body>
+</html>

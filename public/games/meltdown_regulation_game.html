@@ -1,0 +1,245 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.gw{max-width:560px;margin:0 auto;padding:1rem 0;font-family:var(--font-sans);position:relative}
+.sc{display:none}.sc.on{display:block}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem;margin-bottom:.75rem}
+.bchoice{display:block;width:100%;text-align:left;padding:.85rem 1rem;background:var(--color-background-secondary);border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);cursor:pointer;font-family:var(--font-sans);font-size:14px;line-height:1.5;color:var(--color-text-primary);margin-bottom:8px;transition:background .12s}
+.bchoice:hover{background:var(--color-background-tertiary)}.bchoice:disabled{opacity:.5;cursor:default}
+.bprimary{display:block;width:100%;text-align:center;padding:.85rem;background:var(--color-background-info);border:0.5px solid var(--color-border-info);border-radius:var(--border-radius-md);cursor:pointer;font-family:var(--font-sans);font-size:14px;font-weight:500;color:var(--color-text-info);margin-bottom:8px;transition:opacity .12s}
+.bprimary:hover{opacity:.82}
+.bsec{display:block;width:100%;text-align:center;padding:.85rem;background:transparent;border:0.5px solid var(--color-border-primary);border-radius:var(--border-radius-md);cursor:pointer;font-family:var(--font-sans);font-size:14px;color:var(--color-text-secondary)}
+.bsec:hover{background:var(--color-background-secondary)}
+.mwrap{height:8px;background:var(--color-background-secondary);border-radius:4px;overflow:hidden}
+.mfill{height:100%;border-radius:4px;transition:width .6s ease,background .6s ease}
+.wtag{display:inline-block;padding:2px 9px;background:var(--color-background-warning);border:0.5px solid var(--color-border-warning);border-radius:999px;font-size:12px;color:var(--color-text-warning);margin:2px}
+.fb-good{background:var(--color-background-success);border-color:var(--color-border-success)}
+.fb-neutral{background:var(--color-background-info);border-color:var(--color-border-info)}
+.fb-bad{background:var(--color-background-danger);border-color:var(--color-border-danger)}
+.scard{flex:1;background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.75rem;text-align:center}
+</style>
+
+<div class="gw" id="gw">
+<canvas id="cfv" style="position:absolute;top:0;left:0;width:100%;height:600px;pointer-events:none;z-index:50;"></canvas>
+
+<div id="s-title" class="sc on">
+  <div class="card" style="text-align:center;padding:2rem 1.5rem">
+    <p style="font-size:11px;letter-spacing:.07em;color:var(--color-text-secondary);margin-bottom:.75rem">Meltdown awareness</p>
+    <h1 style="font-size:26px;font-weight:500;margin-bottom:.75rem;color:var(--color-text-primary)">The Regulation Game</h1>
+    <p style="font-size:14px;color:var(--color-text-secondary);margin-bottom:1.5rem;line-height:1.65">Practice recognizing your nervous system's warning signs and responding with your regulation toolkit -- across four everyday scenarios.</p>
+    <button class="bprimary" onclick="startGame()">Start &nbsp;·&nbsp; 4 scenes &nbsp;·&nbsp; ~5 minutes</button>
+  </div>
+  <div class="card">
+    <p style="font-size:13px;font-weight:500;margin-bottom:.4rem;color:var(--color-text-primary)">How to play</p>
+    <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.65;margin:0">Each scenario shows a real situation with visible warning signs. Choose how to respond. The nervous system meter tracks what is happening. There are no wrong answers -- only more or less regulated ones.</p>
+  </div>
+</div>
+
+<div id="s-scene" class="sc">
+  <div style="margin-bottom:1rem">
+    <div style="display:flex;justify-content:space-between;margin-bottom:5px">
+      <span style="font-size:12px;color:var(--color-text-secondary)">Nervous system level</span>
+      <span style="font-size:12px;color:var(--color-text-secondary)" id="mlbl">Regulated</span>
+    </div>
+    <div class="mwrap"><div class="mfill" id="mfill" style="width:35%;background:#1D9E75"></div></div>
+  </div>
+  <p style="font-size:12px;color:var(--color-text-secondary);margin-bottom:.5rem" id="snum">Scene 1 of 4</p>
+  <div class="card">
+    <p style="font-size:12px;color:var(--color-text-secondary);margin-bottom:.2rem" id="stime"></p>
+    <h2 style="font-size:18px;font-weight:500;margin-bottom:.75rem;color:var(--color-text-primary)" id="stitle"></h2>
+    <p style="font-size:14px;line-height:1.65;color:var(--color-text-primary);margin-bottom:1rem" id="sctx"></p>
+    <div style="background:var(--color-background-warning);border:0.5px solid var(--color-border-warning);border-radius:var(--border-radius-md);padding:.75rem;margin-bottom:1rem">
+      <p style="font-size:11px;font-weight:500;color:var(--color-text-warning);margin-bottom:.4rem;letter-spacing:.04em">Warning signs noticed</p>
+      <div id="swarn"></div>
+    </div>
+    <p style="font-size:12px;font-weight:500;color:var(--color-text-secondary);margin-bottom:.5rem">What do you do?</p>
+    <div id="choices"></div>
+  </div>
+</div>
+
+<div id="s-feedback" class="sc">
+  <div style="margin-bottom:1rem">
+    <div style="display:flex;justify-content:space-between;margin-bottom:5px">
+      <span style="font-size:12px;color:var(--color-text-secondary)">Nervous system level</span>
+      <span style="font-size:12px;color:var(--color-text-secondary)" id="mlbl2">Regulated</span>
+    </div>
+    <div class="mwrap"><div class="mfill" id="mfill2" style="width:35%;background:#1D9E75"></div></div>
+  </div>
+  <div class="card" id="fbcard">
+    <p style="font-size:12px;font-weight:500;margin-bottom:.25rem" id="fbq"></p>
+    <p style="font-size:14px;font-style:italic;color:var(--color-text-secondary);margin-bottom:.75rem" id="fbct"></p>
+    <p style="font-size:14px;line-height:1.65;color:var(--color-text-primary);margin-bottom:.5rem" id="fbex"></p>
+    <p style="font-size:12px;color:var(--color-text-secondary)" id="fbtk"></p>
+  </div>
+  <button class="bprimary" id="nextbtn" onclick="nextScene()">Next scene</button>
+</div>
+
+<div id="s-end" class="sc">
+  <div class="card" style="padding:1.75rem 1.25rem">
+    <h2 style="font-size:22px;font-weight:500;margin-bottom:.75rem;color:var(--color-text-primary);text-align:center" id="etitle"></h2>
+    <p style="font-size:14px;color:var(--color-text-secondary);line-height:1.65;margin-bottom:1.25rem;text-align:center" id="emsg"></p>
+    <div style="display:flex;gap:10px;margin-bottom:1.25rem" id="estats"></div>
+    <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.6;background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.75rem;margin-bottom:1.25rem" id="erefl"></p>
+    <button class="bsec" onclick="restartGame()">Play again</button>
+  </div>
+</div>
+</div>
+
+<script>
+const SC=[
+  {time:"Tuesday, 7:45 AM",title:"Morning chaos",ctx:"Your kids need to leave for school in 15 minutes. Your partner just changed the morning plan without telling you. The kitchen light is flickering. You feel your chest tighten.",warn:["Chest tightness","Unexpected schedule change","Flickering light (sensory)"],choices:[
+    {text:"Push through the morning without saying anything",q:"bad",d:20,ex:"Masking discomfort delays regulation. Your nervous system keeps processing the overload even when you do not acknowledge it -- the cost just comes later.",tk:null},
+    {text:"Tell your partner: 'I need 2 minutes. The change caught me off guard.'",q:"good",d:-12,ex:"You noticed the chest tightness and named the unexpected change before it escalated. This is early intervention -- one of the most powerful tools in your toolkit.",tk:"Toolkit: Connection / Rest \xb7 communicating a need early"},
+    {text:"Snap at your partner for not telling you sooner",q:"neutral",d:12,ex:"Conflict after an unexpected change often escalates rather than relieves. What the nervous system needs first is time and acknowledgment -- not resolution.",tk:null}
+  ]},
+  {time:"Wednesday, 2:30 PM",title:"Grocery run",ctx:"The PA system crackles overhead. Fluorescent lights hum. Someone's cart bumps yours. The checkout line is longer than expected. You notice you have been clenching your jaw for several minutes.",warn:["Jaw clenching","Noise sensitivity spike","Unexpected crowding"],choices:[
+    {text:"Put on your noise-canceling headphones and slow your walking pace",q:"good",d:-15,ex:"Headphones reduce sensory input immediately. Slowing your pace gives your nervous system time to catch up. You acted on the warning sign before it escalated.",tk:"Toolkit: Sensory \xb7 noise-canceling headphones"},
+    {text:"Rush through the store to finish faster",q:"neutral",d:10,ex:"Moving fast through an overwhelming environment often increases -- not decreases -- sensory load. Speed adds urgency to an already full nervous system.",tk:null},
+    {text:"Tell yourself to just calm down and stop being difficult",q:"bad",d:16,ex:"Telling yourself to 'calm down' without changing the sensory environment rarely works, and adds shame to overload. The nervous system responds to action, not instruction.",tk:null}
+  ]},
+  {time:"Thursday, 4:00 PM",title:"Studio time",ctx:"You finally have an hour for your art. But the creative flow will not come. You have stared at the blank canvas for 20 minutes. Your family has knocked twice. You feel a wave of flatness -- the beginning of shutdown.",warn:["Creative shutdown","Withdrawal urge","Frustration building under the surface"],choices:[
+    {text:"Close the door and stim for 5 minutes before returning to the canvas",q:"good",d:-14,ex:"Stimming is regulation, not avoidance. Giving your nervous system what it needs -- movement, rhythm, sensory input -- creates the conditions for creative flow to return.",tk:"Toolkit: Movement \xb7 stimming as regulation"},
+    {text:"Force yourself to make marks on the canvas, anything at all",q:"neutral",d:6,ex:"Low-pressure mark-making sometimes unlocks flow. But if the warning sign is shutdown, the body may need movement first before the mind can create.",tk:null},
+    {text:"Tell your family you are fine and keep staring at the canvas",q:"bad",d:20,ex:"Masking during shutdown closes off the possibility of support at exactly the moment it is needed. 'I'm fine' keeps you isolated when your system is asking for space.",tk:null}
+  ]},
+  {time:"Friday, 8:00 PM",title:"Evening depletion",ctx:"The day was a lot. Your partner wants to talk about the week. Your child asks for one more story. You notice you are speaking in short sentences and your body feels heavy -- like moving through water.",warn:["Short sentences","Physical heaviness","Full-day depletion"],choices:[
+    {text:"Tell your family: 'I love you. I need 30 quiet minutes to reset -- then I am yours.'",q:"good",d:-18,ex:"Communicating your need before you reach meltdown protects you and your relationships. Using your safe space for a reset is the toolkit at its most effective.",tk:"Toolkit: Connection / Rest \xb7 safe space \xb7 communicating needs"},
+    {text:"Read the story, then try to have the conversation",q:"neutral",d:15,ex:"Adding demand when the warning signs are already showing deepens the fatigue. Sometimes the most loving response is an early, clearly communicated exit.",tk:null},
+    {text:"Stay present until you can't, then shut down mid-conversation",q:"bad",d:28,ex:"Pushing past depletion into meltdown leaves everyone -- including you -- confused and disconnected. The warning signs were there earlier. This is what the toolkit is for.",tk:null}
+  ]}
+];
+
+let G={scene:0,level:35,choices:[],melted:false};
+let actx=null;
+
+function ac(){if(!actx)actx=new(window.AudioContext||window.webkitAudioContext)();return actx}
+function tone(f,dur,type,vol,delay){
+  try{
+    const c=ac(),o=c.createOscillator(),g=c.createGain();
+    o.connect(g);g.connect(c.destination);
+    o.frequency.setValueAtTime(f,c.currentTime+(delay||0));
+    o.type=type||'sine';
+    g.gain.setValueAtTime(.001,c.currentTime+(delay||0));
+    g.gain.linearRampToValueAtTime(vol||.11,c.currentTime+(delay||0)+.02);
+    g.gain.exponentialRampToValueAtTime(.001,c.currentTime+(delay||0)+dur);
+    o.start(c.currentTime+(delay||0));o.stop(c.currentTime+(delay||0)+dur+.05);
+  }catch(e){}
+}
+function playGood(){[[523.25,0],[659.25,.1],[783.99,.2]].forEach(([f,d])=>tone(f,.45,'sine',.11,d))}
+function playBad(){tone(185,.35,'triangle',.09)}
+function playNeutral(){tone(440,.25,'sine',.09)}
+function playCelebration(){[523.25,659.25,783.99,1046.5,783.99,1046.5,1318.5].forEach((f,i)=>tone(f,.5,'sine',.12,i*.11))}
+
+function lc(l){if(l<45)return'#1D9E75';if(l<70)return'#BA7517';return'#E24B4A'}
+function ll(l){if(l<30)return'Very calm';if(l<50)return'Regulated';if(l<65)return'Building up';if(l<80)return'Elevated';if(l<95)return'Near the edge';return'Overloaded'}
+
+function updM(){
+  const pct=Math.min(100,G.level),col=lc(G.level),lbl=ll(G.level);
+  ['mfill','mfill2'].forEach(id=>{const e=document.getElementById(id);if(e){e.style.width=pct+'%';e.style.background=col}});
+  ['mlbl','mlbl2'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=lbl});
+}
+
+function show(id){['s-title','s-scene','s-feedback','s-end'].forEach(s=>document.getElementById(s).classList.remove('on'));document.getElementById(id).classList.add('on')}
+
+function startGame(){G={scene:0,level:35,choices:[],melted:false};renderScene();show('s-scene');updM()}
+
+function renderScene(){
+  const s=SC[G.scene];
+  document.getElementById('snum').textContent='Scene '+(G.scene+1)+' of 4';
+  document.getElementById('stime').textContent=s.time;
+  document.getElementById('stitle').textContent=s.title;
+  document.getElementById('sctx').textContent=s.ctx;
+  document.getElementById('swarn').innerHTML=s.warn.map(w=>`<span class="wtag">${w}</span>`).join('');
+  const ce=document.getElementById('choices');
+  ce.innerHTML='';
+  s.choices.forEach((c,i)=>{
+    const b=document.createElement('button');
+    b.className='bchoice';b.textContent=c.text;
+    b.onclick=()=>pick(i);ce.appendChild(b);
+  });
+  updM();
+}
+
+function pick(idx){
+  const c=SC[G.scene].choices[idx];
+  document.querySelectorAll('.bchoice').forEach(b=>b.disabled=true);
+  G.level=Math.max(5,Math.min(100,G.level+c.d));
+  G.choices.push(c.q);
+  if(c.q==='good'){playGood();setTimeout(()=>popConfetti(55),250)}
+  else if(c.q==='bad')playBad();
+  else playNeutral();
+  setTimeout(()=>showFb(c),380);
+}
+
+function showFb(c){
+  const card=document.getElementById('fbcard');
+  card.className='card fb-'+c.q;
+  const ql=document.getElementById('fbq');
+  const qmap={good:{t:'Strong regulation',col:'var(--color-text-success)'},neutral:{t:'Worth reflecting on',col:'var(--color-text-info)'},bad:{t:'Common pattern',col:'var(--color-text-danger)'}};
+  ql.textContent=qmap[c.q].t;ql.style.color=qmap[c.q].col;
+  document.getElementById('fbct').textContent='\u201c'+c.text+'\u201d';
+  let ex=c.ex;
+  if(G.level>=95&&!G.melted){G.melted=true;ex+=' \u2014 Your nervous system has reached its limit. This is what the workbook calls the peak: the moment after which recovery takes real time.'}
+  document.getElementById('fbex').textContent=ex;
+  document.getElementById('fbtk').textContent=c.tk||'';
+  document.getElementById('nextbtn').textContent=G.scene===3?'See how you did':'Next scene';
+  updM();show('s-feedback');
+}
+
+function nextScene(){G.scene++;if(G.scene>=4)showEnd();else{renderScene();show('s-scene')}}
+
+function showEnd(){
+  const goods=G.choices.filter(c=>c==='good').length;
+  const neutrals=G.choices.filter(c=>c==='neutral').length;
+  const lv=G.level;
+  let title,msg,refl;
+  if(lv<=42){title='Strong regulation';msg='You caught the warning signs early and used your toolkit. That is the skill -- not never feeling overloaded, but knowing what to do when you do.';refl='Reflection: Which strategy felt most natural? That is often the one to build on first in your actual toolkit.';setTimeout(()=>{popConfetti(140);playCelebration()},250)}
+  else if(lv<=65){title='Good awareness';msg='You noticed a lot. Some moments were harder than others -- that is real life, not failure.';refl='Reflection: Was there a moment when you caught a warning sign early? What made that possible in that scene?';setTimeout(()=>{popConfetti(70);playGood()},250)}
+  else if(lv<=82){title='You got through it';msg='The day asked a lot. You noticed the patterns even when it was hard to act on them -- and that noticing matters.';refl='Reflection: Which scenarios felt most familiar? Those might be worth exploring with your therapist.'}
+  else{title='A hard day';msg='When the nervous system is that full, warning signs are harder to catch in time. That is exactly what the toolkit is for -- practicing the moves before you need them.';refl='Reflection: Looking back at the four scenes, was there a moment earlier in the day when intervention might have helped?'}
+  document.getElementById('etitle').textContent=title;
+  document.getElementById('emsg').textContent=msg;
+  document.getElementById('erefl').textContent=refl;
+  document.getElementById('estats').innerHTML=[
+    [goods,'Regulation choices',lc(20)],
+    [neutrals,'Reflection moments','var(--color-text-secondary)'],
+    [lv+'%','Final level',lc(lv)]
+  ].map(([v,l,col])=>`<div class="scard"><div style="font-size:22px;font-weight:500;color:${col};margin-bottom:2px">${v}</div><div style="font-size:11px;color:var(--color-text-secondary)">${l}</div></div>`).join('');
+  show('s-end');
+}
+
+function restartGame(){startGame()}
+
+const COLS=['#1D9E75','#BA7517','#D85A30','#378ADD','#D4537E','#7F77DD'];
+let cfId=null;
+
+function popConfetti(n){
+  const wrap=document.getElementById('gw');
+  const cv=document.getElementById('cfv');
+  cv.width=wrap.offsetWidth||480;cv.height=600;
+  const ctx=cv.getContext('2d');
+  let pts=Array.from({length:n},()=>({
+    x:cv.width*.25+Math.random()*cv.width*.5,
+    y:Math.random()*150,
+    vx:(Math.random()-.5)*4,
+    vy:-3-Math.random()*4,
+    w:5+Math.random()*7,h:3+Math.random()*4,
+    r:Math.random()*360,rv:(Math.random()-.5)*10,
+    color:COLS[Math.floor(Math.random()*COLS.length)],g:.15
+  }));
+  if(cfId)cancelAnimationFrame(cfId);
+  function draw(){
+    ctx.clearRect(0,0,cv.width,600);
+    pts.forEach(p=>{
+      ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.r*Math.PI/180);
+      ctx.fillStyle=p.color;ctx.globalAlpha=Math.max(0,1-p.y/580);
+      ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);ctx.restore();
+      p.x+=p.vx;p.y+=p.vy;p.vy+=p.g;p.r+=p.rv;
+    });
+    pts=pts.filter(p=>p.y<610);
+    if(pts.length>0)cfId=requestAnimationFrame(draw);
+    else ctx.clearRect(0,0,cv.width,600);
+  }
+  draw();
+}
+</script>

@@ -5,15 +5,15 @@ import Link from "next/link"
 import { useHover } from "./hover-context"
 
 const navItems = [
-  { id: "01", label: "NEURODIV",    color: "bg-nav-amber",  href: "/neurodiversity" },
-  { id: "02", label: "TESTS",       color: "bg-nav-teal",   href: "/tests" },
-  { id: "03", label: "ADHD SKILLS", color: "bg-nav-salmon", href: "/adhd-skills" },
-  { id: "04", label: "ASD SKILLS",  color: "bg-nav-coral",  href: "/asd-skills" },
-  { id: "05", label: "OCD SKILLS",  color: "bg-nav-teal",   href: "/ocd-skills" },
-  { id: "06", label: "MINDFULNESS", color: "bg-nav-amber",  href: "/mindfulness" },
-  { id: "07", label: "BRAIN GAMES", color: "bg-nav-salmon", href: "/brain-games" },
-  { id: "08", label: "BLOG",        color: "bg-nav-teal",   href: "/blog" },
-  { id: "09", label: "THERAPY",     color: "bg-nav-coral",  href: "/individual-therapy" },
+  { id: "01", label: "NEURODIV",    color: "bg-nav-amber",    href: "/neurodiversity" },
+  { id: "02", label: "TESTS",       color: "bg-nav-teal",     href: "/tests" },
+  { id: "03", label: "ADHD SKILLS", color: "bg-nav-salmon",   href: "/adhd-skills" },
+  { id: "04", label: "ASD SKILLS",  color: "bg-nav-coral",    href: "/asd-skills" },
+  { id: "05", label: "OCD SKILLS",  color: "bg-nav-rose",     href: "/ocd-skills" },
+  { id: "06", label: "MINDFULNESS", color: "bg-nav-seafoam",  href: "/mindfulness" },
+  { id: "07", label: "BRAIN GAMES", color: "bg-nav-orange",   href: "/brain-games" },
+  { id: "08", label: "BLOG",        color: "bg-nav-gold",     href: "/blog" },
+  { id: "09", label: "THERAPY",     color: "bg-nav-mauve",    href: "/individual-therapy" },
 ]
 
 export function DiagonalNav() {
@@ -22,17 +22,6 @@ export function DiagonalNav() {
 
   return (
     <nav className="no-print fixed right-0 top-0 h-screen z-50 hidden md:flex">
-      {/* Logo badge */}
-      <div className="absolute top-6 right-6 z-60">
-        <div className="w-16 h-16 rounded-full bg-foreground flex items-center justify-center">
-          <span className="text-background font-[var(--font-display)] text-xs font-bold text-center leading-tight">
-            ML
-            <br />
-            PsyD
-          </span>
-        </div>
-      </div>
-
       {/* Navigation columns */}
       <div className="flex h-full">
         {navItems.map((item, index) => {
@@ -82,14 +71,7 @@ export function MobileNav() {
 
   return (
     <div className="no-print md:hidden absolute top-0 left-0 right-0 z-50">
-      <div className="flex items-center justify-between p-4 bg-background/95 backdrop-blur-sm">
-        <div className="w-12 h-12 rounded-full bg-foreground flex items-center justify-center">
-          <span className="text-background font-[var(--font-display)] text-[10px] font-bold text-center leading-tight">
-            ML
-            <br />
-            PsyD
-          </span>
-        </div>
+      <div className="flex items-center justify-end p-4 bg-background/95 backdrop-blur-sm">
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="p-2"
