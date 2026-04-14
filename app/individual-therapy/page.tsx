@@ -1,42 +1,58 @@
 import { ToolPageLayout } from "@/components/tool-page-layout"
+import { NoSurprisesButton } from "@/components/no-surprises-button"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Individual Therapy — Dr. Madrone Love, PsyD",
-  description: "One-on-one psychotherapy for neurodivergent adults navigating identity, grief, anxiety, and major life transitions.",
+  description: "Neuro-inclusive individual therapy for ADHD, autism, OCD, and trauma. In-person in San Francisco & Berkeley, CA and via telehealth throughout California.",
 }
 
 const specializations = [
   {
-    title: "Grief & Loss",
-    body: "Death, divorce, diagnosis, the loss of an imagined future. Working through grief rather than around it.",
+    title: "ADHD",
+    body: "Executive function challenges, focus, impulsivity, emotional regulation, and building life systems that actually work for your brain — not the neurotypical default.",
     color: "border-nav-coral",
   },
   {
-    title: "Life Transitions",
-    body: "Career shifts, relationship changes, late diagnoses, becoming a parent, growing older. Navigating the disorientation of becoming someone new.",
+    title: "Autism & Neurodivergence",
+    body: "ASD, Asperger's, giftedness, highly sensitive person, NVLD, dyslexia, alexithymia, and multiple neurodivergencies — including late diagnosis, masking burnout, and identity work.",
     color: "border-nav-coral",
   },
   {
-    title: "Identity & Existential Questions",
-    body: "Who am I outside of what I produce? What do I actually believe? What kind of life do I want? Therapy as a space for the questions that don't have easy answers.",
+    title: "OCD",
+    body: "All presentations of OCD — existential, moral, harm, and relationship OCD. Treated with gold-standard ERP alongside ACT and compassion-based approaches.",
     color: "border-nav-coral",
   },
   {
-    title: "Anxiety",
-    body: "Generalized anxiety, social anxiety, existential anxiety, perfectionism. Evidence-based tools integrated with contemplative practice.",
+    title: "Trauma",
+    body: "Childhood trauma, PTSD, religious trauma, and birthing trauma. Approached with somatic, relational, and trauma-focused modalities tailored to your history.",
     color: "border-nav-coral",
   },
   {
-    title: "Neurodivergent Adults",
-    body: "ADHD, autism, OCD, giftedness, and multiple neurodivergencies — including late diagnosis, masking burnout, and building a life structured around how you actually work.",
+    title: "Anxiety & Mood",
+    body: "Generalized anxiety, social anxiety, depression, self-esteem, perfectionism, maladaptive daydreaming, and insomnia. Evidence-based tools grounded in a compassionate frame.",
     color: "border-nav-coral",
   },
   {
-    title: "Multicultural Identity",
-    body: "Navigating multiple cultural identities, racial identity, and the intersections of race, neurodivergence, and mental health. Informed by my work as host of the Multiracial Mental Health Podcast.",
+    title: "Identity & Relationships",
+    body: "Multicultural and racial identity, relationship concerns, spirituality, limerence, existential questions, and the intersections of neurodivergence and mental health.",
     color: "border-nav-coral",
   },
+]
+
+const modalities = [
+  "Exposure Response Prevention (ERP)",
+  "Dialectical Behavior Therapy (DBT)",
+  "Acceptance & Commitment (ACT)",
+  "Mindfulness-Based (MBCT)",
+  "Compassion Focused",
+  "Somatic",
+  "Relational",
+  "Trauma Focused",
+  "Ketamine-Assisted",
+  "Solution Focused Brief",
+  "Multicultural",
+  "Executive Function Coaching",
 ]
 
 export default function IndividualTherapyPage() {
@@ -44,34 +60,37 @@ export default function IndividualTherapyPage() {
     <ToolPageLayout title="INDIVIDUAL THERAPY" color="text-nav-coral">
       <div className="space-y-14">
 
-        {/* Intro */}
+        {/* Personal Statement */}
         <div className="space-y-5 max-w-prose">
           <p className="text-lg text-foreground leading-relaxed">
-            Working with me is about understanding who you are and the life you are
-            building for yourself — not conforming to a standard of health that was
-            never designed with you in mind.
+            I work with people who feel different. Maybe you have an autism, ADHD, or OCD
+            diagnosis — including self-diagnosis — or you simply describe yourself as
+            &ldquo;weird.&rdquo; My work as a psychologist isn&apos;t to make you
+            &ldquo;normal.&rdquo; It&apos;s to help you understand yourself more fully and
+            build a life on your own terms.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            My approach draws from my Buddhist practice, which means I show up to sessions
-            genuinely present — not running a protocol, but in actual contact with you and
-            what you are carrying. From there we work together to gain clarity about your
-            path ahead, understand yourself more compassionately, and develop psychological
-            skills that help you thrive on your own terms.
+            I primarily work with neurodivergent adults, people with OCD, and trauma
+            survivors. I have extensive training in ketamine-assisted therapy and
+            psychedelic integration, and can integrate these modalities into treatment
+            as indicated.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            I use an integrative approach: evidence-based modalities (ERP, CBT, ACT) are
-            grounded in a relational, depth-oriented frame. The research matters. So does
-            the relationship. I hold both.
+            In addition to compassion- and mindfulness-based interventions, I bring in
+            skills training and coaching when it&apos;s useful. I am trained in ERP, DBT,
+            and ACT, and I weave executive function skill building into my practice as
+            needed. I begin treatment with a full assessment and work with you to identify
+            goals tailored to your unique life.
           </p>
         </div>
 
-        {/* Who I work with */}
+        {/* Who I Work With */}
         <div>
           <h2 className="font-[var(--font-display)] text-2xl font-black text-foreground tracking-tight mb-2">
             WHO I WORK WITH
           </h2>
           <p className="text-sm text-muted-foreground mb-6">
-            I work primarily with adults. My specializations include:
+            I work with adults. My top specialties and areas of expertise include:
           </p>
           <div className="grid sm:grid-cols-2 gap-4">
             {specializations.map(s => (
@@ -84,6 +103,27 @@ export default function IndividualTherapyPage() {
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{s.body}</p>
               </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Treatment Approaches */}
+        <div>
+          <h2 className="font-[var(--font-display)] text-2xl font-black text-foreground tracking-tight mb-2">
+            TREATMENT APPROACHES
+          </h2>
+          <p className="text-sm text-muted-foreground mb-5">
+            For clients struggling with mood, grief, or seeking deeper insight, we can
+            also discuss whether ketamine-assisted therapy might be a good fit.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {modalities.map(m => (
+              <span
+                key={m}
+                className="text-xs font-[var(--font-display)] font-bold tracking-wide px-3 py-1.5 rounded-full border border-nav-coral/40 text-nav-coral bg-nav-coral/5"
+              >
+                {m}
+              </span>
             ))}
           </div>
         </div>
@@ -101,33 +141,81 @@ export default function IndividualTherapyPage() {
               <ul className="text-sm text-muted-foreground space-y-1">
                 <li>BA, University of Pennsylvania</li>
                 <li>MA, University of California, Berkeley</li>
-                <li>PsyD, The Wright Institute</li>
-                <li>Post-doctoral Fellow, UCSF</li>
+                <li>PsyD, The Wright Institute (2023)</li>
+                <li>Post-doctoral Fellow, UCSF (2025)</li>
                 <li>ERP Training, International OCD Foundation</li>
+                <li>Ketamine-Assisted Therapy Training</li>
               </ul>
             </div>
-            <div className="space-y-2">
-              <h3 className="font-[var(--font-display)] font-bold text-foreground text-sm tracking-wide">
-                Additional Roles
-              </h3>
-              <ul className="text-sm text-muted-foreground space-y-1">
-                <li>Assistant Professor of Counseling Psychology, CIIS</li>
-                <li>Host, Multiracial Mental Health Podcast</li>
-              </ul>
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <h3 className="font-[var(--font-display)] font-bold text-foreground text-sm tracking-wide">
+                  Additional Roles
+                </h3>
+                <ul className="text-sm text-muted-foreground space-y-1">
+                  <li>Assistant Professor of Counseling Psychology, CIIS</li>
+                  <li>Host, Multiracial Mental Health Podcast</li>
+                </ul>
+              </div>
+              <div className="space-y-1">
+                <h3 className="font-[var(--font-display)] font-bold text-foreground text-sm tracking-wide">
+                  License
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  Licensed Psychologist, California #35899
+                </p>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Getting started */}
-        <div className="border-l-2 border-nav-coral pl-6 max-w-prose space-y-3">
+        {/* Locations */}
+        <div>
+          <h2 className="font-[var(--font-display)] text-2xl font-black text-foreground tracking-tight mb-6">
+            LOCATIONS
+          </h2>
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div className="bg-card border border-border rounded-lg p-5 space-y-1">
+              <h3 className="font-[var(--font-display)] font-bold text-foreground text-sm tracking-wide mb-2">
+                San Francisco
+              </h3>
+              <p className="text-sm text-muted-foreground">Hayes Valley</p>
+              <p className="text-sm text-muted-foreground">110 Gough Street, Suite 203B</p>
+              <p className="text-sm text-muted-foreground">San Francisco, CA 94102</p>
+            </div>
+            <div className="bg-card border border-border rounded-lg p-5 space-y-1">
+              <h3 className="font-[var(--font-display)] font-bold text-foreground text-sm tracking-wide mb-2">
+                Berkeley
+              </h3>
+              <p className="text-sm text-muted-foreground">Anam Cara Therapy Center</p>
+              <p className="text-sm text-muted-foreground">2915 Martin Luther King Junior Way</p>
+              <p className="text-sm text-muted-foreground">Berkeley, CA 94703</p>
+            </div>
+          </div>
+          <p className="text-sm text-muted-foreground mt-4">
+            Also available throughout California via telehealth.
+          </p>
+        </div>
+
+        {/* Getting Started */}
+        <div className="border-l-2 border-nav-coral pl-6 space-y-4">
           <h3 className="font-[var(--font-display)] font-bold text-foreground text-sm tracking-wide">
             GETTING STARTED
           </h3>
-          <p className="text-muted-foreground leading-relaxed text-sm">
-            I practice in Berkeley and San Francisco, CA — and work with clients throughout
-            California via telehealth. I offer a free 20-minute consultation to see whether
-            we are a good fit. Reach out through the contact form or by email to begin.
+          <p className="text-muted-foreground leading-relaxed text-sm max-w-prose">
+            I am currently accepting new clients and offer both in-person and online
+            sessions. I offer a free 20-minute consultation to see whether we are a good
+            fit. Reach out by phone at{" "}
+            <a href="tel:+14159152183" className="text-nav-coral hover:underline">
+              (415) 915-2183
+            </a>{" "}
+            or by email at{" "}
+            <a href="mailto:therapy@madronelove.com" className="text-nav-coral hover:underline">
+              therapy@madronelove.com
+            </a>
+            .
           </p>
+          <NoSurprisesButton />
         </div>
 
       </div>
