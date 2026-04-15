@@ -4,10 +4,10 @@ export function AnimatedHeading() {
       style={{ textShadow: "0 1px 6px rgba(200,190,175,0.6)" }}
     >
       Therapy and Tools for people who feel{" "}
-      <span className="italic font-[var(--font-accent)] font-bold text-2xl sm:text-3xl" style={{ color: "#7A9A78" }}>
+      <span className="italic font-[var(--font-accent)] font-bold text-2xl sm:text-3xl" style={{ color: "#C89050" }}>
         different
       </span>
-      <span className="font-[var(--font-accent)] font-bold text-2xl sm:text-3xl" style={{ color: "#7A9A78" }}>.</span>
+      <span className="font-[var(--font-accent)] font-bold text-2xl sm:text-3xl" style={{ color: "#C89050" }}>.</span>
     </p>
   )
 }
