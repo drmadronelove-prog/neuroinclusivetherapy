@@ -92,7 +92,7 @@ function HeroCard({
   return (
     <Link href={card.href}>
       <motion.div
-        className={`relative w-full h-32 sm:h-36 lg:h-40 bg-card rounded-lg border-2 ${card.color} shadow-lg cursor-pointer overflow-hidden`}
+        className={`relative w-full h-32 sm:h-36 lg:h-40 bg-card rounded-lg border ${card.color} cursor-pointer overflow-hidden`}
         initial={{ rotate: card.rotation }}
         animate={{
           rotate: isHovered ? 0 : card.rotation,

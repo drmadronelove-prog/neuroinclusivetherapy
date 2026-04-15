@@ -146,7 +146,7 @@ export function ContactSection() {
           >
             <form
               onSubmit={handleSubmit}
-              className="bg-background rounded-xl p-8 shadow-lg"
+              className="bg-background rounded-xl p-8 border border-border"
             >
               <div className="grid sm:grid-cols-2 gap-6 mb-6">
                 <div>
@@ -252,7 +252,7 @@ export function ContactSection() {
 
               <button
                 type="submit"
-                className="w-full bg-primary text-primary-foreground px-8 py-4 rounded-full font-[var(--font-display)] font-bold text-sm tracking-wider uppercase hover:scale-[1.02] hover:shadow-lg transition-all duration-300"
+                className="w-full bg-primary text-primary-foreground px-8 py-4 rounded-full font-[var(--font-display)] font-bold text-sm tracking-wider uppercase hover:scale-[1.02] transition-all duration-300"
               >
                 Send Message
               </button>

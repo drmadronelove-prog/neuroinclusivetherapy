@@ -64,7 +64,7 @@ export function ServicesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative bg-card rounded-lg p-8 border border-border hover:border-transparent hover:shadow-xl transition-all duration-300"
+              className="group relative bg-card rounded-lg p-8 border border-border hover:border-nav-teal transition-all duration-300"
             >
               {/* Color accent */}
               <div

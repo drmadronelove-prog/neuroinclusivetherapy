@@ -37,7 +37,7 @@ export function DiagonalNav() {
               onClick={() => setActiveIndex(index)}
             >
               <span
-                className="text-white font-[var(--font-display)] font-bold text-sm tracking-widest whitespace-nowrap transition-opacity duration-300"
+                className="text-foreground font-[var(--font-display)] font-bold text-sm tracking-widest whitespace-nowrap transition-opacity duration-300"
                 style={{
                   writingMode: "vertical-rl",
                   textOrientation: "mixed",
@@ -50,7 +50,7 @@ export function DiagonalNav() {
 
               {/* Active indicator */}
               {isActive && (
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-white rounded-r" />
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-foreground rounded-r" />
               )}
             </Link>
           )
