@@ -264,21 +264,7 @@ export function ContactSection() {
           </motion.div>
         </div>
 
-        {/* Footer */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-24 pt-8 border-t border-border text-center"
-        >
-          <p className="text-sm text-muted-foreground">
-            © 2026 Madrone Love, PsyD &bull; Licensed Clinical Psychologist &bull; CA License #PSY35899
-          </p>
-          <p className="text-xs text-muted-foreground mt-2">
-            110 Gough Street, San Francisco &bull; 2915 MLK Jr Way, Berkeley &bull; Telehealth throughout California
-          </p>
-        </motion.div>
+
       </div>
     </section>
   )

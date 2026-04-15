@@ -122,7 +122,7 @@ function HeroCard({
           <span className="text-muted-foreground text-xs font-medium tracking-wider mb-2">
             {String(index + 1).padStart(2, "0")}
           </span>
-          <h3 className="font-[var(--font-display)] text-sm sm:text-base lg:text-lg font-bold text-foreground text-center leading-tight">
+          <h3 className="font-[var(--font-display)] text-[10px] sm:text-xs lg:text-sm font-bold text-foreground text-center leading-tight break-words hyphens-auto w-full">
             {card.title}
           </h3>
         </div>

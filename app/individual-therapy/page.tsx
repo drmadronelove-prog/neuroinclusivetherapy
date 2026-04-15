@@ -1,5 +1,6 @@
 import { ToolPageLayout } from "@/components/tool-page-layout"
 import { NoSurprisesButton } from "@/components/no-surprises-button"
+import { RequiredDisclosuresButton } from "@/components/required-disclosures-button"
 import Image from "next/image"
 import type { Metadata } from "next"
 
@@ -239,7 +240,10 @@ export default function IndividualTherapyPage() {
             </a>
             .
           </p>
-          <NoSurprisesButton />
+          <div className="flex flex-wrap gap-3">
+            <NoSurprisesButton />
+            <RequiredDisclosuresButton />
+          </div>
         </div>
 
       </div>

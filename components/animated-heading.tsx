@@ -105,10 +105,7 @@ export function AnimatedHeading() {
         break
 
       case "hold-final":
-        timerRef.current = setTimeout(() => {
-          setUnderline(false)
-          setPhase("del-cursive")
-        }, HOLD_FINAL)
+        // Cycle is complete — stay here permanently on "different"
         break
 
       case "del-cursive":
@@ -154,7 +151,7 @@ export function AnimatedHeading() {
         <>
           {" "}
           <span className="relative inline-block">
-            <span className="text-nav-teal font-[var(--font-accent)] font-bold text-4xl sm:text-5xl">
+            <span className="italic text-nav-teal font-[var(--font-accent)] font-bold text-4xl sm:text-5xl">
               {cursive}
             </span>
 
@@ -163,7 +160,7 @@ export function AnimatedHeading() {
               aria-hidden
               className="pointer-events-none absolute left-0 -bottom-1 h-[2px] bg-nav-teal"
               style={{
-                width: "calc(100% + 10px)",
+                width: "100%",
                 transformOrigin: "left center",
                 transform: underline ? "scaleX(1)" : "scaleX(0)",
                 transition: underline
