@@ -10,17 +10,12 @@ export function HeroSection() {
       id="home"
       className="relative min-h-screen flex flex-col justify-center px-6 lg:px-16 pt-20 md:pt-0 pb-12 lg:-mt-[5vh]"
     >
-      {/*
-        Video + overlay wrapper: breaks out of the parent's md:mr-[378px] constraint
-        by using absolute positioning with an explicit viewport-based width.
-        Stops exactly at the nav tabs (6 tabs × 42px = 252px from right).
-      */}
+      {/* Video — spans full width up to the tabs */}
       <div
         aria-hidden="true"
         style={{
           position: "absolute",
-          top: 0,
-          left: 0,
+          top: 0, left: 0,
           width: "calc(100vw - 252px)",
           height: "100%",
           minHeight: "100vh",
@@ -28,37 +23,26 @@ export function HeroSection() {
           zIndex: 0,
         }}
       >
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "center",
-          }}
-        >
+        <video autoPlay muted loop playsInline style={{
+          position: "absolute", inset: 0,
+          width: "100%", height: "100%",
+          objectFit: "cover", objectPosition: "center",
+        }}>
           <source src="/pottery.mp4" type="video/mp4" />
         </video>
 
-        {/* Soft overlay so text stays legible */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "rgba(240,235,227,0.58)",
-          }}
-        />
+        {/* Gradient overlay: heavy cream on left (heading), light on right (cards) */}
+        <div style={{
+          position: "absolute", inset: 0,
+          background: "linear-gradient(to right, rgba(240,235,227,0.94) 0%, rgba(240,235,227,0.82) 28%, rgba(240,235,227,0.52) 55%, rgba(240,235,227,0.28) 85%, rgba(240,235,227,0.15) 100%)",
+        }} />
       </div>
 
-      <div className="relative max-w-6xl mx-auto w-full" style={{ zIndex: 2 }}>
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          {/* Left content */}
-          <div className="space-y-8">
+      <div className="relative w-full max-w-6xl mx-auto" style={{ zIndex: 2 }}>
+        <div className="flex items-center gap-8 lg:gap-12">
+
+          {/* Left — heading, fixed width so cards get all remaining space */}
+          <div className="shrink-0 space-y-6" style={{ maxWidth: "340px" }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -66,7 +50,7 @@ export function HeroSection() {
             >
               <h1
                 className="font-[var(--font-display)] text-6xl sm:text-7xl lg:text-8xl font-black text-foreground leading-[0.85] tracking-tight"
-                style={{ textShadow: "0 2px 12px rgba(200,190,175,0.7), 0 1px 4px rgba(200,190,175,0.5)" }}
+                style={{ textShadow: "2px 2px 0 rgba(240,235,227,0.6), 0 4px 20px rgba(240,235,227,0.8)" }}
               >
                 <span className="block">NEURO</span>
                 <span className="block text-nav-coral">INCLU</span>
@@ -83,15 +67,16 @@ export function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Right content — Hero Cards */}
+          {/* Right — cards pushed flush right toward the tabs */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex justify-center lg:justify-end"
+            className="flex-1 flex justify-end"
           >
             <HeroCards />
           </motion.div>
+
         </div>
       </div>
     </section>
