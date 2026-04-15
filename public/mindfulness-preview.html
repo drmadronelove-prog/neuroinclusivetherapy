@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mindfulness & Meditation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:     #F0EDE4;
+      --text:   #1C1C1A;
+      --muted:  #6B6B66;
+      --pink:   #E8487A;
+      --teal:   #5BBFB5;
+      --salmon: #E8705A;
+      --amber:  #E8A23A;
+      --gold:   #D4A843;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 64px 24px 96px;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* ── Page heading ── */
+    .page-heading {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    /* ── Intro blurb ── */
+    .intro {
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--muted);
+      max-width: 680px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    /* ── Rule ── */
+    hr {
+      border: none;
+      border-top: 1px solid rgba(28,28,26,0.14);
+      margin-bottom: 36px;
+    }
+
+    /* ── Subsection label ── */
+    .subsection-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    /* ── YouTube embed ── */
+    .video-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 7.5;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000;
+      margin-bottom: 12px;
+    }
+
+    .video-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    .video-caption {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 52px;
+      line-height: 1.5;
+    }
+
+    /* ── Card grid ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    @media (max-width: 720px) {
+      .card-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .card-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--bg);
+      border-radius: 16px;
+      border: 2px solid var(--card-color);
+      padding: 24px 22px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Tag pill */
+    .tag {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--card-color);
+      border: 1.5px solid var(--card-color);
+      border-radius: 999px;
+      padding: 3px 10px;
+      width: fit-content;
+      opacity: 0.85;
+    }
+
+    /* Card heading */
+    .card-heading {
+      font-size: 1.25rem;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+      color: var(--text);
+    }
+
+    /* Card subtitle */
+    .card-subtitle {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: -4px;
+    }
+
+    /* Card body */
+    .card-body {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    /* Card link */
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 6px;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--card-color);
+      text-decoration: none;
+      opacity: 0.9;
+      transition: opacity 0.15s;
+    }
+    .card-link:hover { opacity: 1; text-decoration: underline; }
+    .card-link .arrow { font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <main class="page">
+
+    <!-- Page heading -->
+    <h1 class="page-heading">Mindfulness &amp; Meditation</h1>
+
+    <!-- Intro blurb -->
+    <p class="intro">
+      Contemplative resources for neurodivergent-affirming practice. Mindfulness,
+      when adapted for different nervous systems, can support regulation,
+      self-compassion, and present-moment grounding.
+    </p>
+
+    <hr />
+
+    <!-- Subsection label -->
+    <p class="subsection-label">Guided Meditation &mdash;&mdash; Gil Fronsdal</p>
+
+    <!-- YouTube embed -->
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube.com/embed/gRJeblBqhXI"
+        title="Gil Fronsdal guided meditation"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <p class="video-caption">
+      Gil Fronsdal &mdash; Insight Meditation Center, Berkeley.
+      Vipassana and mindfulness teachings in the Theravada tradition.
+    </p>
+
+    <!-- Card grid -->
+    <div class="card-grid">
+
+      <!-- Card 1: Audiodharma — teal -->
+      <div class="card" style="--card-color: #5BBFB5;">
+        <span class="tag">Archive</span>
+        <h2 class="card-heading">Audiodharma</h2>
+        <p class="card-subtitle">Insight Meditation Center</p>
+        <p class="card-body">
+          Free archive of hundreds of guided meditations and dharma talks by
+          Gil Fronsdal and other IMC teachers. Includes the foundational
+          Introduction to Meditation series &mdash; an excellent starting point
+          for clients new to practice.
+        </p>
+        <a class="card-link" href="https://www.audiodharma.org" target="_blank" rel="noopener noreferrer">
+          audiodharma.org <span class="arrow">↗</span>
+        </a>
+      </div>
+
+      <!-- Card 2: IMC — pink -->
+      <div class="card" style="--card-color: #E8487A;">
+        <span class="tag">Center</span>
+        <h2 class="card-heading">Insight Meditation Center</h2>
+        <p class="card-subtitle">IMC &mdash; Redwood City, CA</p>
+        <p class="card-body">
+          Gil Fronsdal's home center. Weekly dharma talks, sitting groups, and
+          daylong retreats. Sliding-scale and free offerings available.
+          Particularly welcoming to those new to meditation.
+        </p>
+        <a class="card-link" href="https://www.insightmeditationcenter.org" target="_blank" rel="noopener noreferrer">
+          insightmeditationcenter.org <span class="arrow">↗</span>
+        </a>
+      </div>
+
+      <!-- Card 3: Spirit Rock — amber -->
+      <div class="card" style="--card-color: #E8A23A;">
+        <span class="tag">Retreat Center</span>
+        <h2 class="card-heading">Spirit Rock</h2>
+        <p class="card-subtitle">Spirit Rock Meditation Center &mdash; Woodacre, CA</p>
+        <p class="card-body">
+          One of the leading Insight meditation centers in the West. Offers
+          daylong, residential, and online retreats. Programs specifically for
+          communities of color, LGBTQ+ practitioners, and those with chronic
+          illness.
+        </p>
+        <a class="card-link" href="https://www.spiritrock.org" target="_blank" rel="noopener noreferrer">
+          spiritrock.org <span class="arrow">↗</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>
