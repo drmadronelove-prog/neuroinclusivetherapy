@@ -51,14 +51,32 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
+              style={{ textShadow: "0 2px 18px rgba(240,235,227,0.9)" }}
             >
-              <h1
-                className="font-[var(--font-display)] text-6xl sm:text-7xl lg:text-8xl font-black leading-[0.85] tracking-tight"
-                style={{ textShadow: "0 2px 16px rgba(240,235,227,0.85)" }}
-              >
-                <span className="block" style={{ color: "#3D5230" }}>NEURO</span>
-                <span className="block" style={{ color: "#C4755A" }}>INCLU</span>
-                <span className="block" style={{ color: "#3D5230" }}>SIVE</span>
+              {/* Small label */}
+              <p style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "0.72rem",
+                fontWeight: 900,
+                letterSpacing: "0.30em",
+                color: "#C4755A",
+                textTransform: "uppercase",
+                lineHeight: 1,
+                marginBottom: "6px",
+              }}>
+                NEURO
+              </p>
+              {/* Large handwritten word */}
+              <h1 style={{
+                fontFamily: "var(--font-accent)",
+                fontSize: "clamp(3.8rem, 6.5vw, 5.5rem)",
+                fontWeight: 700,
+                color: "#3D5230",
+                lineHeight: 0.95,
+                letterSpacing: "-0.01em",
+                margin: 0,
+              }}>
+                inclusive
               </h1>
             </motion.div>
 
@@ -97,10 +115,10 @@ export function HeroSection() {
         }}
       >
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-end sm:items-center justify-between gap-2">
-          <p className="font-[var(--font-display)] font-bold tracking-wide" style={{ fontSize: "0.875rem", color: "rgba(61,82,48,0.48)" }}>
+          <p style={{ fontFamily: "var(--font-accent)", fontWeight: 600, fontSize: "0.95rem", color: "rgba(61,82,48,0.48)" }}>
             Dr. Madrone Love, PsyD &nbsp;·&nbsp; San Francisco &amp; Berkeley, CA &nbsp;·&nbsp; Telehealth
           </p>
-          <div className="flex flex-wrap gap-x-5 gap-y-1" style={{ color: "rgba(61,82,48,0.48)", fontSize: "0.875rem" }}>
+          <div className="flex flex-wrap gap-x-5 gap-y-1" style={{ fontFamily: "var(--font-accent)", color: "rgba(61,82,48,0.48)", fontSize: "0.95rem" }}>
             <a href="tel:+14159152183" className="hover:opacity-100 transition-opacity">
               (415) 915-2183
             </a>

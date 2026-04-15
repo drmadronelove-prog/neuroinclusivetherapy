@@ -4,6 +4,9 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 
+// Subtle paper grain texture via SVG turbulence
+const PAPER_BG = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E\")"
+
 const cards = [
   { title: "Neurodiversity",     href: "/neurodiversity",     borderColor: "#3D5230", rotate: -2   },
   { title: "Tests",              href: "/tests",              borderColor: "#D47870", rotate:  1.5 },
@@ -49,9 +52,11 @@ function HeroCard({
         style={{
           width: "8.5rem",
           height: "10rem",
-          background: "rgba(248, 244, 238, 0.88)",
-          backdropFilter: "blur(10px)",
-          WebkitBackdropFilter: "blur(10px)",
+          backgroundColor: "rgba(248, 244, 238, 0.92)",
+          backgroundImage: PAPER_BG,
+          backgroundSize: "200px 200px",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
           border: `2px solid ${card.borderColor}`,
           borderRadius: "14px",
           boxShadow: isHovered
@@ -66,7 +71,7 @@ function HeroCard({
         {/* Inner top gloss */}
         <div style={{
           position: "absolute", inset: 0,
-          background: "linear-gradient(160deg, rgba(255,255,255,0.45) 0%, transparent 50%)",
+          background: "linear-gradient(160deg, rgba(255,255,255,0.35) 0%, transparent 55%)",
           borderRadius: "13px",
           pointerEvents: "none",
         }} />
