@@ -99,7 +99,6 @@ export function AnimatedHeading() {
             TYPE_MS,
           )
         } else {
-          setUnderline(true)
           setPhase("hold-final")
         }
         break
@@ -155,19 +154,6 @@ export function AnimatedHeading() {
               {cursive}
             </span>
 
-            {/* Underline draws left-to-right like a pen stroke */}
-            <span
-              aria-hidden
-              className="pointer-events-none absolute left-0 -bottom-1 h-[2px] bg-nav-teal"
-              style={{
-                width: "100%",
-                transformOrigin: "left center",
-                transform: underline ? "scaleX(1)" : "scaleX(0)",
-                transition: underline
-                  ? "transform 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94)"
-                  : "transform 200ms ease-in",
-              }}
-            />
           </span>
 
           {/* Period fades in once the word is fully typed */}

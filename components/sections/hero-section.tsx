@@ -8,38 +8,51 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col justify-center px-6 lg:px-16 pt-20 md:pt-0 pb-12 lg:-mt-[5vh] overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center px-6 lg:px-16 pt-20 md:pt-0 pb-12 lg:-mt-[5vh]"
     >
-      {/* Full-bleed background video */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          inset: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          objectPosition: "center",
-          zIndex: 0,
-        }}
-      >
-        <source src="/pottery.mp4" type="video/mp4" />
-      </video>
-
-      {/* Soft overlay so text stays legible over the video */}
+      {/*
+        Video + overlay wrapper: breaks out of the parent's md:mr-[378px] constraint
+        by using absolute positioning with an explicit viewport-based width.
+        Stops exactly at the nav tabs (6 tabs × 42px = 252px from right).
+      */}
       <div
         aria-hidden="true"
         style={{
           position: "absolute",
-          inset: 0,
-          background: "rgba(240,235,227,0.62)",
-          zIndex: 1,
+          top: 0,
+          left: 0,
+          width: "calc(100vw - 252px)",
+          height: "100%",
+          overflow: "hidden",
+          zIndex: 0,
         }}
-      />
+      >
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
+          }}
+        >
+          <source src="/pottery.mp4" type="video/mp4" />
+        </video>
+
+        {/* Soft overlay so text stays legible */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "rgba(240,235,227,0.58)",
+          }}
+        />
+      </div>
 
       <div className="relative max-w-6xl mx-auto w-full" style={{ zIndex: 2 }}>
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
