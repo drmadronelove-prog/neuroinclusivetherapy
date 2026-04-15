@@ -10,67 +10,38 @@ export function HeroSection() {
       id="home"
       className="relative min-h-screen flex flex-col justify-center px-6 lg:px-16 pt-20 md:pt-0 pb-12 lg:-mt-[5vh] overflow-hidden"
     >
-      {/* Subtle flowing movement lines — full section background */}
-      <svg
+      {/* Full-bleed background video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
         aria-hidden="true"
         style={{
           position: "absolute",
           inset: 0,
           width: "100%",
           height: "100%",
-          pointerEvents: "none",
-          opacity: 0.32,
+          objectFit: "cover",
+          objectPosition: "center",
+          zIndex: 0,
         }}
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="xMidYMid slice"
       >
-        <defs>
-          {/* Curved arc lines that sweep from bottom-left toward top-right */}
-          {Array.from({ length: 22 }).map((_, i) => (
-            <path
-              key={i}
-              id={`arc-${i}`}
-              d={`M ${-200 + i * 60},900 Q ${200 + i * 55},${480 - i * 12} ${700 + i * 48},${-60 + i * 8}`}
-              fill="none"
-            />
-          ))}
-        </defs>
-        <g stroke="#7A9A78" strokeWidth="0.9" fill="none">
-          {Array.from({ length: 22 }).map((_, i) => (
-            <use key={i} href={`#arc-${i}`} strokeOpacity={0.35 - i * 0.008} />
-          ))}
-        </g>
-      </svg>
+        <source src="/pottery.mp4" type="video/mp4" />
+      </video>
 
-      {/* Secondary finer lines at a steeper angle for depth */}
-      <svg
+      {/* Soft overlay so text stays legible over the video */}
+      <div
         aria-hidden="true"
         style={{
           position: "absolute",
           inset: 0,
-          width: "100%",
-          height: "100%",
-          pointerEvents: "none",
-          opacity: 0.16,
+          background: "rgba(240,235,227,0.62)",
+          zIndex: 1,
         }}
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        <defs>
-          <pattern
-            id="diag-lines"
-            width="36"
-            height="36"
-            patternUnits="userSpaceOnUse"
-            patternTransform="rotate(34)"
-          >
-            <line x1="0" y1="0" x2="0" y2="36" stroke="#7A9A78" strokeWidth="0.7" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#diag-lines)" />
-      </svg>
+      />
 
-      <div className="relative max-w-6xl mx-auto w-full">
+      <div className="relative max-w-6xl mx-auto w-full" style={{ zIndex: 2 }}>
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           {/* Left content */}
           <div className="space-y-8">
