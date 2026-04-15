@@ -89,7 +89,7 @@ function HeroCard({
           <h3 style={{
             fontFamily: "var(--font-accent)",
             fontSize: "1.2rem",
-            fontWeight: 700,
+            fontWeight: 400,
             color: "#2A3A28",
             textAlign: "center",
             lineHeight: 1.15,
