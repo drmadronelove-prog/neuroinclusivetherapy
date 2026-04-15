@@ -97,10 +97,10 @@ export function HeroSection() {
         }}
       >
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-end sm:items-center justify-between gap-2">
-          <p className="font-[var(--font-display)] font-bold text-foreground tracking-wide text-xs opacity-70">
+          <p className="font-[var(--font-display)] font-bold tracking-wide" style={{ fontSize: "0.875rem", color: "rgba(61,82,48,0.48)" }}>
             Dr. Madrone Love, PsyD &nbsp;·&nbsp; San Francisco &amp; Berkeley, CA &nbsp;·&nbsp; Telehealth
           </p>
-          <div className="flex flex-wrap gap-x-5 gap-y-1 text-xs" style={{ color: "rgba(61,82,48,0.65)" }}>
+          <div className="flex flex-wrap gap-x-5 gap-y-1" style={{ color: "rgba(61,82,48,0.48)", fontSize: "0.875rem" }}>
             <a href="tel:+14159152183" className="hover:opacity-100 transition-opacity">
               (415) 915-2183
             </a>
