@@ -11,12 +11,15 @@ export function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           {/* Left content */}
           <div className="space-y-8">
-            {/* Massive headline */}
+            {/* Byline + Massive headline */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
+              <p className="font-[var(--font-display)] text-sm font-bold tracking-[0.2em] text-muted-foreground uppercase mb-3">
+                Madrone Love, PsyD
+              </p>
               <h1 className="font-[var(--font-display)] text-6xl sm:text-7xl lg:text-8xl font-black text-foreground leading-[0.85] tracking-tight">
                 <span className="block">NEURO</span>
                 <span className="block text-nav-coral">INCLU</span>

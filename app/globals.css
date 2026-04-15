@@ -92,6 +92,7 @@
   --font-body: var(--font-body), 'DM Sans', sans-serif;
   --font-sans: var(--font-body), 'DM Sans', sans-serif;
   --font-mono: 'Geist Mono', monospace;
+  --font-accent: var(--font-accent), 'Caveat', cursive;
   --color-nav-teal: var(--nav-teal);
   --color-nav-coral: var(--nav-coral);
   --color-nav-salmon: var(--nav-salmon);

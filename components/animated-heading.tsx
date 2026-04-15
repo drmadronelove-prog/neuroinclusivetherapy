@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 
 // ── Config ─────────────────────────────────────────────────────────────────────
-const WORDS        = ["feel", "think", "are"] as const
+const WORDS        = ["feel", "think", "love", "are"] as const
 const STATIC_TEXT  = " different."
 const CURSIVE_WORD = "different"
 
@@ -56,10 +56,10 @@ export function AnimatedHeading() {
         break
 
       case "holding":
-        // "are" (wordIdx 2) stays — start deleting the static text instead
+        // "are" (wordIdx 3) stays — start deleting the static text instead
         timerRef.current = setTimeout(
-          () => setPhase(wordIdx === 2 ? "del-static" : "deleting"),
-          wordIdx === 2 ? HOLD_ARE_MS : HOLD_MS,
+          () => setPhase(wordIdx === 3 ? "del-static" : "deleting"),
+          wordIdx === 3 ? HOLD_ARE_MS : HOLD_MS,
         )
         break
 
@@ -70,8 +70,8 @@ export function AnimatedHeading() {
             DEL_MS,
           )
         } else {
-          // 0→1, 1→2, 2→0 (loop-back after full cycle)
-          setWordIdx(wordIdx < 2 ? wordIdx + 1 : 0)
+          // 0→1, 1→2, 2→3, 3→0 (loop-back after full cycle)
+          setWordIdx(wordIdx < 3 ? wordIdx + 1 : 0)
           setPhase("pausing")
         }
         break
@@ -136,7 +136,7 @@ export function AnimatedHeading() {
 
   // Show cursive span only during the three phases that involve it
   const showCursive =
-    wordIdx === 2 &&
+    wordIdx === 3 &&
     (phase === "type-cursive" || phase === "hold-final" || phase === "del-cursive")
 
   return (
@@ -154,7 +154,7 @@ export function AnimatedHeading() {
         <>
           {" "}
           <span className="relative inline-block">
-            <span className="text-nav-teal font-[var(--font-script)] font-bold">
+            <span className="text-nav-teal font-[var(--font-accent)] font-bold text-4xl sm:text-5xl">
               {cursive}
             </span>
 
@@ -175,7 +175,7 @@ export function AnimatedHeading() {
 
           {/* Period fades in once the word is fully typed */}
           <span
-            className="text-nav-teal font-[var(--font-script)] font-bold"
+            className="text-nav-teal font-[var(--font-accent)] font-bold text-4xl sm:text-5xl"
             style={{
               opacity: cursive.length === CURSIVE_WORD.length ? 1 : 0,
               transition: "opacity 200ms ease-in",

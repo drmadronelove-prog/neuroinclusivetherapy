@@ -1,8 +1,8 @@
 "use client"
 
 import { DiagonalNav, MobileNav } from "@/components/diagonal-nav"
-import { LeftAccent } from "@/components/left-accent"
 import { HoverProvider } from "@/components/hover-context"
+import { SiteFooter } from "@/components/site-footer"
 import { motion } from "framer-motion"
 import Link from "next/link"
 
@@ -18,7 +18,6 @@ export function ToolPageLayout({ title, color, children }: ToolPageLayoutProps) 
     <main className="relative min-h-screen bg-background overflow-x-hidden">
       <DiagonalNav />
       <MobileNav />
-      <LeftAccent />
 
       <div className="md:mr-[378px]">
         <section className="min-h-screen flex flex-col px-6 lg:px-16 pt-24 md:pt-12 pb-12">
@@ -63,6 +62,7 @@ export function ToolPageLayout({ title, color, children }: ToolPageLayoutProps) 
             </motion.div>
           </div>
         </section>
+        <SiteFooter />
       </div>
     </main>
     </HoverProvider>

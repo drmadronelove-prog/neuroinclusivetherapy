@@ -9,6 +9,7 @@ const navItems = [
   { id: "03", label: "BRAIN GAMES",     color: "bg-nav-orange", href: "/brain-games" },
   { id: "04", label: "BLOG",            color: "bg-nav-gold",   href: "/blog" },
   { id: "05", label: "THERAPY",         color: "bg-nav-mauve",  href: "/individual-therapy" },
+  { id: "07", label: "CONTACT",         color: "bg-nav-seafoam", href: "/contact" },
 ]
 
 export function DiagonalNav() {
