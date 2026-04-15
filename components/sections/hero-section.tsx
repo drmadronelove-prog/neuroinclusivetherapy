@@ -55,7 +55,7 @@ export function HeroSection() {
             >
               <h1 style={{
                 fontFamily: "var(--font-accent)",
-                fontSize: "clamp(3.2rem, 5.5vw, 5rem)",
+                fontSize: "clamp(3.8rem, 6.5vw, 6rem)",
                 fontWeight: 700,
                 color: "#3D5230",
                 lineHeight: 0.95,
