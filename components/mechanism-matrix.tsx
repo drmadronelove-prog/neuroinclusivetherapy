@@ -1,163 +1,202 @@
 "use client"
 
-const COLUMNS = [
-  { id: "absorption",  label: "Absorption" },
-  { id: "hyperphant",  label: "Hyperphantasia" },
-  { id: "dmn",         label: "DMN Intrusion" },
-  { id: "inferential", label: "Inferential Confusion" },
-  { id: "monotropism", label: "Monotropism" },
-  { id: "hyperfocus",  label: "Hyperfocus" },
-  { id: "intero",      label: "Interoceptive Diff." },
-  { id: "motivated",   label: "Motivated Imagination" },
-  { id: "prefint",     label: "Preferential Interiority" },
-  { id: "reality",     label: "Reality Monitoring" },
-  { id: "dopamine",    label: "Dopamine Dysreg." },
-  { id: "persist",     label: "Perseverative Cog." },
-  { id: "emodysreg",   label: "Emotional Dysreg." },
+import { useState } from "react"
+
+type Group = "imag" | "attn" | "aff" | "pers"
+
+const mechs: { id: string; label: string; g: Group }[] = [
+  { id: "hyperphant",  label: "Hyperphantasia",    g: "imag" },
+  { id: "inferential", label: "Inferential",        g: "imag" },
+  { id: "motivated",   label: "Mot. imagination",  g: "imag" },
+  { id: "reality",     label: "Reality mon.",       g: "imag" },
+  { id: "absorption",  label: "Absorption",         g: "attn" },
+  { id: "dmn",         label: "DMN intrusion",      g: "attn" },
+  { id: "monotropism", label: "Monotropism",        g: "attn" },
+  { id: "hyperfocus",  label: "Hyperfocus",         g: "attn" },
+  { id: "prefint",     label: "Pref. interiority",  g: "attn" },
+  { id: "intero",      label: "Interoception",      g: "aff"  },
+  { id: "emodysreg",   label: "Emot. dysreg.",      g: "aff"  },
+  { id: "dopamine",    label: "Dopamine",            g: "aff"  },
+  { id: "persist",     label: "Perseveration",      g: "pers" },
 ]
 
-const ROWS = [
-  { id: "ocd",         name: "OCD",                     subtitle: "Obsessive-Compulsive Disorder",    type: "dsm"  },
-  { id: "adhd",        name: "ADHD",                    subtitle: "Attention Deficit Hyperactivity",  type: "dsm"  },
-  { id: "asd",         name: "Autism / ASD",            subtitle: "Autism Spectrum",                  type: "dsm"  },
-  { id: "bpd",         name: "Borderline PD",           subtitle: "BPD",                              type: "dsm"  },
-  { id: "dissoc",      name: "Dissociation",            subtitle: "Dissociative disorders",           type: "dsm"  },
-  { id: "cptsd",       name: "C-PTSD",                  subtitle: "Complex trauma",                   type: "dsm"  },
-  { id: "limerence",   name: "Limerence",               subtitle: "Non-DSM",                          type: "ndsm" },
-  { id: "md",          name: "Maladaptive Daydreaming", subtitle: "Non-DSM",                          type: "ndsm" },
-  { id: "gifted",      name: "Giftedness",              subtitle: "Twice-exceptional / 2e",           type: "ndsm" },
-  { id: "hsp",         name: "Highly Sensitive Person", subtitle: "HSP / Sensory processing",         type: "ndsm" },
-  { id: "rsd",         name: "Rejection Sensitivity",   subtitle: "RSD — common in ADHD/ASD",         type: "ndsm" },
-  { id: "justice",     name: "Justice Sensitivity",     subtitle: "Common in ND populations",         type: "ndsm" },
-  { id: "alexithymia", name: "Alexithymia",             subtitle: "Emotion identification difficulty",type: "ndsm" },
-  { id: "cds",         name: "CDS",                     subtitle: "Cognitive disengagement syndrome", type: "ndsm" },
+const gc: Record<Group, { f: string; d: string; h: string; n: string }> = {
+  imag: { f: "#EEEDFE", d: "#7F77DD", h: "#3C3489", n: "Imagination-reality" },
+  attn: { f: "#E1F5EE", d: "#1D9E75", h: "#085041", n: "Attentional depth"   },
+  aff:  { f: "#FAECE7", d: "#D85A30", h: "#712B13", n: "Affective-somatic"   },
+  pers: { f: "#FAEEDA", d: "#BA7517", h: "#633806", n: "Perseverative"        },
+}
+
+type CondRow = { label: string; type: "dsm" | "ndsm"; m: Set<string> }
+type SepRow  = { sep: true }
+type Row = CondRow | SepRow
+
+const rows: Row[] = [
+  { label: "OCD",                     type: "dsm",  m: new Set(["hyperphant","inferential","motivated","reality","absorption","emodysreg","dopamine","persist"]) },
+  { label: "ADHD",                    type: "dsm",  m: new Set(["hyperphant","motivated","dmn","absorption","hyperfocus","prefint","emodysreg","dopamine","persist"]) },
+  { label: "Autism / ASD",            type: "dsm",  m: new Set(["hyperphant","inferential","motivated","absorption","dmn","monotropism","hyperfocus","prefint","intero","emodysreg","persist"]) },
+  { label: "Borderline PD",           type: "dsm",  m: new Set(["hyperphant","inferential","motivated","reality","absorption","intero","emodysreg","dopamine","persist"]) },
+  { label: "Dissociation",            type: "dsm",  m: new Set(["absorption","prefint","intero","reality","emodysreg"]) },
+  { label: "C-PTSD",                  type: "dsm",  m: new Set(["absorption","intero","reality","emodysreg","persist"]) },
+  { sep: true },
+  { label: "Limerence",               type: "ndsm", m: new Set(["hyperphant","inferential","motivated","reality","absorption","prefint","emodysreg","dopamine","persist"]) },
+  { label: "Maladaptive daydreaming", type: "ndsm", m: new Set(["hyperphant","motivated","reality","absorption","dmn","prefint","persist"]) },
+  { label: "Giftedness",              type: "ndsm", m: new Set(["hyperphant","motivated","absorption","dmn","hyperfocus","prefint","intero","persist"]) },
+  { label: "Alexithymia",             type: "ndsm", m: new Set(["intero","emodysreg"]) },
+  { label: "Rejection sensitivity",   type: "ndsm", m: new Set(["motivated","emodysreg","dopamine","persist"]) },
+  { label: "Flow states",             type: "ndsm", m: new Set(["motivated","absorption","dmn","monotropism","hyperfocus","prefint"]) },
+  { label: "Fantasy proneness",       type: "ndsm", m: new Set(["hyperphant","reality","absorption","prefint"]) },
+  { label: "Highly sensitive person", type: "ndsm", m: new Set(["hyperphant","absorption","dmn","prefint","intero","emodysreg"]) },
+  { label: "Justice sensitivity",     type: "ndsm", m: new Set(["motivated","emodysreg","dopamine","persist"]) },
+  { label: "Cog. disengagement synd.",type: "ndsm", m: new Set(["motivated","reality","absorption","dmn","prefint"]) },
+  { label: "NVLD",                    type: "ndsm", m: new Set(["inferential","monotropism","intero","emodysreg","persist"]) },
 ]
 
-// Connections derived from the full network graph data
-const MATRIX: Record<string, Set<string>> = {
-  ocd:         new Set(["absorption","hyperphant","inferential","motivated","reality","dopamine","persist","emodysreg"]),
-  adhd:        new Set(["absorption","hyperphant","dmn","hyperfocus","motivated","prefint","dopamine","persist","emodysreg"]),
-  asd:         new Set(["absorption","hyperphant","dmn","inferential","monotropism","hyperfocus","intero","motivated","prefint","persist","emodysreg"]),
-  bpd:         new Set(["absorption","hyperphant","inferential","intero","motivated","reality","dopamine","persist","emodysreg"]),
-  dissoc:      new Set(["absorption","intero","prefint","reality","emodysreg"]),
-  cptsd:       new Set(["absorption","intero","reality","persist","emodysreg"]),
-  limerence:   new Set(["absorption","hyperphant","inferential","motivated","prefint","reality","dopamine","persist","emodysreg"]),
-  md:          new Set(["absorption","hyperphant","dmn","motivated","prefint","reality","persist"]),
-  gifted:      new Set(["absorption","hyperphant","dmn","hyperfocus","intero","motivated","prefint","persist"]),
-  hsp:         new Set(["absorption","hyperphant","dmn","intero","prefint","emodysreg"]),
-  rsd:         new Set(["motivated","dopamine","persist","emodysreg"]),
-  justice:     new Set(["motivated","dopamine","persist","emodysreg"]),
-  alexithymia: new Set(["intero","emodysreg"]),
-  cds:         new Set(["absorption","dmn","motivated","prefint","reality"]),
-}
-
-const TYPE_COLORS: Record<string, string> = {
-  dsm:  "text-emerald-700 dark:text-emerald-400",
-  ndsm: "text-orange-600 dark:text-orange-400",
-}
+const groupSpans: [Group, number][] = [["imag", 4], ["attn", 5], ["aff", 3], ["pers", 1]]
 
 export function MechanismMatrix() {
+  const [hovered,  setHovered]  = useState<string | null>(null)
+  const [selected, setSelected] = useState<string | null>(null)
+
+  const toggleRow = (label: string) =>
+    setSelected(s => (s === label ? null : label))
+
   return (
-    <div className="mb-20">
-      <h2 className="font-[var(--font-display)] text-3xl sm:text-4xl font-black text-foreground tracking-tight mb-2">
-        MECHANISM MATRIX
-      </h2>
-      <p className="text-sm text-muted-foreground mb-4 max-w-2xl">
-        Which cognitive mechanisms underlie each diagnosis or construct. Each dot marks a documented connection in the research literature.
-      </p>
-
-      {/* Legend */}
-      <div className="flex flex-wrap gap-5 mb-5 text-xs text-muted-foreground">
-        <div className="flex items-center gap-1.5">
-          <span className="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500/70" />
-          <span>DSM / ICD diagnosis</span>
-        </div>
-        <div className="flex items-center gap-1.5">
-          <span className="inline-block w-2.5 h-2.5 rounded-full bg-orange-400/70" />
-          <span>Non-DSM construct</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="text-foreground font-bold text-sm leading-none">●</span>
-          <span>Strong connection — core feature</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="text-foreground/50 text-sm leading-none">●</span>
-          <span>Moderate connection — frequently co-present</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="text-foreground/25 text-sm leading-none">●</span>
-          <span>Variable — present in some presentations</span>
-        </div>
-      </div>
-
-      {/* Scrollable table */}
-      <div className="overflow-x-auto rounded-lg border border-border">
-        <table className="border-collapse text-xs w-full min-w-max">
+    <div className="w-full">
+      <div className="overflow-x-auto pb-1">
+        <table style={{ borderCollapse: "collapse", whiteSpace: "nowrap", fontSize: "inherit" }}>
           <thead>
-            <tr className="border-b border-border">
-              <th
-                className="sticky left-0 z-10 bg-background text-left px-4 py-3 font-[var(--font-display)] text-[10px] tracking-wider text-muted-foreground border-r border-border min-w-[200px]"
-                style={{ minWidth: 200 }}
-              >
-                DIAGNOSIS / CONSTRUCT
-              </th>
-              {COLUMNS.map(col => (
-                <th key={col.id} className="px-0 py-2 text-center align-bottom" style={{ width: 44, minWidth: 44 }}>
+            {/* Spectrum group headers */}
+            <tr>
+              <th style={{ minWidth: 172, width: 172, height: 18 }} />
+              {groupSpans.map(([g, n]) => (
+                <th
+                  key={g}
+                  colSpan={n}
+                  style={{
+                    textAlign: "center",
+                    fontSize: 10,
+                    fontWeight: 500,
+                    color: gc[g].h,
+                    background: gc[g].f,
+                    padding: "3px 2px",
+                    borderRadius: "3px 3px 0 0",
+                  }}
+                >
+                  {gc[g].n}
+                </th>
+              ))}
+              <th style={{ width: 30 }} />
+            </tr>
+            {/* Column labels (vertical text) */}
+            <tr>
+              <th style={{ height: 82 }} />
+              {mechs.map(m => (
+                <th
+                  key={m.id}
+                  style={{ width: 33, height: 82, verticalAlign: "bottom", padding: "0 1px 4px" }}
+                >
                   <div
                     style={{
                       writingMode: "vertical-rl",
                       transform: "rotate(180deg)",
                       whiteSpace: "nowrap",
-                      fontSize: "9px",
-                      fontFamily: "var(--font-display)",
-                      fontWeight: 700,
-                      letterSpacing: "0.06em",
-                      textTransform: "uppercase",
-                      paddingBlock: "6px",
-                      color: "var(--muted-foreground)",
+                      fontSize: 9.5,
+                      fontWeight: 500,
+                      color: gc[m.g].h,
                     }}
                   >
-                    {col.label}
+                    {m.label}
                   </div>
                 </th>
               ))}
+              <th
+                style={{
+                  writingMode: "vertical-rl",
+                  transform: "rotate(180deg)",
+                  fontSize: 9.5,
+                  color: "var(--muted-foreground)",
+                  verticalAlign: "bottom",
+                  padding: "0 5px 4px",
+                  fontWeight: 400,
+                }}
+              >
+                n
+              </th>
             </tr>
           </thead>
           <tbody>
-            {ROWS.map((row, ri) => {
-              const connections = MATRIX[row.id] ?? new Set()
+            {rows.map((row, i) => {
+              if ("sep" in row) {
+                return (
+                  <tr key={`sep-${i}`}>
+                    <td
+                      colSpan={mechs.length + 2}
+                      style={{ height: 5, borderTop: "0.5px solid var(--border)" }}
+                    />
+                  </tr>
+                )
+              }
+              const isActive = selected === row.label
+              const isHov    = hovered  === row.label
+              const bg = isActive || isHov ? "var(--muted)" : "transparent"
+
               return (
                 <tr
-                  key={row.id}
-                  className={`border-b border-border/60 transition-colors hover:bg-muted/20 ${ri % 2 === 1 ? "bg-muted/10" : "bg-background"}`}
+                  key={row.label}
+                  style={{ background: bg, cursor: "pointer" }}
+                  onMouseEnter={() => setHovered(row.label)}
+                  onMouseLeave={() => setHovered(null)}
+                  onClick={() => toggleRow(row.label)}
                 >
                   <td
-                    className={`sticky left-0 z-10 px-4 py-2.5 border-r border-border ${ri % 2 === 1 ? "bg-muted/10" : "bg-background"}`}
+                    style={{
+                      fontSize: 11.5,
+                      padding: "0 10px 0 3px",
+                      height: 24,
+                      color: row.type === "dsm" ? "#085041" : "#712B13",
+                    }}
                   >
-                    <div className={`font-[var(--font-display)] font-bold text-xs tracking-wide ${TYPE_COLORS[row.type]}`}>
-                      {row.name}
-                    </div>
-                    <div className="text-muted-foreground text-[10px] mt-0.5 leading-tight">{row.subtitle}</div>
+                    {row.label}
                   </td>
-                  {COLUMNS.map(col => (
-                    <td key={col.id} className="text-center py-2.5" style={{ width: 44 }}>
-                      {connections.has(col.id) && (
-                        <span
-                          className="text-foreground/80 select-none"
-                          style={{ fontSize: "11px", lineHeight: 1 }}
-                          title={`${row.name} — ${col.label}`}
-                        >
-                          ●
-                        </span>
+                  {mechs.map(m => (
+                    <td
+                      key={m.id}
+                      style={{ width: 33, height: 24, textAlign: "center", verticalAlign: "middle" }}
+                    >
+                      {row.m.has(m.id) && (
+                        <div
+                          style={{
+                            width: 12,
+                            height: 12,
+                            borderRadius: 2,
+                            margin: "0 auto",
+                            background: gc[m.g].d,
+                          }}
+                        />
                       )}
                     </td>
                   ))}
+                  <td
+                    style={{
+                      fontSize: 11,
+                      color: "var(--muted-foreground)",
+                      padding: "0 6px",
+                      textAlign: "center",
+                      fontWeight: 500,
+                    }}
+                  >
+                    {row.m.size}
+                  </td>
                 </tr>
               )
             })}
           </tbody>
         </table>
       </div>
+      <p className="text-[11px] text-muted-foreground mt-1 mx-0.5">
+        Hover to highlight a row. n = mechanism count. DSM conditions in teal, non-DSM in coral.
+      </p>
     </div>
   )
 }

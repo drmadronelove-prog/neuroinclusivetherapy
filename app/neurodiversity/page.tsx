@@ -3,6 +3,7 @@ import { LeftAccent } from "@/components/left-accent"
 import { HoverProvider } from "@/components/hover-context"
 import { NetworkGraph, type GraphNode } from "@/components/neurodivergence-network"
 import { MechanismMatrix } from "@/components/mechanism-matrix"
+import { TwoLevelFoundations } from "@/components/two-level-foundations"
 import Link from "next/link"
 import type { Metadata } from "next"
 
@@ -119,7 +120,31 @@ export default function NeurodiversityPage() {
                 description="Full network of 30 nodes — DSM diagnoses, non-DSM constructs, and shared cognitive mechanisms. Drag nodes to rearrange."
               />
 
-              <MechanismMatrix />
+              {/* Spectrum Foundations */}
+              <div className="mt-16">
+                <div className="mb-4">
+                  <h2 className="font-[var(--font-display)] text-xl font-black text-foreground tracking-tight">
+                    SPECTRUM FOUNDATIONS
+                  </h2>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Four cognitive spectra with their defining mechanisms and associated conditions. Click a condition pill to see its mechanism profile.
+                  </p>
+                </div>
+                <TwoLevelFoundations />
+              </div>
+
+              {/* Mechanism Matrix */}
+              <div className="mt-16">
+                <div className="mb-4">
+                  <h2 className="font-[var(--font-display)] text-xl font-black text-foreground tracking-tight">
+                    MECHANISM MATRIX
+                  </h2>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Which cognitive mechanisms are present across each condition. Hover to highlight, click to select.
+                  </p>
+                </div>
+                <MechanismMatrix />
+              </div>
 
             </div>
           </section>
