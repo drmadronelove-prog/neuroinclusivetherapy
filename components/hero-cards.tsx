@@ -69,23 +69,23 @@ function HeroCard({
 
         <div className="relative h-full flex flex-col justify-center items-center gap-2 p-3">
           <span style={{
-            fontFamily: "var(--font-display)",
-            fontSize: "0.6rem",
-            fontWeight: 500,
-            letterSpacing: "0.14em",
+            fontFamily: "var(--font-accent)",
+            fontSize: "0.85rem",
+            fontWeight: 700,
             color: card.borderColor,
-            opacity: 0.85,
+            opacity: 0.75,
           }}>
             {String(index + 1).padStart(2, "0")}
           </span>
           <h3 style={{
-            fontFamily: "var(--font-body)",
-            fontSize: "0.75rem",
-            fontWeight: 600,
+            fontFamily: "var(--font-display)",
+            fontSize: "0.72rem",
+            fontWeight: 700,
             color: "#2A3A28",
             textAlign: "center",
-            lineHeight: 1.3,
-            letterSpacing: "0.005em",
+            lineHeight: 1.25,
+            letterSpacing: "0.06em",
+            textTransform: "uppercase",
           }}>
             {card.title}
           </h3>

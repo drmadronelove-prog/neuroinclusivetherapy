@@ -1,6 +1,5 @@
 import { DiagonalNav, MobileNav } from "@/components/diagonal-nav"
 import { HeroSection } from "@/components/sections/hero-section"
-import Link from "next/link"
 
 export default function Home() {
   return (
@@ -8,34 +7,22 @@ export default function Home() {
       <DiagonalNav />
       <MobileNav />
 
+      {/* Signature — subtle, upper-left, fixed */}
+      <p
+        className="no-print fixed top-6 left-6 z-40 italic pointer-events-none"
+        style={{
+          fontFamily: "var(--font-accent)",
+          fontSize: "0.88rem",
+          color: "rgba(61,82,48,0.48)",
+          letterSpacing: "0.01em",
+        }}
+      >
+        Dr. Madrone Love, PsyD
+      </p>
+
       {/* Main content area — leaving space for fixed nav on desktop */}
       <div className="md:mr-[252px]">
         <HeroSection />
-
-        {/* Subtle footer */}
-        <footer className="no-print border-t border-border/50 px-8 py-6 md:px-16">
-          <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div>
-              <p className="font-[var(--font-display)] font-bold text-foreground tracking-wide text-sm">
-                Dr. Madrone Love, PsyD
-              </p>
-              <p className="text-xs text-muted-foreground mt-0.5">
-                Neuroinclusive Psychologist · San Francisco &amp; Berkeley, CA · Telehealth
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-x-6 gap-y-1 text-xs text-muted-foreground">
-              <a href="tel:+14159152183" className="hover:text-foreground transition-colors">
-                (415) 915-2183
-              </a>
-              <a href="mailto:therapy@madronelove.com" className="hover:text-foreground transition-colors">
-                therapy@madronelove.com
-              </a>
-              <Link href="/contact" className="hover:text-foreground transition-colors">
-                Book a consultation
-              </Link>
-            </div>
-          </div>
-        </footer>
       </div>
     </main>
   )
