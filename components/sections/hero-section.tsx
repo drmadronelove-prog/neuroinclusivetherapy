@@ -23,6 +23,7 @@ export function HeroSection() {
           left: 0,
           width: "calc(100vw - 252px)",
           height: "100%",
+          minHeight: "100vh",
           overflow: "hidden",
           zIndex: 0,
         }}
@@ -63,7 +64,10 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <h1 className="font-[var(--font-display)] text-6xl sm:text-7xl lg:text-8xl font-black text-foreground leading-[0.85] tracking-tight">
+              <h1
+                className="font-[var(--font-display)] text-6xl sm:text-7xl lg:text-8xl font-black text-foreground leading-[0.85] tracking-tight"
+                style={{ textShadow: "0 2px 12px rgba(200,190,175,0.7), 0 1px 4px rgba(200,190,175,0.5)" }}
+              >
                 <span className="block">NEURO</span>
                 <span className="block text-nav-coral">INCLU</span>
                 <span className="block">SIVE</span>
