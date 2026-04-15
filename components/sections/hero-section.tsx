@@ -46,7 +46,7 @@ export function HeroSection() {
         <div className="flex items-center gap-8 lg:gap-12 w-full max-w-6xl mx-auto">
 
           {/* Left — heading */}
-          <div className="shrink-0 space-y-6" style={{ maxWidth: "340px" }}>
+          <div className="shrink-0 space-y-1" style={{ maxWidth: "340px" }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
