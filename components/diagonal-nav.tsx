@@ -67,11 +67,11 @@ export function DiagonalNav() {
             {/* Centred label */}
             <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
               <span
-                className="font-medium whitespace-nowrap transition-opacity duration-300"
+                className="whitespace-nowrap transition-opacity duration-300"
                 style={{
-                  fontFamily: "var(--font-body)",
-                  fontSize: "0.68rem",
-                  letterSpacing: "0.13em",
+                  fontFamily: "var(--font-accent)",
+                  fontSize: "0.82rem",
+                  letterSpacing: "0.05em",
                   writingMode: "vertical-rl",
                   textOrientation: "mixed",
                   transform: "rotate(180deg)",
@@ -128,7 +128,7 @@ export function MobileNav() {
               onClick={() => setIsOpen(false)}
             >
               <div className="w-3 h-3 rounded-full" style={{ background: item.spineColor }} />
-              <span style={{ fontFamily: "var(--font-body)", fontWeight: 500, letterSpacing: "0.08em", fontSize: "0.85rem" }}>
+              <span style={{ fontFamily: "var(--font-accent)", fontWeight: 600, letterSpacing: "0.04em", fontSize: "0.95rem" }}>
                 {item.label}
               </span>
             </Link>

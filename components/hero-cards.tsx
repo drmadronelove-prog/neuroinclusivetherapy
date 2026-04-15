@@ -79,7 +79,7 @@ function HeroCard({
         <div className="relative h-full flex flex-col justify-center items-center gap-2 p-3">
           <span style={{
             fontFamily: "var(--font-accent)",
-            fontSize: "0.8rem",
+            fontSize: "0.85rem",
             fontWeight: 400,
             color: card.borderColor,
             opacity: 0.65,
@@ -88,11 +88,11 @@ function HeroCard({
           </span>
           <h3 style={{
             fontFamily: "var(--font-accent)",
-            fontSize: "1rem",
-            fontWeight: 600,
+            fontSize: "1.2rem",
+            fontWeight: 700,
             color: "#2A3A28",
             textAlign: "center",
-            lineHeight: 1.2,
+            lineHeight: 1.15,
           }}>
             {card.title}
           </h3>

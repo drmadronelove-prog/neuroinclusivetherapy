@@ -53,30 +53,16 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
               style={{ textShadow: "0 2px 18px rgba(240,235,227,0.9)" }}
             >
-              {/* Small label */}
-              <p style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "0.72rem",
-                fontWeight: 900,
-                letterSpacing: "0.30em",
-                color: "#C4755A",
-                textTransform: "uppercase",
-                lineHeight: 1,
-                marginBottom: "6px",
-              }}>
-                NEURO
-              </p>
-              {/* Large handwritten word */}
               <h1 style={{
                 fontFamily: "var(--font-accent)",
-                fontSize: "clamp(3.8rem, 6.5vw, 5.5rem)",
+                fontSize: "clamp(3.2rem, 5.5vw, 5rem)",
                 fontWeight: 700,
                 color: "#3D5230",
                 lineHeight: 0.95,
                 letterSpacing: "-0.01em",
                 margin: 0,
               }}>
-                inclusive
+                Neuroinclusive
               </h1>
             </motion.div>
 
