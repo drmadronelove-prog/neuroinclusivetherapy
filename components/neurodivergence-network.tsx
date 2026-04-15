@@ -62,8 +62,8 @@ export function NetworkGraph({
     import("d3").then((d3) => {
       if (!active || !svgRef.current) return
 
-      const W = 1200
-      const H = 860
+      const W = 600
+      const H = 430
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const d3nodes: any[] = nodes.map(n => ({ ...n }))
@@ -104,9 +104,9 @@ export function NetworkGraph({
       const linkEl = linkG.selectAll("line")
         .data(d3links)
         .join("line")
-        .attr("stroke", "#2a2a2a")
+        .attr("stroke", "#cccccc")
         .attr("stroke-width", 1)
-        .attr("stroke-opacity", 0.7)
+        .attr("stroke-opacity", 0.8)
 
       const nodeG = svg.append("g")
       const selected = new Set<string>()
@@ -160,7 +160,7 @@ export function NetworkGraph({
         linkEl
           .attr("stroke", (d: any) => {
             const s = d.source.id, t = d.target.id
-            return (isGold(s) && isGold(t)) ? "#FFD700" : "#2a2a2a"
+            return (isGold(s) && isGold(t)) ? "#FFD700" : "#cccccc"
           })
           .attr("stroke-width", (d: any) => {
             const s = d.source.id, t = d.target.id
@@ -203,7 +203,7 @@ export function NetworkGraph({
         .data(d3nodes)
         .join("text")
         .attr("text-anchor", "middle")
-        .attr("fill",        "white")
+        .attr("fill",        "#1a1a1a")
         .attr("font-family", "DM Sans, sans-serif")
         .attr("font-size",   "9")
         .attr("font-weight", "500")
@@ -258,13 +258,13 @@ export function NetworkGraph({
       {/* Status label */}
       <div
         ref={labelRef}
-        className="text-xs text-amber-300 bg-amber-950/30 border border-amber-800/30 rounded px-3 py-2 mb-3 min-h-[36px]"
+        className="text-xs text-muted-foreground bg-muted/50 border border-border rounded px-3 py-2 mb-3 min-h-[36px]"
       >
         Click any node to highlight its connections. Select two or more to see shared mechanisms.
       </div>
 
       {/* Graph */}
-      <div className="w-full rounded-lg overflow-hidden" style={{ background: "#0d0d0d" }}>
+      <div className="w-full rounded-lg overflow-hidden border border-border" style={{ background: "#ffffff" }}>
         <svg
           ref={svgRef}
           style={{ display: "block", width: "100%", height }}

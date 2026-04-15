@@ -1,6 +1,5 @@
 import { DiagonalNav, MobileNav } from "@/components/diagonal-nav"
 import { HeroSection } from "@/components/sections/hero-section"
-import { SiteFooter } from "@/components/site-footer"
 
 export default function Home() {
   return (
@@ -11,7 +10,6 @@ export default function Home() {
       {/* Main content area — leaving space for fixed nav on desktop */}
       <div className="md:mr-[378px]">
         <HeroSection />
-        <SiteFooter />
       </div>
     </main>
   )

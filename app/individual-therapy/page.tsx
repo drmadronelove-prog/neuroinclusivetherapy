@@ -59,18 +59,18 @@ const modalities = [
 
 export default function IndividualTherapyPage() {
   return (
-    <ToolPageLayout title="INDIVIDUAL THERAPY" color="text-nav-coral">
+    <ToolPageLayout color="text-nav-coral">
       <div className="space-y-14">
 
         {/* Therapist intro — name + photo */}
         <div className="flex flex-col sm:flex-row items-start gap-6">
           <div className="shrink-0">
-            <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-2 border-nav-coral/30 bg-muted">
+            <div className="w-56 h-56 sm:w-72 sm:h-72 rounded-full overflow-hidden border-2 border-nav-coral/30 bg-muted">
               <Image
                 src="/dr-love.jpg"
                 alt="Dr. Madrone Love, PsyD"
-                width={144}
-                height={144}
+                width={288}
+                height={288}
                 className="object-cover w-full h-full"
                 priority
               />

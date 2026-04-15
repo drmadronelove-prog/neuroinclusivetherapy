@@ -2,12 +2,11 @@
 
 import { DiagonalNav, MobileNav } from "@/components/diagonal-nav"
 import { HoverProvider } from "@/components/hover-context"
-import { SiteFooter } from "@/components/site-footer"
 import { motion } from "framer-motion"
 import Link from "next/link"
 
 interface ToolPageLayoutProps {
-  title: string
+  title?: string
   color: string
   children: React.ReactNode
 }
@@ -41,16 +40,18 @@ export function ToolPageLayout({ title, color, children }: ToolPageLayoutProps) 
             </motion.div>
 
             {/* Title */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="mb-12"
-            >
-              <h1 className={`font-[var(--font-display)] text-6xl sm:text-7xl lg:text-8xl font-black leading-[0.85] tracking-tight ${color}`}>
-                {title}
-              </h1>
-            </motion.div>
+            {title && (
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="mb-12"
+              >
+                <h1 className={`font-[var(--font-display)] text-6xl sm:text-7xl lg:text-8xl font-black leading-[0.85] tracking-tight ${color}`}>
+                  {title}
+                </h1>
+              </motion.div>
+            )}
 
             {/* Content */}
             <motion.div
@@ -62,7 +63,6 @@ export function ToolPageLayout({ title, color, children }: ToolPageLayoutProps) 
             </motion.div>
           </div>
         </section>
-        <SiteFooter />
       </div>
     </main>
     </HoverProvider>

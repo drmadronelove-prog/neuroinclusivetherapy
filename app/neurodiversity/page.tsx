@@ -2,6 +2,7 @@ import { DiagonalNav, MobileNav } from "@/components/diagonal-nav"
 import { LeftAccent } from "@/components/left-accent"
 import { HoverProvider } from "@/components/hover-context"
 import { NetworkGraph, type GraphNode } from "@/components/neurodivergence-network"
+import { MechanismMatrix } from "@/components/mechanism-matrix"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -68,43 +69,6 @@ const BIG_LINKS: [string, string][] = [
   ["absorption","prefint"],["dopamine","motivated"],["persist","inferential"],["motivated","prefint"],
 ]
 
-// ── Teaching graph (19 nodes) ────────────────────────────────────────────────
-
-const SM_NODES: GraphNode[] = [
-  { id: "ocd",         label: "OCD",                     type: "dsm"  },
-  { id: "adhd",        label: "ADHD",                    type: "dsm"  },
-  { id: "asd",         label: "Autism / ASD",            type: "dsm"  },
-  { id: "limerence",   label: "Limerence",               type: "ndsm" },
-  { id: "md",          label: "Maladaptive daydreaming", type: "ndsm" },
-  { id: "gifted",      label: "Giftedness",              type: "ndsm" },
-  { id: "absorption",  label: "Absorption",              type: "mech" },
-  { id: "hyperphant",  label: "Hyperphantasia",          type: "mech" },
-  { id: "dmn",         label: "DMN intrusion",           type: "mech" },
-  { id: "inferential", label: "Inferential confusion",   type: "mech" },
-  { id: "monotropism", label: "Monotropism",             type: "mech" },
-  { id: "hyperfocus",  label: "Hyperfocus",              type: "mech" },
-  { id: "intero",      label: "Interoceptive diff.",     type: "mech" },
-  { id: "motivated",   label: "Motivated imagination",   type: "mech" },
-  { id: "prefint",     label: "Preferential interiority",type: "mech" },
-  { id: "reality",     label: "Reality monitoring",      type: "mech" },
-  { id: "dopamine",    label: "Dopamine dysreg.",        type: "mech" },
-  { id: "persist",     label: "Perseverative cognition", type: "mech" },
-  { id: "emodysreg",   label: "Emotional dysreg.",       type: "mech" },
-]
-
-const SM_LINKS: [string, string][] = [
-  ["ocd","inferential"],["ocd","absorption"],["ocd","hyperphant"],["ocd","motivated"],["ocd","reality"],["ocd","persist"],["ocd","dopamine"],["ocd","emodysreg"],
-  ["adhd","dmn"],["adhd","absorption"],["adhd","motivated"],["adhd","dopamine"],["adhd","persist"],["adhd","hyperphant"],["adhd","prefint"],["adhd","hyperfocus"],["adhd","emodysreg"],
-  ["asd","monotropism"],["asd","intero"],["asd","absorption"],["asd","hyperphant"],["asd","prefint"],["asd","dmn"],["asd","persist"],["asd","motivated"],["asd","hyperfocus"],["asd","inferential"],["asd","emodysreg"],
-  ["limerence","motivated"],["limerence","absorption"],["limerence","inferential"],["limerence","dopamine"],["limerence","prefint"],["limerence","persist"],["limerence","hyperphant"],["limerence","reality"],["limerence","emodysreg"],
-  ["md","absorption"],["md","hyperphant"],["md","motivated"],["md","prefint"],["md","dmn"],["md","reality"],["md","persist"],["md","emodysreg"],
-  ["gifted","absorption"],["gifted","hyperphant"],["gifted","motivated"],["gifted","prefint"],["gifted","hyperfocus"],["gifted","persist"],["gifted","dmn"],["gifted","intero"],
-  ["dmn","absorption"],["monotropism","absorption"],["monotropism","prefint"],["monotropism","dmn"],["monotropism","hyperfocus"],
-  ["hyperfocus","absorption"],["hyperfocus","prefint"],["hyperfocus","dopamine"],
-  ["hyperphant","inferential"],["hyperphant","reality"],["inferential","motivated"],["inferential","persist"],
-  ["absorption","prefint"],["dopamine","motivated"],["persist","inferential"],["motivated","prefint"],
-]
-
 // ── Page ─────────────────────────────────────────────────────────────────────
 
 export default function NeurodiversityPage() {
@@ -143,14 +107,7 @@ export default function NeurodiversityPage() {
                 description="Full network of 30 nodes — DSM diagnoses, non-DSM constructs, and shared cognitive mechanisms. Drag nodes to rearrange."
               />
 
-              <NetworkGraph
-                graphId="sm"
-                nodes={SM_NODES}
-                links={SM_LINKS}
-                title="TEACHING GRAPH"
-                description="A focused view of five key presentations and their shared mechanisms — ideal for psychoeducation, client sessions, and student teaching."
-                height="clamp(400px, 55vw, 620px)"
-              />
+              <MechanismMatrix />
 
             </div>
           </section>
