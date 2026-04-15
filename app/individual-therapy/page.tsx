@@ -1,5 +1,6 @@
 import { ToolPageLayout } from "@/components/tool-page-layout"
 import { NoSurprisesButton } from "@/components/no-surprises-button"
+import Image from "next/image"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -59,6 +60,29 @@ export default function IndividualTherapyPage() {
   return (
     <ToolPageLayout title="INDIVIDUAL THERAPY" color="text-nav-coral">
       <div className="space-y-14">
+
+        {/* Therapist intro — name + photo */}
+        <div className="flex flex-col sm:flex-row items-start gap-6">
+          <div className="shrink-0">
+            <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-2 border-nav-coral/30 bg-muted">
+              <Image
+                src="/dr-love.jpg"
+                alt="Dr. Madrone Love, PsyD"
+                width={144}
+                height={144}
+                className="object-cover w-full h-full"
+                priority
+              />
+            </div>
+          </div>
+          <div className="space-y-1 pt-1">
+            <h2 className="font-[var(--font-display)] text-2xl font-black text-foreground tracking-tight">
+              Madrone Love, PsyD
+            </h2>
+            <p className="text-sm text-muted-foreground">Licensed Psychologist · California #35899</p>
+            <p className="text-sm text-muted-foreground">San Francisco &amp; Berkeley · Telehealth throughout CA</p>
+          </div>
+        </div>
 
         {/* Personal Statement */}
         <div className="space-y-5 max-w-prose">

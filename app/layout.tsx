@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Barlow_Condensed, DM_Sans, Dancing_Script } from 'next/font/google'
+import { Barlow_Condensed, DM_Sans, Dancing_Script, Caveat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
@@ -19,6 +19,12 @@ const dancingScript = Dancing_Script({
   subsets: ["latin"],
   weight: ["600", "700"],
   variable: "--font-script",
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-accent",
 });
 
 export const metadata: Metadata = {
@@ -50,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${barlowCondensed.variable} ${dmSans.variable} ${dancingScript.variable}`}>
+    <html lang="en" className={`${barlowCondensed.variable} ${dmSans.variable} ${dancingScript.variable} ${caveat.variable}`}>
       <body className="font-body antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
