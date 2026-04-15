@@ -15,10 +15,11 @@ export function HeroSection() {
         aria-hidden="true"
         style={{
           position: "absolute",
-          top: 0, left: 0,
-          width: "calc(100vw - 252px)",
-          height: "100%",
+          top: 0, left: 0, right: 0,
+          // extend 5vh below the section to compensate for lg:-mt-[5vh]
+          height: "calc(100% + 5vh)",
           minHeight: "100vh",
+          width: "calc(100vw - 252px)",
           overflow: "hidden",
           zIndex: 0,
         }}
@@ -49,12 +50,12 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <h1
-                className="font-[var(--font-display)] text-6xl sm:text-7xl lg:text-8xl font-black text-foreground leading-[0.85] tracking-tight"
-                style={{ textShadow: "2px 2px 0 rgba(240,235,227,0.6), 0 4px 20px rgba(240,235,227,0.8)" }}
+                className="font-[var(--font-display)] text-6xl sm:text-7xl lg:text-8xl font-black leading-[0.85] tracking-tight"
+                style={{ textShadow: "0 2px 16px rgba(240,235,227,0.85)" }}
               >
-                <span className="block">NEURO</span>
-                <span className="block text-nav-coral">INCLU</span>
-                <span className="block">SIVE</span>
+                <span className="block" style={{ color: "#3D5230" }}>NEURO</span>
+                <span className="block" style={{ color: "#C4755A" }}>INCLU</span>
+                <span className="block" style={{ color: "#3D5230" }}>SIVE</span>
               </h1>
             </motion.div>
 

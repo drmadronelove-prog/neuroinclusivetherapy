@@ -71,7 +71,7 @@ export default function ContactPage() {
           {/* Schedule + Psychology Today */}
           <div className="flex flex-col sm:flex-row gap-3 pt-2">
             <a
-              href="https://www.psychologytoday.com/profile/1304696"
+              href="https://calendar.app.google/RRFFfpQpco81Bxek8"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-foreground text-background font-[var(--font-display)] font-bold tracking-wide text-sm hover:opacity-90 transition-opacity"
@@ -79,7 +79,7 @@ export default function ContactPage() {
               Schedule a Consultation
             </a>
             <a
-              href="https://www.psychologytoday.com/profile/1304696"
+              href="https://www.psychologytoday.com/us/therapists/dr-madrone-love-neuro-inclusive-psychologist-san-francisco-ca/1554818"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-border text-muted-foreground font-[var(--font-display)] font-bold tracking-wide text-sm hover:bg-muted transition-colors"
