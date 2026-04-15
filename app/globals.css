@@ -4,87 +4,87 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Nature-inspired earthy palette */
-  --background: #F8F5F0;
-  --foreground: #3D4234;
-  --card: #F2EFE9;
-  --card-foreground: #3D4234;
-  --popover: #F2EFE9;
-  --popover-foreground: #3D4234;
-  --primary: #8E9B7B;           /* olive */
-  --primary-foreground: #F8F5F0;
-  --secondary: #B7A1B2;         /* dusty purple */
-  --secondary-foreground: #3D4234;
-  --muted: #EDE9E2;
-  --muted-foreground: #6B6B5E;
-  --accent: #A5A58D;            /* muted sage */
-  --accent-foreground: #3D4234;
+  /* Palette aligned with madronelove.com — warm cream, sage, dusty rose */
+  --background: #F0EBE3;
+  --foreground: #3D5230;
+  --card: #F5F2EC;
+  --card-foreground: #3D5230;
+  --popover: #F5F2EC;
+  --popover-foreground: #3D5230;
+  --primary: #7A9A78;           /* sage green */
+  --primary-foreground: #F5F2EC;
+  --secondary: #B8949C;         /* dusty rose */
+  --secondary-foreground: #3D5230;
+  --muted: #E6E0D8;
+  --muted-foreground: #6B7860;
+  --accent: #9AADA0;            /* muted seafoam sage */
+  --accent-foreground: #3D5230;
   --destructive: #C4755A;
-  --destructive-foreground: #F8F5F0;
-  --border: #C8C4BB;
-  --input: #EDE9E2;
-  --ring: #8E9B7B;
+  --destructive-foreground: #F5F2EC;
+  --border: #D4CCB8;
+  --input: #E6E0D8;
+  --ring: #7A9A78;
 
-  /* Navigation colors — alternating olive / dusty-purple / muted-sage */
-  --nav-teal:    #8E9B7B;   /* TESTS bar            → olive          */
-  --nav-coral:   #8E9B7B;   /* hero INCLU, buttons  → olive          */
-  --nav-salmon:  #A5A58D;   /* hero cards           → muted sage     */
-  --nav-amber:   #B7A1B2;   /* NEURODIVERGENCE bar  → dusty purple   */
-  --nav-rose:    #B7A1B2;   /* dusty purple                           */
-  --nav-seafoam: #A5A58D;   /* CONTACT bar          → muted sage     */
-  --nav-orange:  #A5A58D;   /* BRAIN GAMES bar      → muted sage     */
-  --nav-gold:    #8E9B7B;   /* BLOG bar             → olive          */
-  --nav-mauve:   #B7A1B2;   /* THERAPY bar          → dusty purple   */
+  /* Semantic nav color aliases — unique values set per-component in spines */
+  --nav-teal:    #7A9A78;   /* sage green   */
+  --nav-coral:   #7A9A78;   /* sage green   */
+  --nav-salmon:  #9AADA0;   /* seafoam sage */
+  --nav-amber:   #A09478;   /* warm wheat   */
+  --nav-rose:    #B8949C;   /* dusty rose   */
+  --nav-seafoam: #9AADA0;   /* seafoam sage */
+  --nav-orange:  #9AADA0;   /* seafoam sage */
+  --nav-gold:    #7A9A78;   /* sage green   */
+  --nav-mauve:   #B8949C;   /* dusty rose   */
 
-  --chart-1: #8E9B7B;
-  --chart-2: #B7A1B2;
-  --chart-3: #A5A58D;
-  --chart-4: #6B7A5E;
-  --chart-5: #3D4234;
+  --chart-1: #7A9A78;
+  --chart-2: #B8949C;
+  --chart-3: #9AADA0;
+  --chart-4: #5E8060;
+  --chart-5: #3D5230;
   --radius: 0.625rem;
-  --sidebar: #F8F5F0;
-  --sidebar-foreground: #3D4234;
-  --sidebar-primary: #8E9B7B;
-  --sidebar-primary-foreground: #F8F5F0;
-  --sidebar-accent: #EDE9E2;
-  --sidebar-accent-foreground: #3D4234;
-  --sidebar-border: #C8C4BB;
-  --sidebar-ring: #8E9B7B;
+  --sidebar: #F0EBE3;
+  --sidebar-foreground: #3D5230;
+  --sidebar-primary: #7A9A78;
+  --sidebar-primary-foreground: #F5F2EC;
+  --sidebar-accent: #E6E0D8;
+  --sidebar-accent-foreground: #3D5230;
+  --sidebar-border: #D4CCB8;
+  --sidebar-ring: #7A9A78;
 }
 
 .dark {
-  --background: #2A2D26;
+  --background: #252E22;
   --foreground: #E8E4DA;
-  --card: #32352E;
+  --card: #2E3829;
   --card-foreground: #E8E4DA;
-  --popover: #32352E;
+  --popover: #2E3829;
   --popover-foreground: #E8E4DA;
-  --primary: #A0AD8D;
-  --primary-foreground: #2A2D26;
-  --secondary: #C4B0BF;
-  --secondary-foreground: #2A2D26;
-  --muted: #32352E;
-  --muted-foreground: #A8A49A;
-  --accent: #B8B8A0;
-  --accent-foreground: #2A2D26;
+  --primary: #9AB898;
+  --primary-foreground: #252E22;
+  --secondary: #C4A0A8;
+  --secondary-foreground: #252E22;
+  --muted: #2E3829;
+  --muted-foreground: #A8B0A0;
+  --accent: #AEC0B8;
+  --accent-foreground: #252E22;
   --destructive: #D4856A;
-  --destructive-foreground: #2A2D26;
-  --border: #3E4238;
-  --input: #32352E;
-  --ring: #A0AD8D;
-  --chart-1: #A0AD8D;
-  --chart-2: #C4B0BF;
-  --chart-3: #B8B8A0;
-  --chart-4: #7A8A68;
+  --destructive-foreground: #252E22;
+  --border: #3E4A38;
+  --input: #2E3829;
+  --ring: #9AB898;
+  --chart-1: #9AB898;
+  --chart-2: #C4A0A8;
+  --chart-3: #AEC0B8;
+  --chart-4: #7A9A78;
   --chart-5: #E8E4DA;
-  --sidebar: #2A2D26;
+  --sidebar: #252E22;
   --sidebar-foreground: #E8E4DA;
-  --sidebar-primary: #A0AD8D;
-  --sidebar-primary-foreground: #2A2D26;
-  --sidebar-accent: #32352E;
+  --sidebar-primary: #9AB898;
+  --sidebar-primary-foreground: #252E22;
+  --sidebar-accent: #2E3829;
   --sidebar-accent-foreground: #E8E4DA;
-  --sidebar-border: #3E4238;
-  --sidebar-ring: #A0AD8D;
+  --sidebar-border: #3E4A38;
+  --sidebar-ring: #9AB898;
 }
 
 @theme inline {
@@ -156,7 +156,7 @@
   font-size: 4.5rem;
   font-weight: 900;
   line-height: 0.8;
-  color: #8E9B7B;
+  color: #7A9A78;
   padding-right: 0.12em;
   padding-top: 0.05em;
 }
