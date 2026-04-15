@@ -90,7 +90,7 @@ function HeroCard({
             fontFamily: "var(--font-accent)",
             fontSize: "1.2rem",
             fontWeight: 400,
-            color: "#2A3A28",
+            color: "#6B5F58",
             textAlign: "center",
             lineHeight: 1.15,
           }}>
