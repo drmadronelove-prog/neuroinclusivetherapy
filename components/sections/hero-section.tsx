@@ -3,22 +3,21 @@
 import { HeroCards } from "@/components/hero-cards"
 import { AnimatedHeading } from "@/components/animated-heading"
 import { motion } from "framer-motion"
+import Link from "next/link"
 
 export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col justify-center px-6 lg:px-16 pt-20 md:pt-0 pb-12 lg:-mt-[5vh]"
+      className="relative overflow-hidden"
+      style={{ height: "100vh" }}
     >
-      {/* Video — spans full width up to the tabs */}
+      {/* Full-bleed video — exact viewport size */}
       <div
         aria-hidden="true"
         style={{
           position: "absolute",
-          top: 0, left: 0, right: 0,
-          // extend 5vh below the section to compensate for lg:-mt-[5vh]
-          height: "calc(100% + 5vh)",
-          minHeight: "100vh",
+          inset: 0,
           width: "calc(100vw - 252px)",
           overflow: "hidden",
           zIndex: 0,
@@ -32,17 +31,21 @@ export function HeroSection() {
           <source src="/pottery.mp4" type="video/mp4" />
         </video>
 
-        {/* Gradient overlay: heavy cream on left (heading), light on right (cards) */}
+        {/* Gradient: opaque cream on left for heading, transparent on right for video */}
         <div style={{
           position: "absolute", inset: 0,
           background: "linear-gradient(to right, rgba(240,235,227,0.94) 0%, rgba(240,235,227,0.82) 28%, rgba(240,235,227,0.52) 55%, rgba(240,235,227,0.28) 85%, rgba(240,235,227,0.15) 100%)",
         }} />
       </div>
 
-      <div className="relative w-full max-w-6xl mx-auto" style={{ zIndex: 2 }}>
-        <div className="flex items-center gap-8 lg:gap-12">
+      {/* Main content — vertically centred within the viewport */}
+      <div
+        className="relative h-full flex items-center px-6 lg:px-16"
+        style={{ zIndex: 2 }}
+      >
+        <div className="flex items-center gap-8 lg:gap-12 w-full max-w-6xl mx-auto">
 
-          {/* Left — heading, fixed width so cards get all remaining space */}
+          {/* Left — heading */}
           <div className="shrink-0 space-y-6" style={{ maxWidth: "340px" }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -68,7 +71,7 @@ export function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Right — cards pushed flush right toward the tabs */}
+          {/* Right — cards flush toward tabs */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -80,6 +83,36 @@ export function HeroSection() {
 
         </div>
       </div>
+
+      {/* Footer — layered over the video at the bottom */}
+      <footer
+        className="no-print absolute bottom-0 left-0 right-0"
+        style={{
+          zIndex: 3,
+          background: "linear-gradient(to top, rgba(240,235,227,0.88) 0%, rgba(240,235,227,0.60) 60%, transparent 100%)",
+          paddingBottom: "18px",
+          paddingTop: "32px",
+          paddingLeft: "2rem",
+          paddingRight: "2rem",
+        }}
+      >
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-end sm:items-center justify-between gap-2">
+          <p className="font-[var(--font-display)] font-bold text-foreground tracking-wide text-xs opacity-70">
+            Dr. Madrone Love, PsyD &nbsp;·&nbsp; San Francisco &amp; Berkeley, CA &nbsp;·&nbsp; Telehealth
+          </p>
+          <div className="flex flex-wrap gap-x-5 gap-y-1 text-xs" style={{ color: "rgba(61,82,48,0.65)" }}>
+            <a href="tel:+14159152183" className="hover:opacity-100 transition-opacity">
+              (415) 915-2183
+            </a>
+            <a href="mailto:therapy@madronelove.com" className="hover:opacity-100 transition-opacity">
+              therapy@madronelove.com
+            </a>
+            <Link href="/contact" className="hover:opacity-100 transition-opacity">
+              Book a consultation
+            </Link>
+          </div>
+        </div>
+      </footer>
     </section>
   )
 }
