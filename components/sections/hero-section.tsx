@@ -25,13 +25,13 @@ export function HeroSection() {
         {/* Desktop gradient */}
         <div className="hidden lg:block" style={{
           position: "absolute", inset: 0,
-          background: "linear-gradient(to right, rgba(240,235,227,0.82) 0%, rgba(240,235,227,0.65) 28%, rgba(240,235,227,0.32) 55%, rgba(240,235,227,0.12) 85%, rgba(240,235,227,0.05) 100%)",
+          background: "linear-gradient(to right, rgba(240,235,227,0.94) 0%, rgba(240,235,227,0.82) 28%, rgba(240,235,227,0.52) 55%, rgba(240,235,227,0.28) 85%, rgba(240,235,227,0.15) 100%)",
         }} />
 
         {/* Mobile gradient */}
         <div className="lg:hidden" style={{
           position: "absolute", inset: 0,
-          background: "rgba(240,235,227,0.62)",
+          background: "rgba(240,235,227,0.82)",
         }} />
       </div>
 
@@ -58,7 +58,7 @@ export function HeroSection() {
                 lineHeight: 1.05,
                 letterSpacing: "-0.01em",
                 margin: 0,
-                textShadow: "0 4px 22px rgba(125,128,95,0.55), 0 2px 6px rgba(125,128,95,0.35)",
+                textShadow: "0 2px 12px rgba(125,128,95,0.25), 0 1px 3px rgba(125,128,95,0.18)",
               }}>
                 Neuroinclusive
               </h1>
