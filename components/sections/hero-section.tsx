@@ -12,17 +12,8 @@ export function HeroSection() {
       className="relative overflow-hidden"
       style={{ height: "100vh" }}
     >
-      {/* Full-bleed video — exact viewport size */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          inset: 0,
-          width: "100%",
-          overflow: "hidden",
-          zIndex: 0,
-        }}
-      >
+      {/* Full-bleed video */}
+      <div aria-hidden="true" style={{ position: "absolute", inset: 0, overflow: "hidden", zIndex: 0 }}>
         <video autoPlay muted loop playsInline style={{
           position: "absolute", inset: 0,
           width: "100%", height: "100%",
@@ -31,22 +22,28 @@ export function HeroSection() {
           <source src="/ceramics.mp4" type="video/mp4" />
         </video>
 
-        {/* Gradient: opaque cream on left for heading, transparent on right for video */}
-        <div style={{
+        {/* Desktop gradient: heavy cream left → transparent right */}
+        <div className="hidden md:block" style={{
           position: "absolute", inset: 0,
           background: "linear-gradient(to right, rgba(240,235,227,0.94) 0%, rgba(240,235,227,0.82) 28%, rgba(240,235,227,0.52) 55%, rgba(240,235,227,0.28) 85%, rgba(240,235,227,0.15) 100%)",
         }} />
+
+        {/* Mobile gradient: uniform cream tint for readability */}
+        <div className="md:hidden" style={{
+          position: "absolute", inset: 0,
+          background: "rgba(240,235,227,0.82)",
+        }} />
       </div>
 
-      {/* Main content — vertically centred within the viewport */}
+      {/* Main content */}
       <div
-        className="relative h-full flex items-center px-6 lg:px-16"
+        className="relative h-full flex items-center px-6 lg:px-16 pt-16 md:pt-0"
         style={{ zIndex: 2 }}
       >
-        <div className="flex items-end gap-8 lg:gap-12 w-full max-w-6xl mx-auto pb-16">
+        <div className="flex flex-col md:flex-row md:items-end gap-6 md:gap-12 w-full max-w-6xl mx-auto md:pb-16">
 
-          {/* Left — heading */}
-          <div className="shrink-0 space-y-1" style={{ maxWidth: "340px" }}>
+          {/* Heading */}
+          <div className="shrink-0 space-y-1 text-center md:text-left mx-auto md:mx-0" style={{ maxWidth: "340px" }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -75,12 +72,12 @@ export function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Right — cards flush toward tabs */}
+          {/* Cards */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex-1 flex justify-end"
+            className="flex-1 flex justify-center md:justify-end"
           >
             <HeroCards />
           </motion.div>
@@ -88,7 +85,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Footer — layered over the video at the bottom */}
+      {/* Footer */}
       <footer
         className="no-print absolute bottom-0 left-0 right-0"
         style={{
@@ -96,11 +93,11 @@ export function HeroSection() {
           background: "linear-gradient(to top, rgba(240,235,227,0.88) 0%, rgba(240,235,227,0.60) 60%, transparent 100%)",
           paddingBottom: "18px",
           paddingTop: "32px",
-          paddingLeft: "2rem",
-          paddingRight: "2rem",
+          paddingLeft: "1.5rem",
+          paddingRight: "1.5rem",
         }}
       >
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-end sm:items-center justify-between gap-2">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1">
           <p style={{ fontFamily: "var(--font-accent)", fontWeight: 600, fontSize: "1.1rem", color: "rgba(61,82,48,0.48)" }}>
             Dr. Madrone Love, PsyD &nbsp;·&nbsp; San Francisco &amp; Berkeley, CA &nbsp;·&nbsp; Telehealth
           </p>

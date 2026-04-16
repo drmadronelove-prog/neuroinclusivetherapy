@@ -21,7 +21,7 @@ const cards = [
 
 export function HeroCards() {
   return (
-    <div className="grid grid-cols-3 gap-4 ml-auto">
+    <div className="grid grid-cols-3 gap-2 md:gap-4 w-full md:w-auto">
       {cards.map((card, index) => (
         <HeroCard key={card.title} card={card} index={index} />
       ))}
@@ -49,9 +49,10 @@ function HeroCard({
         transition={{ type: "spring", stiffness: 260, damping: 18 }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        className="w-full md:w-[8.5rem]"
         style={{
-          width: "8.5rem",
-          height: "10rem",
+          aspectRatio: "17 / 20",
+          height: undefined,
           backgroundColor: "rgba(248, 244, 238, 0.92)",
           backgroundImage: PAPER_BG,
           backgroundSize: "200px 200px",
@@ -77,18 +78,16 @@ function HeroCard({
         }} />
 
         <div className="relative h-full flex flex-col justify-center items-center gap-2 p-3">
-          <span style={{
+          <span className="text-[0.6rem] md:text-[0.85rem]" style={{
             fontFamily: "var(--font-accent)",
-            fontSize: "0.85rem",
             fontWeight: 400,
             color: card.borderColor,
             opacity: 0.65,
           }}>
             {String(index + 1).padStart(2, "0")}
           </span>
-          <h3 style={{
+          <h3 className="text-[0.85rem] md:text-[1.2rem]" style={{
             fontFamily: "var(--font-accent)",
-            fontSize: "1.2rem",
             fontWeight: 400,
             color: "#6B5F58",
             textAlign: "center",
