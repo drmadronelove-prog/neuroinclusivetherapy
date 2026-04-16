@@ -66,7 +66,7 @@ export default function RootLayout({
               fontFamily: "var(--font-accent)",
               fontSize: "1.55rem",
               fontWeight: 700,
-              color: "#C0B4A0",
+              color: "#8A7E6E",
               lineHeight: 1.1,
               letterSpacing: "0.02em",
             }}>
@@ -74,11 +74,11 @@ export default function RootLayout({
             </span>
             <span className="hidden md:inline" style={{
               fontFamily: "var(--font-accent)",
-              fontSize: "0.85rem",
+              fontSize: "1rem",
               fontWeight: 400,
               color: "#C0B4A0",
               lineHeight: 1.15,
-              letterSpacing: "0.22em",
+              letterSpacing: "0.18em",
             }}>
               Clinical Psychologist
             </span>
