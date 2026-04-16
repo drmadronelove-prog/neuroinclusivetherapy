@@ -3,7 +3,7 @@ import { BreathingBubble } from "@/components/breathing-bubble"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Mindfulness & Meditation — Dr. Madrone Love, PsyD",
+  title: "Mindfulness & Meditation — Madrone Love, PsyD",
   description: "Contemplative resources for neurodivergent-affirming practice. Mindfulness teachings, guided meditations, and Buddhist-informed clinical work.",
 }
 

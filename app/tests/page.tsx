@@ -9,8 +9,8 @@ import { GSQ } from "@/components/assessments/gsq"
 import { OEQ2 } from "@/components/assessments/oeq2"
 
 export const metadata = {
-  title: "Tests | Dr. Madrone Love, PsyD",
-  description: "Comprehensive psychological assessments and evaluations by Dr. Madrone Love.",
+  title: "Tests | Madrone Love, PsyD",
+  description: "Comprehensive psychological assessments and evaluations by Madrone Love.",
 }
 
 export default function TestsPage() {

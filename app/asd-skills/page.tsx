@@ -2,7 +2,7 @@ import { ToolPageLayout } from "@/components/tool-page-layout"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "ASD Skills — Dr. Madrone Love, PsyD",
+  title: "ASD Skills — Madrone Love, PsyD",
   description: "Affirming support for autistic adults — masking burnout, identity, and thriving on your own terms.",
 }
 

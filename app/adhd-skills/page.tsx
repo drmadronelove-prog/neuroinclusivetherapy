@@ -4,7 +4,7 @@ import { DysregulationLog } from "@/components/tools/dysregulation-log"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "ADHD Skills — Dr. Madrone Love, PsyD",
+  title: "ADHD Skills — Madrone Love, PsyD",
 }
 
 export default function ADHDSkillsPage() {

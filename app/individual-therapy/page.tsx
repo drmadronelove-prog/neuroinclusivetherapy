@@ -5,7 +5,7 @@ import Image from "next/image"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Individual Therapy — Dr. Madrone Love, PsyD",
+  title: "Individual Therapy — Madrone Love, PsyD",
   description: "Neuro-inclusive individual therapy for ADHD, autism, OCD, and trauma. In-person in San Francisco & Berkeley, CA and via telehealth throughout California.",
 }
 
@@ -68,7 +68,7 @@ export default function IndividualTherapyPage() {
             <div className="w-56 h-56 sm:w-72 sm:h-72 rounded-full overflow-hidden border-2 border-nav-coral/30 bg-muted">
               <Image
                 src="/dr-love.jpg"
-                alt="Dr. Madrone Love, PsyD"
+                alt="Madrone Love, PsyD"
                 width={288}
                 height={288}
                 className="object-cover w-full h-full"

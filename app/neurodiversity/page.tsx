@@ -8,7 +8,7 @@ import Link from "next/link"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Neurodivergence Map — Dr. Madrone Love, PsyD",
+  title: "Neurodivergence Map — Madrone Love, PsyD",
 }
 
 // ── Big network (30 nodes) ───────────────────────────────────────────────────

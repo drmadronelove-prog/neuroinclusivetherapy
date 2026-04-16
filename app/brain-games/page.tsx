@@ -1,7 +1,7 @@
 import { ToolPageLayout } from "@/components/tool-page-layout"
 
 export const metadata = {
-  title: "Brain Games | Dr. Madrone Love, PsyD",
+  title: "Brain Games | Madrone Love, PsyD",
   description: "Interactive games for building psychological skills — ACT defusion, I-CBT reality-testing, OCD narrative work, and more.",
 }
 

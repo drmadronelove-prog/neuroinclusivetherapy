@@ -2,7 +2,7 @@ import { ToolPageLayout } from "@/components/tool-page-layout"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "OCD Skills — Dr. Madrone Love, PsyD",
+  title: "OCD Skills — Madrone Love, PsyD",
   description: "ERP-trained treatment for OCD. Understanding the cycle and building the skills to step out of it.",
 }
 

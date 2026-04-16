@@ -1,7 +1,7 @@
 import { ToolPageLayout } from "@/components/tool-page-layout"
 
 export const metadata = {
-  title: "ADHD Support | Dr. Madrone Love, PsyD",
+  title: "ADHD Support | Madrone Love, PsyD",
   description: "Executive function coaching woven into therapeutic work.",
 }
 
