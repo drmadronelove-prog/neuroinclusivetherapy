@@ -58,7 +58,7 @@ export function HeroSection() {
                 lineHeight: 1.05,
                 letterSpacing: "-0.01em",
                 margin: 0,
-                textShadow: "0 2px 12px rgba(125,128,95,0.25), 0 1px 3px rgba(125,128,95,0.18)",
+                textShadow: "0 4px 22px rgba(125,128,95,0.55), 0 2px 6px rgba(125,128,95,0.35)",
               }}>
                 Neuroinclusive
               </h1>
