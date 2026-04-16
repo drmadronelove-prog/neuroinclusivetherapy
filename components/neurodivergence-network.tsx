@@ -62,8 +62,8 @@ export function NetworkGraph({
     import("d3").then((d3) => {
       if (!active || !svgRef.current) return
 
-      const W = 1600
-      const H = 1100
+      const W = 2000
+      const H = 1400
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const d3nodes: any[] = nodes.map(n => ({ ...n }))
@@ -106,9 +106,9 @@ export function NetworkGraph({
 
       const sim = d3.forceSimulation(d3nodes)
         .alphaDecay(0.008)
-        .force("link",    d3.forceLink(d3links).id((d: any) => d.id).distance(310).strength(0.2))
-        .force("charge",  d3.forceManyBody().strength(-3200))
-        .force("collide", d3.forceCollide().radius((d: any) => getR(d.id) * 1.55))
+        .force("link",    d3.forceLink(d3links).id((d: any) => d.id).distance(380).strength(0.18))
+        .force("charge",  d3.forceManyBody().strength(-5500))
+        .force("collide", d3.forceCollide().radius((d: any) => getR(d.id) * 2.1))
         .force("x",       d3.forceX(W / 2).strength(0.004))
         .force("y",       d3.forceY(H / 2).strength(0.004))
 
