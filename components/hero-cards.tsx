@@ -13,7 +13,7 @@ const cards = [
   { title: "Tests + Blog",               href: "/tests-blog",         borderColor: "#A7B79F", rotate:  1.5 },
   { title: "ASD + ADHD Skills",          href: "/adhd-asd-skills",    borderColor: "#8A9E96", rotate: -1   },
   // Row 2
-  { title: "Relationships",              href: "/relationships",      borderColor: "#C17C74", rotate:  1   },
+  { title: "Relationships and Identity Exploration", href: "/relationships", borderColor: "#C17C74", rotate: 1 },
   { title: "Grief + Trauma Recovery",    href: "/grief-trauma",       borderColor: "#B89878", rotate: -1.5 },
   { title: "Depression + Burnout Recovery", href: "/depression-burnout", borderColor: "#7D805F", rotate:  0.5 },
   // Row 3

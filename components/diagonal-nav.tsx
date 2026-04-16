@@ -14,13 +14,10 @@ const navItems = [
 ]
 
 // Step size in px — each spine starts this much lower than the previous
-const STEP = 72
+const STEP = 61
 
 function spineBackground(color: string): string {
-  return [
-    "linear-gradient(90deg, rgba(0,0,0,0.12) 0%, rgba(255,255,255,0.10) 30%, rgba(255,255,255,0.14) 50%, rgba(255,255,255,0.10) 70%, rgba(0,0,0,0.12) 100%)",
-    `linear-gradient(180deg, ${color} 0%, ${color} 100%)`,
-  ].join(", ")
+  return `linear-gradient(180deg, ${color} 0%, ${color} 100%)`
 }
 
 export function DiagonalNav() {
@@ -45,20 +42,13 @@ export function DiagonalNav() {
               borderTopLeftRadius: "8px",
               borderTopRightRadius: "8px",
               boxShadow: isHovered
-                ? `-3px 0 12px rgba(0,0,0,0.20), inset 0 1px 0 rgba(255,255,255,0.25)`
-                : `-1px 0 4px rgba(0,0,0,0.14), inset 0 1px 0 rgba(255,255,255,0.18)`,
+                ? `-3px 0 12px rgba(0,0,0,0.18)`
+                : `-1px 0 4px rgba(0,0,0,0.10)`,
               transform: isHovered ? "translateY(-6px)" : "translateY(0)",
             }}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
-            {/* Top headband */}
-            <div style={{
-              width: "100%", height: "8px", flexShrink: 0,
-              background: "linear-gradient(180deg, rgba(255,255,255,0.30) 0%, rgba(255,255,255,0.04) 100%)",
-              borderTopLeftRadius: "8px", borderTopRightRadius: "8px",
-            }} />
-
             {/* Centred label */}
             <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
               <span
@@ -78,12 +68,6 @@ export function DiagonalNav() {
                 {item.label}
               </span>
             </div>
-
-            {/* Bottom cap */}
-            <div style={{
-              width: "100%", height: "8px", flexShrink: 0,
-              background: "linear-gradient(0deg, rgba(0,0,0,0.20) 0%, rgba(0,0,0,0.04) 100%)",
-            }} />
 
           </Link>
         )
