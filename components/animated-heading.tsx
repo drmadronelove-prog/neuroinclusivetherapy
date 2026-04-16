@@ -6,14 +6,14 @@ export function AnimatedHeading() {
       Therapy and Tools for people who{" "}
       <span className="whitespace-nowrap">are{" "}
         <span className="italic font-[var(--font-accent)] font-bold text-2xl sm:text-3xl" style={{
-          color: "#C86428",
-          textShadow: "0 0 10px rgba(200,100,40,0.5), 0 0 24px rgba(200,100,40,0.2)",
+          color: "#C17C74",
+          textShadow: "0 0 10px rgba(193,124,116,0.5), 0 0 24px rgba(193,124,116,0.22)",
         }}>
           different
         </span>
         <span className="font-[var(--font-accent)] font-bold text-2xl sm:text-3xl" style={{
-          color: "#C86428",
-          textShadow: "0 0 10px rgba(200,100,40,0.5), 0 0 24px rgba(200,100,40,0.2)",
+          color: "#C17C74",
+          textShadow: "0 0 10px rgba(193,124,116,0.5), 0 0 24px rgba(193,124,116,0.22)",
         }}>.</span>
       </span>
     </p>
