@@ -6,25 +6,6 @@ export const metadata: Metadata = {
   description: "Contemplative resources for neurodivergent-affirming practice. Mindfulness teachings, guided meditations, and Buddhist-informed clinical work.",
 }
 
-const practices = [
-  {
-    title: "Somatic Awareness",
-    body: "Learning to track sensation in the body as a real-time signal — not something to override or ignore. Particularly useful for neurodivergent clients navigating interoceptive differences.",
-  },
-  {
-    title: "Insight Meditation (Vipassana)",
-    body: "Observing the arising and passing of thoughts, sensations, and emotions without identification. Rooted in the Theravāda tradition, with particular influence from the Insight Meditation Center lineage.",
-  },
-  {
-    title: "Working with Difficult Emotions",
-    body: "Using mindfulness to open toward difficult internal states rather than compulsively avoid or amplify them — a foundation for ERP, ACT, and grief work alike.",
-  },
-  {
-    title: "Equanimity Under Uncertainty",
-    body: "Developing the capacity to remain present amid unresolvable questions — chronic illness, identity transitions, loss, existential anxiety. Not detachment, but groundedness.",
-  },
-]
-
 const resources = [
   {
     tag: "ARCHIVE",
@@ -59,45 +40,6 @@ export default function MindfulnessPage() {
   return (
     <ToolPageLayout title="MINDFULNESS" color="text-nav-amber">
       <div className="space-y-14">
-
-        {/* Intro */}
-        <div className="space-y-4 max-w-prose">
-          <p className="text-lg text-foreground leading-relaxed">
-            Contemplative resources for neurodivergent-affirming practice.
-            Mindfulness, when adapted for different nervous systems, can support
-            regulation, self-compassion, and present-moment grounding.
-          </p>
-          <p className="text-muted-foreground leading-relaxed">
-            My approach draws deeply from Buddhist practice — not as a supplementary
-            technique, but as a fundamental orientation. Mindfulness in a clinical
-            context is not about achieving a calm mind. It is about developing a
-            different relationship to whatever mind is present, including the racing
-            mind, the looping mind, the dissociating mind.
-          </p>
-        </div>
-
-        {/* What this looks like */}
-        <div>
-          <h2 className="font-[var(--font-display)] text-2xl font-black text-foreground tracking-tight mb-6">
-            WHAT THIS LOOKS LIKE IN THERAPY
-          </h2>
-          <div className="grid sm:grid-cols-2 gap-4">
-            {practices.map(p => (
-              <div
-                key={p.title}
-                className="bg-card border border-border border-l-2 border-l-nav-amber rounded-lg p-5"
-              >
-                <h3 className="font-[var(--font-display)] font-bold text-foreground mb-2 text-sm tracking-wide">
-                  {p.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{p.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Divider */}
-        <hr className="border-border/50" />
 
         {/* Video section */}
         <div>
