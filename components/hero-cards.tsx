@@ -15,7 +15,7 @@ const cards = [
   // Row 2
   { title: "Relationships",              href: "/relationships",      borderColor: "#C17C74", rotate:  1   },
   { title: "Grief + Trauma Recovery",    href: "/grief-trauma",       borderColor: "#B89878", rotate: -1.5 },
-  { title: "Depression + Burnout",       href: "/depression-burnout", borderColor: "#7D805F", rotate:  0.5 },
+  { title: "Depression + Burnout Recovery", href: "/depression-burnout", borderColor: "#7D805F", rotate:  0.5 },
   // Row 3
   { title: "Anxiety + OCD Skills",       href: "/ocd-skills",         borderColor: "#A7B79F", rotate: -2   },
   { title: "Mindfulness + Brain Games",  href: "/mindfulness-games",  borderColor: "#8A9E96", rotate:  1   },

@@ -2,7 +2,6 @@
 
 import { HeroCards } from "@/components/hero-cards"
 import { AnimatedHeading } from "@/components/animated-heading"
-import { DiagonalNav, MobileNav } from "@/components/diagonal-nav"
 import { motion } from "framer-motion"
 import Link from "next/link"
 
@@ -13,8 +12,6 @@ export function HeroSection() {
       className="relative"
       style={{ minHeight: "100svh" }}
     >
-      <DiagonalNav />
-      <MobileNav />
 
       {/* Logo + name — fixed top-left, front page only */}
       <Link
