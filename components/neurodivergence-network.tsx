@@ -226,19 +226,19 @@ export function NetworkGraph({
         .data(d3nodes)
         .join("text")
         .attr("text-anchor", "middle")
-        .attr("fill",        "rgba(255,255,255,0.95)")
+        .attr("fill",        "rgba(20,20,20,0.88)")
         .attr("font-family", "DM Sans, sans-serif")
-        .attr("font-size",   "8")
-        .attr("font-weight", "600")
+        .attr("font-size",   "11")
+        .attr("font-weight", "700")
         .each(function(d: any) {
           const el = d3.select(this)
           const lines = wrapWords(d.label)
-          const lineH = 10
+          const lineH = 13
           const startDy = -(lines.length - 1) * lineH / 2
           lines.forEach((line, i) => {
             el.append("tspan")
               .attr("x", 0)
-              .attr("dy", i === 0 ? startDy : lineH)
+              .attr("dy", i === 0 ? startDy : 13)
               .text(line)
           })
         })
