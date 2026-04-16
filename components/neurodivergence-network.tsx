@@ -62,8 +62,8 @@ export function NetworkGraph({
     import("d3").then((d3) => {
       if (!active || !svgRef.current) return
 
-      const W = 1400
-      const H = 1000
+      const W = 1600
+      const H = 1100
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const d3nodes: any[] = nodes.map(n => ({ ...n }))
@@ -93,12 +93,13 @@ export function NetworkGraph({
       fm.append("feMergeNode").attr("in", "SourceGraphic")
 
       const sim = d3.forceSimulation(d3nodes)
-        .force("link",    d3.forceLink(d3links).id((d: any) => d.id).distance(340).strength(0.25))
-        .force("charge",  d3.forceManyBody().strength(-3500))
+        .alphaDecay(0.01)
+        .force("link",    d3.forceLink(d3links).id((d: any) => d.id).distance(260).strength(0.3))
+        .force("charge",  d3.forceManyBody().strength(-2200))
         .force("center",  d3.forceCenter(W / 2, H / 2))
-        .force("collide", d3.forceCollide().radius((d: any) => getR(d.id) + 80))
-        .force("x",       d3.forceX(W / 2).strength(0.02))
-        .force("y",       d3.forceY(H / 2).strength(0.02))
+        .force("collide", d3.forceCollide().radius((d: any) => getR(d.id) * 1.18))
+        .force("x",       d3.forceX(W / 2).strength(0.015))
+        .force("y",       d3.forceY(H / 2).strength(0.015))
 
       const linkG = svg.append("g")
       const linkEl = linkG.selectAll("line")
