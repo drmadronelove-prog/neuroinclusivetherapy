@@ -246,6 +246,12 @@ export function NetworkGraph({
       svg.on("click", () => { selected.clear(); updateHighlights() })
 
       sim.on("tick", () => {
+        // Clamp every node inside the viewBox
+        d3nodes.forEach((d: any) => {
+          const r = getR(d.id)
+          d.x = Math.max(r, Math.min(W - r, d.x))
+          d.y = Math.max(r, Math.min(H - r, d.y))
+        })
         linkEl
           .attr("x1", (d: any) => d.source.x).attr("y1", (d: any) => d.source.y)
           .attr("x2", (d: any) => d.target.x).attr("y2", (d: any) => d.target.y)

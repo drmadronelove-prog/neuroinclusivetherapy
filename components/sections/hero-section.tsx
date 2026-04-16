@@ -84,8 +84,8 @@ export function HeroSection() {
         </div>
 
         {/* Mobile footer — sits at bottom of viewport */}
-        <div className="no-print lg:hidden py-6" style={{ fontFamily: "var(--font-accent)", color: "rgba(61,82,48,0.52)", lineHeight: 1.4 }}>
-          <p className="whitespace-nowrap overflow-x-auto text-[0.72rem]">
+        <div className="no-print lg:hidden py-6" style={{ fontFamily: "var(--font-accent)", color: "rgba(61,82,48,0.52)", lineHeight: 1.4, fontSize: "0.95rem" }}>
+          <p className="whitespace-nowrap overflow-x-auto">
             San Francisco &amp; Berkeley &nbsp;·&nbsp;{" "}
             <a href="tel:+14159152183" className="hover:opacity-100 transition-opacity">(415) 915-2183</a>
             {" "}&nbsp;·&nbsp;{" "}
@@ -107,7 +107,7 @@ export function HeroSection() {
         }}
       >
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1">
-          <p style={{ fontFamily: "var(--font-accent)", fontWeight: 600, fontSize: "1.1rem", color: "rgba(61,82,48,0.48)" }}>
+          <p style={{ fontFamily: "var(--font-accent)", fontWeight: 600, fontSize: "0.95rem", color: "rgba(61,82,48,0.48)" }}>
             Dr. Madrone Love, PsyD &nbsp;·&nbsp; San Francisco &amp; Berkeley, CA &nbsp;·&nbsp; Telehealth
           </p>
           <div className="flex flex-wrap gap-x-5 gap-y-1" style={{ fontFamily: "var(--font-accent)", color: "rgba(61,82,48,0.48)", fontSize: "0.95rem" }}>
