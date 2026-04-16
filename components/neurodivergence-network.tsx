@@ -62,8 +62,8 @@ export function NetworkGraph({
     import("d3").then((d3) => {
       if (!active || !svgRef.current) return
 
-      const W = 600
-      const H = 430
+      const W = 1000
+      const H = 700
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const d3nodes: any[] = nodes.map(n => ({ ...n }))
@@ -93,12 +93,12 @@ export function NetworkGraph({
       fm.append("feMergeNode").attr("in", "SourceGraphic")
 
       const sim = d3.forceSimulation(d3nodes)
-        .force("link",    d3.forceLink(d3links).id((d: any) => d.id).distance(90).strength(0.5))
-        .force("charge",  d3.forceManyBody().strength(-340))
+        .force("link",    d3.forceLink(d3links).id((d: any) => d.id).distance(180).strength(0.4))
+        .force("charge",  d3.forceManyBody().strength(-680))
         .force("center",  d3.forceCenter(W / 2, H / 2))
-        .force("collide", d3.forceCollide().radius((d: any) => getR(d.id) + 20))
-        .force("x",       d3.forceX(W / 2).strength(0.04))
-        .force("y",       d3.forceY(H / 2).strength(0.04))
+        .force("collide", d3.forceCollide().radius((d: any) => getR(d.id) + 40))
+        .force("x",       d3.forceX(W / 2).strength(0.05))
+        .force("y",       d3.forceY(H / 2).strength(0.05))
 
       const linkG = svg.append("g")
       const linkEl = linkG.selectAll("line")
@@ -110,6 +110,20 @@ export function NetworkGraph({
 
       const nodeG = svg.append("g")
       const selected = new Set<string>()
+
+      function getAdjacent(): Set<string> {
+        const adj = new Set<string>()
+        if (selected.size === 0) return adj
+        d3nodes.forEach(n => {
+          if (selected.has(n.id)) return
+          const connected = d3links.some(l =>
+            (l.source.id === n.id && selected.has(l.target.id)) ||
+            (l.target.id === n.id && selected.has(l.source.id))
+          )
+          if (connected) adj.add(n.id)
+        })
+        return adj
+      }
 
       function getShared(): Set<string> {
         const shared = new Set<string>()
@@ -128,26 +142,35 @@ export function NetworkGraph({
         return shared
       }
 
-      function updateLabel(shared: Set<string>) {
+      function updateLabel(highlighted: Set<string>) {
         if (!labelRef.current) return
         if (selected.size === 0) {
           labelRef.current.textContent = "Click any node to highlight its connections. Select two or more to see shared mechanisms."
           return
         }
         const selLabels = d3nodes.filter(n => selected.has(n.id)).map(n => n.label)
-        if (selected.size < 2 || shared.size === 0) {
+        if (selected.size === 1) {
+          const connLabels = d3nodes.filter(n => highlighted.has(n.id)).map(n => n.label)
+          labelRef.current.textContent = connLabels.length
+            ? `${selLabels[0]} → connected: ${connLabels.join(", ")}`
+            : `Selected: ${selLabels[0]}`
+          return
+        }
+        if (highlighted.size === 0) {
           labelRef.current.textContent = `Selected: ${selLabels.join(", ")}`
           return
         }
-        const sharedLabels = d3nodes.filter(n => shared.has(n.id)).map(n => n.label)
+        const sharedLabels = d3nodes.filter(n => highlighted.has(n.id)).map(n => n.label)
         labelRef.current.textContent = `${selLabels.join(" + ")} → shared: ${sharedLabels.join(", ")}`
       }
 
       function updateHighlights() {
-        const shared = getShared()
+        const adjacent = getAdjacent()
+        const shared   = getShared()
+        const highlighted = selected.size >= 2 ? shared : adjacent
         const hasSel = selected.size > 0
 
-        const isGold = (id: string) => selected.has(id) || shared.has(id)
+        const isGold = (id: string) => selected.has(id) || highlighted.has(id)
 
         circleEl
           .attr("fill",   (d: any) => isGold(d.id) ? "#FFD700" : COLORS[d.type as NodeType])
@@ -172,7 +195,7 @@ export function NetworkGraph({
             return (isGold(s) && isGold(t)) ? 1 : 0.05
           })
 
-        updateLabel(shared)
+        updateLabel(highlighted)
       }
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
