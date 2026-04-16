@@ -40,7 +40,7 @@ export default function MindfulnessPage() {
       <div className="space-y-14">
 
         {/* Breathing bubble */}
-        <div>
+        <div className="flex justify-center">
           <BreathingBubble />
         </div>
 
@@ -60,7 +60,7 @@ export default function MindfulnessPage() {
 
           <div style={{
             width: "100%",
-            aspectRatio: "16 / 7",
+            aspectRatio: "16 / 9",
             borderRadius: "12px",
             overflow: "hidden",
             background: "#000",

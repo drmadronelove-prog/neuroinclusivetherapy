@@ -86,7 +86,7 @@ export function BreathingBubble() {
       borderRadius: "20px",
       background: "rgba(91,168,158,0.05)",
       padding: "32px 24px 28px",
-      display: "inline-flex",
+      display: "flex",
       flexDirection: "column",
       alignItems: "center",
       maxWidth: "320px",

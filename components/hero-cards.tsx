@@ -10,7 +10,7 @@ const PAPER_BG = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/
 const cards = [
   { title: "Neurodiversity",     href: "/neurodiversity",     borderColor: "#B89878", rotate: -2   },
   { title: "Tests",              href: "/tests",              borderColor: "#A7B79F", rotate:  1.5 },
-  { title: "ADHD Skills",        href: "/adhd-skills",        borderColor: "#7D805F", rotate: -1   },
+  { title: "ADHD Skills",        href: "/adhd-skills",        borderColor: "#C0B4A0", rotate: -1   },
   { title: "ASD Skills",         href: "/asd-skills",         borderColor: "#8A9E96", rotate:  2   },
   { title: "OCD Skills",         href: "/ocd-skills",         borderColor: "#A7B79F", rotate: -1.5 },
   { title: "Mindfulness",        href: "/mindfulness",        borderColor: "#B89878", rotate:  0.5 },
