@@ -44,17 +44,6 @@ export default function MindfulnessPage() {
 
         {/* Breathing bubble */}
         <div>
-          <p style={{
-            fontFamily: "var(--font-display)",
-            fontSize: "0.68rem",
-            fontWeight: 700,
-            letterSpacing: "0.18em",
-            textTransform: "uppercase",
-            color: "var(--muted-foreground)",
-            marginBottom: "4px",
-          }}>
-            Box Breathing &mdash; 4 · 4 · 4 · 4
-          </p>
           <BreathingBubble />
         </div>
 
