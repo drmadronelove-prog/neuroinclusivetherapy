@@ -16,36 +16,34 @@ export function HeroSection() {
       <DiagonalNav />
       <MobileNav />
 
-      {/* Logo + name — desktop only, in the blank strip just left of nav spines */}
-      <div className="no-print hidden md:flex fixed top-4 z-[55]" style={{
-        right: "264px",
-        flexDirection: "column",
-        gap: "3px",
-        alignItems: "flex-end",
-      }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.png" alt="" width={52} height={52} style={{ display: "block", flexShrink: 0 }} />
-          <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
-            <span style={{
-              fontFamily: "var(--font-accent)",
-              fontSize: "1.55rem",
-              fontWeight: 700,
-              color: "#8A7E6E",
-              lineHeight: 1.1,
-              letterSpacing: "0.02em",
-            }}>Madrone Love, PsyD</span>
-            <span style={{
-              fontFamily: "var(--font-accent)",
-              fontSize: "1.1rem",
-              fontWeight: 400,
-              color: "#9A8E7E",
-              lineHeight: 1.15,
-              letterSpacing: "0.15em",
-            }}>Clinical Psychologist</span>
-          </div>
+      {/* Logo + name — fixed top-left, front page only */}
+      <Link
+        href="/"
+        className="no-print fixed top-3 left-3 z-[60]"
+        style={{ display: "flex", alignItems: "center", gap: "10px" }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/logo.png" alt="" width={52} height={52} style={{ display: "block", flexShrink: 0 }} />
+        <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
+          <span style={{
+            fontFamily: "var(--font-accent)",
+            fontSize: "1.55rem",
+            fontWeight: 700,
+            color: "#8A7E6E",
+            lineHeight: 1.1,
+            letterSpacing: "0.02em",
+          }}>Madrone Love, PsyD</span>
+          <span className="hidden md:inline" style={{
+            fontFamily: "var(--font-accent)",
+            fontSize: "1.1rem",
+            fontWeight: 400,
+            color: "#9A8E7E",
+            lineHeight: 1.15,
+            letterSpacing: "0.15em",
+          }}>Clinical Psychologist</span>
         </div>
-      </div>
+      </Link>
+
       {/* Full-bleed video */}
       <div aria-hidden="true" style={{ position: "absolute", inset: 0, overflow: "hidden", zIndex: 0 }}>
         <video autoPlay muted loop playsInline style={{
@@ -92,7 +90,6 @@ export function HeroSection() {
                 lineHeight: 1.05,
                 letterSpacing: "-0.01em",
                 margin: 0,
-                textShadow: "0 2px 12px rgba(125,128,95,0.25), 0 1px 3px rgba(125,128,95,0.18)",
               }}>
                 Neuroinclusive
               </h1>
