@@ -28,7 +28,7 @@ export function HeroSection() {
           width: "100%", height: "100%",
           objectFit: "cover", objectPosition: "center",
         }}>
-          <source src="/pottery.mp4" type="video/mp4" />
+          <source src="/ceramics.mp4" type="video/mp4" />
         </video>
 
         {/* Gradient: opaque cream on left for heading, transparent on right for video */}
