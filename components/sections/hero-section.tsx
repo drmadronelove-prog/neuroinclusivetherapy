@@ -54,10 +54,11 @@ export function HeroSection() {
                 fontFamily: "var(--font-accent)",
                 fontSize: "clamp(3.8rem, 6.5vw, 6rem)",
                 fontWeight: 700,
-                color: "#3D5230",
+                color: "#5A7848",
                 lineHeight: 1.05,
                 letterSpacing: "-0.01em",
                 margin: 0,
+                textShadow: "0 2px 12px rgba(61,82,48,0.22), 0 1px 3px rgba(61,82,48,0.15)",
               }}>
                 Neuroinclusive
               </h1>
