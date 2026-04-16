@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   description: 'Compassionate, neuroinclusive therapy services by Dr. Madrone Love, PsyD. Specializing in neurodivergent-affirming care, ADHD, autism, and holistic mental wellness.',
   generator: 'v0.app',
   icons: {
-    icon: '/logo.svg',
-    apple: '/logo.svg',
+    icon: '/logo.png',
+    apple: '/logo.png',
   },
 }
 
@@ -55,11 +55,11 @@ export default function RootLayout({
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/logo.svg"
+            src="/logo.png"
             alt="Neuroinclusive Therapy logo"
             width={52}
             height={52}
-            style={{ borderRadius: "50%", display: "block" }}
+            style={{ display: "block" }}
           />
         </Link>
         {children}
