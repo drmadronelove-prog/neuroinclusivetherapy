@@ -18,7 +18,7 @@ export function HeroSection() {
         style={{
           position: "absolute",
           inset: 0,
-          width: "calc(100vw - 252px)",
+          width: "100%",
           overflow: "hidden",
           zIndex: 0,
         }}
