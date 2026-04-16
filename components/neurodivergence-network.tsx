@@ -77,6 +77,18 @@ export function NetworkGraph({
       })
       const getR = (id: string) => Math.max(78, Math.min(120, 57 + Math.sqrt(degree[id] || 1) * 10.5))
 
+      // Pre-spread nodes across the full canvas in a diagonal grid so the
+      // simulation starts dispersed rather than clustered at the centre
+      const padding = 110
+      const cols = Math.round(Math.sqrt(d3nodes.length * W / H))
+      const rows = Math.ceil(d3nodes.length / cols)
+      d3nodes.forEach((node: any, i: number) => {
+        const col = i % cols
+        const row = Math.floor(i / cols)
+        node.x = padding + (col + 0.5) * ((W - padding * 2) / cols)  + (Math.random() - 0.5) * 60
+        node.y = padding + (row + 0.5) * ((H - padding * 2) / rows)  + (Math.random() - 0.5) * 60
+      })
+
       const svg = d3.select(svgRef.current)
       svg.selectAll("*").remove()
       svg.attr("viewBox", `0 0 ${W} ${H}`)
@@ -93,13 +105,12 @@ export function NetworkGraph({
       fm.append("feMergeNode").attr("in", "SourceGraphic")
 
       const sim = d3.forceSimulation(d3nodes)
-        .alphaDecay(0.01)
-        .force("link",    d3.forceLink(d3links).id((d: any) => d.id).distance(260).strength(0.3))
-        .force("charge",  d3.forceManyBody().strength(-2200))
-        .force("center",  d3.forceCenter(W / 2, H / 2))
-        .force("collide", d3.forceCollide().radius((d: any) => getR(d.id) * 1.18))
-        .force("x",       d3.forceX(W / 2).strength(0.015))
-        .force("y",       d3.forceY(H / 2).strength(0.015))
+        .alphaDecay(0.008)
+        .force("link",    d3.forceLink(d3links).id((d: any) => d.id).distance(240).strength(0.25))
+        .force("charge",  d3.forceManyBody().strength(-1800))
+        .force("collide", d3.forceCollide().radius((d: any) => getR(d.id) * 1.15))
+        .force("x",       d3.forceX(W / 2).strength(0.004))
+        .force("y",       d3.forceY(H / 2).strength(0.004))
 
       const linkG = svg.append("g")
       const linkEl = linkG.selectAll("line")

@@ -9,7 +9,7 @@ const navItems = [
   { id: "02", label: "NEURODIVERGENCE", href: "/neurodiversity",     spineColor: "#C4622D" },
   { id: "03", label: "BRAIN GAMES",     href: "/brain-games",        spineColor: "#C8982A" },
   { id: "04", label: "BLOG",            href: "/blog",               spineColor: "#7A9268" },
-  { id: "05", label: "THERAPY",         href: "/individual-therapy", spineColor: "#5B7E9A" },
+  { id: "05", label: "INDIVIDUAL THERAPY", href: "/individual-therapy", spineColor: "#5B7E9A" },
   { id: "07", label: "CONTACT",         href: "/contact",            spineColor: "#A85A42" },
 ]
 
