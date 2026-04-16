@@ -88,16 +88,30 @@ export default function MindfulnessPage() {
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {resources.map(r => (
-              <div
+              <a
                 key={r.title}
+                href={r.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
-                  background: `${r.color}14`,
+                  background: `${r.color}30`,
                   borderRadius: "16px",
                   border: `2px solid ${r.color}`,
                   padding: "24px 22px 20px",
                   display: "flex",
                   flexDirection: "column",
                   gap: "10px",
+                  textDecoration: "none",
+                  cursor: "pointer",
+                  transition: "transform 0.15s ease, box-shadow 0.15s ease",
+                }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-3px)"
+                  ;(e.currentTarget as HTMLAnchorElement).style.boxShadow = `0 8px 24px ${r.color}30`
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)"
+                  ;(e.currentTarget as HTMLAnchorElement).style.boxShadow = "none"
                 }}
               >
                 <h3 style={{
@@ -130,26 +144,20 @@ export default function MindfulnessPage() {
                   {r.body}
                 </p>
 
-                <a
-                  href={r.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "4px",
-                    marginTop: "6px",
-                    fontSize: "0.95rem",
-                    fontFamily: "var(--font-accent)",
-                    fontWeight: 600,
-                    color: r.color,
-                    textDecoration: "none",
-                    opacity: 0.9,
-                  }}
-                >
+                <span style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "4px",
+                  marginTop: "6px",
+                  fontSize: "0.95rem",
+                  fontFamily: "var(--font-accent)",
+                  fontWeight: 600,
+                  color: r.color,
+                  opacity: 0.9,
+                }}>
                   {r.linkLabel} <span style={{ fontSize: "0.9rem" }}>↗</span>
-                </a>
-              </div>
+                </span>
+              </a>
             ))}
           </div>
         </div>
