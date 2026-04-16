@@ -117,7 +117,7 @@ export default function NeurodiversityPage() {
                 nodes={BIG_NODES}
                 links={BIG_LINKS}
                 title="COMPREHENSIVE OVERLAP MAP"
-                description="Full network of 30 nodes — DSM diagnoses, non-DSM constructs, and shared cognitive mechanisms. Drag nodes to rearrange."
+                description="DSM diagnoses, non-DSM constructs, and shared cognitive mechanisms. Drag nodes to rearrange."
               />
 
               {/* Spectrum Foundations */}
