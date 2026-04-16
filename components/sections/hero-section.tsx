@@ -37,7 +37,7 @@ export function HeroSection() {
 
       {/* Main content — flex-col on mobile so footer anchors to bottom */}
       <div
-        className="relative min-h-[100svh] flex flex-col justify-between lg:justify-center px-6 lg:px-16 pt-10 pb-0 lg:pt-0"
+        className="relative min-h-[100svh] flex flex-col justify-between lg:justify-center px-6 lg:px-16 pt-20 pb-0 lg:pt-0"
         style={{ zIndex: 2 }}
       >
         {/* Heading + cards */}

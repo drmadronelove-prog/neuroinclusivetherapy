@@ -64,21 +64,21 @@ export default function RootLayout({
           <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
             <span style={{
               fontFamily: "var(--font-accent)",
-              fontSize: "1.1rem",
-              fontWeight: 600,
+              fontSize: "1.55rem",
+              fontWeight: 700,
               color: "#C0B4A0",
-              lineHeight: 1.15,
-              letterSpacing: "0.05em",
+              lineHeight: 1.1,
+              letterSpacing: "0.02em",
             }}>
               Madrone Love, PsyD
             </span>
-            <span style={{
+            <span className="hidden md:inline" style={{
               fontFamily: "var(--font-accent)",
               fontSize: "0.85rem",
               fontWeight: 400,
               color: "#C0B4A0",
               lineHeight: 1.15,
-              letterSpacing: "0.12em",
+              letterSpacing: "0.22em",
             }}>
               Clinical Psychologist
             </span>
