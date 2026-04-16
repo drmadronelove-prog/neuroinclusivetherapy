@@ -85,7 +85,19 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Footer */}
+      {/* Mobile footer */}
+      <div className="no-print md:hidden px-6 pb-8 pt-4" style={{ zIndex: 3 }}>
+        <p style={{ fontFamily: "var(--font-accent)", fontSize: "0.95rem", color: "rgba(61,82,48,0.52)", lineHeight: 1.6 }}>
+          San Francisco &amp; Berkeley, CA &nbsp;·&nbsp; Telehealth{" "}
+          <a href="tel:+14159152183" className="hover:opacity-100 transition-opacity">(415) 915-2183</a>
+        </p>
+        <a href="mailto:therapy@madronelove.com" className="hover:opacity-100 transition-opacity"
+          style={{ fontFamily: "var(--font-accent)", fontSize: "0.95rem", color: "rgba(61,82,48,0.52)" }}>
+          therapy@madronelove.com
+        </a>
+      </div>
+
+      {/* Desktop footer */}
       <footer
         className="no-print hidden md:block absolute bottom-0 left-0 right-0"
         style={{
