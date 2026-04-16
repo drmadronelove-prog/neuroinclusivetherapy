@@ -25,13 +25,13 @@ export function HeroSection() {
         {/* Desktop gradient */}
         <div className="hidden lg:block" style={{
           position: "absolute", inset: 0,
-          background: "linear-gradient(to right, rgba(240,235,227,0.94) 0%, rgba(240,235,227,0.82) 28%, rgba(240,235,227,0.52) 55%, rgba(240,235,227,0.28) 85%, rgba(240,235,227,0.15) 100%)",
+          background: "linear-gradient(to right, rgba(240,235,227,0.82) 0%, rgba(240,235,227,0.65) 28%, rgba(240,235,227,0.32) 55%, rgba(240,235,227,0.12) 85%, rgba(240,235,227,0.05) 100%)",
         }} />
 
         {/* Mobile gradient */}
         <div className="lg:hidden" style={{
           position: "absolute", inset: 0,
-          background: "rgba(240,235,227,0.82)",
+          background: "rgba(240,235,227,0.62)",
         }} />
       </div>
 
