@@ -105,9 +105,8 @@ export function TwoLevelFoundations() {
           return (
             <div
               key={band.id}
+              className="flex flex-col sm:flex-row"
               style={{
-                display: "flex",
-                alignItems: "stretch",
                 borderRadius: 8,
                 overflow: "hidden",
                 border: `0.5px solid ${s.c}`,
@@ -115,18 +114,17 @@ export function TwoLevelFoundations() {
             >
               {/* Spectrum label */}
               <div
+                className="sm:w-[88px] sm:min-w-[88px]"
                 style={{
                   background: s.c,
                   color: "white",
                   fontSize: 10,
                   fontWeight: 500,
-                  width: 88,
-                  minWidth: 88,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   textAlign: "center",
-                  padding: "6px",
+                  padding: "6px 10px",
                   lineHeight: 1.3,
                 }}
               >
@@ -144,9 +142,10 @@ export function TwoLevelFoundations() {
                   gap: 4,
                   flex: 1,
                   minWidth: 0,
-                  borderLeft: `0.5px solid ${s.c}`,
-                  borderRight: `0.5px solid ${s.c}`,
+                  borderTop: `0.5px solid ${s.c}`,
+                  borderBottom: `0.5px solid ${s.c}`,
                 }}
+                className="sm:border-t-0 sm:border-b-0 sm:border-l sm:border-r"
               >
                 {band.mechs.map(m => (
                   <span
