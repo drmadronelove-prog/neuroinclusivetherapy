@@ -76,7 +76,7 @@ export default function RootLayout({
               fontFamily: "var(--font-accent)",
               fontSize: "1rem",
               fontWeight: 400,
-              color: "#C0B4A0",
+              color: "#9A8E7E",
               lineHeight: 1.15,
               letterSpacing: "0.18em",
             }}>
