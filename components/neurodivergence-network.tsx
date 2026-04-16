@@ -31,7 +31,7 @@ const LEGEND = [
   { type: "mech" as NodeType, label: "Cognitive mechanism" },
 ]
 
-function wrapWords(text: string, maxChars = 13): string[] {
+function wrapWords(text: string, maxChars = 15): string[] {
   const words = text.split(" ")
   const lines: string[] = []
   let cur = ""
@@ -75,7 +75,7 @@ export function NetworkGraph({
         degree[s] = (degree[s] || 0) + 1
         degree[t] = (degree[t] || 0) + 1
       })
-      const getR = (id: string) => Math.max(78, Math.min(120, 57 + Math.sqrt(degree[id] || 1) * 10.5))
+      const getR = (id: string) => Math.max(100, Math.min(160, 72 + Math.sqrt(degree[id] || 1) * 14))
 
       // Pre-spread nodes across the full canvas in a diagonal grid so the
       // simulation starts dispersed rather than clustered at the centre
@@ -240,17 +240,17 @@ export function NetworkGraph({
         .attr("text-anchor", "middle")
         .attr("fill",        "rgba(20,20,20,0.88)")
         .attr("font-family", "DM Sans, sans-serif")
-        .attr("font-size",   "19")
+        .attr("font-size",   "24")
         .attr("font-weight", "700")
         .each(function(d: any) {
           const el = d3.select(this)
           const lines = wrapWords(d.label)
-          const lineH = 23
+          const lineH = 28
           const startDy = -(lines.length - 1) * lineH / 2
           lines.forEach((line, i) => {
             el.append("tspan")
               .attr("x", 0)
-              .attr("dy", i === 0 ? startDy : 23)
+              .attr("dy", i === 0 ? startDy : 28)
               .text(line)
           })
         })
