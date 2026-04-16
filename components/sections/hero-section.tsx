@@ -87,7 +87,7 @@ export function HeroSection() {
 
       {/* Footer */}
       <footer
-        className="no-print absolute bottom-0 left-0 right-0"
+        className="no-print hidden md:block absolute bottom-0 left-0 right-0"
         style={{
           zIndex: 3,
           background: "linear-gradient(to top, rgba(240,235,227,0.88) 0%, rgba(240,235,227,0.60) 60%, transparent 100%)",
