@@ -43,7 +43,7 @@ export function HeroSection() {
         className="relative h-full flex items-center px-6 lg:px-16"
         style={{ zIndex: 2 }}
       >
-        <div className="flex items-center gap-8 lg:gap-12 w-full max-w-6xl mx-auto">
+        <div className="flex items-end gap-8 lg:gap-12 w-full max-w-6xl mx-auto pb-16">
 
           {/* Left — heading */}
           <div className="shrink-0 space-y-1" style={{ maxWidth: "340px" }}>
@@ -101,7 +101,7 @@ export function HeroSection() {
         }}
       >
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-end sm:items-center justify-between gap-2">
-          <p style={{ fontFamily: "var(--font-accent)", fontWeight: 600, fontSize: "0.95rem", color: "rgba(61,82,48,0.48)" }}>
+          <p style={{ fontFamily: "var(--font-accent)", fontWeight: 600, fontSize: "1.1rem", color: "rgba(61,82,48,0.48)" }}>
             Dr. Madrone Love, PsyD &nbsp;·&nbsp; San Francisco &amp; Berkeley, CA &nbsp;·&nbsp; Telehealth
           </p>
           <div className="flex flex-wrap gap-x-5 gap-y-1" style={{ fontFamily: "var(--font-accent)", color: "rgba(61,82,48,0.48)", fontSize: "0.95rem" }}>
