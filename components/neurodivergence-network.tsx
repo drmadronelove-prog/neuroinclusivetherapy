@@ -50,7 +50,7 @@ export function NetworkGraph({
   links,
   title,
   description,
-  height = "clamp(500px, 65vw, 750px)",
+  height = "clamp(480px, 90vw, 900px)",
 }: NetworkGraphProps) {
   const svgRef   = useRef<SVGSVGElement>(null)
   const labelRef = useRef<HTMLDivElement>(null)
@@ -62,8 +62,8 @@ export function NetworkGraph({
     import("d3").then((d3) => {
       if (!active || !svgRef.current) return
 
-      const W = 2000
-      const H = 1400
+      const W = 1800
+      const H = 1800
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const d3nodes: any[] = nodes.map(n => ({ ...n }))
