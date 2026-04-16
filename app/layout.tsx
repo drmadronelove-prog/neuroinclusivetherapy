@@ -74,7 +74,7 @@ export default function RootLayout({
             </span>
             <span className="hidden md:inline" style={{
               fontFamily: "var(--font-accent)",
-              fontSize: "1rem",
+              fontSize: "1.1rem",
               fontWeight: 400,
               color: "#9A8E7E",
               lineHeight: 1.15,
