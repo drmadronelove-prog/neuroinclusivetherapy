@@ -86,6 +86,10 @@ export default function MindfulnessPage() {
           <h2 className="font-[var(--font-display)] text-2xl font-black text-foreground tracking-tight mb-6">
             RESOURCES
           </h2>
+          <style>{`
+            .resource-card { transition: transform 0.15s ease, box-shadow 0.15s ease; }
+            .resource-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px var(--card-shadow); }
+          `}</style>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {resources.map(r => (
               <a
@@ -93,7 +97,9 @@ export default function MindfulnessPage() {
                 href={r.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="resource-card"
                 style={{
+                  "--card-shadow": `${r.color}55`,
                   background: `${r.color}30`,
                   borderRadius: "16px",
                   border: `2px solid ${r.color}`,
@@ -103,16 +109,7 @@ export default function MindfulnessPage() {
                   gap: "10px",
                   textDecoration: "none",
                   cursor: "pointer",
-                  transition: "transform 0.15s ease, box-shadow 0.15s ease",
-                }}
-                onMouseEnter={e => {
-                  (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-3px)"
-                  ;(e.currentTarget as HTMLAnchorElement).style.boxShadow = `0 8px 24px ${r.color}30`
-                }}
-                onMouseLeave={e => {
-                  (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)"
-                  ;(e.currentTarget as HTMLAnchorElement).style.boxShadow = "none"
-                }}
+                } as React.CSSProperties}
               >
                 <h3 style={{
                   fontFamily: "var(--font-accent)",
