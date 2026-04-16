@@ -47,7 +47,7 @@ export function ToolPageLayout({ title, color, children }: ToolPageLayoutProps) 
                 transition={{ duration: 0.6 }}
                 className="mb-12"
               >
-                <h1 className={`font-[var(--font-display)] text-6xl sm:text-7xl lg:text-8xl font-black leading-[0.85] tracking-tight ${color}`}>
+                <h1 className={`font-[var(--font-display)] text-5xl sm:text-7xl lg:text-8xl font-black leading-[0.85] tracking-tight ${color}`}>
                   {title}
                 </h1>
               </motion.div>
