@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 
 const resources = [
   {
-    tag: "ARCHIVE",
     title: "Audiodharma",
     subtitle: "INSIGHT MEDITATION CENTER",
     body: "Free archive of hundreds of guided meditations and dharma talks by Gil Fronsdal and other IMC teachers. Includes the foundational Introduction to Meditation series — an excellent starting point for clients new to practice.",
@@ -18,7 +17,6 @@ const resources = [
     color: "#5BBFB5",
   },
   {
-    tag: "CENTER",
     title: "Insight Meditation Center",
     subtitle: "IMC — REDWOOD CITY, CA",
     body: "Gil Fronsdal's home center. Weekly dharma talks, sitting groups, and daylong retreats. Sliding-scale and free offerings available. Particularly welcoming to those new to meditation.",
@@ -27,7 +25,6 @@ const resources = [
     color: "#E8487A",
   },
   {
-    tag: "RETREAT CENTER",
     title: "Spirit Rock",
     subtitle: "SPIRIT ROCK MEDITATION CENTER — WOODACRE, CA",
     body: "One of the leading Insight meditation centers in the West. Offers daylong, residential, and online retreats. Programs specifically for communities of color, LGBTQ+ practitioners, and those with chronic illness.",
@@ -103,29 +100,10 @@ export default function MindfulnessPage() {
                   gap: "10px",
                 }}
               >
-                {/* Tag pill */}
-                <span style={{
-                  display: "inline-block",
-                  fontSize: "0.6rem",
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 700,
-                  letterSpacing: "0.16em",
-                  textTransform: "uppercase",
-                  color: r.color,
-                  border: `1.5px solid ${r.color}`,
-                  borderRadius: "999px",
-                  padding: "3px 10px",
-                  width: "fit-content",
-                  opacity: 0.85,
-                }}>
-                  {r.tag}
-                </span>
-
                 <h3 style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "1.25rem",
-                  fontWeight: 900,
-                  letterSpacing: "-0.01em",
+                  fontFamily: "var(--font-accent)",
+                  fontSize: "1.6rem",
+                  fontWeight: 700,
                   lineHeight: 1.15,
                   color: "var(--foreground)",
                 }}>
@@ -133,11 +111,9 @@ export default function MindfulnessPage() {
                 </h3>
 
                 <p style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "0.62rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.15em",
-                  textTransform: "uppercase",
+                  fontFamily: "var(--font-accent)",
+                  fontSize: "0.9rem",
+                  fontWeight: 600,
                   color: "var(--muted-foreground)",
                   marginTop: "-4px",
                 }}>
@@ -145,10 +121,10 @@ export default function MindfulnessPage() {
                 </p>
 
                 <p style={{
-                  fontFamily: "var(--font-body)",
-                  fontSize: "0.875rem",
+                  fontFamily: "var(--font-accent)",
+                  fontSize: "1rem",
                   color: "var(--muted-foreground)",
-                  lineHeight: 1.65,
+                  lineHeight: 1.55,
                   flex: 1,
                 }}>
                   {r.body}
@@ -163,17 +139,15 @@ export default function MindfulnessPage() {
                     alignItems: "center",
                     gap: "4px",
                     marginTop: "6px",
-                    fontSize: "0.62rem",
-                    fontFamily: "var(--font-display)",
-                    fontWeight: 700,
-                    letterSpacing: "0.14em",
-                    textTransform: "uppercase",
+                    fontSize: "0.95rem",
+                    fontFamily: "var(--font-accent)",
+                    fontWeight: 600,
                     color: r.color,
                     textDecoration: "none",
                     opacity: 0.9,
                   }}
                 >
-                  {r.linkLabel} <span style={{ fontSize: "0.8rem" }}>↗</span>
+                  {r.linkLabel} <span style={{ fontSize: "0.9rem" }}>↗</span>
                 </a>
               </div>
             ))}
