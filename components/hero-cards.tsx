@@ -61,8 +61,8 @@ function HeroCard({
           border: `2px solid ${card.borderColor}`,
           borderRadius: "14px",
           boxShadow: isHovered
-            ? `0 12px 30px rgba(0,0,0,0.16), 0 0 0 1px ${card.borderColor}55`
-            : `0 3px 10px rgba(0,0,0,0.09), 0 1px 3px rgba(0,0,0,0.06)`,
+            ? `inset 0 0 0 200px ${card.borderColor}18, 0 12px 30px rgba(0,0,0,0.16), 0 0 0 1px ${card.borderColor}55`
+            : `inset 0 0 0 200px ${card.borderColor}12, 0 3px 10px rgba(0,0,0,0.09), 0 1px 3px rgba(0,0,0,0.06)`,
           cursor: "pointer",
           position: "relative",
           overflow: "hidden",

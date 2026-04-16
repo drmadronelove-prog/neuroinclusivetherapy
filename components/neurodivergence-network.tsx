@@ -106,9 +106,9 @@ export function NetworkGraph({
 
       const sim = d3.forceSimulation(d3nodes)
         .alphaDecay(0.008)
-        .force("link",    d3.forceLink(d3links).id((d: any) => d.id).distance(380).strength(0.18))
-        .force("charge",  d3.forceManyBody().strength(-5500))
-        .force("collide", d3.forceCollide().radius((d: any) => getR(d.id) * 2.1))
+        .force("link",    d3.forceLink(d3links).id((d: any) => d.id).distance(300).strength(0.2))
+        .force("charge",  d3.forceManyBody().strength(-2800))
+        .force("collide", d3.forceCollide().radius((d: any) => getR(d.id) * 1.38))
         .force("x",       d3.forceX(W / 2).strength(0.004))
         .force("y",       d3.forceY(H / 2).strength(0.004))
 
