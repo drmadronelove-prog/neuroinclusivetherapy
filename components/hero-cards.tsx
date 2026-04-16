@@ -21,7 +21,7 @@ const cards = [
 
 export function HeroCards() {
   return (
-    <div className="grid grid-cols-3 gap-2 md:gap-4 w-full md:w-auto">
+    <div className="grid grid-cols-3 gap-2 lg:gap-4 w-full lg:w-auto">
       {cards.map((card, index) => (
         <HeroCard key={card.title} card={card} index={index} />
       ))}
@@ -49,7 +49,7 @@ function HeroCard({
         transition={{ type: "spring", stiffness: 260, damping: 18 }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="w-full md:w-[8.5rem]"
+        className="w-full lg:w-[8.5rem]"
         style={{
           aspectRatio: "17 / 20",
           height: undefined,

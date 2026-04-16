@@ -23,13 +23,13 @@ export function HeroSection() {
         </video>
 
         {/* Desktop gradient */}
-        <div className="hidden md:block" style={{
+        <div className="hidden lg:block" style={{
           position: "absolute", inset: 0,
           background: "linear-gradient(to right, rgba(240,235,227,0.94) 0%, rgba(240,235,227,0.82) 28%, rgba(240,235,227,0.52) 55%, rgba(240,235,227,0.28) 85%, rgba(240,235,227,0.15) 100%)",
         }} />
 
         {/* Mobile gradient */}
-        <div className="md:hidden" style={{
+        <div className="lg:hidden" style={{
           position: "absolute", inset: 0,
           background: "rgba(240,235,227,0.82)",
         }} />
@@ -37,13 +37,13 @@ export function HeroSection() {
 
       {/* Main content — flex-col on mobile so footer anchors to bottom */}
       <div
-        className="relative min-h-[100svh] flex flex-col justify-between md:justify-center px-6 lg:px-16 pt-10 pb-0 md:pt-0"
+        className="relative min-h-[100svh] flex flex-col justify-between lg:justify-center px-6 lg:px-16 pt-10 pb-0 lg:pt-0"
         style={{ zIndex: 2 }}
       >
         {/* Heading + cards */}
-        <div className="flex flex-col md:flex-row md:items-end gap-6 md:gap-12 w-full max-w-6xl mx-auto md:pb-16">
+        <div className="flex flex-col lg:flex-row lg:items-end gap-6 lg:gap-12 w-full max-w-6xl mx-auto lg:pb-16">
 
-          <div className="shrink-0 space-y-1 text-center md:text-left mx-auto md:mx-0" style={{ maxWidth: "340px" }}>
+          <div className="shrink-0 space-y-1 text-center lg:text-left mx-auto lg:mx-0" style={{ maxWidth: "340px" }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -76,7 +76,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex-1 flex justify-center md:justify-end"
+            className="flex-1 flex justify-center lg:justify-end"
           >
             <HeroCards />
           </motion.div>
@@ -84,7 +84,7 @@ export function HeroSection() {
         </div>
 
         {/* Mobile footer — sits at bottom of viewport */}
-        <div className="no-print md:hidden py-6" style={{ fontFamily: "var(--font-accent)", color: "rgba(61,82,48,0.52)", fontSize: "0.95rem", lineHeight: 1.7 }}>
+        <div className="no-print lg:hidden py-6" style={{ fontFamily: "var(--font-accent)", color: "rgba(61,82,48,0.52)", fontSize: "0.95rem", lineHeight: 1.7 }}>
           <p>
             San Francisco &amp; Berkeley &nbsp;·&nbsp;{" "}
             <a href="tel:+14159152183" className="hover:opacity-100 transition-opacity">(415) 915-2183</a>
@@ -96,7 +96,7 @@ export function HeroSection() {
 
       {/* Desktop footer */}
       <footer
-        className="no-print hidden md:block absolute bottom-0 left-0 right-0"
+        className="no-print hidden lg:block absolute bottom-0 left-0 right-0"
         style={{
           zIndex: 3,
           background: "linear-gradient(to top, rgba(240,235,227,0.88) 0%, rgba(240,235,227,0.60) 60%, transparent 100%)",
