@@ -78,7 +78,7 @@ export default function RootLayout({
               fontWeight: 400,
               color: "#9A8E7E",
               lineHeight: 1.15,
-              letterSpacing: "0.18em",
+              letterSpacing: "0.15em",
             }}>
               Clinical Psychologist
             </span>
