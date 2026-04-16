@@ -75,7 +75,7 @@ export function NetworkGraph({
         degree[s] = (degree[s] || 0) + 1
         degree[t] = (degree[t] || 0) + 1
       })
-      const getR = (id: string) => Math.max(52, Math.min(80, 38 + Math.sqrt(degree[id] || 1) * 7))
+      const getR = (id: string) => Math.max(78, Math.min(120, 57 + Math.sqrt(degree[id] || 1) * 10.5))
 
       const svg = d3.select(svgRef.current)
       svg.selectAll("*").remove()
@@ -93,10 +93,10 @@ export function NetworkGraph({
       fm.append("feMergeNode").attr("in", "SourceGraphic")
 
       const sim = d3.forceSimulation(d3nodes)
-        .force("link",    d3.forceLink(d3links).id((d: any) => d.id).distance(280).strength(0.25))
-        .force("charge",  d3.forceManyBody().strength(-2200))
+        .force("link",    d3.forceLink(d3links).id((d: any) => d.id).distance(340).strength(0.25))
+        .force("charge",  d3.forceManyBody().strength(-3500))
         .force("center",  d3.forceCenter(W / 2, H / 2))
-        .force("collide", d3.forceCollide().radius((d: any) => getR(d.id) + 70))
+        .force("collide", d3.forceCollide().radius((d: any) => getR(d.id) + 80))
         .force("x",       d3.forceX(W / 2).strength(0.02))
         .force("y",       d3.forceY(H / 2).strength(0.02))
 
@@ -228,17 +228,17 @@ export function NetworkGraph({
         .attr("text-anchor", "middle")
         .attr("fill",        "rgba(20,20,20,0.88)")
         .attr("font-family", "DM Sans, sans-serif")
-        .attr("font-size",   "13")
+        .attr("font-size",   "19")
         .attr("font-weight", "700")
         .each(function(d: any) {
           const el = d3.select(this)
           const lines = wrapWords(d.label)
-          const lineH = 16
+          const lineH = 23
           const startDy = -(lines.length - 1) * lineH / 2
           lines.forEach((line, i) => {
             el.append("tspan")
               .attr("x", 0)
-              .attr("dy", i === 0 ? startDy : 16)
+              .attr("dy", i === 0 ? startDy : 23)
               .text(line)
           })
         })
