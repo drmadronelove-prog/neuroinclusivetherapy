@@ -1,4 +1,5 @@
 import { ToolPageLayout } from "@/components/tool-page-layout"
+import { BreathingBubble } from "@/components/breathing-bubble"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -41,6 +42,22 @@ export default function MindfulnessPage() {
     <ToolPageLayout title="MINDFULNESS" color="text-nav-amber">
       <div className="space-y-14">
 
+        {/* Breathing bubble */}
+        <div>
+          <p style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "0.68rem",
+            fontWeight: 700,
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            color: "var(--muted-foreground)",
+            marginBottom: "4px",
+          }}>
+            Box Breathing &mdash; 4 · 4 · 4 · 4
+          </p>
+          <BreathingBubble />
+        </div>
+
         {/* Video section */}
         <div>
           <p style={{
@@ -64,7 +81,7 @@ export default function MindfulnessPage() {
             marginBottom: "12px",
           }}>
             <iframe
-              src="https://www.youtube.com/embed/gRJeblBqhXI"
+              src="https://www.youtube.com/embed/Ptm0FE-KLyc"
               title="Gil Fronsdal guided meditation"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -73,7 +90,7 @@ export default function MindfulnessPage() {
           </div>
 
           <p className="text-xs text-muted-foreground leading-relaxed">
-            Gil Fronsdal &mdash; Insight Meditation Center, Berkeley.
+            Gil Fronsdal &mdash; Insight Meditation Center, Redwood City.
             Vipassana and mindfulness teachings in the Theravada tradition.
           </p>
         </div>
@@ -172,18 +189,6 @@ export default function MindfulnessPage() {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Lineage note */}
-        <div className="border-l-2 border-nav-amber pl-6 max-w-prose space-y-3">
-          <p className="text-muted-foreground leading-relaxed text-sm">
-            My meditation practice is rooted in the Insight Meditation tradition, with
-            particular influence from Gil Fronsdal and the Insight Meditation Center
-            in Redwood City, CA. I also hold a deep respect for the intersection of
-            Buddhist practice and psychological theory — including the ways contemplative
-            traditions anticipated many of the insights now central to third-wave CBT
-            (ACT, DBT, MBCT).
-          </p>
         </div>
 
       </div>

@@ -84,8 +84,8 @@ export function HeroSection() {
         </div>
 
         {/* Mobile footer — sits at bottom of viewport */}
-        <div className="no-print lg:hidden py-6" style={{ fontFamily: "var(--font-accent)", color: "rgba(61,82,48,0.52)", fontSize: "0.95rem", lineHeight: 1.7 }}>
-          <p>
+        <div className="no-print lg:hidden py-6" style={{ fontFamily: "var(--font-accent)", color: "rgba(61,82,48,0.52)", lineHeight: 1.4 }}>
+          <p className="whitespace-nowrap overflow-x-auto text-[0.72rem]">
             San Francisco &amp; Berkeley &nbsp;·&nbsp;{" "}
             <a href="tel:+14159152183" className="hover:opacity-100 transition-opacity">(415) 915-2183</a>
             {" "}&nbsp;·&nbsp;{" "}
