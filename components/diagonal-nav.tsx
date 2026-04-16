@@ -5,12 +5,12 @@ import Link from "next/link"
 
 // Six distinct earthy-but-saturated colours — one per spine
 const navItems = [
-  { id: "01", label: "TESTS",           href: "/tests",              spineColor: "#5BA89E" },
-  { id: "02", label: "NEURODIVERGENCE", href: "/neurodiversity",     spineColor: "#D47870" },
-  { id: "03", label: "BRAIN GAMES",     href: "/brain-games",        spineColor: "#C89050" },
-  { id: "04", label: "BLOG",            href: "/blog",               spineColor: "#7A9A78" },
-  { id: "05", label: "THERAPY",         href: "/individual-therapy", spineColor: "#C07898" },
-  { id: "07", label: "CONTACT",         href: "/contact",            spineColor: "#7890A8" },
+  { id: "01", label: "TESTS",           href: "/tests",              spineColor: "#C4824A" },
+  { id: "02", label: "NEURODIVERGENCE", href: "/neurodiversity",     spineColor: "#B85C38" },
+  { id: "03", label: "BRAIN GAMES",     href: "/brain-games",        spineColor: "#C87040" },
+  { id: "04", label: "BLOG",            href: "/blog",               spineColor: "#9A7850" },
+  { id: "05", label: "THERAPY",         href: "/individual-therapy", spineColor: "#6A8898" },
+  { id: "07", label: "CONTACT",         href: "/contact",            spineColor: "#7A9060" },
 ]
 
 // Step size in px — each spine starts this much lower than the previous
