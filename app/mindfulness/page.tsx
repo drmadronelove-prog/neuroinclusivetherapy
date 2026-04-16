@@ -14,7 +14,7 @@ const resources = [
     body: "Free archive of hundreds of guided meditations and dharma talks by Gil Fronsdal and other IMC teachers. Includes the foundational Introduction to Meditation series — an excellent starting point for clients new to practice.",
     linkLabel: "audiodharma.org",
     href: "https://www.audiodharma.org",
-    color: "#5BA89E",
+    color: "#A7B79F",
   },
   {
     title: "Insight Meditation Center",
@@ -22,7 +22,7 @@ const resources = [
     body: "Gil Fronsdal's home center. Weekly dharma talks, sitting groups, and daylong retreats. Sliding-scale and free offerings available. Particularly welcoming to those new to meditation.",
     linkLabel: "insightmeditationcenter.org",
     href: "https://www.insightmeditationcenter.org",
-    color: "#7890A8",
+    color: "#7D805F",
   },
   {
     title: "Spirit Rock",
@@ -30,7 +30,7 @@ const resources = [
     body: "One of the leading Insight meditation centers in the West. Offers daylong, residential, and online retreats. Programs specifically for communities of color, LGBTQ+ practitioners, and those with chronic illness.",
     linkLabel: "spiritrock.org",
     href: "https://www.spiritrock.org",
-    color: "#C89050",
+    color: "#C17C74",
   },
 ]
 

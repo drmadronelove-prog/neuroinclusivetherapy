@@ -20,9 +20,9 @@ export interface NetworkGraphProps {
 }
 
 const COLORS: Record<NodeType, string> = {
-  dsm:  "#6ee7b7",
-  ndsm: "#fdba74",
-  mech: "#c4b5fd",
+  dsm:  "#C17C74",
+  ndsm: "#A7B79F",
+  mech: "#7D805F",
 }
 
 const LEGEND = [

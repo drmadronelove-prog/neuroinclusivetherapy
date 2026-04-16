@@ -8,15 +8,15 @@ import Link from "next/link"
 const PAPER_BG = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E\")"
 
 const cards = [
-  { title: "Neurodiversity",     href: "/neurodiversity",     borderColor: "#B85C38", rotate: -2   },
-  { title: "Tests",              href: "/tests",              borderColor: "#C4824A", rotate:  1.5 },
-  { title: "ADHD Skills",        href: "/adhd-skills",        borderColor: "#A06840", rotate: -1   },
-  { title: "ASD Skills",         href: "/asd-skills",         borderColor: "#6A8898", rotate:  2   },
-  { title: "OCD Skills",         href: "/ocd-skills",         borderColor: "#7A9060", rotate: -1.5 },
-  { title: "Mindfulness",        href: "/mindfulness",        borderColor: "#8A6048", rotate:  0.5 },
-  { title: "Brain Games",        href: "/brain-games",        borderColor: "#C87040", rotate: -2   },
-  { title: "Blog",               href: "/blog",               borderColor: "#9A7850", rotate:  1   },
-  { title: "Madrone Love, PsyD", href: "/individual-therapy", borderColor: "#6A8898", rotate: -0.5 },
+  { title: "Neurodiversity",     href: "/neurodiversity",     borderColor: "#C17C74", rotate: -2   },
+  { title: "Tests",              href: "/tests",              borderColor: "#A7B79F", rotate:  1.5 },
+  { title: "ADHD Skills",        href: "/adhd-skills",        borderColor: "#7D805F", rotate: -1   },
+  { title: "ASD Skills",         href: "/asd-skills",         borderColor: "#8A9E96", rotate:  2   },
+  { title: "OCD Skills",         href: "/ocd-skills",         borderColor: "#A7B79F", rotate: -1.5 },
+  { title: "Mindfulness",        href: "/mindfulness",        borderColor: "#B89878", rotate:  0.5 },
+  { title: "Brain Games",        href: "/brain-games",        borderColor: "#C17C74", rotate: -2   },
+  { title: "Blog",               href: "/blog",               borderColor: "#C0B4A0", rotate:  1   },
+  { title: "Madrone Love, PsyD", href: "/individual-therapy", borderColor: "#8A9E96", rotate: -0.5 },
 ]
 
 export function HeroCards() {
