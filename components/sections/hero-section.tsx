@@ -22,27 +22,27 @@ export function HeroSection() {
           <source src="/ceramics.mp4" type="video/mp4" />
         </video>
 
-        {/* Desktop gradient: heavy cream left → transparent right */}
+        {/* Desktop gradient */}
         <div className="hidden md:block" style={{
           position: "absolute", inset: 0,
           background: "linear-gradient(to right, rgba(240,235,227,0.94) 0%, rgba(240,235,227,0.82) 28%, rgba(240,235,227,0.52) 55%, rgba(240,235,227,0.28) 85%, rgba(240,235,227,0.15) 100%)",
         }} />
 
-        {/* Mobile gradient: uniform cream tint for readability */}
+        {/* Mobile gradient */}
         <div className="md:hidden" style={{
           position: "absolute", inset: 0,
           background: "rgba(240,235,227,0.82)",
         }} />
       </div>
 
-      {/* Main content */}
+      {/* Main content — flex-col on mobile so footer anchors to bottom */}
       <div
-        className="relative min-h-[100svh] flex items-center px-6 lg:px-16 pt-20 pb-8 md:pt-0 md:pb-0"
+        className="relative min-h-[100svh] flex flex-col justify-between md:justify-center px-6 lg:px-16 pt-10 pb-0 md:pt-0"
         style={{ zIndex: 2 }}
       >
+        {/* Heading + cards */}
         <div className="flex flex-col md:flex-row md:items-end gap-6 md:gap-12 w-full max-w-6xl mx-auto md:pb-16">
 
-          {/* Heading */}
           <div className="shrink-0 space-y-1 text-center md:text-left mx-auto md:mx-0" style={{ maxWidth: "340px" }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -72,7 +72,6 @@ export function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Cards */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -83,18 +82,17 @@ export function HeroSection() {
           </motion.div>
 
         </div>
-      </div>
 
-      {/* Mobile footer */}
-      <div className="no-print md:hidden px-6 pb-8 pt-4" style={{ zIndex: 3 }}>
-        <p style={{ fontFamily: "var(--font-accent)", fontSize: "0.95rem", color: "rgba(61,82,48,0.52)", lineHeight: 1.6 }}>
-          San Francisco &amp; Berkeley, CA &nbsp;·&nbsp; Telehealth{" "}
-          <a href="tel:+14159152183" className="hover:opacity-100 transition-opacity">(415) 915-2183</a>
-        </p>
-        <a href="mailto:therapy@madronelove.com" className="hover:opacity-100 transition-opacity"
-          style={{ fontFamily: "var(--font-accent)", fontSize: "0.95rem", color: "rgba(61,82,48,0.52)" }}>
-          therapy@madronelove.com
-        </a>
+        {/* Mobile footer — sits at bottom of viewport */}
+        <div className="no-print md:hidden py-6" style={{ fontFamily: "var(--font-accent)", color: "rgba(61,82,48,0.52)", fontSize: "0.95rem", lineHeight: 1.7 }}>
+          <p>
+            San Francisco &amp; Berkeley, CA &nbsp;·&nbsp; Telehealth{" "}
+            <a href="tel:+14159152183" className="hover:opacity-100 transition-opacity">(415) 915-2183</a>
+          </p>
+          <a href="mailto:therapy@madronelove.com" className="hover:opacity-100 transition-opacity">
+            therapy@madronelove.com
+          </a>
+        </div>
       </div>
 
       {/* Desktop footer */}
@@ -114,15 +112,9 @@ export function HeroSection() {
             Dr. Madrone Love, PsyD &nbsp;·&nbsp; San Francisco &amp; Berkeley, CA &nbsp;·&nbsp; Telehealth
           </p>
           <div className="flex flex-wrap gap-x-5 gap-y-1" style={{ fontFamily: "var(--font-accent)", color: "rgba(61,82,48,0.48)", fontSize: "0.95rem" }}>
-            <a href="tel:+14159152183" className="hover:opacity-100 transition-opacity">
-              (415) 915-2183
-            </a>
-            <a href="mailto:therapy@madronelove.com" className="hover:opacity-100 transition-opacity">
-              therapy@madronelove.com
-            </a>
-            <Link href="/contact" className="hover:opacity-100 transition-opacity">
-              Book a consultation
-            </Link>
+            <a href="tel:+14159152183" className="hover:opacity-100 transition-opacity">(415) 915-2183</a>
+            <a href="mailto:therapy@madronelove.com" className="hover:opacity-100 transition-opacity">therapy@madronelove.com</a>
+            <Link href="/contact" className="hover:opacity-100 transition-opacity">Book a consultation</Link>
           </div>
         </div>
       </footer>
