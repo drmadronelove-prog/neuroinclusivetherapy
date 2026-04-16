@@ -9,8 +9,8 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden"
-      style={{ height: "100vh" }}
+      className="relative"
+      style={{ minHeight: "100svh" }}
     >
       {/* Full-bleed video */}
       <div aria-hidden="true" style={{ position: "absolute", inset: 0, overflow: "hidden", zIndex: 0 }}>
@@ -37,7 +37,7 @@ export function HeroSection() {
 
       {/* Main content */}
       <div
-        className="relative h-full flex items-center px-6 lg:px-16 pt-16 md:pt-0"
+        className="relative min-h-[100svh] flex items-center px-6 lg:px-16 pt-20 pb-8 md:pt-0 md:pb-0"
         style={{ zIndex: 2 }}
       >
         <div className="flex flex-col md:flex-row md:items-end gap-6 md:gap-12 w-full max-w-6xl mx-auto md:pb-16">
@@ -55,7 +55,7 @@ export function HeroSection() {
                 fontSize: "clamp(3.8rem, 6.5vw, 6rem)",
                 fontWeight: 700,
                 color: "#3D5230",
-                lineHeight: 0.95,
+                lineHeight: 1.05,
                 letterSpacing: "-0.01em",
                 margin: 0,
               }}>
