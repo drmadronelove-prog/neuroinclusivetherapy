@@ -25,13 +25,11 @@ function spineBackground(color: string): string {
 
 export function DiagonalNav() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
-  const [activeIndex,  setActiveIndex]  = useState(0)
 
   return (
     <nav className="no-print fixed right-0 top-0 h-screen z-50 hidden md:flex items-end">
       {navItems.map((item, index) => {
         const isHovered = hoveredIndex === index
-        const isActive  = activeIndex  === index
         const topOffset = index * STEP
 
         return (
@@ -53,7 +51,6 @@ export function DiagonalNav() {
             }}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
-            onClick={() => setActiveIndex(index)}
           >
             {/* Top headband */}
             <div style={{
@@ -73,7 +70,7 @@ export function DiagonalNav() {
                   writingMode: "vertical-rl",
                   textOrientation: "mixed",
                   transform: "rotate(180deg)",
-                  opacity: isHovered || isActive ? 1 : 0.80,
+                  opacity: isHovered ? 1 : 0.80,
                   color: "rgba(255,255,255,0.94)",
                   textShadow: "0 1px 3px rgba(0,0,0,0.35)",
                 }}
@@ -88,15 +85,6 @@ export function DiagonalNav() {
               background: "linear-gradient(0deg, rgba(0,0,0,0.20) 0%, rgba(0,0,0,0.04) 100%)",
             }} />
 
-            {/* Active edge line */}
-            {isActive && (
-              <div style={{
-                position: "absolute", left: 0, top: "12%", height: "76%",
-                width: "3px",
-                background: "rgba(255,255,255,0.65)",
-                borderRadius: "0 2px 2px 0",
-              }} />
-            )}
           </Link>
         )
       })}
