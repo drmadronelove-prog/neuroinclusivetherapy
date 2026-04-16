@@ -1,6 +1,6 @@
 "use client"
 
-import { MobileNav } from "@/components/diagonal-nav"
+import { DiagonalNav, MobileNav } from "@/components/diagonal-nav"
 import { HoverProvider } from "@/components/hover-context"
 import { motion } from "framer-motion"
 import Link from "next/link"
@@ -15,9 +15,10 @@ export function ToolPageLayout({ title, color, children }: ToolPageLayoutProps) 
   return (
     <HoverProvider>
     <main className="relative min-h-screen bg-background overflow-x-hidden">
+      <DiagonalNav />
       <MobileNav />
 
-      <div>
+      <div className="md:mr-[252px]">
         <section className="min-h-screen flex flex-col px-6 lg:px-16 pt-24 md:pt-12 pb-12">
           <div className="max-w-4xl mx-auto w-full">
             {/* Back link */}

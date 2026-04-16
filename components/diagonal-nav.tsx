@@ -18,8 +18,6 @@ const STEP = 72
 
 function spineBackground(color: string): string {
   return [
-    "repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(0,0,0,0.02) 4px, rgba(0,0,0,0.02) 5px)",
-    "repeating-linear-gradient(90deg, transparent, transparent 4px, rgba(255,255,255,0.015) 4px, rgba(255,255,255,0.015) 5px)",
     "linear-gradient(90deg, rgba(0,0,0,0.12) 0%, rgba(255,255,255,0.10) 30%, rgba(255,255,255,0.14) 50%, rgba(255,255,255,0.10) 70%, rgba(0,0,0,0.12) 100%)",
     `linear-gradient(180deg, ${color} 0%, ${color} 100%)`,
   ].join(", ")

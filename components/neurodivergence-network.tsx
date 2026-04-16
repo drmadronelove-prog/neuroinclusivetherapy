@@ -31,7 +31,7 @@ const LEGEND = [
   { type: "mech" as NodeType, label: "Cognitive mechanism" },
 ]
 
-function wrapWords(text: string, maxChars = 12): string[] {
+function wrapWords(text: string, maxChars = 10): string[] {
   const words = text.split(" ")
   const lines: string[] = []
   let cur = ""
@@ -62,8 +62,8 @@ export function NetworkGraph({
     import("d3").then((d3) => {
       if (!active || !svgRef.current) return
 
-      const W = 1000
-      const H = 700
+      const W = 1400
+      const H = 900
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const d3nodes: any[] = nodes.map(n => ({ ...n }))
@@ -75,7 +75,7 @@ export function NetworkGraph({
         degree[s] = (degree[s] || 0) + 1
         degree[t] = (degree[t] || 0) + 1
       })
-      const getR = (id: string) => Math.max(8, Math.min(20, 5 + Math.sqrt(degree[id] || 1) * 1.8))
+      const getR = (id: string) => Math.max(34, Math.min(50, 24 + Math.sqrt(degree[id] || 1) * 4))
 
       const svg = d3.select(svgRef.current)
       svg.selectAll("*").remove()
@@ -93,12 +93,12 @@ export function NetworkGraph({
       fm.append("feMergeNode").attr("in", "SourceGraphic")
 
       const sim = d3.forceSimulation(d3nodes)
-        .force("link",    d3.forceLink(d3links).id((d: any) => d.id).distance(180).strength(0.4))
-        .force("charge",  d3.forceManyBody().strength(-680))
+        .force("link",    d3.forceLink(d3links).id((d: any) => d.id).distance(220).strength(0.3))
+        .force("charge",  d3.forceManyBody().strength(-1000))
         .force("center",  d3.forceCenter(W / 2, H / 2))
-        .force("collide", d3.forceCollide().radius((d: any) => getR(d.id) + 40))
-        .force("x",       d3.forceX(W / 2).strength(0.05))
-        .force("y",       d3.forceY(H / 2).strength(0.05))
+        .force("collide", d3.forceCollide().radius((d: any) => getR(d.id) + 55))
+        .force("x",       d3.forceX(W / 2).strength(0.04))
+        .force("y",       d3.forceY(H / 2).strength(0.04))
 
       const linkG = svg.append("g")
       const linkEl = linkG.selectAll("line")
@@ -226,18 +226,19 @@ export function NetworkGraph({
         .data(d3nodes)
         .join("text")
         .attr("text-anchor", "middle")
-        .attr("fill",        "#1a1a1a")
+        .attr("fill",        "rgba(255,255,255,0.95)")
         .attr("font-family", "DM Sans, sans-serif")
-        .attr("font-size",   "9")
-        .attr("font-weight", "500")
+        .attr("font-size",   "8")
+        .attr("font-weight", "600")
         .each(function(d: any) {
           const el = d3.select(this)
           const lines = wrapWords(d.label)
-          const startDy = getR(d.id) + 4
+          const lineH = 10
+          const startDy = -(lines.length - 1) * lineH / 2
           lines.forEach((line, i) => {
             el.append("tspan")
               .attr("x", 0)
-              .attr("dy", i === 0 ? startDy : 11)
+              .attr("dy", i === 0 ? startDy : lineH)
               .text(line)
           })
         })
