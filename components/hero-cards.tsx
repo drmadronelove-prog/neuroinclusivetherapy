@@ -16,7 +16,7 @@ const cards = [
   { title: "Mindfulness",        href: "/mindfulness",        borderColor: "#7890A8", rotate:  0.5 },
   { title: "Brain Games",        href: "/brain-games",        borderColor: "#B86848", rotate: -2   },
   { title: "Blog",               href: "/blog",               borderColor: "#6A9070", rotate:  1   },
-  { title: "Dr. Madrone Love, PsyD", href: "/individual-therapy", borderColor: "#9878A8", rotate: -0.5 },
+  { title: "Madrone Love, PsyD", href: "/individual-therapy", borderColor: "#9878A8", rotate: -0.5 },
 ]
 
 export function HeroCards() {
