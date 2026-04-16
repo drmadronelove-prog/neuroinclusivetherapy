@@ -6,13 +6,13 @@ export function AnimatedHeading() {
       Therapy and Tools for people who feel{" "}
       <span className="italic font-[var(--font-accent)] font-bold text-2xl sm:text-3xl" style={{
         color: "#D4A843",
-        textShadow: "0 0 18px rgba(212,168,67,0.75), 0 0 40px rgba(212,168,67,0.35)",
+        textShadow: "0 0 8px rgba(212,168,67,1), 0 0 22px rgba(212,168,67,0.85), 0 0 50px rgba(212,168,67,0.55), 0 0 90px rgba(212,168,67,0.25)",
       }}>
         different
       </span>
       <span className="font-[var(--font-accent)] font-bold text-2xl sm:text-3xl" style={{
         color: "#D4A843",
-        textShadow: "0 0 18px rgba(212,168,67,0.75), 0 0 40px rgba(212,168,67,0.35)",
+        textShadow: "0 0 8px rgba(212,168,67,1), 0 0 22px rgba(212,168,67,0.85), 0 0 50px rgba(212,168,67,0.55), 0 0 90px rgba(212,168,67,0.25)",
       }}>.</span>
     </p>
   )
