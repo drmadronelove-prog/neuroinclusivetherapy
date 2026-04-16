@@ -20,9 +20,9 @@ export interface NetworkGraphProps {
 }
 
 const COLORS: Record<NodeType, string> = {
-  dsm:  "#C17C74",
-  ndsm: "#A7B79F",
-  mech: "#7D805F",
+  dsm:  "#DB9065",
+  ndsm: "#688E93",
+  mech: "#E1B899",
 }
 
 const LEGEND = [
@@ -191,10 +191,11 @@ export function NetworkGraph({
         const isGold = (id: string) => selected.has(id) || highlighted.has(id)
 
         circleEl
-          .attr("fill",   (d: any) => isGold(d.id) ? "#FFD700" : COLORS[d.type as NodeType])
-          .attr("r",      (d: any) => isGold(d.id) ? getR(d.id) + 3 : getR(d.id))
-          .attr("filter", (d: any) => isGold(d.id) ? `url(#${filterId})` : null)
-          .attr("opacity",(d: any) => !hasSel ? 1 : isGold(d.id) ? 1 : 0.2)
+          .attr("fill",         (d: any) => isGold(d.id) ? "#FFD700" : COLORS[d.type as NodeType])
+          .attr("fill-opacity", (d: any) => isGold(d.id) ? 1 : 0.62)
+          .attr("r",            (d: any) => isGold(d.id) ? getR(d.id) + 3 : getR(d.id))
+          .attr("filter",       (d: any) => isGold(d.id) ? `url(#${filterId})` : null)
+          .attr("opacity",      (d: any) => !hasSel ? 1 : isGold(d.id) ? 1 : 0.2)
 
         labelG2.attr("opacity", (d: any) => !hasSel ? 1 : isGold(d.id) ? 1 : 0.12)
 
@@ -229,7 +230,8 @@ export function NetworkGraph({
         .join("circle")
         .attr("r",            (d: any) => getR(d.id))
         .attr("fill",         (d: any) => COLORS[d.type as NodeType])
-        .attr("stroke",       "#0d0d0d")
+        .attr("fill-opacity", 0.62)
+        .attr("stroke",       "rgba(40,28,18,0.55)")
         .attr("stroke-width", 1.5)
         .attr("cursor",       "pointer")
         .call(drag(sim))
@@ -244,19 +246,19 @@ export function NetworkGraph({
         .data(d3nodes)
         .join("text")
         .attr("text-anchor", "middle")
-        .attr("fill",        "rgba(20,20,20,0.88)")
+        .attr("fill",        "rgba(20,20,20,0.92)")
         .attr("font-family", "DM Sans, sans-serif")
-        .attr("font-size",   "16")
+        .attr("font-size",   "13")
         .attr("font-weight", "700")
         .each(function(d: any) {
           const el = d3.select(this)
-          const lines = wrapWords(d.label)
-          const lineH = 19
+          const lines = wrapWords(d.label, 11)
+          const lineH = 16
           const startDy = -(lines.length - 1) * lineH / 2
           lines.forEach((line, i) => {
             el.append("tspan")
               .attr("x", 0)
-              .attr("dy", i === 0 ? startDy : 19)
+              .attr("dy", i === 0 ? startDy : 16)
               .text(line)
           })
         })
