@@ -51,7 +51,7 @@ export default function RootLayout({
           href="/"
           className="no-print fixed top-3 left-3 z-[60]"
           aria-label="Home"
-          style={{ display: "block", lineHeight: 0 }}
+          style={{ display: "flex", alignItems: "center", gap: "10px", lineHeight: 1 }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -59,8 +59,29 @@ export default function RootLayout({
             alt="Neuroinclusive Therapy logo"
             width={52}
             height={52}
-            style={{ display: "block" }}
+            style={{ display: "block", flexShrink: 0 }}
           />
+          <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+            <span style={{
+              fontFamily: "var(--font-accent)",
+              fontSize: "1rem",
+              fontWeight: 600,
+              color: "#C0B4A0",
+              lineHeight: 1.15,
+            }}>
+              Madrone Love, PsyD
+            </span>
+            <span style={{
+              fontFamily: "var(--font-accent)",
+              fontSize: "0.72rem",
+              fontWeight: 400,
+              color: "#C0B4A0",
+              lineHeight: 1.15,
+              opacity: 0.85,
+            }}>
+              Clinical Psychologist
+            </span>
+          </div>
         </Link>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
