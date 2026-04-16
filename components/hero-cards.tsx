@@ -54,15 +54,15 @@ function HeroCard({
           aspectRatio: "17 / 20",
           height: undefined,
           backgroundColor: "rgba(248, 244, 238, 0.92)",
-          backgroundImage: PAPER_BG,
-          backgroundSize: "200px 200px",
+          backgroundImage: `${PAPER_BG}, linear-gradient(160deg, ${card.borderColor}22 0%, ${card.borderColor}14 100%)`,
+          backgroundSize: "200px 200px, cover",
           backdropFilter: "blur(8px)",
           WebkitBackdropFilter: "blur(8px)",
           border: `2px solid ${card.borderColor}`,
           borderRadius: "14px",
           boxShadow: isHovered
-            ? `inset 0 0 0 200px ${card.borderColor}18, 0 12px 30px rgba(0,0,0,0.16), 0 0 0 1px ${card.borderColor}55`
-            : `inset 0 0 0 200px ${card.borderColor}12, 0 3px 10px rgba(0,0,0,0.09), 0 1px 3px rgba(0,0,0,0.06)`,
+            ? `0 12px 30px rgba(0,0,0,0.16), 0 0 0 1px ${card.borderColor}55`
+            : `0 3px 10px rgba(0,0,0,0.09), 0 1px 3px rgba(0,0,0,0.06)`,
           cursor: "pointer",
           position: "relative",
           overflow: "hidden",

@@ -31,7 +31,7 @@ const LEGEND = [
   { type: "mech" as NodeType, label: "Cognitive mechanism" },
 ]
 
-function wrapWords(text: string, maxChars = 15): string[] {
+function wrapWords(text: string, maxChars = 12): string[] {
   const words = text.split(" ")
   const lines: string[] = []
   let cur = ""
@@ -50,7 +50,7 @@ export function NetworkGraph({
   links,
   title,
   description,
-  height = "clamp(480px, 90vw, 900px)",
+  height = "clamp(500px, 85vw, 850px)",
 }: NetworkGraphProps) {
   const svgRef   = useRef<SVGSVGElement>(null)
   const labelRef = useRef<HTMLDivElement>(null)
@@ -62,8 +62,14 @@ export function NetworkGraph({
     import("d3").then((d3) => {
       if (!active || !svgRef.current) return
 
-      const W = 1800
-      const H = 1800
+      // ── Canvas ────────────────────────────────────────────────────────────
+      // 1000×1000 viewBox. At a ~750px container the scale is 0.75:
+      //   node radius 45–62px → 34–47px visual  (readable)
+      //   font 16px            → 12px visual     (readable)
+      //   collide 88px (fixed) → 30 nodes need 73% of 1 000 000px² → fits ✓
+      //   gap between avg nodes ≈ 52px visual
+      const W = 1000
+      const H = 1000
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const d3nodes: any[] = nodes.map(n => ({ ...n }))
@@ -75,18 +81,17 @@ export function NetworkGraph({
         degree[s] = (degree[s] || 0) + 1
         degree[t] = (degree[t] || 0) + 1
       })
-      const getR = (id: string) => Math.max(120, Math.min(192, 86 + Math.sqrt(degree[id] || 1) * 16.8))
 
-      // Pre-spread nodes across the full canvas in a diagonal grid so the
-      // simulation starts dispersed rather than clustered at the centre
-      const padding = 110
-      const cols = Math.round(Math.sqrt(d3nodes.length * W / H))
+      // Radius scaled by connectivity — busier hubs are slightly larger
+      const getR = (id: string) => Math.max(45, Math.min(62, 33 + Math.sqrt(degree[id] || 1) * 5))
+
+      // Pre-place nodes in a regular grid so simulation starts spread out
+      const padding = 80
+      const cols = Math.ceil(Math.sqrt(d3nodes.length))  // 6 cols × 5 rows for 30 nodes
       const rows = Math.ceil(d3nodes.length / cols)
       d3nodes.forEach((node: any, i: number) => {
-        const col = i % cols
-        const row = Math.floor(i / cols)
-        node.x = padding + (col + 0.5) * ((W - padding * 2) / cols)  + (Math.random() - 0.5) * 60
-        node.y = padding + (row + 0.5) * ((H - padding * 2) / rows)  + (Math.random() - 0.5) * 60
+        node.x = padding + (i % cols + 0.5) * ((W - padding * 2) / cols) + (Math.random() - 0.5) * 30
+        node.y = padding + (Math.floor(i / cols) + 0.5) * ((H - padding * 2) / rows) + (Math.random() - 0.5) * 30
       })
 
       const svg = d3.select(svgRef.current)
@@ -99,18 +104,19 @@ export function NetworkGraph({
         .attr("id", filterId)
         .attr("x", "-50%").attr("y", "-50%")
         .attr("width", "200%").attr("height", "200%")
-      glow.append("feGaussianBlur").attr("stdDeviation", "4").attr("result", "coloredBlur")
+      glow.append("feGaussianBlur").attr("stdDeviation", "3").attr("result", "coloredBlur")
       const fm = glow.append("feMerge")
       fm.append("feMergeNode").attr("in", "coloredBlur")
       fm.append("feMergeNode").attr("in", "SourceGraphic")
 
       const sim = d3.forceSimulation(d3nodes)
-        .alphaDecay(0.008)
-        .force("link",    d3.forceLink(d3links).id((d: any) => d.id).distance(300).strength(0.2))
-        .force("charge",  d3.forceManyBody().strength(-2800))
-        .force("collide", d3.forceCollide().radius((d: any) => getR(d.id) * 1.38))
-        .force("x",       d3.forceX(W / 2).strength(0.004))
-        .force("y",       d3.forceY(H / 2).strength(0.004))
+        .alphaDecay(0.012)
+        // Fixed 88px collide — independent of node size so math stays clean
+        .force("link",    d3.forceLink(d3links).id((d: any) => d.id).distance(160).strength(0.22))
+        .force("charge",  d3.forceManyBody().strength(-600))
+        .force("collide", d3.forceCollide().radius(88))
+        .force("x",       d3.forceX(W / 2).strength(0.003))
+        .force("y",       d3.forceY(H / 2).strength(0.003))
 
       const linkG = svg.append("g")
       const linkEl = linkG.selectAll("line")
@@ -240,17 +246,17 @@ export function NetworkGraph({
         .attr("text-anchor", "middle")
         .attr("fill",        "rgba(20,20,20,0.88)")
         .attr("font-family", "DM Sans, sans-serif")
-        .attr("font-size",   "29")
+        .attr("font-size",   "16")
         .attr("font-weight", "700")
         .each(function(d: any) {
           const el = d3.select(this)
           const lines = wrapWords(d.label)
-          const lineH = 34
+          const lineH = 19
           const startDy = -(lines.length - 1) * lineH / 2
           lines.forEach((line, i) => {
             el.append("tspan")
               .attr("x", 0)
-              .attr("dy", i === 0 ? startDy : 34)
+              .attr("dy", i === 0 ? startDy : 19)
               .text(line)
           })
         })
