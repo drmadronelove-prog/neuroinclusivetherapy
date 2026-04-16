@@ -57,7 +57,7 @@ export function HeroSection() {
                 fontFamily: "var(--font-accent)",
                 fontSize: "clamp(3.8rem, 6.5vw, 6rem)",
                 fontWeight: 700,
-                color: "#6B8C5A",
+                color: "#3D5230",
                 lineHeight: 0.95,
                 letterSpacing: "-0.01em",
                 margin: 0,
