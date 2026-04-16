@@ -2,6 +2,7 @@
 
 import { HeroCards } from "@/components/hero-cards"
 import { AnimatedHeading } from "@/components/animated-heading"
+import { DiagonalNav, MobileNav } from "@/components/diagonal-nav"
 import { motion } from "framer-motion"
 import Link from "next/link"
 
@@ -12,6 +13,39 @@ export function HeroSection() {
       className="relative"
       style={{ minHeight: "100svh" }}
     >
+      <DiagonalNav />
+      <MobileNav />
+
+      {/* Logo + name — desktop only, in the blank strip just left of nav spines */}
+      <div className="no-print hidden md:flex fixed top-4 z-[55]" style={{
+        right: "264px",
+        flexDirection: "column",
+        gap: "3px",
+        alignItems: "flex-end",
+      }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo.png" alt="" width={52} height={52} style={{ display: "block", flexShrink: 0 }} />
+          <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
+            <span style={{
+              fontFamily: "var(--font-accent)",
+              fontSize: "1.55rem",
+              fontWeight: 700,
+              color: "#8A7E6E",
+              lineHeight: 1.1,
+              letterSpacing: "0.02em",
+            }}>Madrone Love, PsyD</span>
+            <span style={{
+              fontFamily: "var(--font-accent)",
+              fontSize: "1.1rem",
+              fontWeight: 400,
+              color: "#9A8E7E",
+              lineHeight: 1.15,
+              letterSpacing: "0.15em",
+            }}>Clinical Psychologist</span>
+          </div>
+        </div>
+      </div>
       {/* Full-bleed video */}
       <div aria-hidden="true" style={{ position: "absolute", inset: 0, overflow: "hidden", zIndex: 0 }}>
         <video autoPlay muted loop playsInline style={{
@@ -37,7 +71,7 @@ export function HeroSection() {
 
       {/* Main content — flex-col on mobile so footer anchors to bottom */}
       <div
-        className="relative min-h-[100svh] flex flex-col justify-between lg:justify-center px-6 lg:px-16 pt-20 pb-0 lg:pt-0"
+        className="relative min-h-[100svh] flex flex-col justify-between lg:justify-center px-6 lg:px-16 pt-10 pb-0 lg:pt-0"
         style={{ zIndex: 2 }}
       >
         {/* Heading + cards */}

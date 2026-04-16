@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Barlow_Condensed, DM_Sans, Dancing_Script, Caveat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
-import Link from 'next/link'
 import './globals.css'
 
 const barlowCondensed = Barlow_Condensed({
@@ -46,44 +45,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${barlowCondensed.variable} ${dmSans.variable} ${dancingScript.variable} ${caveat.variable}`}>
       <body className="font-body antialiased">
-        {/* Site-wide corner logo */}
-        <Link
-          href="/"
-          className="no-print fixed top-3 left-3 z-[60]"
-          aria-label="Home"
-          style={{ display: "flex", alignItems: "center", gap: "10px", lineHeight: 1 }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/logo.png"
-            alt="Neuroinclusive Therapy logo"
-            width={52}
-            height={52}
-            style={{ display: "block", flexShrink: 0 }}
-          />
-          <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
-            <span style={{
-              fontFamily: "var(--font-accent)",
-              fontSize: "1.55rem",
-              fontWeight: 700,
-              color: "#8A7E6E",
-              lineHeight: 1.1,
-              letterSpacing: "0.02em",
-            }}>
-              Madrone Love, PsyD
-            </span>
-            <span className="hidden md:inline" style={{
-              fontFamily: "var(--font-accent)",
-              fontSize: "1.1rem",
-              fontWeight: 400,
-              color: "#9A8E7E",
-              lineHeight: 1.15,
-              letterSpacing: "0.15em",
-            }}>
-              Clinical Psychologist
-            </span>
-          </div>
-        </Link>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
