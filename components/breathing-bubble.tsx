@@ -81,7 +81,17 @@ export function BreathingBubble() {
   }, [])
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "24px 0 36px" }}>
+    <div style={{
+      border: "1.5px solid rgba(91,168,158,0.35)",
+      borderRadius: "20px",
+      background: "rgba(91,168,158,0.05)",
+      padding: "32px 24px 28px",
+      display: "inline-flex",
+      flexDirection: "column",
+      alignItems: "center",
+      maxWidth: "320px",
+      width: "100%",
+    }}>
       <style>{`
         @keyframes breathe {
           0%   { transform: scale(0.45); }
