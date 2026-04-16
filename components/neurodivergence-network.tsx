@@ -75,7 +75,7 @@ export function NetworkGraph({
         degree[s] = (degree[s] || 0) + 1
         degree[t] = (degree[t] || 0) + 1
       })
-      const getR = (id: string) => Math.max(100, Math.min(160, 72 + Math.sqrt(degree[id] || 1) * 14))
+      const getR = (id: string) => Math.max(120, Math.min(192, 86 + Math.sqrt(degree[id] || 1) * 16.8))
 
       // Pre-spread nodes across the full canvas in a diagonal grid so the
       // simulation starts dispersed rather than clustered at the centre
@@ -240,17 +240,17 @@ export function NetworkGraph({
         .attr("text-anchor", "middle")
         .attr("fill",        "rgba(20,20,20,0.88)")
         .attr("font-family", "DM Sans, sans-serif")
-        .attr("font-size",   "24")
+        .attr("font-size",   "29")
         .attr("font-weight", "700")
         .each(function(d: any) {
           const el = d3.select(this)
           const lines = wrapWords(d.label)
-          const lineH = 28
+          const lineH = 34
           const startDy = -(lines.length - 1) * lineH / 2
           lines.forEach((line, i) => {
             el.append("tspan")
               .attr("x", 0)
-              .attr("dy", i === 0 ? startDy : 28)
+              .attr("dy", i === 0 ? startDy : 34)
               .text(line)
           })
         })
