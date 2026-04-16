@@ -86,12 +86,11 @@ export function HeroSection() {
         {/* Mobile footer — sits at bottom of viewport */}
         <div className="no-print md:hidden py-6" style={{ fontFamily: "var(--font-accent)", color: "rgba(61,82,48,0.52)", fontSize: "0.95rem", lineHeight: 1.7 }}>
           <p>
-            San Francisco &amp; Berkeley, CA &nbsp;·&nbsp; Telehealth{" "}
+            San Francisco &amp; Berkeley &nbsp;·&nbsp;{" "}
             <a href="tel:+14159152183" className="hover:opacity-100 transition-opacity">(415) 915-2183</a>
+            {" "}&nbsp;·&nbsp;{" "}
+            <a href="mailto:therapy@madronelove.com" className="hover:opacity-100 transition-opacity">therapy@madronelove.com</a>
           </p>
-          <a href="mailto:therapy@madronelove.com" className="hover:opacity-100 transition-opacity">
-            therapy@madronelove.com
-          </a>
         </div>
       </div>
 
