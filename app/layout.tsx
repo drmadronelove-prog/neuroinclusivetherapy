@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Barlow_Condensed, DM_Sans, Dancing_Script, Caveat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
-import Image from 'next/image'
 import Link from 'next/link'
 import './globals.css'
 
@@ -34,8 +33,8 @@ export const metadata: Metadata = {
   description: 'Compassionate, neuroinclusive therapy services by Dr. Madrone Love, PsyD. Specializing in neurodivergent-affirming care, ADHD, autism, and holistic mental wellness.',
   generator: 'v0.app',
   icons: {
-    icon: '/logo.png',
-    apple: '/logo.png',
+    icon: '/logo.svg',
+    apple: '/logo.svg',
   },
 }
 
@@ -54,13 +53,13 @@ export default function RootLayout({
           aria-label="Home"
           style={{ display: "block", lineHeight: 0 }}
         >
-          <Image
-            src="/logo.png"
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo.svg"
             alt="Neuroinclusive Therapy logo"
             width={52}
             height={52}
             style={{ borderRadius: "50%", display: "block" }}
-            priority
           />
         </Link>
         {children}
