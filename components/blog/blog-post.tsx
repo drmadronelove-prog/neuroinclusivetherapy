@@ -7,6 +7,8 @@ export type Block =
   | { type: "heading"; text: string }
   | { type: "pull-quote"; text: string }
   | { type: "footer-note"; text: string }
+  | { type: "callout"; heading: string; text: string }
+  | { type: "list"; items: string[] }
 
 export type BlogPost = {
   slug: string
@@ -99,6 +101,29 @@ export function BlogPostArticle({ post }: { post: BlogPost }) {
                 >
                   <p>{block.text}</p>
                 </footer>
+              )
+
+            case "callout":
+              return (
+                <div
+                  key={i}
+                  className="bg-nav-teal/8 border border-nav-teal/20 rounded-lg px-6 py-5 my-6"
+                >
+                  <p className="font-semibold text-[0.95rem] text-foreground mb-2">{block.heading}</p>
+                  <p className="text-[0.95rem] text-muted-foreground leading-relaxed">{block.text}</p>
+                </div>
+              )
+
+            case "list":
+              return (
+                <ul key={i} className="space-y-2 my-4">
+                  {block.items.map((item, j) => (
+                    <li key={j} className="flex gap-3 text-[1.05rem] text-foreground leading-relaxed">
+                      <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-nav-teal" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               )
 
             default:
