@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Windows of Interest: A New Way to Understand Neurodivergent Focus</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    background-color: #FAF8F4;
+    color: #2C2A26;
+    line-height: 1.85;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 80px 40px 120px;
+  }
+
+  .category {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #7A8C7A;
+    margin-bottom: 28px;
+    display: block;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 5vw, 54px);
+    font-weight: 500;
+    line-height: 1.12;
+    color: #1E1C18;
+    margin-bottom: 28px;
+    letter-spacing: -0.01em;
+  }
+
+  .lede {
+    font-size: 19px;
+    font-weight: 400;
+    color: #5A5248;
+    line-height: 1.75;
+    margin-bottom: 52px;
+    padding-bottom: 52px;
+    border-bottom: 1px solid #DDE0D8;
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: #1E1C18;
+    margin-top: 56px;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  p {
+    margin-bottom: 24px;
+    color: #3A3530;
+  }
+
+  .pullquote {
+    border-left: 3px solid #8FAF8F;
+    padding: 4px 0 4px 28px;
+    margin: 44px 0;
+  }
+
+  .pullquote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.55;
+    color: #3A4E3A;
+    margin: 0;
+  }
+
+  .callout {
+    background-color: #EDF1ED;
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin: 44px 0;
+  }
+
+  .callout p {
+    margin: 0;
+    font-size: 16px;
+    color: #384538;
+  }
+
+  .callout p + p {
+    margin-top: 16px;
+  }
+
+  .callout strong {
+    font-weight: 500;
+    color: #2A3A2A;
+  }
+
+  .window-diagram {
+    margin: 44px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #DDE0D8;
+  }
+
+  .window-zone {
+    padding: 18px 24px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .zone-label {
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .zone-above {
+    background-color: #F7EDE8;
+    color: #5C3A2E;
+  }
+  .zone-above .zone-label { color: #8C4A38; }
+
+  .zone-window {
+    background-color: #EDF1ED;
+    color: #2A3A2A;
+    border-top: 1px solid #DDE0D8;
+    border-bottom: 1px solid #DDE0D8;
+    padding: 22px 24px;
+  }
+  .zone-window .zone-label { color: #3A5A3A; font-size: 14px; }
+
+  .zone-below {
+    background-color: #EAE8F0;
+    color: #352E4A;
+  }
+  .zone-below .zone-label { color: #4A3E72; }
+
+  .example-list {
+    list-style: none;
+    padding: 0;
+    margin: 28px 0;
+  }
+
+  .example-list li {
+    padding: 14px 0 14px 24px;
+    border-bottom: 1px solid #DDE0D8;
+    position: relative;
+    font-size: 16.5px;
+    color: #3A3530;
+  }
+
+  .example-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 22px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #8FAF8F;
+  }
+
+  .example-list li:last-child {
+    border-bottom: none;
+  }
+
+  .byline {
+    font-size: 14px;
+    color: #7A8C7A;
+    margin-bottom: 52px;
+    font-weight: 400;
+  }
+
+  .byline strong {
+    color: #3A4E3A;
+    font-weight: 500;
+  }
+
+  .author-bio {
+    margin-top: 64px;
+    padding: 28px 32px;
+    background-color: #EDF1ED;
+    border-radius: 8px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .author-initial {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 50%;
+    background-color: #8FAF8F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #2A3A2A;
+  }
+
+  .author-bio-text p {
+    margin: 0;
+    font-size: 15px;
+    color: #384538;
+    line-height: 1.7;
+  }
+
+  .author-bio-text strong {
+    font-weight: 500;
+    color: #2A3A2A;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+
+  .closing {
+    margin-top: 64px;
+    padding-top: 40px;
+    border-top: 1px solid #DDE0D8;
+    font-style: italic;
+    color: #5A5248;
+    font-size: 16.5px;
+  }
+
+  @media (max-width: 600px) {
+    .wrapper { padding: 48px 24px 80px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <span class="category">Neurodivergence &amp; Self-Understanding</span>
+
+  <h1>Windows of Interest: Rethinking Focus, Motivation, and the Neurodivergent Mind</h1>
+
+  <p class="byline">By <strong>Dr. Madrone Love, PsyD</strong></p>
+
+  <p class="lede">You have probably heard of the window of tolerance, the idea that there is a zone of activation where a person can think, feel, and function well, and that trauma or chronic stress can narrow that window until almost nothing fits inside it. I want to introduce a related idea, one I have found just as essential for understanding neurodivergent people: the window of interest.</p>
+
+  <p>This is not a metaphor for distraction or a polite way of describing difficulty with motivation. It is a genuine framework for understanding something that many neurodivergent people have known about themselves their whole lives but have never had words for: that their access to focus, energy, and capability is not distributed evenly across all tasks at all times. It flows. It concentrates. It requires conditions. And when those conditions are not present, it is not a matter of trying harder.</p>
+
+  <h2>What is a window of interest?</h2>
+
+  <p>The window of interest describes the zone in which a neurodivergent person can genuinely engage. Not perform engagement, not white-knuckle their way through a task, but actually access their attention, their thinking, and their capacity to do good work. Inside the window, something sparks. Outside it, the lights simply do not come on, no matter how important the task, no matter how many consequences are on the line.</p>
+
+  <p>Just as the window of tolerance has states above and below it, so does the window of interest. Above it is hyperfocus: the state where interest has become so consuming that everything else vanishes. The person is fully alive inside the task and completely inaccessible to everything outside it. Below it is what I call interest shutdown: a state that can look like laziness, procrastination, or resistance, but which is better understood as a kind of genuine functional freeze. The nervous system simply will not move in the direction of something that holds no interest, urgency, or meaning.</p>
+
+  <div class="window-diagram">
+    <div class="window-zone zone-above">
+      <span class="zone-label">Above the window: hyperfocus</span>
+      Fully absorbed, time disappears, other needs go unmet. The task is everything. Difficult to interrupt or transition away from even when needed.
+    </div>
+    <div class="window-zone zone-window">
+      <span class="zone-label">Inside the window: engaged presence</span>
+      Interest is alive and accessible. Focus is available without force. Thinking is fluid, creativity is possible, and the person is both present and capable.
+    </div>
+    <div class="window-zone zone-below">
+      <span class="zone-label">Below the window: interest shutdown</span>
+      Flat activation, inability to start or sustain. Often misread as laziness, avoidance, or defiance. The nervous system is not withholding effort. It is genuinely without traction.
+    </div>
+  </div>
+
+  <h2>The interest-based nervous system</h2>
+
+  <p>To understand why this window exists and why it matters so much, it helps to know something about how the neurodivergent nervous system, and particularly the ADHD nervous system, actually works. Psychiatrists Edward Hallowell and John Ratey, along with clinician William Dodson, have described what they call an interest-based nervous system: one that is not primarily motivated by importance, obligation, or reward, the way many neurotypical nervous systems are. Instead, it activates in response to interest, novelty, challenge, urgency, passion, and meaningful connection.</p>
+
+  <p>This is not a character issue. It is a neurological one. The person who cannot make themselves write the report that is due tomorrow but spent four uninterrupted hours yesterday reading everything ever written about a particular obscure topic is not being difficult. They are showing you exactly how their nervous system works. It responds to what it responds to. The trouble is not a lack of will. It is that the standard scaffolding of modern life, deadlines, performance reviews, to-do lists, the general logic of "this is important so you should do it," was built for a different kind of nervous system entirely.</p>
+
+  <div class="pullquote">
+    <p>The window of interest is not about what a person is willing to do. It is about what their nervous system can actually access.</p>
+  </div>
+
+  <p>This has enormous implications for how we understand productivity, motivation, and what it means to be "functional." A neurodivergent person who is struggling to do something outside their window is not failing. They are running into a genuine physiological limit, one that shaming, lecturing, or working harder will not resolve.</p>
+
+  <h2>Monotropism: when attention moves like water</h2>
+
+  <p>Another piece of this picture comes from a concept developed in the autistic community: monotropism. Proposed by researchers Dinah Murray, Wenn Lawson, and Mike Lesser, monotropism describes a style of attention that tends to flow in a single, deep channel rather than spreading broadly across multiple streams at once. When a monotropic person's attention lands on something, it lands fully. The interest pulls resources toward it like water finding a channel, and everything outside that channel becomes harder to access.</p>
+
+  <p>This explains a great deal about autistic experience that gets misread as rigidity, rudeness, or being "in their own world." It is not that the person is choosing to ignore what is outside their current channel of interest. It is that their attentional architecture genuinely concentrates rather than distributes. The depth is real. So is the difficulty of shifting.</p>
+
+  <p>Monotropism and the interest-based nervous system are not identical concepts, and they emerge from different communities and different research traditions. But they are pointing at something overlapping: that for many neurodivergent people, attention and engagement are not a tap you can turn on at will. They are closer to a current. You can learn to work with the current, to understand its patterns and create conditions that allow it to move, but you cannot simply override it by deciding to.</p>
+
+  <div class="callout">
+    <p><strong>What it can look like when someone is outside their window of interest:</strong></p>
+    <p>Staring at the page without beginning. Reopening the same task repeatedly without making progress. Elaborate avoidance that feels shameful and confusing even to the person doing it. A sense of blankness or wall where motivation should be. Moving in circles around a task for hours. Suddenly becoming absorbed in something entirely unrelated. Fatigue that descends not from exertion but from trying to force access to something that will not open.</p>
+  </div>
+
+  <h2>Why this is not about effort or character</h2>
+
+  <p>One of the most painful aspects of having a window of interest is how it looks from the outside, and often from the inside too. Because the same person who cannot begin the task that is due today may have, last week, worked on something else for twelve hours without stopping. The inconsistency is visible. And in a culture that prizes consistent, reliable productivity above almost everything else, that inconsistency is read as a moral failing.</p>
+
+  <p>The neurodivergent person often internalizes this read. They know they are capable of extraordinary focus and output. They have seen it. So when it will not come on demand, the conclusion many reach is not "my nervous system needs different conditions." It is "I am lazy, broken, undisciplined, or secretly do not care enough."</p>
+
+  <p>This is one of the most important things therapy can address: the gap between what a person is capable of under the right conditions and what they can produce when those conditions are absent, and the enormous shame that lives in that gap. The window of interest is not an excuse. It is an explanation. And explanations are the beginning of something other than self-blame.</p>
+
+  <div class="pullquote">
+    <p>Inconsistency is not evidence of not caring. It is evidence of a nervous system with specific conditions for access.</p>
+  </div>
+
+  <h2>Working with the window, not against it</h2>
+
+  <p>Understanding your own window of interest is practical work, not just conceptual. It involves getting genuinely curious about what moves you into the window and what keeps you out of it. For many people this includes novelty, meaning, a sense of real stakes, the presence of another person, a tight deadline, a problem that feels genuinely unsolved, or a task that connects to something they care about deeply. It also involves understanding your own particular above-the-window and below-the-window states, what they feel like in the body, what triggers them, and how to work with them rather than simply enduring them.</p>
+
+  <p>Some things that can help widen or access the window:</p>
+
+  <ul class="example-list">
+    <li>Connecting a task to something that genuinely matters to you, even obliquely</li>
+    <li>Adding novelty or challenge to something that has gone flat</li>
+    <li>Working alongside another person, even silently (what many now call body doubling)</li>
+    <li>Breaking work into pieces small enough that each one has a real beginning and end</li>
+    <li>Noticing when you are above the window and building in transitions before shutdown follows</li>
+    <li>Releasing the expectation that willpower alone should be sufficient</li>
+    <li>Designing your environment around how your attention actually works, not how it is supposed to work</li>
+  </ul>
+
+  <p>None of these are hacks or workarounds. They are accommodations in the truest sense of the word: meeting yourself where you actually are.</p>
+
+  <h2>A different relationship with your own mind</h2>
+
+  <p>For many neurodivergent people, coming to understand the window of interest is less an intellectual exercise than a kind of homecoming. It offers a framework that finally fits the shape of their experience, one that does not begin with pathology or deficit but with a genuine attempt to understand how a particular kind of mind actually works.</p>
+
+  <p>This is normalizing in the deepest sense. Not "it is fine, do not worry about it," but rather: what you have been experiencing has a shape and a logic. You are not broken. You are not making excuses. You have a nervous system with specific conditions for engagement, and learning those conditions, and building a life that honors them rather than fights them, is not self-indulgence. It is self-knowledge. And self-knowledge, for neurodivergent people who have spent years being told their experience is wrong, is one of the most subversive and healing things there is.</p>
+
+  <div class="author-bio">
+    <div class="author-initial">ML</div>
+    <div class="author-bio-text">
+      <p><strong>Dr. Madrone Love, PsyD (PSY35899)</strong>
+      Dr. Love is a licensed clinical psychologist in private practice in Berkeley and San Francisco, specializing in neurodivergent adults, OCD, and trauma. She is an Assistant Professor of Integral Counseling Psychology at the California Institute of Integral Studies and serves as Director of the Sati Center for Buddhist Studies. Her work integrates contemporary clinical psychology with mindfulness, attachment, and a deep respect for neurodivergent ways of being in the world.</p>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
