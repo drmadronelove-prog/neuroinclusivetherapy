@@ -17,6 +17,26 @@ const games = [
     height: 760,
   },
   {
+    id: "spark",
+    title: "Spark",
+    category: "ACT · Values",
+    categoryColor: "text-nav-amber border-nav-amber",
+    description:
+      "Your light is yours. Practice the skill of protecting it — moving toward what matters and learning when to say no. That's it. That's the whole game.",
+    src: "/games/spark.html",
+    height: 820,
+  },
+  {
+    id: "dont-make-it-worse",
+    title: "Don't Make It Worse!",
+    category: "DBT · Compassion",
+    categoryColor: "text-nav-teal border-nav-teal",
+    description:
+      "Someone is struggling. Your job: don't pile on. Drag comforting responses toward them and avoid the ones that make it worse. Three kind things and they feel better — three harmful ones and you made it worse.",
+    src: "/games/dont_make_it_worse.html",
+    height: 820,
+  },
+  {
     id: "fake-news",
     title: "Real News or Fake News?",
     category: "I-CBT · Reality Testing",
