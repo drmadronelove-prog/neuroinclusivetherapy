@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spark & Don't Make It Worse</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      --bg:  #FFFFFF;
+      --bg2: #F5F3EF;
+      --bg3: #EAE7E2;
+      --t1:  #1A1A1A;
+      --t2:  #4A4A4A;
+      --t3:  #888880;
+      --bd:  #D0CCC6;
+      --bd2: #E0DDD8;
+      --r-lg: 12px;
+      --r-md: 8px;
+      --r-sm: 6px;
+      --amber-bg:     #FEF3CD;
+      --amber-border: #F0C060;
+      --amber-text:   #633806;
+      --red-bg:       #FEEBEB;
+      --red-border:   #FCA5A5;
+      --red-text:     #791F1F;
+      --green-bg:     #DCFCE7;
+      --green-border: #86EFAC;
+      --green-text:   #166534;
+      --blue-bg:      #E6F1FB;
+      --blue-border:  #85B7EB;
+      --blue-text:    #0C447C;
+    }
+    html, body { font-family: var(--font-sans); background: var(--bg); color: var(--t1); min-height: 100%; }
+    #game { max-width: 560px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+    .screen { display: none; }
+    .screen.active { display: block; }
+
+    .card { background: var(--bg); border: 0.5px solid var(--bd2); border-radius: var(--r-lg); padding: 1.25rem; margin-bottom: .75rem; }
+
+    /* progress */
+    .progress-row { display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem; }
+    .progress-bg { flex: 1; height: 4px; background: var(--bg3); border-radius: 2px; }
+    .progress-fill { height: 4px; background: #EF9F27; border-radius: 2px; transition: width .4s ease; }
+    .progress-label { font-size: 12px; color: var(--t3); white-space: nowrap; }
+
+    /* spark card */
+    .spark-card { background: var(--amber-bg); border: 0.5px solid var(--amber-border); border-radius: var(--r-lg); padding: 1.25rem; margin-bottom: 1rem; }
+    .spark-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--amber-text); margin-bottom: .35rem; }
+    .spark-title { font-size: 16px; font-weight: 500; color: var(--amber-text); margin-bottom: .4rem; }
+    .spark-scenario { font-size: 14px; line-height: 1.65; color: var(--amber-text); font-style: italic; }
+
+    /* response card */
+    .response-card { background: var(--bg2); border: 0.5px solid var(--bd2); border-radius: var(--r-lg); padding: 1.25rem; margin-bottom: 1rem; }
+    .response-q { font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--t3); margin-bottom: .5rem; }
+    .response-text { font-size: 15px; line-height: 1.65; color: var(--t1); }
+
+    /* classify buttons */
+    .classify-row { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-bottom: 1rem; }
+    .classify-btn { padding: .9rem .75rem; border-radius: var(--r-md); border: 1px solid; cursor: pointer; font-family: var(--font-sans); font-size: 13px; font-weight: 500; line-height: 1.4; text-align: center; transition: opacity .12s; }
+    .classify-btn:hover:not(:disabled) { opacity: .8; }
+    .classify-btn:disabled { opacity: .4; cursor: default; }
+    .btn-worse  { background: var(--red-bg);   border-color: var(--red-border);   color: var(--red-text); }
+    .btn-better { background: var(--green-bg);  border-color: var(--green-border); color: var(--green-text); }
+
+    /* feedback */
+    .feedback-card { border-radius: var(--r-lg); padding: 1.25rem; margin-bottom: .75rem; }
+    .feedback-card.correct   { background: var(--green-bg); border: 0.5px solid var(--green-border); }
+    .feedback-card.incorrect { background: var(--red-bg);   border: 0.5px solid var(--red-border); }
+    .feedback-header { font-size: 13px; font-weight: 600; margin-bottom: .4rem; }
+    .feedback-card.correct   .feedback-header { color: var(--green-text); }
+    .feedback-card.incorrect .feedback-header { color: var(--red-text); }
+    .feedback-body { font-size: 14px; line-height: 1.65; }
+    .feedback-card.correct   .feedback-body { color: var(--green-text); }
+    .feedback-card.incorrect .feedback-body { color: var(--red-text); }
+
+    /* buttons */
+    .btn-primary { display: block; width: 100%; padding: .9rem; background: var(--blue-bg); border: 0.5px solid var(--blue-border); border-radius: var(--r-md); color: var(--blue-text); font-family: var(--font-sans); font-size: 14px; font-weight: 500; cursor: pointer; text-align: center; transition: opacity .12s; }
+    .btn-primary:hover { opacity: .82; }
+    .btn-sec { display: block; width: 100%; padding: .9rem; background: transparent; border: 0.5px solid var(--bd); border-radius: var(--r-md); color: var(--t2); font-family: var(--font-sans); font-size: 14px; cursor: pointer; text-align: center; margin-top: .5rem; }
+    .btn-sec:hover { background: var(--bg2); }
+
+    /* end */
+    .score-display { text-align: center; padding: 2rem 1.5rem; background: var(--bg2); border-radius: var(--r-lg); margin-bottom: 1rem; }
+    .score-num { font-size: 52px; font-weight: 300; color: var(--t1); line-height: 1; margin-bottom: .25rem; }
+    .score-denom { font-size: 13px; color: var(--t3); }
+    .rule-list { list-style: none; }
+    .rule-list li { padding: .55rem 0; font-size: 14px; line-height: 1.6; color: var(--t2); border-bottom: 0.5px solid var(--bd2); display: flex; gap: .5rem; }
+    .rule-list li:last-child { border-bottom: none; }
+  </style>
+</head>
+<body>
+<div id="game">
+
+  <!-- TITLE -->
+  <div id="s-title" class="screen active">
+    <div class="card" style="padding: 2rem 1.5rem; text-align: center;">
+      <p style="font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--t3); margin-bottom: .75rem;">DBT · Distress Tolerance</p>
+      <h1 style="font-size: 26px; font-weight: 500; line-height: 1.2; margin-bottom: .75rem;">Spark &amp; Don't Make It Worse</h1>
+      <p style="font-size: 14px; line-height: 1.7; color: var(--t2); margin-bottom: 1.5rem;">When distress arrives, the first rule isn't <em>fix it</em> — it's <em>don't add fuel</em>. Practice recognizing which responses escalate activation, and which ones just let the spark settle.</p>
+      <button class="btn-primary" onclick="startGame()">Start &nbsp;·&nbsp; 4 situations &nbsp;·&nbsp; ~4 minutes</button>
+    </div>
+    <div class="card">
+      <p style="font-size: 13px; font-weight: 500; margin-bottom: .4rem;">How it works</p>
+      <p style="font-size: 13px; color: var(--t2); line-height: 1.65;">A situation sparks distress. For each possible response, decide whether it <strong>makes it worse</strong> or <strong>doesn't make it worse</strong>. You'll get feedback on why. The goal isn't to feel better — it's to stop making things harder than they need to be.</p>
+    </div>
+    <div class="card" style="background: var(--amber-bg); border-color: var(--amber-border);">
+      <p style="font-size: 13px; color: var(--amber-text); line-height: 1.65;"><strong>The core idea:</strong> "Don't make it worse" is a DBT distress tolerance skill. In crisis, you don't need to solve anything. You only need to not escalate. That's the whole skill.</p>
+    </div>
+  </div>
+
+  <!-- PLAY -->
+  <div id="s-play" class="screen">
+    <div class="progress-row">
+      <div class="progress-bg"><div class="progress-fill" id="prog-fill" style="width: 0%"></div></div>
+      <span class="progress-label" id="prog-label">0 / 16</span>
+    </div>
+    <div class="spark-card">
+      <div class="spark-eyebrow">⚡ The Spark</div>
+      <div class="spark-title" id="spark-title"></div>
+      <div class="spark-scenario" id="spark-scenario"></div>
+    </div>
+    <div class="response-card">
+      <div class="response-q">In this moment, you…</div>
+      <div class="response-text" id="response-text"></div>
+    </div>
+    <div class="classify-row">
+      <button class="classify-btn btn-worse"  id="btn-worse"  onclick="classify('worse')">🔥 Makes It Worse</button>
+      <button class="classify-btn btn-better" id="btn-better" onclick="classify('better')">↓ Doesn't Make It Worse</button>
+    </div>
+    <div id="feedback-area" style="display: none;">
+      <div class="feedback-card" id="feedback-card">
+        <div class="feedback-header" id="feedback-header"></div>
+        <div class="feedback-body"  id="feedback-body"></div>
+      </div>
+      <button class="btn-primary" onclick="nextResponse()">Continue →</button>
+    </div>
+  </div>
+
+  <!-- END -->
+  <div id="s-end" class="screen">
+    <div class="score-display">
+      <div class="score-num" id="end-score">0</div>
+      <div class="score-denom">correct out of 16</div>
+    </div>
+    <div class="card">
+      <p style="font-size: 13px; font-weight: 500; margin-bottom: .75rem;">The rules of don't-make-it-worse</p>
+      <ul class="rule-list">
+        <li><span>↓</span> You don't have to fix the feeling. You only have to not escalate it.</li>
+        <li><span>↓</span> Acting from a hot nervous system usually adds fuel. Pause first.</li>
+        <li><span>↓</span> Reassurance-seeking resets the anxiety loop higher, not lower.</li>
+        <li><span>↓</span> Moving your body works — not because it fixes things, but because it shifts your state.</li>
+        <li><span>↓</span> Naming what's happening ("I'm in distress") creates a gap between you and it.</li>
+      </ul>
+    </div>
+    <button class="btn-primary" onclick="restartGame()">Play again</button>
+  </div>
+
+</div>
+<script>
+const SPARKS = [
+  {
+    title: "The Replay",
+    scenario: "A difficult conversation from earlier is playing on a loop. You're alone. Your chest feels tight.",
+    responses: [
+      {
+        text: "Text the person right now to address it while it's still fresh.",
+        type: "worse",
+        feedback: "Acting from a hot nervous system — even with good intentions — usually adds more fuel. The urgency feels real, but responses sent while activated tend to escalate, not resolve."
+      },
+      {
+        text: "Notice the loop happening and label it quietly: 'I'm replaying this.'",
+        type: "better",
+        feedback: "Naming what's happening creates a small gap between you and the spiral. You're not solving anything — you're just not joining it. That's enough for right now."
+      },
+      {
+        text: "Replay every version of how it could have gone differently.",
+        type: "worse",
+        feedback: "Counterfactual replaying keeps the nervous system on high alert. It feels productive because the mind is busy, but it generates more distress rather than settling the original activation."
+      },
+      {
+        text: "Get up and move — walk, stretch, anything physical.",
+        type: "better",
+        feedback: "Movement helps discharge physiological activation. The conversation doesn't have to be resolved for your body to shift states. You can return to it with more capacity after."
+      }
+    ]
+  },
+  {
+    title: "The Mistake",
+    scenario: "You made an error that someone else noticed. Shame is rising. Your face is hot.",
+    responses: [
+      {
+        text: "Review the last several months of your work for other failures.",
+        type: "worse",
+        feedback: "Shame is a recruiting tool — it searches for confirming evidence. Going back through your record while activated doesn't produce accurate information; it produces a case for the prosecution."
+      },
+      {
+        text: "Acknowledge it flatly: 'That happened. I can address it when I'm calmer.'",
+        type: "better",
+        feedback: "Simple, factual acknowledgment is different from a shame spiral. It's honest without adding a story. The mistake is real; the narrative that it defines you is not."
+      },
+      {
+        text: "Promise yourself you'll be perfect going forward to compensate.",
+        type: "worse",
+        feedback: "Perfectionism as damage control increases chronic pressure without reducing shame. It sets a condition you can't meet — which means the shame has somewhere to land again the next time."
+      },
+      {
+        text: "Get some water, let your body settle, and return to problem-solving later.",
+        type: "better",
+        feedback: "You don't have to repair anything right now. Grounding the body first keeps your window of tolerance wider — and wider means better thinking when you do come back to it."
+      }
+    ]
+  },
+  {
+    title: "The Wait",
+    scenario: "You're waiting on something important. Hours have passed. No news. Your mind keeps generating 'what ifs.'",
+    responses: [
+      {
+        text: "Check your email again. And then one more time.",
+        type: "worse",
+        feedback: "Reassurance-seeking creates a temporary drop in anxiety, then resets the baseline higher. Each check trains the brain that checking is how to manage uncertainty — and it isn't. The loop tightens."
+      },
+      {
+        text: "Name it: 'I'm in uncertainty. This is uncomfortable. I can tolerate discomfort.'",
+        type: "better",
+        feedback: "Naming the state accurately interrupts the catastrophizing reflex. You're not denying the discomfort — you're reminding yourself you've survived uncertainty before. You have."
+      },
+      {
+        text: "Imagine the worst possible outcome in as much detail as you can.",
+        type: "worse",
+        feedback: "The brain doesn't clearly distinguish between imagined threat and real threat. Detailed worst-case scenarios produce almost the same physiological activation as the real thing. You're not preparing — you're rehearsing distress."
+      },
+      {
+        text: "Find one small, completable task and do only that.",
+        type: "better",
+        feedback: "Small, completable actions restore a sense of agency without requiring you to resolve what's unresolvable. You can't control the outcome — you can control finishing this one thing."
+      }
+    ]
+  },
+  {
+    title: "Overwhelm",
+    scenario: "You look at everything you need to do and can't find a starting point. It all feels equally impossible.",
+    responses: [
+      {
+        text: "Write down every other thing you just remembered you haven't done.",
+        type: "worse",
+        feedback: "Expanding the list while overwhelmed increases the sense of impossibility. Your nervous system is already at capacity — more inputs confirm the threat rather than resolving it."
+      },
+      {
+        text: "Pick one small thing. Let everything else blur for now.",
+        type: "better",
+        feedback: "This is deliberate narrowing, not avoidance. The nervous system can tolerate one thing. You're not ignoring the rest — you're choosing a manageable entry point into a system that felt impassable."
+      },
+      {
+        text: "Tell yourself this overwhelm proves you're falling behind and can't cope.",
+        type: "worse",
+        feedback: "Self-critical narration during overwhelm adds cognitive load to an already overloaded system. Your brain hears 'threat' — which activates survival responses, not problem-solving ones."
+      },
+      {
+        text: "Set a 10-minute pause. No tasks, no inputs. Let the overwhelm exist without acting on it.",
+        type: "better",
+        feedback: "Strategic stillness is often confused with avoidance. Choosing to pause is intentional and time-limited. It works because you're not adding more activation to a system that needs to settle."
+      }
+    ]
+  }
+];
+
+const TOTAL = SPARKS.reduce((a, s) => a + s.responses.length, 0);
+let sparkIdx = 0, respIdx = 0, score = 0, answered = false;
+
+function overallIdx() {
+  let n = 0;
+  for (let i = 0; i < sparkIdx; i++) n += SPARKS[i].responses.length;
+  return n + respIdx;
+}
+
+function show(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function startGame() {
+  sparkIdx = 0; respIdx = 0; score = 0; answered = false;
+  show('s-play');
+  render();
+}
+
+function restartGame() { startGame(); }
+
+function render() {
+  const spark = SPARKS[sparkIdx];
+  const resp  = spark.responses[respIdx];
+  const idx   = overallIdx();
+
+  document.getElementById('spark-title').textContent    = spark.title;
+  document.getElementById('spark-scenario').textContent = spark.scenario;
+  document.getElementById('response-text').textContent  = resp.text;
+
+  document.getElementById('prog-fill').style.width = (idx / TOTAL * 100) + '%';
+  document.getElementById('prog-label').textContent = idx + ' / ' + TOTAL;
+
+  document.getElementById('feedback-area').style.display = 'none';
+  document.getElementById('btn-worse').disabled  = false;
+  document.getElementById('btn-better').disabled = false;
+  answered = false;
+}
+
+function classify(choice) {
+  if (answered) return;
+  answered = true;
+
+  const resp    = SPARKS[sparkIdx].responses[respIdx];
+  const correct = choice === resp.type;
+  if (correct) score++;
+
+  document.getElementById('btn-worse').disabled  = true;
+  document.getElementById('btn-better').disabled = true;
+
+  const card   = document.getElementById('feedback-card');
+  const header = document.getElementById('feedback-header');
+  const body   = document.getElementById('feedback-body');
+
+  if (correct) {
+    card.className = 'feedback-card correct';
+    header.textContent = choice === 'worse'
+      ? '✓ Right — this adds fuel.'
+      : '✓ Right — this doesn\'t add fuel.';
+  } else {
+    card.className = 'feedback-card incorrect';
+    header.textContent = resp.type === 'worse'
+      ? '× This actually makes it worse.'
+      : '× This actually doesn\'t make it worse.';
+  }
+
+  body.textContent = resp.feedback;
+  document.getElementById('feedback-area').style.display = 'block';
+}
+
+function nextResponse() {
+  respIdx++;
+  if (respIdx >= SPARKS[sparkIdx].responses.length) {
+    sparkIdx++;
+    respIdx = 0;
+  }
+  if (sparkIdx >= SPARKS.length) {
+    document.getElementById('end-score').textContent = score;
+    show('s-end');
+    return;
+  }
+  render();
+}
+</script>
+</body>
+</html>

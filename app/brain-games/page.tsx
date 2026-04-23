@@ -66,6 +66,16 @@ const games = [
     src: "/games/regulation-station.html",
     height: 700,
   },
+  {
+    id: "spark-dont-make-it-worse",
+    title: "Spark & Don't Make It Worse",
+    category: "DBT · Distress Tolerance",
+    categoryColor: "text-nav-teal border-nav-teal",
+    description:
+      "When distress arrives, the first rule isn't fix it — it's don't add fuel. Practice the DBT distress tolerance skill of recognizing which responses escalate activation and which ones let the spark settle. Four real situations, sixteen choices.",
+    src: "/games/spark-dont-make-it-worse.html",
+    height: 700,
+  },
 ]
 
 export default function BrainGamesPage() {
