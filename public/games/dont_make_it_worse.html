@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Don't Make It Worse!</title>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --dark:#2A1E3F; --bg:#FFF0E0;
+  --peach:#FFB98E; --coral:#FF8A65; --rose:#FF6B9D;
+  --teal:#44CFCB; --gold:#FFE44D; --green:#7FD97F;
+  --red:#FF5757; --blue:#6FB3FF; --violet:#7B61FF;
+}
+html,body{
+  width:100%; height:100%;
+  background:#1A1028;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Nunito',sans-serif;
+  overflow:hidden; user-select:none;
+  touch-action:none;
+}
+#wrap{ position:relative; width:900px; height:600px; max-width:100vw; max-height:100vh; }
+#stage{
+  width:100%; height:100%;
+  border-radius:14px;
+  overflow:hidden; position:relative;
+  box-shadow: 0 0 80px rgba(255,138,101,.35);
+}
+
+.scr{
+  position:absolute; inset:0;
+  display:none; flex-direction:column; align-items:center; justify-content:center;
+}
+.scr.on{display:flex;}
+
+/* ========== OPENING ========== */
+#s-open{
+  background: radial-gradient(ellipse at 50% 30%, #FFB98E 0%, #FF6B9D 50%, #6B2D7A 100%);
+  text-align:center; padding:40px;
+}
+.title{
+  font-family:'Bangers',cursive; font-size:74px; color:#FFF;
+  letter-spacing:5px; line-height:.95;
+  text-shadow: 4px 4px 0 var(--dark), 8px 8px 0 rgba(0,0,0,.2);
+  margin-bottom: 26px;
+  animation: wob 2.2s ease-in-out infinite;
+}
+@keyframes wob{50%{transform:rotate(-1.5deg) scale(1.02);}}
+.sub{
+  font-size:16px; font-weight:700; color:#FFF;
+  max-width: 560px; line-height:1.65; margin-bottom:34px;
+  background: rgba(42,30,63,.45); padding:20px 30px; border-radius:16px;
+  border: 3px solid rgba(255,255,255,.22);
+}
+.sub b{color:var(--gold); font-style:italic;}
+.btn-big{
+  font-family:'Bangers',cursive; font-size:34px; letter-spacing:3px;
+  background: var(--gold); color: var(--dark); border:none;
+  padding:17px 52px; border-radius:50px; cursor:pointer;
+  box-shadow: 0 7px 0 #B8A320, 0 10px 26px rgba(255,228,77,.45);
+  transition: transform .1s, box-shadow .1s;
+  animation: bbounce 2s ease-in-out infinite;
+}
+@keyframes bbounce{50%{transform:translateY(-5px);}}
+.btn-big:hover{transform:translateY(-3px);}
+.btn-big:active{transform:translateY(5px); box-shadow: 0 2px 0 #B8A320;}
+
+/* ========== ROOM ========== */
+#room{ position:absolute; inset:0; display:none; }
+#room.on{display:block;}
+#room.r1{ background: linear-gradient(180deg, #FFD4A8 0%, #FFB98E 55%, #FF8A65 100%); }
+#room.r2{ background: linear-gradient(180deg, #FFCBD9 0%, #FFA4C2 55%, #E85FA0 100%); }
+#room.r3{ background: linear-gradient(180deg, #FFE8A8 0%, #FFD47A 55%, #E8A44A 100%); }
+#room.r4{ background: linear-gradient(180deg, #D4F4E8 0%, #9AD8C8 55%, #5CA890 100%); }
+#room.r5{ background: linear-gradient(180deg, #EEE0F8 0%, #C8A8E8 55%, #8B6AC0 100%); }
+
+.floor{
+  position:absolute; left:0; right:0; bottom:0; height:50%;
+  background: linear-gradient(180deg, #C68A5C 0%, #7A4A28 100%);
+  clip-path: polygon(0 100%, 100% 100%, 85% 0, 15% 0);
+  border-top: 4px solid var(--dark);
+}
+.floor::after{
+  content:''; position:absolute; left:15%; right:15%; top:0; height:2px;
+  background: rgba(42,30,63,.3);
+}
+.wall-art{
+  position:absolute; top:58px; left:70px; width:84px; height:104px;
+  background: linear-gradient(135deg, var(--gold), var(--coral));
+  border: 5px solid var(--dark); border-radius:6px;
+  transform: rotate(-3deg);
+  display:flex; align-items:center; justify-content:center;
+  font-size:44px; color:var(--red);
+}
+.wall-art.r2{ background: linear-gradient(135deg, var(--teal), var(--violet)); color:#FFE44D; }
+.wall-art.r3{ background: linear-gradient(135deg, var(--green), var(--teal)); color:#FFF; }
+.wall-art.r4{ background: linear-gradient(135deg, var(--rose), var(--violet)); color:var(--gold); }
+.wall-art.r5{ background: linear-gradient(135deg, var(--peach), var(--gold)); color:var(--violet); }
+.lamp{
+  position:absolute; top:0; right:110px; width:70px; height:28px;
+  background: var(--gold); border-radius: 0 0 36px 36px;
+  border: 4px solid var(--dark);
+  box-shadow: 0 28px 46px rgba(255,228,77,.45);
+}
+.plant{
+  position:absolute; bottom:42%; right:40px;
+  width:48px; height:64px;
+}
+.plant svg{width:100%;height:100%;}
+
+/* ========== HUD ========== */
+.hud{
+  position:absolute; top:14px; left:14px; right:14px;
+  display:flex; justify-content:space-between; align-items:center;
+  z-index:100; pointer-events:none;
+}
+.hud-chip{
+  background: rgba(42,30,63,.88); color:#fff;
+  padding: 10px 16px; border-radius:14px;
+  font-weight:900; font-size:12px; letter-spacing:1.5px;
+  border: 3px solid rgba(255,255,255,.25);
+  display:flex; gap:10px; align-items:center;
+}
+.hud-chip.comfort{border-color:var(--green);}
+.hud-chip.stress{border-color:var(--red);}
+.dots{display:flex; gap:5px;}
+.dot{
+  width:16px; height:16px; border-radius:50%;
+  background: rgba(255,255,255,.15); border:2px solid rgba(255,255,255,.35);
+  transition: all .3s;
+}
+.dot.lit.comfort{ background:var(--green); border-color:#fff; box-shadow: 0 0 14px var(--green); }
+.dot.lit.stress{ background:var(--red); border-color:#fff; box-shadow: 0 0 14px var(--red); }
+.room-label{
+  position:absolute; top:14px; left:50%; transform:translateX(-50%);
+  font-family:'Bangers',cursive; font-size:24px; letter-spacing:3px;
+  color:#fff; text-shadow: 3px 3px 0 rgba(42,30,63,.6);
+  pointer-events:none; z-index:100;
+}
+
+/* ========== CHARACTER ========== */
+.char{
+  position:absolute; left:50%; bottom: 40%;
+  transform: translateX(-50%);
+  width: 200px; height: 280px;
+  z-index: 6;
+  pointer-events: none;
+}
+.char svg{width:100%; height:100%;}
+.char.breath{ animation: breathe 3s ease-in-out infinite; }
+@keyframes breathe{50%{transform: translateX(-50%) translateY(-4px);}}
+.char.shake{animation: sob .4s ease-in-out infinite;}
+@keyframes sob{
+  0%,100%{transform:translateX(-50%);}
+  25%{transform:translate(calc(-50% - 5px),-2px);}
+  75%{transform:translate(calc(-50% + 5px),-2px);}
+}
+.char.pop{ animation: happyPop .7s ease-out; }
+@keyframes happyPop{
+  0%{transform: translateX(-50%) scale(1);}
+  40%{transform: translateX(-50%) scale(1.08) translateY(-20px);}
+  100%{transform: translateX(-50%) scale(1) translateY(0);}
+}
+/* Tear visibility by intensity */
+.tear{opacity:0;}
+.char.i1 .t1, .char.i1 .t2{opacity:.85; animation: teardrip 1.8s linear infinite;}
+.char.i2 .t1, .char.i2 .t2, .char.i2 .t3, .char.i2 .t4{opacity:.85; animation: teardrip 1.5s linear infinite;}
+.char.i2 .t3, .char.i2 .t4{animation-delay: .6s;}
+.char.i3 .tear{opacity:.9; animation: teardrip 1s linear infinite;}
+.char.i3 .t3, .char.i3 .t4{animation-delay: .35s;}
+.char.i3 .t5, .char.i3 .t6{animation-delay: .7s;}
+/* Sadder characters (rounds 3 and 4) cry harder by default */
+.char.sadder:not(.i0) .tear{opacity:.88; animation: teardrip 1.2s linear infinite;}
+.char.sadder:not(.i0) .t2{animation-delay: .15s;}
+.char.sadder:not(.i0) .t3{animation-delay: .35s;}
+.char.sadder:not(.i0) .t4{animation-delay: .5s;}
+.char.sadder:not(.i0) .t5{animation-delay: .7s;}
+.char.sadder:not(.i0) .t6{animation-delay: .85s;}
+.char.sadder:not(.i0) .t7{animation-delay: .25s;}
+.char.sadder:not(.i0) .t8{animation-delay: .45s;}
+.char.sadder:not(.i0) .t9{animation-delay: .6s;}
+.char.sadder:not(.i0) .t10{animation-delay: .9s;}
+@keyframes teardrip{
+  0%{transform: translateY(0) scale(1); opacity:.9;}
+  70%{opacity:.8;}
+  100%{transform: translateY(44px) scale(.7); opacity:0;}
+}
+/* Mouth swap */
+.mouth-sad{display:block;}
+.mouth-happy{display:none;}
+.char.i0 .mouth-sad{display:none;}
+.char.i0 .mouth-happy{display:block;}
+
+/* Dropzone */
+.dropzone{
+  position:absolute; left:50%; bottom: 37%;
+  transform: translateX(-50%);
+  width: 240px; height: 310px;
+  z-index: 7;
+  border-radius: 50%;
+  pointer-events:none;
+  transition: all .25s;
+}
+.dropzone.active{
+  background: radial-gradient(ellipse at center, rgba(255,228,77,.25), transparent 70%);
+  box-shadow: 0 0 0 6px rgba(255,228,77,.6), 0 0 60px rgba(255,228,77,.5);
+}
+
+/* ========== ITEMS ========== */
+.items-tray{
+  position:absolute; left:0; right:0; bottom:0;
+  padding: 14px 16px 16px; 
+  display:flex; gap:10px; justify-content:center; flex-wrap:wrap;
+  background: linear-gradient(180deg, transparent, rgba(42,30,63,.55));
+  z-index: 30; pointer-events:none;
+}
+.item{
+  width: 72px; height: 72px;
+  background: #FFF; border: 4px solid var(--dark); border-radius:14px;
+  display:flex; align-items:center; justify-content:center;
+  cursor:grab; pointer-events:all;
+  box-shadow: 0 6px 0 rgba(42,30,63,.5);
+  transition: transform .12s, box-shadow .12s, opacity .4s;
+  position:relative;
+  touch-action:none;
+}
+.item:hover{transform: translateY(-3px); box-shadow: 0 9px 0 rgba(42,30,63,.5);}
+.item:active{cursor:grabbing;}
+.item.dragging{
+  position:fixed; z-index: 500;
+  box-shadow: 0 14px 24px rgba(0,0,0,.5);
+  transform: scale(1.2) rotate(4deg);
+  pointer-events:none;
+  margin:0;
+}
+.item.used{ opacity:0; transform: scale(.3) rotate(180deg); pointer-events:none; }
+.item svg{width:52px; height:52px;}
+.item-label{
+  position:absolute; bottom: -16px; left:50%; transform:translateX(-50%);
+  font-size:9px; font-weight:900; color:var(--dark);
+  background: var(--gold); padding: 2px 7px; border-radius: 7px;
+  white-space:nowrap; text-transform:uppercase; letter-spacing:.5px;
+  border: 2px solid var(--dark);
+}
+
+/* ========== FEEDBACK ========== */
+.feedback{
+  position:absolute; top: 22%; left:50%; transform:translateX(-50%);
+  font-family:'Bangers',cursive; font-size:52px; letter-spacing:4px;
+  color: var(--gold);
+  text-shadow: 4px 4px 0 var(--dark);
+  opacity:0; z-index:250; pointer-events:none;
+  text-align:center; white-space:nowrap;
+}
+.feedback.on{animation: fbpop 1.8s ease-out forwards;}
+@keyframes fbpop{
+  0%{opacity:0; transform: translate(-50%, 20px) scale(.6);}
+  20%{opacity:1; transform: translate(-50%, 0) scale(1.15);}
+  80%{opacity:1; transform: translate(-50%, 0) scale(1);}
+  100%{opacity:0; transform: translate(-50%, -30px) scale(.95);}
+}
+.feedback.bad{color: #FFBABA;}
+
+/* Room transition flash */
+.flash{
+  position:absolute; inset:0; background: #FFF;
+  z-index: 400; opacity:0; pointer-events:none;
+  transition: opacity .3s;
+}
+.flash.on{opacity:1;}
+
+/* ========== END ========== */
+#s-end{
+  background: radial-gradient(ellipse at 50% 35%, #7FD97F 0%, #44CFCB 50%, #2A1E3F 100%);
+  text-align:center; padding:40px;
+}
+#s-end.lose{
+  background: radial-gradient(ellipse at 50% 35%, #FFB98E 0%, #7B5A8F 55%, #2A1E3F 100%);
+}
+.end-t{
+  font-family:'Bangers',cursive; font-size:76px; color:#FFF;
+  letter-spacing:5px;
+  text-shadow: 5px 5px 0 var(--dark);
+  margin-bottom:18px;
+}
+.end-msg{
+  font-size:17px; font-weight:700; color:#FFF;
+  max-width: 560px; line-height:1.7; margin-bottom:28px;
+  background: rgba(42,30,63,.45); padding:22px 30px; border-radius:16px;
+  border: 3px solid rgba(255,255,255,.25);
+}
+.end-msg b{color:var(--gold);}
+.end-msg .big-win{
+  display:inline-block;
+  font-family:'Bangers',cursive;
+  font-size:54px; letter-spacing:4px;
+  color: var(--gold);
+  text-shadow: 3px 3px 0 var(--dark);
+  line-height:1.1;
+  margin-top:6px;
+}
+.confetti{position:absolute; pointer-events:none; z-index:600;}
+@keyframes cfall{
+  0%{transform: translateY(0) rotate(0deg); opacity:1;}
+  100%{transform: translateY(640px) rotate(720deg); opacity:0;}
+}
+/* Dancing items - flank the AGAIN button on both sides */
+.dancers-left, .dancers-right{
+  position:absolute; bottom:22px;
+  display:flex; gap:6px;
+  z-index: 550; pointer-events:none;
+}
+.dancers-left{ left:14px; }
+.dancers-right{ right:14px; }
+.dancer{
+  width:48px; height:48px;
+  animation: dance .7s ease-in-out infinite;
+  transform-origin: bottom center;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,.3));
+}
+.dancer svg{ width:100%; height:100%; display:block; }
+@keyframes dance{
+  0%,100%{ transform: translateY(0) rotate(-10deg) scale(1); }
+  25%    { transform: translateY(-16px) rotate(6deg) scale(1.12); }
+  50%    { transform: translateY(0) rotate(10deg) scale(1); }
+  75%    { transform: translateY(-16px) rotate(-6deg) scale(1.12); }
+}
+
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage">
+
+  <!-- OPENING -->
+  <div id="s-open" class="scr on">
+    <div class="title">DON'T MAKE<br>IT WORSE!</div>
+    <div class="sub">
+      Someone is crying. They feel bad.<br>
+      Your job: <b>don't pile on.</b><br><br>
+      Drag comforting things to them. Avoid the stuff that makes it worse.<br>
+      Three kind things, they feel better.<br>
+      Three stressful things, you made it worse.
+    </div>
+    <button class="btn-big" onclick="G.start()">HELP!</button>
+  </div>
+
+  <!-- ROOM -->
+  <div id="room">
+    <div class="floor"></div>
+    <div class="wall-art" id="wallArt">♥</div>
+    <div class="lamp"></div>
+    <div class="plant">
+      <svg viewBox="0 0 48 64">
+        <path d="M24 36 Q10 22 14 8 Q22 18 24 30 Q26 18 34 8 Q38 22 24 36" fill="#4CA84C" stroke="#2A1E3F" stroke-width="2.5"/>
+        <rect x="16" y="36" width="16" height="20" fill="#8B4513" stroke="#2A1E3F" stroke-width="2.5" rx="2"/>
+      </svg>
+    </div>
+
+    <div class="hud">
+      <div class="hud-chip comfort">
+        <span>COMFORT</span>
+        <div class="dots" id="d-c"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+      </div>
+      <div class="hud-chip stress">
+        <div class="dots" id="d-s"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+        <span>STRESS</span>
+      </div>
+    </div>
+    <div class="room-label" id="roomLabel">ROOM 1</div>
+
+    <div class="char breath i2" id="char"></div>
+    <div class="dropzone" id="drop"></div>
+    <div class="feedback" id="fb"></div>
+
+    <div class="items-tray" id="tray"></div>
+  </div>
+
+  <!-- FLASH transition -->
+  <div class="flash" id="flash"></div>
+
+  <!-- END -->
+  <div id="s-end" class="scr">
+    <div class="end-t" id="endTitle">YOU HELPED!</div>
+    <div class="end-msg" id="endMsg"></div>
+    <button class="btn-big" onclick="G.restart()">AGAIN</button>
+  </div>
+
+</div></div>
+
+<script>
+// ================================================================
+// AUDIO (Web Audio API)
+// ================================================================
+const Snd = (()=>{
+  let ac;
+  const ctx = ()=>ac||(ac=new(window.AudioContext||window.webkitAudioContext)());
+  const tone = (f,t,dur,vol=.3,del=0)=>{
+    const c=ctx(),o=c.createOscillator(),g=c.createGain();
+    o.connect(g);g.connect(c.destination);
+    o.type=t;o.frequency.setValueAtTime(f,c.currentTime+del);
+    g.gain.setValueAtTime(0,c.currentTime+del);
+    g.gain.linearRampToValueAtTime(vol,c.currentTime+del+.01);
+    g.gain.exponentialRampToValueAtTime(.001,c.currentTime+del+dur);
+    o.start(c.currentTime+del);o.stop(c.currentTime+del+dur+.05);
+  };
+  const noise = (dur,vol=.18,del=0)=>{
+    const c=ctx(),n=c.sampleRate*dur,buf=c.createBuffer(1,n,c.sampleRate);
+    const d=buf.getChannelData(0);for(let i=0;i<n;i++)d[i]=Math.random()*2-1;
+    const s=c.createBufferSource();s.buffer=buf;
+    const g=c.createGain();s.connect(g);g.connect(c.destination);
+    g.gain.setValueAtTime(vol,c.currentTime+del);
+    g.gain.exponentialRampToValueAtTime(.001,c.currentTime+del+dur);
+    s.start(c.currentTime+del);
+  };
+  const wake = ()=>{const c=ctx();if(c.state==='suspended')c.resume();};
+  return {
+    wake,
+    comfort(){ // warm ascending chime
+      wake();
+      [523,659,784,1047].forEach((f,i)=>tone(f,'sine',.28,.22,i*.07));
+    },
+    stress(){ // soft low tone, never harsh
+      wake();
+      tone(220,'sine',.28,.22);
+      tone(165,'sine',.36,.16,.1);
+    },
+    pickup(){ wake(); tone(440,'sine',.08,.14); tone(660,'sine',.06,.1,.04); },
+    drop(){ wake(); tone(330,'sine',.1,.16); },
+    win(){
+      wake();
+      [523,659,784,1047].forEach((f,i)=>tone(f,'sine',.8,.26,i*.05));
+      [784,988,1175,1319].forEach((f,i)=>tone(f,'sine',.4,.3,.28+i*.14));
+    },
+    lose(){
+      wake();
+      tone(330,'sine',.4,.25);
+      tone(247,'sine',.5,.22,.12);
+      tone(196,'sine',.7,.2,.3);
+    },
+    click(){ wake(); tone(600,'sine',.05,.14); },
+    whoosh(){ wake(); noise(.3,.12); tone(440,'sine',.2,.1); tone(660,'sine',.2,.1,.1); },
+    ignite(){ wake(); [330,440,523,659,784].forEach((f,i)=>tone(f,'sine',.15,.18,i*.05)); }
+  };
+})();
+
+// ================================================================
+// SVG ART
+// ================================================================
+
+const ITEM_SVG = {
+  blanket: `<svg viewBox="0 0 64 64">
+    <rect x="6" y="14" width="52" height="34" rx="5" fill="#B4A0E8" stroke="#2A1E3F" stroke-width="3"/>
+    <rect x="6" y="14" width="52" height="8" fill="#9A82D4" stroke="#2A1E3F" stroke-width="3"/>
+    <line x1="20" y1="14" x2="20" y2="48" stroke="#2A1E3F" stroke-width="1.5" stroke-dasharray="2,3"/>
+    <line x1="32" y1="14" x2="32" y2="48" stroke="#2A1E3F" stroke-width="1.5" stroke-dasharray="2,3"/>
+    <line x1="44" y1="14" x2="44" y2="48" stroke="#2A1E3F" stroke-width="1.5" stroke-dasharray="2,3"/>
+    <path d="M6 48 L10 54 M14 48 L18 54 M22 48 L26 54 M30 48 L34 54 M38 48 L42 54 M46 48 L50 54 M54 48 L58 54" stroke="#9A82D4" stroke-width="2.5"/>
+  </svg>`,
+  water: `<svg viewBox="0 0 64 64">
+    <path d="M16 10 L16 50 Q16 58 24 58 L40 58 Q48 58 48 50 L48 10 Z" fill="#E0F4FF" stroke="#2A1E3F" stroke-width="3"/>
+    <path d="M18 26 L18 50 Q18 56 24 56 L40 56 Q46 56 46 50 L46 26 Z" fill="#6FB3FF"/>
+    <path d="M22 30 Q28 28 34 30 Q38 32 42 30" stroke="#fff" stroke-width="2" fill="none" opacity=".7"/>
+    <rect x="22" y="14" width="3" height="22" rx="1.5" fill="#fff" opacity=".55"/>
+  </svg>`,
+  broccoli: `<svg viewBox="0 0 64 64">
+    <circle cx="20" cy="20" r="9" fill="#4CA84C" stroke="#2A1E3F" stroke-width="2.5"/>
+    <circle cx="32" cy="14" r="10" fill="#5CB85C" stroke="#2A1E3F" stroke-width="2.5"/>
+    <circle cx="44" cy="20" r="9" fill="#4CA84C" stroke="#2A1E3F" stroke-width="2.5"/>
+    <circle cx="26" cy="28" r="8" fill="#5CB85C" stroke="#2A1E3F" stroke-width="2.5"/>
+    <circle cx="40" cy="28" r="8" fill="#4CA84C" stroke="#2A1E3F" stroke-width="2.5"/>
+    <rect x="26" y="34" width="12" height="18" fill="#A8C84C" stroke="#2A1E3F" stroke-width="2.5" rx="2"/>
+  </svg>`,
+  phone: `<svg viewBox="0 0 64 64">
+    <rect x="18" y="6" width="28" height="52" rx="5" fill="#2A1E3F" stroke="#2A1E3F" stroke-width="2"/>
+    <rect x="20" y="12" width="24" height="38" fill="#44CFCB"/>
+    <text x="32" y="38" font-size="20" text-anchor="middle" fill="#FF5757" font-weight="900">♥</text>
+    <circle cx="32" cy="54" r="2.5" fill="#777"/>
+  </svg>`,
+  bed: `<svg viewBox="0 0 64 64">
+    <ellipse cx="32" cy="38" rx="26" ry="14" fill="#FFB4D4" stroke="#2A1E3F" stroke-width="3"/>
+    <ellipse cx="32" cy="36" rx="20" ry="9" fill="#FFCCE0"/>
+    <path d="M22 34 Q32 30 42 34" stroke="#FFB4D4" stroke-width="2" fill="none"/>
+    <path d="M20 40 Q32 44 44 40" stroke="#FFB4D4" stroke-width="2" fill="none"/>
+    <text x="48" y="20" font-size="14" fill="#6B5B95" font-weight="900">Zz</text>
+  </svg>`,
+  computer: `<svg viewBox="0 0 64 64">
+    <rect x="6" y="16" width="52" height="30" fill="#2A1E3F" stroke="#2A1E3F" stroke-width="2"/>
+    <rect x="9" y="19" width="46" height="24" fill="#6FB3FF"/>
+    <line x1="13" y1="24" x2="42" y2="24" stroke="#fff" stroke-width="1.5"/>
+    <line x1="13" y1="30" x2="38" y2="30" stroke="#fff" stroke-width="1.5"/>
+    <line x1="13" y1="36" x2="44" y2="36" stroke="#fff" stroke-width="1.5"/>
+    <circle cx="50" cy="24" r="5" fill="#FF5757" stroke="#fff" stroke-width="1.5"/>
+    <text x="50" y="27" font-size="8" text-anchor="middle" fill="#fff" font-weight="900">99</text>
+    <rect x="2" y="46" width="60" height="6" rx="2" fill="#888" stroke="#2A1E3F" stroke-width="2"/>
+  </svg>`,
+  alcohol: `<svg viewBox="0 0 64 64">
+    <path d="M28 4 L28 16 Q22 18 22 26 L22 54 Q22 60 28 60 L36 60 Q42 60 42 54 L42 26 Q42 18 36 16 L36 4 Z" fill="#4A2A4A" stroke="#2A1E3F" stroke-width="3"/>
+    <rect x="24" y="30" width="16" height="18" fill="#E8C88C" stroke="#2A1E3F" stroke-width="1.5"/>
+    <text x="32" y="42" font-size="7" text-anchor="middle" font-weight="900" fill="#2A1E3F">WINE</text>
+    <rect x="27" y="4" width="10" height="4" fill="#8B5A8B" stroke="#2A1E3F" stroke-width="2"/>
+  </svg>`,
+  candy: `<svg viewBox="0 0 64 64">
+    <circle cx="32" cy="32" r="15" fill="#FF6B9D" stroke="#2A1E3F" stroke-width="3"/>
+    <path d="M17 28 L7 20 L7 32 L17 36 Z" fill="#FF6B9D" stroke="#2A1E3F" stroke-width="2.5"/>
+    <path d="M7 20 L13 28 L7 32 Z" fill="#E85FA0" stroke="#2A1E3F" stroke-width="1.5"/>
+    <path d="M47 28 L57 20 L57 32 L47 36 Z" fill="#FF6B9D" stroke="#2A1E3F" stroke-width="2.5"/>
+    <path d="M57 20 L51 28 L57 32 Z" fill="#E85FA0" stroke="#2A1E3F" stroke-width="1.5"/>
+    <path d="M22 32 Q32 24 42 32" stroke="#fff" stroke-width="3" fill="none"/>
+    <path d="M22 38 Q32 30 42 38" stroke="#fff" stroke-width="2" fill="none" opacity=".6"/>
+  </svg>`,
+  papers: `<svg viewBox="0 0 64 64">
+    <rect x="14" y="44" width="38" height="8" fill="#fff" stroke="#2A1E3F" stroke-width="2"/>
+    <rect x="12" y="36" width="38" height="8" fill="#fff" stroke="#2A1E3F" stroke-width="2"/>
+    <rect x="16" y="28" width="38" height="8" fill="#fff" stroke="#2A1E3F" stroke-width="2"/>
+    <rect x="14" y="20" width="38" height="8" fill="#fff" stroke="#2A1E3F" stroke-width="2"/>
+    <g transform="rotate(-6 32 16)">
+      <rect x="12" y="8" width="40" height="16" fill="#FFE44D" stroke="#2A1E3F" stroke-width="2"/>
+      <text x="32" y="20" font-size="8" text-anchor="middle" font-weight="900" fill="#FF5757">URGENT!</text>
+    </g>
+  </svg>`,
+  cigs: `<svg viewBox="0 0 64 64">
+    <rect x="14" y="14" width="36" height="42" rx="3" fill="#FFFFFF" stroke="#2A1E3F" stroke-width="3"/>
+    <rect x="14" y="14" width="36" height="14" fill="#FF5757" stroke="#2A1E3F" stroke-width="3"/>
+    <text x="32" y="24" font-size="9" text-anchor="middle" fill="#fff" font-weight="900">CIGS</text>
+    <rect x="26" y="34" width="12" height="4" fill="#888"/>
+    <rect x="26" y="42" width="12" height="4" fill="#888"/>
+    <rect x="28" y="4" width="4" height="14" fill="#fff" stroke="#2A1E3F" stroke-width="1.5"/>
+    <rect x="28" y="4" width="4" height="4" fill="#FF8A65"/>
+    <circle cx="30" cy="4" r="1.2" fill="#FF5757"/>
+    <path d="M30 3 Q28 0 30 -2" stroke="#BBB" stroke-width="1.2" fill="none" opacity=".7"/>
+  </svg>`,
+  tea: `<svg viewBox="0 0 64 64">
+    <path d="M18 26 L18 50 Q18 56 24 56 L38 56 Q44 56 44 50 L44 26 Z" fill="#FFF" stroke="#2A1E3F" stroke-width="3"/>
+    <path d="M20 30 L20 48 Q20 54 24 54 L38 54 Q42 54 42 48 L42 30 Z" fill="#8B4513"/>
+    <path d="M44 32 Q54 32 54 40 Q54 48 44 48" fill="none" stroke="#2A1E3F" stroke-width="3"/>
+    <path d="M24 20 Q22 14 26 10 Q28 6 24 2" stroke="#BBB" stroke-width="2.5" fill="none" opacity=".7"/>
+    <path d="M32 20 Q30 14 34 10 Q36 6 32 2" stroke="#BBB" stroke-width="2.5" fill="none" opacity=".7"/>
+    <path d="M40 22 Q38 16 42 12" stroke="#BBB" stroke-width="2.5" fill="none" opacity=".7"/>
+  </svg>`,
+  teddy: `<svg viewBox="0 0 64 64">
+    <circle cx="18" cy="16" r="8" fill="#B8875C" stroke="#2A1E3F" stroke-width="2.5"/>
+    <circle cx="46" cy="16" r="8" fill="#B8875C" stroke="#2A1E3F" stroke-width="2.5"/>
+    <circle cx="18" cy="16" r="4" fill="#D9A677"/>
+    <circle cx="46" cy="16" r="4" fill="#D9A677"/>
+    <circle cx="32" cy="28" r="16" fill="#D9A677" stroke="#2A1E3F" stroke-width="3"/>
+    <circle cx="26" cy="26" r="2.2" fill="#2A1E3F"/>
+    <circle cx="38" cy="26" r="2.2" fill="#2A1E3F"/>
+    <ellipse cx="32" cy="32" rx="4" ry="3" fill="#2A1E3F"/>
+    <path d="M28 36 Q32 40 36 36" stroke="#2A1E3F" stroke-width="1.5" fill="none"/>
+    <ellipse cx="32" cy="52" rx="14" ry="10" fill="#D9A677" stroke="#2A1E3F" stroke-width="3"/>
+    <ellipse cx="32" cy="54" rx="8" ry="5" fill="#B8875C"/>
+  </svg>`,
+  music: `<svg viewBox="0 0 64 64">
+    <path d="M10 38 Q10 14 32 14 Q54 14 54 38" stroke="#2A1E3F" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <rect x="4" y="34" width="14" height="22" rx="4" fill="#FF6B9D" stroke="#2A1E3F" stroke-width="3"/>
+    <rect x="46" y="34" width="14" height="22" rx="4" fill="#FF6B9D" stroke="#2A1E3F" stroke-width="3"/>
+    <rect x="8" y="38" width="6" height="14" rx="2" fill="#FFB4CC"/>
+    <rect x="50" y="38" width="6" height="14" rx="2" fill="#FFB4CC"/>
+    <text x="32" y="32" font-size="18" text-anchor="middle" fill="#FFE44D" font-weight="900">♪</text>
+  </svg>`,
+  walk: `<svg viewBox="0 0 64 64">
+    <path d="M6 42 L6 52 Q6 56 10 56 L54 56 Q58 56 58 52 L58 44 L42 38 L30 34 L20 34 L12 40 Z" fill="#44CFCB" stroke="#2A1E3F" stroke-width="3"/>
+    <path d="M12 40 L20 34 L30 34 L42 38 L42 44 L12 44 Z" fill="#FFF" stroke="#2A1E3F" stroke-width="2"/>
+    <line x1="22" y1="34" x2="22" y2="44" stroke="#2A1E3F" stroke-width="2"/>
+    <line x1="28" y1="34" x2="28" y2="44" stroke="#2A1E3F" stroke-width="2"/>
+    <line x1="35" y1="36" x2="35" y2="44" stroke="#2A1E3F" stroke-width="2"/>
+    <circle cx="50" cy="42" r="2.5" fill="#FFE44D" stroke="#2A1E3F" stroke-width="1.5"/>
+    <rect x="6" y="50" width="52" height="6" fill="#2A1E3F"/>
+  </svg>`,
+  cat: `<svg viewBox="0 0 64 64">
+    <path d="M16 22 L12 6 L24 18 Z" fill="#E8B870" stroke="#2A1E3F" stroke-width="2.5"/>
+    <path d="M48 22 L52 6 L40 18 Z" fill="#E8B870" stroke="#2A1E3F" stroke-width="2.5"/>
+    <path d="M17 18 L15 10 L21 16 Z" fill="#FFB8A0"/>
+    <path d="M47 18 L49 10 L43 16 Z" fill="#FFB8A0"/>
+    <circle cx="32" cy="30" r="18" fill="#E8B870" stroke="#2A1E3F" stroke-width="3"/>
+    <ellipse cx="26" cy="28" rx="2.5" ry="4" fill="#2A1E3F"/>
+    <ellipse cx="38" cy="28" rx="2.5" ry="4" fill="#2A1E3F"/>
+    <circle cx="26" cy="27" r="1" fill="#FFF"/>
+    <circle cx="38" cy="27" r="1" fill="#FFF"/>
+    <path d="M32 34 L29 38 L35 38 Z" fill="#2A1E3F"/>
+    <path d="M28 40 Q32 44 36 40" stroke="#2A1E3F" stroke-width="2" fill="none"/>
+    <line x1="14" y1="29" x2="22" y2="30" stroke="#2A1E3F" stroke-width="1.5"/>
+    <line x1="14" y1="33" x2="22" y2="32" stroke="#2A1E3F" stroke-width="1.5"/>
+    <line x1="42" y1="30" x2="50" y2="29" stroke="#2A1E3F" stroke-width="1.5"/>
+    <line x1="42" y1="32" x2="50" y2="33" stroke="#2A1E3F" stroke-width="1.5"/>
+    <path d="M18 50 Q32 60 46 50 L50 58 L38 62 L26 62 L14 58 Z" fill="#E8B870" stroke="#2A1E3F" stroke-width="2.5"/>
+  </svg>`,
+  news: `<svg viewBox="0 0 64 64">
+    <rect x="4" y="10" width="56" height="42" rx="4" fill="#2A1E3F" stroke="#2A1E3F" stroke-width="2"/>
+    <rect x="8" y="14" width="48" height="30" fill="#FF5757"/>
+    <text x="32" y="28" font-size="9" text-anchor="middle" fill="#FFF" font-weight="900">BREAKING</text>
+    <text x="32" y="39" font-size="6" text-anchor="middle" fill="#FFE44D" font-weight="900">EVERYTHING IS BAD!!</text>
+    <rect x="20" y="52" width="24" height="4" fill="#888"/>
+    <rect x="14" y="56" width="36" height="4" fill="#666"/>
+    <circle cx="16" cy="18" r="1.5" fill="#FFE44D"/>
+  </svg>`,
+  energy: `<svg viewBox="0 0 64 64">
+    <rect x="20" y="8" width="24" height="50" rx="2" fill="#22C55E" stroke="#2A1E3F" stroke-width="3"/>
+    <rect x="20" y="8" width="24" height="10" fill="#FFE44D" stroke="#2A1E3F" stroke-width="3"/>
+    <path d="M28 26 L24 38 L30 36 L26 48" stroke="#FFE44D" stroke-width="3" fill="none" stroke-linejoin="round"/>
+    <text x="32" y="22" font-size="8" text-anchor="middle" font-weight="900" fill="#2A1E3F">ZAP</text>
+    <rect x="27" y="4" width="10" height="4" fill="#888" stroke="#2A1E3F" stroke-width="1.5"/>
+    <path d="M38 30 Q42 32 40 36" stroke="#FFE44D" stroke-width="2" fill="none"/>
+  </svg>`,
+  bill: `<svg viewBox="0 0 64 64">
+    <rect x="4" y="12" width="56" height="40" rx="3" fill="#FFF" stroke="#2A1E3F" stroke-width="3"/>
+    <rect x="4" y="12" width="56" height="10" fill="#FF5757" stroke="#2A1E3F" stroke-width="3"/>
+    <text x="32" y="20" font-size="7" text-anchor="middle" fill="#FFF" font-weight="900">OVERDUE</text>
+    <text x="32" y="36" font-size="16" text-anchor="middle" font-weight="900" fill="#FF5757">$$$$</text>
+    <line x1="10" y1="42" x2="54" y2="42" stroke="#BBB" stroke-width="1.5"/>
+    <line x1="10" y1="46" x2="44" y2="46" stroke="#BBB" stroke-width="1.5"/>
+  </svg>`,
+  chips: `<svg viewBox="0 0 64 64">
+    <path d="M14 8 L50 8 L54 56 L10 56 Z" fill="#FF8A65" stroke="#2A1E3F" stroke-width="3"/>
+    <path d="M18 14 L46 14 L48 20 L16 20 Z" fill="#FFE44D" stroke="#2A1E3F" stroke-width="2"/>
+    <text x="32" y="38" font-size="11" text-anchor="middle" font-weight="900" fill="#2A1E3F">CHIPS</text>
+    <circle cx="22" cy="46" r="3" fill="#FFE44D"/>
+    <circle cx="32" cy="48" r="3" fill="#FFE44D"/>
+    <circle cx="42" cy="46" r="3" fill="#FFE44D"/>
+  </svg>`,
+  scroll: `<svg viewBox="0 0 64 64">
+    <rect x="18" y="4" width="28" height="56" rx="5" fill="#2A1E3F" stroke="#2A1E3F" stroke-width="2"/>
+    <rect x="20" y="10" width="24" height="44" fill="#6FB3FF"/>
+    <rect x="22" y="14" width="20" height="7" fill="#FF5757" rx="1"/>
+    <rect x="22" y="23" width="20" height="7" fill="#FF5757" rx="1"/>
+    <rect x="22" y="32" width="20" height="7" fill="#FF5757" rx="1"/>
+    <rect x="22" y="41" width="20" height="7" fill="#FF5757" rx="1"/>
+    <text x="32" y="19.5" font-size="6" text-anchor="middle" fill="#FFF" font-weight="900">!!!</text>
+    <text x="32" y="28.5" font-size="6" text-anchor="middle" fill="#FFF" font-weight="900">!!!</text>
+    <text x="32" y="37.5" font-size="6" text-anchor="middle" fill="#FFF" font-weight="900">!!!</text>
+    <text x="32" y="46.5" font-size="6" text-anchor="middle" fill="#FFF" font-weight="900">!!!</text>
+    <circle cx="42" cy="10" r="4" fill="#FF5757" stroke="#FFF" stroke-width="1.5"/>
+    <text x="42" y="13" font-size="6" text-anchor="middle" fill="#FFF" font-weight="900">9+</text>
+  </svg>`,
+  book: `<svg viewBox="0 0 64 64">
+    <path d="M6 14 L32 18 L58 14 L58 54 L32 50 L6 54 Z" fill="#44CFCB" stroke="#2A1E3F" stroke-width="3"/>
+    <path d="M32 18 L32 50" stroke="#2A1E3F" stroke-width="2.5"/>
+    <line x1="12" y1="24" x2="28" y2="26" stroke="#FFF" stroke-width="1.5"/>
+    <line x1="12" y1="30" x2="28" y2="32" stroke="#FFF" stroke-width="1.5"/>
+    <line x1="12" y1="36" x2="28" y2="38" stroke="#FFF" stroke-width="1.5"/>
+    <line x1="12" y1="42" x2="24" y2="44" stroke="#FFF" stroke-width="1.5"/>
+    <line x1="36" y1="26" x2="52" y2="24" stroke="#FFF" stroke-width="1.5"/>
+    <line x1="36" y1="32" x2="52" y2="30" stroke="#FFF" stroke-width="1.5"/>
+    <line x1="36" y1="38" x2="52" y2="36" stroke="#FFF" stroke-width="1.5"/>
+    <line x1="36" y1="44" x2="48" y2="42" stroke="#FFF" stroke-width="1.5"/>
+  </svg>`,
+  bath: `<svg viewBox="0 0 64 64">
+    <path d="M4 34 L60 34 L56 52 Q56 56 52 56 L12 56 Q8 56 8 52 Z" fill="#FFF" stroke="#2A1E3F" stroke-width="3"/>
+    <path d="M10 40 L54 40" stroke="#6FB3FF" stroke-width="5" fill="none"/>
+    <circle cx="18" cy="26" r="5" fill="#FFF" stroke="#2A1E3F" stroke-width="2.5"/>
+    <circle cx="30" cy="18" r="6" fill="#FFF" stroke="#2A1E3F" stroke-width="2.5"/>
+    <circle cx="42" cy="24" r="5" fill="#FFF" stroke="#2A1E3F" stroke-width="2.5"/>
+    <circle cx="52" cy="16" r="4" fill="#FFF" stroke="#2A1E3F" stroke-width="2.5"/>
+    <circle cx="22" cy="14" r="3" fill="#FFF" stroke="#2A1E3F" stroke-width="2"/>
+    <rect x="2" y="32" width="8" height="6" fill="#888" stroke="#2A1E3F" stroke-width="2" rx="1"/>
+  </svg>`,
+  journal: `<svg viewBox="0 0 64 64">
+    <rect x="10" y="8" width="40" height="50" rx="2" fill="#FFF" stroke="#2A1E3F" stroke-width="3"/>
+    <rect x="10" y="8" width="10" height="50" fill="#7B61FF" stroke="#2A1E3F" stroke-width="3"/>
+    <circle cx="15" cy="16" r="1.5" fill="#FFF"/>
+    <circle cx="15" cy="25" r="1.5" fill="#FFF"/>
+    <circle cx="15" cy="34" r="1.5" fill="#FFF"/>
+    <circle cx="15" cy="43" r="1.5" fill="#FFF"/>
+    <circle cx="15" cy="52" r="1.5" fill="#FFF"/>
+    <line x1="24" y1="20" x2="46" y2="20" stroke="#BBB" stroke-width="1.5"/>
+    <line x1="24" y1="28" x2="46" y2="28" stroke="#BBB" stroke-width="1.5"/>
+    <line x1="24" y1="36" x2="42" y2="36" stroke="#BBB" stroke-width="1.5"/>
+    <line x1="24" y1="44" x2="40" y2="44" stroke="#BBB" stroke-width="1.5"/>
+    <g transform="rotate(25 52 44)">
+      <rect x="46" y="42" width="18" height="4" fill="#FFE44D" stroke="#2A1E3F" stroke-width="1.5"/>
+      <path d="M64 42 L68 44 L64 46 Z" fill="#2A1E3F"/>
+    </g>
+  </svg>`,
+  sun: `<svg viewBox="0 0 64 64">
+    <circle cx="32" cy="32" r="12" fill="#FFE44D" stroke="#2A1E3F" stroke-width="3"/>
+    <g stroke="#FFB800" stroke-width="4" stroke-linecap="round">
+      <line x1="32" y1="4" x2="32" y2="12"/>
+      <line x1="32" y1="52" x2="32" y2="60"/>
+      <line x1="4" y1="32" x2="12" y2="32"/>
+      <line x1="52" y1="32" x2="60" y2="32"/>
+      <line x1="12" y1="12" x2="18" y2="18"/>
+      <line x1="46" y1="46" x2="52" y2="52"/>
+      <line x1="52" y1="12" x2="46" y2="18"/>
+      <line x1="12" y1="52" x2="18" y2="46"/>
+    </g>
+    <circle cx="28" cy="30" r="1.8" fill="#2A1E3F"/>
+    <circle cx="36" cy="30" r="1.8" fill="#2A1E3F"/>
+    <path d="M27 36 Q32 40 37 36" stroke="#2A1E3F" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </svg>`,
+  hug: `<svg viewBox="0 0 64 64">
+    <path d="M32 54 C 6 38, 6 14, 20 14 C 27 14, 32 22, 32 22 C 32 22, 37 14, 44 14 C 58 14, 58 38, 32 54 Z" fill="#FF6B9D" stroke="#2A1E3F" stroke-width="3"/>
+    <path d="M20 24 Q26 20 32 24" stroke="#FFF" stroke-width="2.5" fill="none" opacity=".7"/>
+    <circle cx="22" cy="26" r="2" fill="#FFF" opacity=".6"/>
+  </svg>`,
+  scale: `<svg viewBox="0 0 64 64">
+    <rect x="4" y="34" width="56" height="24" rx="3" fill="#E0E0E0" stroke="#2A1E3F" stroke-width="3"/>
+    <rect x="4" y="34" width="56" height="6" fill="#C0C0C0"/>
+    <circle cx="32" cy="46" r="10" fill="#FFF" stroke="#2A1E3F" stroke-width="2.5"/>
+    <line x1="32" y1="46" x2="38" y2="40" stroke="#FF5757" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="32" cy="46" r="1.5" fill="#2A1E3F"/>
+    <text x="32" y="30" font-size="9" text-anchor="middle" font-weight="900" fill="#FF5757">JUDGMENT</text>
+    <line x1="22" y1="46" x2="24" y2="46" stroke="#2A1E3F" stroke-width="1.5"/>
+    <line x1="40" y1="46" x2="42" y2="46" stroke="#2A1E3F" stroke-width="1.5"/>
+  </svg>`,
+  cal: `<svg viewBox="0 0 64 64">
+    <rect x="6" y="12" width="52" height="46" rx="2" fill="#FFF" stroke="#2A1E3F" stroke-width="3"/>
+    <rect x="6" y="12" width="52" height="10" fill="#FF5757" stroke="#2A1E3F" stroke-width="3"/>
+    <rect x="14" y="6" width="4" height="12" fill="#2A1E3F"/>
+    <rect x="46" y="6" width="4" height="12" fill="#2A1E3F"/>
+    <g fill="#FF5757" stroke="#2A1E3F" stroke-width="1">
+      <rect x="10" y="26" width="11" height="6"/>
+      <rect x="23" y="26" width="11" height="6"/>
+      <rect x="36" y="26" width="11" height="6"/>
+      <rect x="10" y="34" width="11" height="6"/>
+      <rect x="23" y="34" width="11" height="6"/>
+      <rect x="36" y="34" width="11" height="6"/>
+      <rect x="10" y="42" width="11" height="6"/>
+      <rect x="23" y="42" width="11" height="6"/>
+      <rect x="36" y="42" width="11" height="6"/>
+      <rect x="10" y="50" width="11" height="6"/>
+      <rect x="23" y="50" width="11" height="6"/>
+      <rect x="36" y="50" width="11" height="6"/>
+    </g>
+    <text x="32" y="18.5" font-size="6" text-anchor="middle" fill="#FFF" font-weight="900">BOOKED</text>
+  </svg>`,
+  mirror: `<svg viewBox="0 0 64 64">
+    <ellipse cx="32" cy="28" rx="20" ry="24" fill="#C8D8E8" stroke="#2A1E3F" stroke-width="3"/>
+    <ellipse cx="26" cy="20" rx="5" ry="9" fill="#FFF" opacity=".6"/>
+    <rect x="28" y="50" width="8" height="8" fill="#8B5A3C" stroke="#2A1E3F" stroke-width="2"/>
+    <rect x="24" y="57" width="16" height="4" rx="1" fill="#8B5A3C" stroke="#2A1E3F" stroke-width="2"/>
+    <path d="M24 30 Q32 25 40 30" stroke="#2A1E3F" stroke-width="2" fill="none"/>
+    <text x="32" y="44" font-size="18" text-anchor="middle" font-weight="900" fill="#FF5757">?!</text>
+  </svg>`,
+  icecream: `<svg viewBox="0 0 64 64">
+    <path d="M14 22 L14 50 Q14 58 22 58 L42 58 Q50 58 50 50 L50 22 Z" fill="#FFF" stroke="#2A1E3F" stroke-width="3"/>
+    <ellipse cx="32" cy="22" rx="18" ry="6" fill="#FFB4D4" stroke="#2A1E3F" stroke-width="3"/>
+    <ellipse cx="32" cy="22" rx="14" ry="3.5" fill="#FFCDE0"/>
+    <path d="M14 32 L50 32" stroke="#FFB4D4" stroke-width="3"/>
+    <text x="32" y="44" font-size="7" text-anchor="middle" font-weight="900" fill="#2A1E3F">WHOLE TUB</text>
+    <text x="32" y="52" font-size="5" text-anchor="middle" font-weight="900" fill="#888">(AGAIN)</text>
+    <path d="M22 10 Q24 4 28 8" stroke="#FFB4D4" stroke-width="2.5" fill="none"/>
+    <path d="M36 8 Q38 2 42 6" stroke="#FFB4D4" stroke-width="2.5" fill="none"/>
+  </svg>`,
+  noise: `<svg viewBox="0 0 64 64">
+    <path d="M14 26 L24 26 L36 14 L36 50 L24 38 L14 38 Z" fill="#2A1E3F" stroke="#2A1E3F" stroke-width="3"/>
+    <rect x="18" y="28" width="6" height="8" fill="#FF5757"/>
+    <path d="M42 18 Q50 32 42 46" stroke="#FF5757" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M48 12 Q58 32 48 52" stroke="#FF5757" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M54 6 Q64 32 54 58" stroke="#FF5757" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".6"/>
+  </svg>`,
+  soup: `<svg viewBox="0 0 64 64">
+    <ellipse cx="32" cy="38" rx="22" ry="5" fill="#FFF" stroke="#2A1E3F" stroke-width="3"/>
+    <path d="M10 38 Q12 52 22 56 Q32 58 42 56 Q52 52 54 38 Z" fill="#FFE8A8" stroke="#2A1E3F" stroke-width="3"/>
+    <ellipse cx="32" cy="38" rx="20" ry="3.5" fill="#FFC864"/>
+    <path d="M18 37 Q22 34 26 37" stroke="#8B4513" stroke-width="1.5" fill="none"/>
+    <path d="M28 38 Q32 35 36 38" stroke="#8B4513" stroke-width="1.5" fill="none"/>
+    <path d="M38 37 Q42 34 46 37" stroke="#8B4513" stroke-width="1.5" fill="none"/>
+    <circle cx="22" cy="38" r="2" fill="#FF8A65"/>
+    <circle cx="40" cy="38" r="2" fill="#4CA84C"/>
+    <path d="M20 26 Q18 20 22 16 Q24 12 20 8" stroke="#BBB" stroke-width="2.5" fill="none" opacity=".7"/>
+    <path d="M32 26 Q30 20 34 16 Q36 12 32 8" stroke="#BBB" stroke-width="2.5" fill="none" opacity=".7"/>
+    <path d="M44 26 Q42 20 46 14" stroke="#BBB" stroke-width="2.5" fill="none" opacity=".7"/>
+  </svg>`,
+  garden: `<svg viewBox="0 0 64 64">
+    <circle cx="22" cy="18" r="6" fill="#4CA84C" stroke="#2A1E3F" stroke-width="2.5"/>
+    <circle cx="32" cy="10" r="7" fill="#5CB85C" stroke="#2A1E3F" stroke-width="2.5"/>
+    <circle cx="42" cy="18" r="6" fill="#4CA84C" stroke="#2A1E3F" stroke-width="2.5"/>
+    <circle cx="18" cy="28" r="5" fill="#7FD97F" stroke="#2A1E3F" stroke-width="2.5"/>
+    <circle cx="46" cy="28" r="5" fill="#7FD97F" stroke="#2A1E3F" stroke-width="2.5"/>
+    <circle cx="32" cy="22" r="5" fill="#FF6B9D" stroke="#2A1E3F" stroke-width="2.5"/>
+    <circle cx="32" cy="22" r="2" fill="#FFE44D"/>
+    <rect x="30" y="30" width="4" height="8" fill="#4CA84C"/>
+    <path d="M14 40 L16 58 L48 58 L50 40 Z" fill="#D9774A" stroke="#2A1E3F" stroke-width="3"/>
+    <rect x="12" y="38" width="40" height="5" fill="#E88862" stroke="#2A1E3F" stroke-width="3"/>
+  </svg>`,
+  knit: `<svg viewBox="0 0 64 64">
+    <circle cx="32" cy="38" r="18" fill="#FF6B9D" stroke="#2A1E3F" stroke-width="3"/>
+    <path d="M16 40 Q24 32 32 36 Q40 40 48 36" stroke="#D94881" stroke-width="2" fill="none"/>
+    <path d="M18 32 Q26 40 34 34 Q42 28 46 40" stroke="#D94881" stroke-width="2" fill="none"/>
+    <path d="M20 46 Q28 42 36 46 Q44 50 48 44" stroke="#D94881" stroke-width="2" fill="none"/>
+    <line x1="8" y1="14" x2="28" y2="34" stroke="#8B4513" stroke-width="3" stroke-linecap="round"/>
+    <line x1="56" y1="14" x2="36" y2="34" stroke="#8B4513" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="8" cy="14" r="2.5" fill="#FFE44D" stroke="#2A1E3F" stroke-width="1.5"/>
+    <circle cx="56" cy="14" r="2.5" fill="#FFE44D" stroke="#2A1E3F" stroke-width="1.5"/>
+    <path d="M50 54 Q58 58 60 50" stroke="#FF6B9D" stroke-width="2.5" fill="none"/>
+  </svg>`,
+  photos: `<svg viewBox="0 0 64 64">
+    <rect x="8" y="12" width="48" height="44" rx="2" fill="#8B4513" stroke="#2A1E3F" stroke-width="3"/>
+    <rect x="12" y="16" width="40" height="36" fill="#FFE8C8" stroke="#2A1E3F" stroke-width="2"/>
+    <rect x="16" y="20" width="14" height="12" fill="#FFF" stroke="#2A1E3F" stroke-width="1.5"/>
+    <circle cx="23" cy="26" r="3" fill="#FFD4A8"/>
+    <path d="M19 30 Q23 28 27 30" stroke="#FFD4A8" stroke-width="1.5" fill="none"/>
+    <rect x="34" y="20" width="14" height="12" fill="#FFF" stroke="#2A1E3F" stroke-width="1.5"/>
+    <circle cx="41" cy="26" r="3" fill="#8B5A3C"/>
+    <path d="M37 30 Q41 28 45 30" stroke="#8B5A3C" stroke-width="1.5" fill="none"/>
+    <rect x="16" y="36" width="14" height="12" fill="#FFF" stroke="#2A1E3F" stroke-width="1.5"/>
+    <path d="M18 44 Q23 40 28 44" stroke="#FF6B9D" stroke-width="2" fill="none"/>
+    <rect x="34" y="36" width="14" height="12" fill="#FFF" stroke="#2A1E3F" stroke-width="1.5"/>
+    <path d="M36 44 L41 40 L46 44" stroke="#4CA84C" stroke-width="2" fill="none"/>
+    <text x="54" y="22" font-size="10" fill="#FF6B9D" font-weight="900">♥</text>
+  </svg>`,
+  letter: `<svg viewBox="0 0 64 64">
+    <path d="M6 14 L58 14 L58 54 L6 54 Z" fill="#FFFEE8" stroke="#2A1E3F" stroke-width="3"/>
+    <path d="M6 14 L32 32 L58 14" stroke="#2A1E3F" stroke-width="3" fill="none"/>
+    <line x1="14" y1="40" x2="48" y2="40" stroke="#4A4A8A" stroke-width="1.5"/>
+    <line x1="14" y1="44" x2="44" y2="44" stroke="#4A4A8A" stroke-width="1.5"/>
+    <line x1="14" y1="48" x2="50" y2="48" stroke="#4A4A8A" stroke-width="1.5"/>
+    <circle cx="48" cy="22" r="7" fill="#FF6B9D" stroke="#2A1E3F" stroke-width="2"/>
+    <text x="48" y="26" font-size="10" text-anchor="middle" fill="#FFF" font-weight="900">♥</text>
+  </svg>`,
+  pills: `<svg viewBox="0 0 64 64">
+    <rect x="20" y="14" width="24" height="8" fill="#2A1E3F"/>
+    <rect x="18" y="22" width="28" height="30" rx="3" fill="#FF8A65" stroke="#2A1E3F" stroke-width="3"/>
+    <rect x="22" y="28" width="20" height="18" fill="#FFF" stroke="#2A1E3F" stroke-width="1.5"/>
+    <text x="32" y="41" font-size="10" text-anchor="middle" font-weight="900" fill="#FF5757">Rx</text>
+    <ellipse cx="10" cy="54" rx="5" ry="3" fill="#FFE44D" stroke="#2A1E3F" stroke-width="1.5"/>
+    <line x1="7" y1="54" x2="13" y2="54" stroke="#2A1E3F" stroke-width="1"/>
+    <ellipse cx="54" cy="56" rx="5" ry="3" fill="#6FB3FF" stroke="#2A1E3F" stroke-width="1.5"/>
+    <line x1="51" y1="56" x2="57" y2="56" stroke="#2A1E3F" stroke-width="1"/>
+    <ellipse cx="18" cy="58" rx="4" ry="2.5" fill="#FF6B9D" stroke="#2A1E3F" stroke-width="1.5"/>
+    <ellipse cx="44" cy="58" rx="4" ry="2.5" fill="#7FD97F" stroke="#2A1E3F" stroke-width="1.5"/>
+  </svg>`,
+  clock: `<svg viewBox="0 0 64 64">
+    <circle cx="32" cy="34" r="24" fill="#FFF" stroke="#2A1E3F" stroke-width="4"/>
+    <circle cx="32" cy="34" r="24" fill="none" stroke="#FF5757" stroke-width="2" stroke-dasharray="6,3"/>
+    <line x1="32" y1="12" x2="32" y2="16" stroke="#2A1E3F" stroke-width="3"/>
+    <line x1="32" y1="52" x2="32" y2="56" stroke="#2A1E3F" stroke-width="3"/>
+    <line x1="10" y1="34" x2="14" y2="34" stroke="#2A1E3F" stroke-width="3"/>
+    <line x1="50" y1="34" x2="54" y2="34" stroke="#2A1E3F" stroke-width="3"/>
+    <line x1="32" y1="34" x2="32" y2="18" stroke="#FF5757" stroke-width="3" stroke-linecap="round"/>
+    <line x1="32" y1="34" x2="46" y2="30" stroke="#2A1E3F" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="32" cy="34" r="2.5" fill="#2A1E3F"/>
+    <rect x="24" y="4" width="5" height="8" fill="#2A1E3F" rx="1"/>
+    <rect x="35" y="4" width="5" height="8" fill="#2A1E3F" rx="1"/>
+    <path d="M4 22 L0 26" stroke="#FF5757" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M60 22 L64 26" stroke="#FF5757" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M8 14 L4 12" stroke="#FF5757" stroke-width="2" stroke-linecap="round"/>
+    <path d="M56 14 L60 12" stroke="#FF5757" stroke-width="2" stroke-linecap="round"/>
+  </svg>`,
+  mess: `<svg viewBox="0 0 64 64">
+    <path d="M4 56 Q4 40 16 36 Q24 28 36 32 Q48 28 56 40 Q60 48 58 56 Z" fill="#FF8A65" stroke="#2A1E3F" stroke-width="3"/>
+    <g transform="rotate(-15 19 34)">
+      <rect x="14" y="30" width="10" height="8" fill="#44CFCB" stroke="#2A1E3F" stroke-width="2"/>
+    </g>
+    <rect x="28" y="24" width="12" height="10" fill="#FFE44D" stroke="#2A1E3F" stroke-width="2"/>
+    <circle cx="44" cy="32" r="5" fill="#7B61FF" stroke="#2A1E3F" stroke-width="2"/>
+    <rect x="20" y="44" width="8" height="6" fill="#FF6B9D" stroke="#2A1E3F" stroke-width="2"/>
+    <circle cx="36" cy="46" r="4" fill="#22C55E" stroke="#2A1E3F" stroke-width="2"/>
+    <text x="20" y="22" font-size="10" font-weight="900" fill="#2A1E3F">z</text>
+    <text x="44" y="18" font-size="9" font-weight="900" fill="#2A1E3F">z</text>
+  </svg>`,
+  crowd: `<svg viewBox="0 0 64 64">
+    <circle cx="14" cy="28" r="9" fill="#FF8A65" stroke="#2A1E3F" stroke-width="2.5"/>
+    <rect x="8" y="36" width="12" height="20" fill="#FF8A65" stroke="#2A1E3F" stroke-width="2.5"/>
+    <circle cx="32" cy="26" r="10" fill="#44CFCB" stroke="#2A1E3F" stroke-width="2.5"/>
+    <rect x="24" y="35" width="16" height="22" fill="#44CFCB" stroke="#2A1E3F" stroke-width="2.5"/>
+    <circle cx="50" cy="28" r="9" fill="#FFE44D" stroke="#2A1E3F" stroke-width="2.5"/>
+    <rect x="44" y="36" width="12" height="20" fill="#FFE44D" stroke="#2A1E3F" stroke-width="2.5"/>
+    <text x="6" y="16" font-size="12" font-weight="900" fill="#FF5757">!</text>
+    <text x="52" y="16" font-size="12" font-weight="900" fill="#FF5757">?</text>
+    <text x="28" y="10" font-size="11" font-weight="900" fill="#FF5757">!</text>
+  </svg>`,
+  conflict: `<svg viewBox="0 0 64 64">
+    <path d="M4 10 L26 10 Q28 10 28 12 L28 28 Q28 30 26 30 L18 30 L14 36 L14 30 L6 30 Q4 30 4 28 Z" fill="#FF5757" stroke="#2A1E3F" stroke-width="3"/>
+    <text x="16" y="25" font-size="11" text-anchor="middle" font-weight="900" fill="#FFF">!!!</text>
+    <path d="M60 30 L38 30 Q36 30 36 32 L36 48 Q36 50 38 50 L46 50 L50 56 L50 50 L58 50 Q60 50 60 48 Z" fill="#FFE44D" stroke="#2A1E3F" stroke-width="3"/>
+    <text x="48" y="45" font-size="11" text-anchor="middle" font-weight="900" fill="#2A1E3F">???</text>
+    <path d="M30 34 L34 32 L31 37 L35 40" stroke="#FF5757" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </svg>`
+};
+
+const ITEMS = {
+  blanket:  {label:'BLANKET',  type:'comfort'},
+  water:    {label:'WATER',    type:'comfort'},
+  broccoli: {label:'FOOD',     type:'comfort'},
+  phone:    {label:'A FRIEND', type:'comfort'},
+  bed:      {label:'REST',     type:'comfort'},
+  computer: {label:'WORK',     type:'stress'},
+  alcohol:  {label:'BOOZE',    type:'stress'},
+  candy:    {label:'SUGAR',    type:'stress'},
+  papers:   {label:'TO DO',    type:'stress'},
+  cigs:     {label:'SMOKES',   type:'stress'},
+  tea:      {label:'HOT TEA',  type:'comfort'},
+  teddy:    {label:'TEDDY',    type:'comfort'},
+  music:    {label:'MUSIC',    type:'comfort'},
+  walk:     {label:'A WALK',   type:'comfort'},
+  cat:      {label:'THE CAT',  type:'comfort'},
+  news:     {label:'THE NEWS', type:'stress'},
+  energy:   {label:'CAFFEINE', type:'stress'},
+  bill:     {label:'BILLS',    type:'stress'},
+  chips:    {label:'JUNK FOOD',type:'stress'},
+  scroll:   {label:'DOOMSCROLL',type:'stress'},
+  book:     {label:'A BOOK',   type:'comfort'},
+  bath:     {label:'HOT BATH', type:'comfort'},
+  journal:  {label:'JOURNAL',  type:'comfort'},
+  sun:      {label:'SUNLIGHT', type:'comfort'},
+  hug:      {label:'A HUG',    type:'comfort'},
+  scale:    {label:'THE SCALE',type:'stress'},
+  cal:      {label:'OVERBOOKED',type:'stress'},
+  mirror:   {label:'SELF CRIT',type:'stress'},
+  icecream: {label:'BINGE',    type:'stress'},
+  noise:    {label:'LOUD TV',  type:'stress'},
+  soup:     {label:'HOT SOUP', type:'comfort'},
+  garden:   {label:'THE PLANTS',type:'comfort'},
+  knit:     {label:'KNITTING', type:'comfort'},
+  photos:   {label:'OLD PHOTOS',type:'comfort'},
+  letter:   {label:'A LETTER', type:'comfort'},
+  pills:    {label:'MEDS PILE',type:'stress'},
+  clock:    {label:'THE CLOCK',type:'stress'},
+  mess:     {label:'THE MESS', type:'stress'},
+  crowd:    {label:'CROWD',    type:'stress'},
+  conflict: {label:'ARGUMENT', type:'stress'}
+};
+
+// Per-room item pools (5 comfort + 5 stress each)
+const ROOM_ITEMS = [
+  ['blanket','water','broccoli','phone','bed','computer','alcohol','candy','papers','cigs'],
+  ['blanket','water','broccoli','phone','bed','computer','alcohol','candy','papers','cigs'],
+  ['tea','teddy','music','walk','cat','news','energy','bill','chips','scroll'],
+  ['book','bath','journal','sun','hug','scale','cal','mirror','icecream','noise'],
+  ['soup','garden','knit','photos','letter','pills','clock','mess','crowd','conflict']
+];
+
+// Character SVG (type: 'man' or 'woman')
+function charSVG(type){
+  // shared: eyes, mouth, tears, cheeks
+  const tears = `
+    <g>
+      <ellipse class="tear t1" cx="75" cy="100" rx="5" ry="7" fill="#6FB3FF"/>
+      <ellipse class="tear t2" cx="115" cy="100" rx="5" ry="7" fill="#6FB3FF"/>
+      <ellipse class="tear t3" cx="72" cy="118" rx="4" ry="6" fill="#6FB3FF"/>
+      <ellipse class="tear t4" cx="118" cy="118" rx="4" ry="6" fill="#6FB3FF"/>
+      <ellipse class="tear t5" cx="78" cy="134" rx="5" ry="8" fill="#6FB3FF"/>
+      <ellipse class="tear t6" cx="112" cy="134" rx="5" ry="8" fill="#6FB3FF"/>
+    </g>`;
+  const face = `
+    <circle cx="64" cy="102" r="10" fill="#FF8AA8" opacity=".55"/>
+    <circle cx="126" cy="102" r="10" fill="#FF8AA8" opacity=".55"/>
+    <path d="M68 82 Q76 74 84 82" stroke="#2A1E3F" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M106 82 Q114 74 122 82" stroke="#2A1E3F" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path class="mouth-sad" d="M76 122 Q95 110 114 122" stroke="#2A1E3F" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <path class="mouth-happy" d="M74 116 Q95 134 116 116" stroke="#2A1E3F" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    ${tears}`;
+
+  if(type==='man'){
+    return `<svg viewBox="0 0 200 280">
+      <!-- shadow -->
+      <ellipse cx="100" cy="272" rx="62" ry="6" fill="rgba(0,0,0,.25)"/>
+      <!-- body -->
+      <rect x="54" y="144" width="92" height="110" rx="14" fill="#6FB3FF" stroke="#2A1E3F" stroke-width="5"/>
+      <!-- arms -->
+      <rect x="32" y="154" width="28" height="80" rx="14" fill="#FFD4A8" stroke="#2A1E3F" stroke-width="5"/>
+      <rect x="140" y="154" width="28" height="80" rx="14" fill="#FFD4A8" stroke="#2A1E3F" stroke-width="5"/>
+      <!-- collar -->
+      <path d="M70 144 L90 158 L110 158 L130 144" stroke="#2A1E3F" stroke-width="4" fill="none"/>
+      <!-- head -->
+      <circle cx="100" cy="98" r="54" fill="#FFD4A8" stroke="#2A1E3F" stroke-width="5"/>
+      <!-- checkered hat -->
+      <g transform="translate(48 36)">
+        <rect width="104" height="32" fill="#2A1E3F"/>
+        <g fill="#fff">
+          ${[0,2,4,6,8].map(c=>`<rect x="${c*10+4}" y="0" width="10" height="10"/>`).join('')}
+          ${[1,3,5,7].map(c=>`<rect x="${c*10+4}" y="10" width="10" height="10"/>`).join('')}
+          ${[0,2,4,6,8].map(c=>`<rect x="${c*10+4}" y="20" width="10" height="10"/>`).join('')}
+        </g>
+        <rect x="-14" y="32" width="132" height="8" rx="4" fill="#2A1E3F"/>
+      </g>
+      ${face}
+    </svg>`;
+  } else if(type==='elder'){
+    // Older man: darker skin, gray beard, balding with gray side hair, mustard cardigan, glasses
+    return `<svg viewBox="0 0 200 280">
+      <ellipse cx="100" cy="272" rx="62" ry="6" fill="rgba(0,0,0,.25)"/>
+      <!-- mustard cardigan -->
+      <rect x="54" y="144" width="92" height="110" rx="14" fill="#E8B44A" stroke="#2A1E3F" stroke-width="5"/>
+      <!-- cardigan opening -->
+      <line x1="100" y1="144" x2="100" y2="254" stroke="#2A1E3F" stroke-width="2.5" stroke-dasharray="4,3"/>
+      <!-- buttons -->
+      <circle cx="100" cy="172" r="3.5" fill="#8B5A3C" stroke="#2A1E3F" stroke-width="1.5"/>
+      <circle cx="100" cy="196" r="3.5" fill="#8B5A3C" stroke="#2A1E3F" stroke-width="1.5"/>
+      <circle cx="100" cy="220" r="3.5" fill="#8B5A3C" stroke="#2A1E3F" stroke-width="1.5"/>
+      <!-- arms -->
+      <rect x="32" y="154" width="28" height="80" rx="14" fill="#E8B44A" stroke="#2A1E3F" stroke-width="5"/>
+      <rect x="140" y="154" width="28" height="80" rx="14" fill="#E8B44A" stroke="#2A1E3F" stroke-width="5"/>
+      <!-- hands -->
+      <circle cx="46" cy="238" r="12" fill="#6B3F22" stroke="#2A1E3F" stroke-width="4"/>
+      <circle cx="154" cy="238" r="12" fill="#6B3F22" stroke="#2A1E3F" stroke-width="4"/>
+      <!-- white shirt collar peek -->
+      <path d="M70 144 L90 156 L110 156 L130 144 L130 150 L110 162 L90 162 L70 150 Z" fill="#FFF" stroke="#2A1E3F" stroke-width="3"/>
+      <!-- head -->
+      <circle cx="100" cy="98" r="54" fill="#6B3F22" stroke="#2A1E3F" stroke-width="5"/>
+      <!-- gray side hair (horseshoe) -->
+      <path d="M50 92 Q48 68 64 58 Q68 66 70 82 L70 106 Q58 104 50 92 Z" fill="#D4D4D4" stroke="#2A1E3F" stroke-width="3"/>
+      <path d="M150 92 Q152 68 136 58 Q132 66 130 82 L130 106 Q142 104 150 92 Z" fill="#D4D4D4" stroke="#2A1E3F" stroke-width="3"/>
+      <!-- gray beard (around chin, below mouth) -->
+      <path d="M62 116 Q62 138 78 148 Q100 154 122 148 Q138 138 138 116 Q130 130 115 132 Q100 134 85 132 Q70 130 62 116 Z" fill="#D4D4D4" stroke="#2A1E3F" stroke-width="3"/>
+      <!-- mustache -->
+      <path d="M74 114 Q88 108 100 112 Q112 108 126 114 Q120 122 108 120 Q100 118 92 120 Q80 122 74 114 Z" fill="#D4D4D4" stroke="#2A1E3F" stroke-width="2.5"/>
+      ${face}
+      <!-- round glasses on top -->
+      <circle cx="76" cy="100" r="14" fill="none" stroke="#2A1E3F" stroke-width="4"/>
+      <circle cx="124" cy="100" r="14" fill="none" stroke="#2A1E3F" stroke-width="4"/>
+      <line x1="90" y1="100" x2="110" y2="100" stroke="#2A1E3F" stroke-width="4"/>
+      <!-- extra tears, he is really crying -->
+      <g>
+        <ellipse class="tear t7" cx="63" cy="108" rx="5" ry="7" fill="#6FB3FF"/>
+        <ellipse class="tear t8" cx="127" cy="108" rx="5" ry="7" fill="#6FB3FF"/>
+        <ellipse class="tear t9" cx="85" cy="130" rx="5" ry="8" fill="#6FB3FF"/>
+        <ellipse class="tear t10" cx="105" cy="130" rx="5" ry="8" fill="#6FB3FF"/>
+      </g>
+    </svg>`;
+  } else if(type==='youth'){
+    // Young person: olive skin, short magenta hair, green hoodie
+    return `<svg viewBox="0 0 200 280">
+      <ellipse cx="100" cy="272" rx="62" ry="6" fill="rgba(0,0,0,.25)"/>
+      <!-- hoodie hood (behind head) -->
+      <path d="M44 96 Q36 64 70 50 Q100 38 130 50 Q164 64 156 96 L156 150 L44 150 Z" fill="#22C55E" stroke="#2A1E3F" stroke-width="5"/>
+      <!-- hood inner shadow -->
+      <path d="M52 96 Q48 72 70 60 Q100 50 130 60 Q152 72 148 96" fill="#1A9E44"/>
+      <!-- body hoodie -->
+      <rect x="54" y="148" width="92" height="106" rx="14" fill="#22C55E" stroke="#2A1E3F" stroke-width="5"/>
+      <!-- front pocket -->
+      <path d="M66 198 L134 198 L138 226 L62 226 Z" fill="#1A9E44" stroke="#2A1E3F" stroke-width="3"/>
+      <line x1="100" y1="198" x2="100" y2="226" stroke="#2A1E3F" stroke-width="2"/>
+      <!-- arms -->
+      <rect x="32" y="158" width="28" height="80" rx="14" fill="#22C55E" stroke="#2A1E3F" stroke-width="5"/>
+      <rect x="140" y="158" width="28" height="80" rx="14" fill="#22C55E" stroke="#2A1E3F" stroke-width="5"/>
+      <!-- hands -->
+      <circle cx="46" cy="240" r="12" fill="#D9A677" stroke="#2A1E3F" stroke-width="4"/>
+      <circle cx="154" cy="240" r="12" fill="#D9A677" stroke="#2A1E3F" stroke-width="4"/>
+      <!-- hoodie strings -->
+      <line x1="88" y1="150" x2="86" y2="182" stroke="#2A1E3F" stroke-width="3" stroke-linecap="round"/>
+      <line x1="112" y1="150" x2="114" y2="182" stroke="#2A1E3F" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="86" cy="184" r="3" fill="#2A1E3F"/>
+      <circle cx="114" cy="184" r="3" fill="#2A1E3F"/>
+      <!-- head -->
+      <circle cx="100" cy="100" r="48" fill="#D9A677" stroke="#2A1E3F" stroke-width="5"/>
+      <!-- messy short magenta hair tufts on top -->
+      <g fill="#E85FA0" stroke="#2A1E3F" stroke-width="3">
+        <path d="M62 84 Q58 58 78 54 L82 72 Q70 76 62 84 Z"/>
+        <path d="M76 62 L88 50 L94 64 L84 72 Z"/>
+        <path d="M94 54 L104 66 L94 72 Z"/>
+        <path d="M108 52 L122 56 L118 70 L106 68 Z"/>
+        <path d="M138 84 Q142 58 122 54 L118 72 Q130 76 138 84 Z"/>
+      </g>
+      <!-- inner hair highlights -->
+      <path d="M78 66 L84 76" stroke="#FFB4D4" stroke-width="2"/>
+      <path d="M112 64 L118 74" stroke="#FFB4D4" stroke-width="2"/>
+      ${face}
+      <!-- small ear piercing -->
+      <circle cx="54" cy="104" r="2" fill="#FFE44D" stroke="#2A1E3F" stroke-width="1.5"/>
+      <!-- extra tears, they are really crying -->
+      <g>
+        <ellipse class="tear t7" cx="64" cy="108" rx="5" ry="7" fill="#6FB3FF"/>
+        <ellipse class="tear t8" cx="126" cy="108" rx="5" ry="7" fill="#6FB3FF"/>
+        <ellipse class="tear t9" cx="84" cy="130" rx="5" ry="8" fill="#6FB3FF"/>
+        <ellipse class="tear t10" cx="106" cy="130" rx="5" ry="8" fill="#6FB3FF"/>
+      </g>
+    </svg>`;
+  } else if(type==='granny'){
+    // Older woman: warm fair skin, silver curly hair, dusty rose cardigan, pearls, glasses on chain
+    return `<svg viewBox="0 0 200 280">
+      <ellipse cx="100" cy="272" rx="62" ry="6" fill="rgba(0,0,0,.25)"/>
+      <!-- dusty rose cardigan -->
+      <rect x="54" y="148" width="92" height="106" rx="14" fill="#D98A8A" stroke="#2A1E3F" stroke-width="5"/>
+      <line x1="100" y1="148" x2="100" y2="254" stroke="#2A1E3F" stroke-width="2.5" stroke-dasharray="4,3"/>
+      <!-- cream blouse peek -->
+      <path d="M76 148 L100 164 L124 148 L124 170 L76 170 Z" fill="#FFF5E0" stroke="#2A1E3F" stroke-width="3"/>
+      <!-- pearl necklace -->
+      <path d="M82 166 Q100 180 118 166" stroke="#D4D4D4" stroke-width="3" fill="none"/>
+      <circle cx="88" cy="172" r="2.5" fill="#FFF" stroke="#2A1E3F" stroke-width="1"/>
+      <circle cx="95" cy="175" r="2.5" fill="#FFF" stroke="#2A1E3F" stroke-width="1"/>
+      <circle cx="100" cy="176" r="3" fill="#FFF" stroke="#2A1E3F" stroke-width="1"/>
+      <circle cx="105" cy="175" r="2.5" fill="#FFF" stroke="#2A1E3F" stroke-width="1"/>
+      <circle cx="112" cy="172" r="2.5" fill="#FFF" stroke="#2A1E3F" stroke-width="1"/>
+      <!-- buttons -->
+      <circle cx="100" cy="192" r="3" fill="#FFF" stroke="#2A1E3F" stroke-width="1.5"/>
+      <circle cx="100" cy="212" r="3" fill="#FFF" stroke="#2A1E3F" stroke-width="1.5"/>
+      <circle cx="100" cy="232" r="3" fill="#FFF" stroke="#2A1E3F" stroke-width="1.5"/>
+      <!-- arms -->
+      <rect x="32" y="158" width="28" height="80" rx="14" fill="#D98A8A" stroke="#2A1E3F" stroke-width="5"/>
+      <rect x="140" y="158" width="28" height="80" rx="14" fill="#D98A8A" stroke="#2A1E3F" stroke-width="5"/>
+      <!-- hands -->
+      <circle cx="46" cy="240" r="12" fill="#F8CBA8" stroke="#2A1E3F" stroke-width="4"/>
+      <circle cx="154" cy="240" r="12" fill="#F8CBA8" stroke="#2A1E3F" stroke-width="4"/>
+      <!-- silver curly hair halo -->
+      <g fill="#E8E8E8" stroke="#2A1E3F" stroke-width="3">
+        <circle cx="56" cy="72" r="18"/>
+        <circle cx="76" cy="54" r="20"/>
+        <circle cx="100" cy="46" r="22"/>
+        <circle cx="124" cy="54" r="20"/>
+        <circle cx="144" cy="72" r="18"/>
+        <circle cx="52" cy="100" r="16"/>
+        <circle cx="148" cy="100" r="16"/>
+      </g>
+      <!-- head -->
+      <circle cx="100" cy="100" r="46" fill="#F8CBA8" stroke="#2A1E3F" stroke-width="5"/>
+      <!-- silver front curls -->
+      <g fill="#E8E8E8" stroke="#2A1E3F" stroke-width="2.5">
+        <circle cx="74" cy="68" r="10"/>
+        <circle cx="88" cy="58" r="11"/>
+        <circle cx="112" cy="58" r="11"/>
+        <circle cx="126" cy="68" r="10"/>
+      </g>
+      ${face}
+      <!-- reading glasses -->
+      <circle cx="76" cy="100" r="13" fill="none" stroke="#2A1E3F" stroke-width="3"/>
+      <circle cx="124" cy="100" r="13" fill="none" stroke="#2A1E3F" stroke-width="3"/>
+      <line x1="89" y1="100" x2="111" y2="100" stroke="#2A1E3F" stroke-width="3"/>
+      <!-- chain to neck -->
+      <path d="M63 102 Q52 128 82 148" stroke="#C8A87C" stroke-width="1.5" fill="none" stroke-dasharray="2,2"/>
+      <path d="M137 102 Q148 128 118 148" stroke="#C8A87C" stroke-width="1.5" fill="none" stroke-dasharray="2,2"/>
+      <!-- extra tears -->
+      <g>
+        <ellipse class="tear t7" cx="63" cy="108" rx="5" ry="7" fill="#6FB3FF"/>
+        <ellipse class="tear t8" cx="127" cy="108" rx="5" ry="7" fill="#6FB3FF"/>
+        <ellipse class="tear t9" cx="85" cy="130" rx="5" ry="8" fill="#6FB3FF"/>
+        <ellipse class="tear t10" cx="105" cy="130" rx="5" ry="8" fill="#6FB3FF"/>
+      </g>
+    </svg>`;
+  } else {
+    return `<svg viewBox="0 0 200 280">
+      <ellipse cx="100" cy="272" rx="62" ry="6" fill="rgba(0,0,0,.25)"/>
+      <!-- dress (purple, A-line flared) -->
+      <path d="M54 144 L38 254 L162 254 L146 144 Z" fill="#7B61FF" stroke="#2A1E3F" stroke-width="5"/>
+      <!-- dress waist detail -->
+      <path d="M54 144 L146 144" stroke="#2A1E3F" stroke-width="3"/>
+      <path d="M70 200 Q100 210 130 200" stroke="#5C43D9" stroke-width="3" fill="none"/>
+      <!-- arms -->
+      <rect x="34" y="154" width="26" height="78" rx="13" fill="#E8A87C" stroke="#2A1E3F" stroke-width="5"/>
+      <rect x="140" y="154" width="26" height="78" rx="13" fill="#E8A87C" stroke="#2A1E3F" stroke-width="5"/>
+      <!-- curly hair back -->
+      <g fill="#5C3317" stroke="#2A1E3F" stroke-width="3">
+        <circle cx="52" cy="58" r="20"/>
+        <circle cx="76" cy="40" r="22"/>
+        <circle cx="102" cy="34" r="24"/>
+        <circle cx="128" cy="42" r="22"/>
+        <circle cx="150" cy="60" r="20"/>
+        <circle cx="46" cy="96" r="18"/>
+        <circle cx="154" cy="96" r="18"/>
+        <circle cx="48" cy="126" r="16"/>
+        <circle cx="152" cy="126" r="16"/>
+      </g>
+      <!-- head -->
+      <circle cx="100" cy="100" r="44" fill="#E8A87C" stroke="#2A1E3F" stroke-width="5"/>
+      <!-- hair curls in front -->
+      <g fill="#5C3317" stroke="#2A1E3F" stroke-width="2.5">
+        <circle cx="70" cy="68" r="11"/>
+        <circle cx="90" cy="58" r="12"/>
+        <circle cx="110" cy="58" r="12"/>
+        <circle cx="130" cy="68" r="11"/>
+      </g>
+      ${face}
+    </svg>`;
+  }
+}
+
+// ================================================================
+// GAME STATE + CONTROLLER
+// ================================================================
+const ROOMS = [
+  { char:'man',    label:'ROOM 1 / 5', rClass:'r1', wallSym:'♥', wallClass:'' },
+  { char:'woman',  label:'ROOM 2 / 5', rClass:'r2', wallSym:'☀', wallClass:'r2' },
+  { char:'elder',  label:'ROOM 3 / 5', rClass:'r3', wallSym:'✿', wallClass:'r3' },
+  { char:'youth',  label:'ROOM 4 / 5', rClass:'r4', wallSym:'★', wallClass:'r4' },
+  { char:'granny', label:'ROOM 5 / 5', rClass:'r5', wallSym:'❋', wallClass:'r5' }
+];
+
+const COMFORT_MSGS = ['AHHH...','BETTER.','THAT HELPS.','BREATHING EASIER.','SAFE.','FEELS GOOD.'];
+const STRESS_MSGS  = ['OOF.','NOT HELPFUL.','PILING ON.','OW.','HARDER NOW.','TOO MUCH.'];
+
+const S = {
+  roomIdx: 0,
+  comfort: 0,
+  stress: 0,
+  busy: false
+};
+
+const G = {
+  start(){
+    Snd.wake(); Snd.ignite();
+    S.roomIdx = 0; S.comfort = 0; S.stress = 0;
+    this.enterRoom();
+  },
+
+  enterRoom(){
+    const r = ROOMS[S.roomIdx];
+    const room = document.getElementById('room');
+    room.className = ''; room.classList.add('on', r.rClass);
+    // wall art color variant
+    const wa = document.getElementById('wallArt');
+    wa.className = 'wall-art' + (r.wallClass ? ' ' + r.wallClass : '');
+    wa.textContent = r.wallSym;
+    document.getElementById('roomLabel').textContent = r.label;
+    // hide opening and end screens
+    document.getElementById('s-open').classList.remove('on');
+    document.getElementById('s-end').classList.remove('on');
+    // reset char
+    const char = document.getElementById('char');
+    char.innerHTML = charSVG(r.char);
+    const sad = (r.char === 'elder' || r.char === 'youth' || r.char === 'granny') ? ' sadder' : '';
+    char.className = 'char breath i2' + sad;
+    // reset counters
+    S.comfort = 0; S.stress = 0;
+    this.updateDots();
+    // build tray
+    this.buildTray();
+  },
+
+  buildTray(){
+    const tray = document.getElementById('tray');
+    tray.innerHTML = '';
+    // room-specific item pool
+    const keys = [...ROOM_ITEMS[S.roomIdx]];
+    // shuffle for variety
+    for(let i=keys.length-1;i>0;i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [keys[i],keys[j]] = [keys[j],keys[i]];
+    }
+    keys.forEach(k=>{
+      const it = ITEMS[k];
+      const el = document.createElement('div');
+      el.className = 'item';
+      el.dataset.key = k;
+      el.innerHTML = ITEM_SVG[k] + `<div class="item-label">${it.label}</div>`;
+      this.bindDrag(el, k);
+      tray.appendChild(el);
+    });
+  },
+
+  bindDrag(el, key){
+    const onDown = (e)=>{
+      if(S.busy) return;
+      e.preventDefault();
+      Snd.pickup();
+      const touch = e.touches ? e.touches[0] : e;
+      const rect = el.getBoundingClientRect();
+      const stage = document.getElementById('stage').getBoundingClientRect();
+      const ox = touch.clientX - rect.left;
+      const oy = touch.clientY - rect.top;
+      el.classList.add('dragging');
+      el.style.left = rect.left + 'px';
+      el.style.top  = rect.top + 'px';
+      el.style.width = rect.width + 'px';
+      el.style.height = rect.height + 'px';
+
+      const onMove = (ev)=>{
+        ev.preventDefault();
+        const t = ev.touches ? ev.touches[0] : ev;
+        el.style.left = (t.clientX - ox) + 'px';
+        el.style.top  = (t.clientY - oy) + 'px';
+        const dz = document.getElementById('drop').getBoundingClientRect();
+        const cx = t.clientX, cy = t.clientY;
+        // circular hit test
+        const dcx = dz.left + dz.width/2, dcy = dz.top + dz.height/2;
+        const dx = cx - dcx, dy = cy - dcy;
+        const over = (dx*dx)/((dz.width/2)**2) + (dy*dy)/((dz.height/2)**2) < 1;
+        document.getElementById('drop').classList.toggle('active', over);
+      };
+
+      const onUp = (ev)=>{
+        document.removeEventListener('pointermove', onMove);
+        document.removeEventListener('pointerup', onUp);
+        document.removeEventListener('touchmove', onMove);
+        document.removeEventListener('touchend', onUp);
+        const dz = document.getElementById('drop');
+        const wasOver = dz.classList.contains('active');
+        dz.classList.remove('active');
+        el.classList.remove('dragging');
+        el.style.left = ''; el.style.top = '';
+        el.style.width = ''; el.style.height = '';
+        if(wasOver){
+          G.handleDrop(key, el);
+        } else {
+          Snd.drop();
+        }
+      };
+
+      document.addEventListener('pointermove', onMove, {passive:false});
+      document.addEventListener('pointerup', onUp);
+      document.addEventListener('touchmove', onMove, {passive:false});
+      document.addEventListener('touchend', onUp);
+    };
+    el.addEventListener('pointerdown', onDown);
+  },
+
+  handleDrop(key, el){
+    if(S.busy) return;
+    const it = ITEMS[key];
+    el.classList.add('used');
+    const char = document.getElementById('char');
+    if(it.type === 'comfort'){
+      S.comfort++;
+      Snd.comfort();
+      this.showFB(this.randomMsg(COMFORT_MSGS), false);
+      char.classList.remove('shake');
+      char.classList.add('pop');
+      setTimeout(()=>char.classList.remove('pop'), 700);
+      // update intensity down
+      const newIntensity = Math.max(0, 2 - S.comfort);
+      char.classList.remove('i0','i1','i2','i3');
+      char.classList.add('i' + newIntensity);
+      this.updateDots();
+      if(S.comfort >= 3) this.roomWin();
+    } else {
+      S.stress++;
+      Snd.stress();
+      this.showFB(this.randomMsg(STRESS_MSGS), true);
+      char.classList.add('shake');
+      setTimeout(()=>char.classList.remove('shake'), 500);
+      // update intensity up
+      const newIntensity = Math.min(3, 2 + S.stress - S.comfort);
+      char.classList.remove('i0','i1','i2','i3');
+      char.classList.add('i' + Math.max(2, newIntensity));
+      this.updateDots();
+      if(S.stress >= 3) this.gameOver();
+    }
+  },
+
+  randomMsg(arr){ return arr[Math.floor(Math.random()*arr.length)]; },
+
+  showFB(text, bad){
+    const fb = document.getElementById('fb');
+    fb.textContent = text;
+    fb.classList.toggle('bad', bad);
+    fb.classList.remove('on');
+    void fb.offsetWidth;
+    fb.classList.add('on');
+  },
+
+  updateDots(){
+    const dc = document.getElementById('d-c').children;
+    const ds = document.getElementById('d-s').children;
+    for(let i=0;i<3;i++){
+      dc[i].classList.toggle('lit', i < S.comfort);
+      dc[i].classList.toggle('comfort', i < S.comfort);
+      ds[i].classList.toggle('lit', i < S.stress);
+      ds[i].classList.toggle('stress', i < S.stress);
+    }
+  },
+
+  roomWin(){
+    S.busy = true;
+    Snd.win();
+    setTimeout(()=>{
+      if(S.roomIdx < ROOMS.length - 1){
+        // advance
+        const flash = document.getElementById('flash');
+        flash.classList.add('on');
+        Snd.whoosh();
+        setTimeout(()=>{
+          S.roomIdx++;
+          S.busy = false;
+          this.enterRoom();
+          setTimeout(()=>flash.classList.remove('on'), 50);
+        }, 450);
+      } else {
+        // total win
+        setTimeout(()=>{ S.busy = false; this.totalWin(); }, 1200);
+      }
+    }, 1400);
+  },
+
+  totalWin(){
+    document.getElementById('room').classList.remove('on');
+    const end = document.getElementById('s-end');
+    end.classList.remove('lose');
+    end.classList.add('on');
+    document.getElementById('endTitle').textContent = '';
+    document.getElementById('endMsg').innerHTML = 
+      `Five people feel better because <span class="big-win">YOU HELPED</span><br><br>
+       You were kind. You brought soft things. You did not pile on.`;
+    Snd.win();
+    this.confetti();
+  },
+
+  gameOver(){
+    S.busy = true;
+    Snd.lose();
+    setTimeout(()=>{
+      S.busy = false;
+      document.getElementById('room').classList.remove('on');
+      const end = document.getElementById('s-end');
+      end.classList.add('on','lose');
+      document.getElementById('endTitle').textContent = 'TOO MUCH.';
+      document.getElementById('endMsg').innerHTML = 
+        `When someone is stressed, <b>more stress doesn't help</b>.<br><br>
+         You piled on. Most of us do this without meaning to. We offer busyness, sugar, booze, one more task.<br><br>
+         Now you know. Try again with softer hands.`;
+    }, 1400);
+  },
+
+  restart(){
+    document.getElementById('s-end').classList.remove('on','lose');
+    document.querySelectorAll('.confetti').forEach(e=>e.remove());
+    document.querySelectorAll('.dancers-left, .dancers-right').forEach(e=>e.remove());
+    S.roomIdx = 0; S.comfort = 0; S.stress = 0;
+    this.enterRoom();
+  },
+
+  confetti(){
+    const cols = ['#FFE44D','#FF6B9D','#44CFCB','#7FD97F','#FF8A65','#7B61FF','#FFB800','#22C55E'];
+    const wrap = document.getElementById('s-end');
+    // ENORMOUS confetti burst
+    for(let i=0;i<700;i++){
+      setTimeout(()=>{
+        const el = document.createElement('div');
+        el.className = 'confetti';
+        const c = cols[Math.floor(Math.random()*cols.length)];
+        const sz = 6 + Math.random()*16;
+        el.style.cssText = `
+          left: ${Math.random()*100}%; top: -18px;
+          width: ${sz}px; height: ${sz}px; background: ${c};
+          border-radius: ${Math.random()>.5?'50%':'2px'};
+          animation: cfall ${1.3+Math.random()*2.4}s ease-in forwards;
+        `;
+        wrap.appendChild(el);
+        setTimeout(()=>el.remove(), 4200);
+      }, i*10);
+    }
+    // Dancing sunlight, knitting, and broccoli flanking the button
+    const left = document.createElement('div');
+    left.className = 'dancers-left';
+    const right = document.createElement('div');
+    right.className = 'dancers-right';
+    const types = ['sun','knit','broccoli'];
+    for(let i=0;i<5;i++){
+      const dL = document.createElement('div');
+      dL.className = 'dancer';
+      dL.innerHTML = ITEM_SVG[types[i%3]];
+      dL.style.animationDelay = (i*0.1) + 's';
+      left.appendChild(dL);
+      const dR = document.createElement('div');
+      dR.className = 'dancer';
+      dR.innerHTML = ITEM_SVG[types[(i+2)%3]];
+      dR.style.animationDelay = (i*0.1 + 0.05) + 's';
+      right.appendChild(dR);
+    }
+    wrap.appendChild(left);
+    wrap.appendChild(right);
+  }
+};
+</script>
+</body>
+</html>
