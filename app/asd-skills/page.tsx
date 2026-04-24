@@ -1,4 +1,5 @@
 import { ToolPageLayout } from "@/components/tool-page-layout"
+import { MeltdownWorksheet } from "@/components/tools/meltdown-worksheet"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -95,6 +96,9 @@ export default function ASDSkillsPage() {
             one person&apos;s neurodivergence on a shared system.
           </p>
         </div>
+
+        {/* Interactive worksheet */}
+        <MeltdownWorksheet />
 
       </div>
     </ToolPageLayout>

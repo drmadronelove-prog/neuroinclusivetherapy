@@ -1,4 +1,5 @@
 import { ToolPageLayout } from "@/components/tool-page-layout"
+import { ICBTTrueSelfWorksheet } from "@/components/tools/icbt-true-self-worksheet"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -124,6 +125,9 @@ export default function OCDSkillsPage() {
             by your values and goals.
           </p>
         </div>
+
+        {/* Interactive worksheet */}
+        <ICBTTrueSelfWorksheet />
 
       </div>
     </ToolPageLayout>
