@@ -4,14 +4,57 @@ import { useState } from "react"
 import Link from "next/link"
 
 // Six distinct earthy-but-saturated colours — one per spine
-const navItems = [
+const navItems: ReadonlyArray<{ id: string; label: string; href: string; spineColor: string; external?: boolean }> = [
   { id: "01", label: "TESTS",           href: "/tests",              spineColor: "#A7B79F" },
   { id: "02", label: "NEURODIVERGENCE", href: "/neurodiversity",     spineColor: "#C17C74" },
   { id: "03", label: "BRAIN GAMES",     href: "/brain-games",        spineColor: "#7D805F" },
   { id: "04", label: "BLOG",            href: "/blog",               spineColor: "#B0A898" },
-  { id: "05", label: "INDIVIDUAL THERAPY", href: "/individual-therapy", spineColor: "#8A9E96" },
+  { id: "05", label: "INDIVIDUAL THERAPY", href: "https://v0-madronelove-website.vercel.app/", spineColor: "#8A9E96", external: true },
   { id: "07", label: "CONTACT",         href: "/contact",            spineColor: "#A08070" },
 ]
+
+type NavItem = (typeof navItems)[number]
+
+function NavLink({
+  item, children, className, style, onMouseEnter, onMouseLeave, onClick,
+}: {
+  item: NavItem
+  children: React.ReactNode
+  className?: string
+  style?: React.CSSProperties
+  onMouseEnter?: () => void
+  onMouseLeave?: () => void
+  onClick?: () => void
+}) {
+  if (item.external) {
+    return (
+      <a
+        href={item.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+        style={style}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        onClick={onClick}
+      >
+        {children}
+      </a>
+    )
+  }
+  return (
+    <Link
+      href={item.href}
+      className={className}
+      style={style}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      onClick={onClick}
+    >
+      {children}
+    </Link>
+  )
+}
 
 // Step size in px — each spine starts this much lower than the previous
 const STEP = 61
@@ -30,9 +73,9 @@ export function DiagonalNav() {
         const topOffset = index * STEP
 
         return (
-          <Link
+          <NavLink
             key={item.id}
-            href={item.href}
+            item={item}
             className="relative flex flex-col items-center transition-all duration-300 ease-out"
             style={{
               width: isHovered ? "52px" : "42px",
@@ -69,7 +112,7 @@ export function DiagonalNav() {
               </span>
             </div>
 
-          </Link>
+          </NavLink>
         )
       })}
     </nav>
@@ -93,7 +136,7 @@ export function MobileNav() {
       {isOpen && (
         <div className="bg-background border-t border-border">
           {navItems.map((item) => (
-            <Link key={item.id} href={item.href}
+            <NavLink key={item.id} item={item}
               className="flex items-center gap-4 p-4 border-b border-border"
               onClick={() => setIsOpen(false)}
             >
@@ -101,7 +144,7 @@ export function MobileNav() {
               <span style={{ fontFamily: "var(--font-accent)", fontWeight: 600, letterSpacing: "0.04em", fontSize: "0.95rem" }}>
                 {item.label}
               </span>
-            </Link>
+            </NavLink>
           ))}
         </div>
       )}

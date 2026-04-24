@@ -13,9 +13,11 @@ export function HeroSection() {
       style={{ minHeight: "100svh" }}
     >
 
-      {/* Logo + name — fixed top-left, front page only */}
-      <Link
-        href="/"
+      {/* Logo + name — fixed top-left, front page only. Links to Madrone's personal site. */}
+      <a
+        href="https://v0-madronelove-website.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
         className="no-print fixed top-3 left-3 z-[60]"
         style={{ display: "flex", alignItems: "center", gap: "10px" }}
       >
@@ -39,7 +41,7 @@ export function HeroSection() {
             letterSpacing: "0.15em",
           }}>Clinical Psychologist</span>
         </div>
-      </Link>
+      </a>
 
       {/* Full-bleed video */}
       <div aria-hidden="true" style={{ position: "absolute", inset: 0, overflow: "hidden", zIndex: 0 }}>

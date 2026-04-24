@@ -19,7 +19,7 @@ const cards = [
   // Row 3
   { title: "Anxiety + OCD Skills",       href: "/ocd-skills",         borderColor: "#A7B79F", rotate: -2   },
   { title: "Mindfulness + Brain Games",  href: "/mindfulness-games",  borderColor: "#8A9E96", rotate:  1   },
-  { title: "Madrone Love, PsyD",         href: "https://v0-madronelove-website-23grubr6l-website16.vercel.app/", borderColor: "#8A9E96", rotate: -0.5 },
+  { title: "Madrone Love, PsyD",         href: "https://v0-madronelove-website.vercel.app/", borderColor: "#8A9E96", rotate: -0.5 },
 ]
 
 export function HeroCards() {

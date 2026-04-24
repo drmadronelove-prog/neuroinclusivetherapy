@@ -26,7 +26,7 @@ export function SiteFooter() {
 
         {/* Quick links */}
         <div className="flex flex-wrap gap-x-5 gap-y-1 text-xs text-muted-foreground">
-          <Link href="/individual-therapy" className="hover:text-foreground transition-colors">Therapy</Link>
+          <a href="https://v0-madronelove-website.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Therapy</a>
           <Link href="/tests" className="hover:text-foreground transition-colors">Tests &amp; Tools</Link>
           <Link href="/neurodiversity" className="hover:text-foreground transition-colors">Neurodiversity</Link>
           <Link href="/blog" className="hover:text-foreground transition-colors">Blog</Link>
