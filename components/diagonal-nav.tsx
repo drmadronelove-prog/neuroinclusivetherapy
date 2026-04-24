@@ -5,11 +5,12 @@ import Link from "next/link"
 
 // Earthy-but-saturated colours — one per spine
 const navItems: ReadonlyArray<{ id: string; label: string; href: string; spineColor: string; external?: boolean }> = [
-  { id: "01", label: "NEURODIVERGENCE", href: "/neurodiversity",     spineColor: "#C17C74" },
-  { id: "02", label: "BRAIN GAMES",     href: "/brain-games",        spineColor: "#7D805F" },
-  { id: "03", label: "BLOG",            href: "/blog",               spineColor: "#B0A898" },
-  { id: "04", label: "INDIVIDUAL THERAPY", href: "https://v0-madronelove-website.vercel.app/", spineColor: "#8A9E96", external: true },
-  { id: "05", label: "CONTACT",         href: "/contact",            spineColor: "#A08070" },
+  { id: "01", label: "TESTS",           href: "/tests",              spineColor: "#A7B79F" },
+  { id: "02", label: "NEURODIVERGENCE", href: "/neurodiversity",     spineColor: "#C17C74" },
+  { id: "03", label: "BRAIN GAMES",     href: "/brain-games",        spineColor: "#7D805F" },
+  { id: "04", label: "BLOG",            href: "/blog",               spineColor: "#B0A898" },
+  { id: "05", label: "INDIVIDUAL THERAPY", href: "https://v0-madronelove-website.vercel.app/", spineColor: "#8A9E96", external: true },
+  { id: "06", label: "CONTACT",         href: "/contact",            spineColor: "#A08070" },
 ]
 
 type NavItem = (typeof navItems)[number]

@@ -10,13 +10,14 @@ const PAPER_BG = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/
 const cards = [
   // Row 1
   { title: "Neurodiversity",             href: "/neurodiversity",     borderColor: "#B89878", rotate: -2   },
-  { title: "Blog",                        href: "/blog",               borderColor: "#A7B79F", rotate:  1.5 },
-  { title: "ASD Skills",                  href: "/asd-skills",         borderColor: "#8A9E96", rotate: -1   },
+  { title: "Tests",                       href: "/tests",              borderColor: "#A7B79F", rotate:  1   },
+  { title: "Blog",                        href: "/blog",               borderColor: "#B0A898", rotate:  1.5 },
   // Row 2
+  { title: "ASD Skills",                  href: "/asd-skills",         borderColor: "#8A9E96", rotate: -1   },
   { title: "ADHD Skills",                 href: "/adhd-skills",        borderColor: "#C17C74", rotate:  1   },
   { title: "OCD Skills",                  href: "/ocd-skills",         borderColor: "#A7B79F", rotate: -2   },
-  { title: "Mindfulness",                 href: "/mindfulness",        borderColor: "#7D805F", rotate:  0.5 },
   // Row 3
+  { title: "Mindfulness",                 href: "/mindfulness",        borderColor: "#7D805F", rotate:  0.5 },
   { title: "Brain Games",                 href: "/brain-games",        borderColor: "#8A9E96", rotate: -1.5 },
   { title: "Madrone Love, PsyD",          href: "https://v0-madronelove-website.vercel.app/", borderColor: "#8A9E96", rotate: -0.5 },
 ]
