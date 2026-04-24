@@ -208,7 +208,14 @@ export function WorksheetPrintStyles() {
       .worksheet-root .worksheet-input { field-sizing: content; }
       @media print {
         .worksheet-noprint { display: none !important; }
-        .worksheet-root { background: white !important; color: black !important; }
+        .worksheet-root {
+          background: white !important;
+          color: black !important;
+          border: none !important;
+          border-radius: 0 !important;
+          box-shadow: none !important;
+          padding: 0 !important;
+        }
         .worksheet-root .worksheet-card {
           background: transparent !important;
           border: none !important;

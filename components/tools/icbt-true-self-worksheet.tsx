@@ -20,7 +20,7 @@ export function ICBTTrueSelfWorksheet() {
   const { getStr, getArr, set, toggle, reset } = useWorksheetState("nd-icbt-trueself")
 
   return (
-    <div className="worksheet-root mb-16">
+    <div className="worksheet-root bg-[#FAF7F1] dark:bg-[#2E3629] border border-border rounded-2xl shadow-sm p-6 sm:p-8 mb-16">
       <WorksheetPrintStyles />
 
       <div className="text-[0.7rem] font-bold uppercase tracking-[0.2em] text-nav-teal mb-1">

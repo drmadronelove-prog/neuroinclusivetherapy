@@ -60,7 +60,7 @@ export function MeltdownWorksheet() {
   const { getStr, getArr, set, toggle, reset } = useWorksheetState("nd-meltdown-workbook")
 
   return (
-    <div className="worksheet-root mb-16">
+    <div className="worksheet-root bg-[#FAF7F1] dark:bg-[#2E3629] border border-border rounded-2xl shadow-sm p-6 sm:p-8 mb-16">
       <WorksheetPrintStyles />
 
       <h2 className="font-[var(--font-display)] text-3xl sm:text-4xl font-black text-foreground tracking-tight mb-2">
