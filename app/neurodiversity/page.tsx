@@ -1,4 +1,3 @@
-import { DiagonalNav, MobileNav } from "@/components/diagonal-nav"
 import { LeftAccent } from "@/components/left-accent"
 import { HoverProvider } from "@/components/hover-context"
 import { NetworkGraph, type GraphNode } from "@/components/neurodivergence-network"
@@ -77,13 +76,10 @@ export default function NeurodiversityPage() {
   return (
     <HoverProvider>
       <main className="relative bg-background overflow-x-hidden">
-        <DiagonalNav />
-        <MobileNav />
         <LeftAccent />
 
-        <div className="md:mr-[378px]">
-          <section className="min-h-screen px-6 lg:px-16 pt-24 md:pt-12 pb-20">
-            <div className="max-w-6xl mx-auto w-full">
+        <section className="min-h-screen px-6 lg:px-16 pt-16 md:pt-12 pb-20">
+          <div className="max-w-6xl mx-auto w-full">
 
               {/* Back link */}
               <Link
@@ -146,9 +142,8 @@ export default function NeurodiversityPage() {
                 <MechanismMatrix />
               </div>
 
-            </div>
-          </section>
-        </div>
+          </div>
+        </section>
       </main>
     </HoverProvider>
   )
