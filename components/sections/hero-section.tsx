@@ -74,9 +74,9 @@ export function HeroSection() {
         style={{ zIndex: 2 }}
       >
         {/* Heading + cards */}
-        <div className="flex flex-col lg:flex-row lg:items-end gap-6 lg:gap-12 w-full max-w-6xl mx-auto lg:pb-16">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 lg:items-end gap-6 lg:gap-12 w-full max-w-6xl mx-auto lg:pb-16">
 
-          <div className="shrink-0 space-y-1 text-center lg:text-left mx-auto lg:mx-0" style={{ maxWidth: "340px" }}>
+          <div className="shrink-0 space-y-1 text-center lg:text-left mx-auto lg:mx-0 lg:self-start lg:mt-[11rem]" style={{ maxWidth: "340px" }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -109,7 +109,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex-1 flex justify-center lg:justify-end"
+            className="flex justify-center lg:justify-start"
           >
             <HeroCards />
           </motion.div>
