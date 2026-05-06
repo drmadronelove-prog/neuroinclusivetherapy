@@ -76,7 +76,7 @@ export function ContactSection() {
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
                   <p className="text-foreground font-medium">
-                    therapy@madronelove.com
+                    info@oliveclinical.com
                   </p>
                 </div>
               </div>

@@ -57,14 +57,14 @@ export default function ContactPage() {
             </a>
 
             <a
-              href="mailto:therapy@madronelove.com"
+              href="mailto:info@oliveclinical.com"
               className="inline-flex items-center gap-3 px-5 py-3 rounded-lg border-2 border-nav-seafoam text-nav-seafoam font-[var(--font-display)] font-bold tracking-wide text-sm hover:bg-nav-seafoam/10 transition-colors"
             >
               <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
-              therapy@madronelove.com
+              info@oliveclinical.com
             </a>
           </div>
 

@@ -41,8 +41,8 @@ export function SiteFooter() {
           <p>
             <a href="tel:+14159152183" className="hover:text-foreground transition-colors">(415) 915-2183</a>
             {" · "}
-            <a href="mailto:therapy@madronelove.com" className="hover:text-foreground transition-colors">
-              therapy@madronelove.com
+            <a href="mailto:info@oliveclinical.com" className="hover:text-foreground transition-colors">
+              info@oliveclinical.com
             </a>
           </p>
         </div>

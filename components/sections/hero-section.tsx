@@ -110,7 +110,7 @@ export function HeroSection() {
             San Francisco &amp; Berkeley &nbsp;·&nbsp;{" "}
             <a href="tel:+14159152183" className="hover:opacity-100 transition-opacity">(415) 915-2183</a>
             {" "}&nbsp;·&nbsp;{" "}
-            <a href="mailto:therapy@madronelove.com" className="hover:opacity-100 transition-opacity">therapy@madronelove.com</a>
+            <a href="mailto:info@oliveclinical.com" className="hover:opacity-100 transition-opacity">info@oliveclinical.com</a>
           </p>
         </div>
       </div>
@@ -133,7 +133,7 @@ export function HeroSection() {
           </p>
           <div className="flex flex-wrap gap-x-5 gap-y-1" style={{ fontFamily: "var(--font-accent)", color: "rgba(61,82,48,0.48)", fontSize: "1.1rem" }}>
             <a href="tel:+14159152183" className="hover:opacity-100 transition-opacity">(415) 915-2183</a>
-            <a href="mailto:therapy@madronelove.com" className="hover:opacity-100 transition-opacity">therapy@madronelove.com</a>
+            <a href="mailto:info@oliveclinical.com" className="hover:opacity-100 transition-opacity">info@oliveclinical.com</a>
             <Link href="/contact" className="hover:opacity-100 transition-opacity">Book a consultation</Link>
           </div>
         </div>

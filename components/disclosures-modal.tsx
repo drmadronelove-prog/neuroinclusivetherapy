@@ -113,10 +113,10 @@ export function DisclosuresModal() {
               <p className="text-xs border-t border-border pt-4">
                 Questions? Contact{" "}
                 <a
-                  href="mailto:therapy@madronelove.com"
+                  href="mailto:info@oliveclinical.com"
                   className="text-nav-coral hover:underline"
                 >
-                  therapy@madronelove.com
+                  info@oliveclinical.com
                 </a>
               </p>
             </div>
