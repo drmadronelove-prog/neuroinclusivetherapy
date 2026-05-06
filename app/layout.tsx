@@ -28,8 +28,8 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: 'Madrone Love, PsyD | Neuroinclusive Therapy',
-  description: 'Compassionate, neuroinclusive therapy services by Madrone Love, PsyD. Specializing in neurodivergent-affirming care, ADHD, autism, and holistic mental wellness.',
+  title: 'Olive Clinical | Neuroinclusive Therapy',
+  description: 'Compassionate, neuroinclusive therapy services from Olive Clinical. Specializing in neurodivergent-affirming care, ADHD, autism, and holistic mental wellness.',
   generator: 'v0.app',
   icons: {
     icon: '/olive-logo.svg',
