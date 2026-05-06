@@ -21,37 +21,70 @@ export type BlogPost = {
   blocks: Block[]
 }
 
+// ── Blue-grey palette ─────────────────────────────────────────────────────────
+// All text and accents in the blog post use variations of blue-grey.
+const BG = {
+  lightest: "#BFCAD6",
+  light: "#A7B7C8",
+  medium: "#8A9AAE",
+  dark: "#6B7B8C",
+  darker: "#4F5D6E",
+  darkest: "#2F3B47",
+} as const
+
 // ── Renderer ──────────────────────────────────────────────────────────────────
 
 export function BlogPostArticle({ post }: { post: BlogPost }) {
   return (
     <article className="max-w-2xl mx-auto space-y-8">
       {/* Header */}
-      <header className="space-y-4 pb-6 border-b border-border">
+      <header
+        className="space-y-4 pb-6"
+        style={{ borderBottom: `1px solid ${BG.lightest}` }}
+      >
         {/* Category tag */}
-        <span className="inline-block text-xs font-bold tracking-widest uppercase text-nav-teal border border-nav-teal rounded-full px-3 py-1">
+        <span
+          className="inline-block text-xs font-bold tracking-widest uppercase rounded-full px-3 py-1"
+          style={{
+            color: BG.dark,
+            border: `1px solid ${BG.light}`,
+            backgroundColor: "rgba(167,183,200,0.10)",
+          }}
+        >
           {post.category}
         </span>
 
         {/* Title */}
-        <h1 className="font-[var(--font-display)] text-4xl sm:text-5xl font-black text-foreground leading-tight tracking-tight">
+        <h1
+          className="text-4xl sm:text-5xl font-black leading-tight tracking-tight"
+          style={{ fontFamily: "var(--font-display)", color: BG.darkest }}
+        >
           {post.title}
         </h1>
 
         {/* Subtitle */}
-        <p className="text-xl text-muted-foreground leading-snug font-medium">
+        <p
+          className="text-xl leading-snug font-medium"
+          style={{ color: BG.dark }}
+        >
           {post.subtitle}
         </p>
 
         {/* Byline */}
         <div className="flex items-center gap-2 pt-1">
-          <span className="text-sm font-semibold text-foreground">{post.author}</span>
-          <span className="text-muted-foreground text-sm">·</span>
-          <span className="text-sm text-muted-foreground">{post.credential}</span>
+          <span className="text-sm font-semibold" style={{ color: BG.darker }}>
+            {post.author}
+          </span>
+          <span className="text-sm" style={{ color: BG.medium }}>·</span>
+          <span className="text-sm" style={{ color: BG.dark }}>
+            {post.credential}
+          </span>
           {post.date && (
             <>
-              <span className="text-muted-foreground text-sm">·</span>
-              <span className="text-sm text-muted-foreground">{post.date}</span>
+              <span className="text-sm" style={{ color: BG.medium }}>·</span>
+              <span className="text-sm" style={{ color: BG.dark }}>
+                {post.date}
+              </span>
             </>
           )}
         </div>
@@ -65,7 +98,8 @@ export function BlogPostArticle({ post }: { post: BlogPost }) {
               return (
                 <p
                   key={i}
-                  className={`text-foreground leading-relaxed text-[1.05rem]${block.dropCap ? " prose-drop-cap" : ""}`}
+                  className={`leading-relaxed text-[1.05rem]${block.dropCap ? " prose-drop-cap-bg" : ""}`}
+                  style={{ color: BG.darker }}
                 >
                   {block.text}
                 </p>
@@ -75,7 +109,11 @@ export function BlogPostArticle({ post }: { post: BlogPost }) {
               return (
                 <h2
                   key={i}
-                  className="font-[var(--font-display)] text-2xl sm:text-3xl font-black text-foreground tracking-tight pt-4"
+                  className="text-2xl sm:text-3xl font-black tracking-tight pt-4"
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    color: BG.darkest,
+                  }}
                 >
                   {block.text}
                 </h2>
@@ -85,9 +123,16 @@ export function BlogPostArticle({ post }: { post: BlogPost }) {
               return (
                 <blockquote
                   key={i}
-                  className="border-l-4 border-nav-teal pl-5 py-2 my-8 bg-nav-teal/5 rounded-r-lg"
+                  className="pl-5 py-2 my-8 rounded-r-lg"
+                  style={{
+                    borderLeft: `4px solid ${BG.medium}`,
+                    backgroundColor: "rgba(138,154,174,0.08)",
+                  }}
                 >
-                  <p className="text-lg sm:text-xl text-foreground font-medium leading-snug italic">
+                  <p
+                    className="text-lg sm:text-xl font-medium leading-snug italic"
+                    style={{ color: BG.darker }}
+                  >
                     {block.text}
                   </p>
                 </blockquote>
@@ -97,7 +142,11 @@ export function BlogPostArticle({ post }: { post: BlogPost }) {
               return (
                 <footer
                   key={i}
-                  className="mt-12 pt-6 border-t border-border text-sm text-muted-foreground leading-relaxed"
+                  className="mt-12 pt-6 text-sm leading-relaxed"
+                  style={{
+                    borderTop: `1px solid ${BG.lightest}`,
+                    color: BG.dark,
+                  }}
                 >
                   <p>{block.text}</p>
                 </footer>
@@ -107,10 +156,24 @@ export function BlogPostArticle({ post }: { post: BlogPost }) {
               return (
                 <div
                   key={i}
-                  className="bg-nav-teal/8 border border-nav-teal/20 rounded-lg px-6 py-5 my-6"
+                  className="rounded-lg px-6 py-5 my-6"
+                  style={{
+                    backgroundColor: "rgba(138,154,174,0.10)",
+                    border: `1px solid ${BG.light}`,
+                  }}
                 >
-                  <p className="font-semibold text-[0.95rem] text-foreground mb-2">{block.heading}</p>
-                  <p className="text-[0.95rem] text-muted-foreground leading-relaxed">{block.text}</p>
+                  <p
+                    className="font-semibold text-[0.95rem] mb-2"
+                    style={{ color: BG.darkest }}
+                  >
+                    {block.heading}
+                  </p>
+                  <p
+                    className="text-[0.95rem] leading-relaxed"
+                    style={{ color: BG.dark }}
+                  >
+                    {block.text}
+                  </p>
                 </div>
               )
 
@@ -118,8 +181,15 @@ export function BlogPostArticle({ post }: { post: BlogPost }) {
               return (
                 <ul key={i} className="space-y-2 my-4">
                   {block.items.map((item, j) => (
-                    <li key={j} className="flex gap-3 text-[1.05rem] text-foreground leading-relaxed">
-                      <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-nav-teal" />
+                    <li
+                      key={j}
+                      className="flex gap-3 text-[1.05rem] leading-relaxed"
+                      style={{ color: BG.darker }}
+                    >
+                      <span
+                        className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full"
+                        style={{ backgroundColor: BG.medium }}
+                      />
                       <span>{item}</span>
                     </li>
                   ))}

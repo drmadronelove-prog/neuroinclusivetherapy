@@ -161,6 +161,18 @@
   padding-top: 0.05em;
 }
 
+/* Blue-grey drop cap variant used by blog articles */
+.prose-drop-cap-bg::first-letter {
+  float: left;
+  font-family: var(--font-display), 'Barlow Condensed', sans-serif;
+  font-size: 4.5rem;
+  font-weight: 900;
+  line-height: 0.8;
+  color: #4F5D6E;
+  padding-right: 0.12em;
+  padding-top: 0.05em;
+}
+
 @media print {
   /* Hide all navigation and UI chrome */
   .no-print {
