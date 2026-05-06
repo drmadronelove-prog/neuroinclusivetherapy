@@ -27,7 +27,7 @@ export function HeroSection() {
           fontFamily: "var(--font-accent)",
           fontSize: "2.4rem",
           fontWeight: 700,
-          color: "#7D805F",
+          color: "#8A9AAE",
           lineHeight: 1,
           letterSpacing: "0.01em",
         }}>Olive Clinical</span>
