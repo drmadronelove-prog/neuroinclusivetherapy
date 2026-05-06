@@ -24,7 +24,7 @@ export function HeroSection() {
           alignItems: "center",
           fontFamily: "var(--font-body)",
           fontSize: "2rem",
-          fontWeight: 600,
+          fontWeight: 400,
           color: "#8A9AAE",
           lineHeight: 1,
           letterSpacing: "0.005em",
@@ -32,14 +32,13 @@ export function HeroSection() {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/olive-logo.png"
+          src="/olive-logo.svg"
           alt="O"
           style={{
             display: "block",
-            height: "1.5em",
+            height: "1em",
             width: "auto",
-            marginRight: "-0.02em",
-            marginTop: 0,
+            marginRight: "0.02em",
             flexShrink: 0,
           }}
         />
