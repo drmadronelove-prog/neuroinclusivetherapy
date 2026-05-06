@@ -76,7 +76,7 @@ export function HeroSection() {
         {/* Heading + cards (absolute positioned on desktop, in flex flow on mobile) */}
         <div className="flex flex-col gap-6 w-full lg:max-w-none mx-auto">
 
-          <div className="shrink-0 space-y-1 text-center lg:text-left mx-auto lg:mx-0 lg:absolute lg:left-5 lg:bottom-[19rem]" style={{ maxWidth: "340px" }}>
+          <div className="shrink-0 space-y-1 text-center lg:text-left mx-auto lg:mx-0 lg:absolute lg:left-[2.9rem] lg:bottom-[13rem]" style={{ maxWidth: "340px" }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
