@@ -13,24 +13,37 @@ export function HeroSection() {
       style={{ minHeight: "100svh" }}
     >
 
-      {/* Logo + name — fixed top-left, front page only. */}
+      {/* Wordmark — olive logo stands in for the "O" in Olive. */}
       <a
         href="https://v0-madronelove-website.vercel.app/"
         target="_blank"
         rel="noopener noreferrer"
         className="no-print fixed top-4 left-5 z-[60]"
-        style={{ display: "flex", alignItems: "center", gap: "14px" }}
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/olive-logo.png" alt="" width={64} height={64} style={{ display: "block", flexShrink: 0 }} />
-        <span style={{
+        style={{
+          display: "flex",
+          alignItems: "center",
           fontFamily: "var(--font-accent)",
           fontSize: "2.4rem",
           fontWeight: 700,
           color: "#8A9AAE",
           lineHeight: 1,
           letterSpacing: "0.01em",
-        }}>Olive Clinical</span>
+        }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/olive-logo.png"
+          alt="O"
+          style={{
+            display: "block",
+            height: "3.2em",
+            width: "auto",
+            marginRight: "0.04em",
+            marginTop: "-0.55em",
+            flexShrink: 0,
+          }}
+        />
+        <span>live Clinical</span>
       </a>
 
       {/* Full-bleed video */}
