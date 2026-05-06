@@ -18,21 +18,19 @@ export function HeroSection() {
         href="https://v0-madronelove-website.vercel.app/"
         target="_blank"
         rel="noopener noreferrer"
-        className="no-print fixed top-3 left-3 z-[60]"
-        style={{ display: "flex", alignItems: "center", gap: "10px" }}
+        className="no-print fixed top-4 left-5 z-[60]"
+        style={{ display: "flex", alignItems: "center", gap: "14px" }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/olive-logo.svg" alt="" width={52} height={52} style={{ display: "block", flexShrink: 0, color: "#3D5230" }} />
-        <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
-          <span style={{
-            fontFamily: "var(--font-accent)",
-            fontSize: "1.55rem",
-            fontWeight: 700,
-            color: "#8A7E6E",
-            lineHeight: 1.1,
-            letterSpacing: "0.02em",
-          }}>Olive Clinical</span>
-        </div>
+        <img src="/olive-logo.svg" alt="" width={64} height={64} style={{ display: "block", flexShrink: 0, color: "#7D805F" }} />
+        <span style={{
+          fontFamily: "var(--font-accent)",
+          fontSize: "2.4rem",
+          fontWeight: 700,
+          color: "#7D805F",
+          lineHeight: 1,
+          letterSpacing: "0.01em",
+        }}>Olive Clinical</span>
       </a>
 
       {/* Full-bleed video */}
