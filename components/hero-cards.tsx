@@ -9,17 +9,17 @@ const PAPER_BG = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/
 
 const cards = [
   // Row 1
-  { title: "Neurodiversity",             href: "/neurodiversity",     borderColor: "#B8C5D2", rotate: -2   },
+  { title: "Neurodiversity",             href: "/neurodiversity",     borderColor: "#A7B7C8", rotate: -2   },
   { title: "Tests",                       href: "/tests",              borderColor: "#A7B7C8", rotate:  1   },
-  { title: "Blog",                        href: "/blog",               borderColor: "#95A6BC", rotate:  1.5 },
+  { title: "Blog",                        href: "/blog",               borderColor: "#A7B7C8", rotate:  1.5 },
   // Row 2
-  { title: "ASD Skills",                  href: "/asd-skills",         borderColor: "#8A9AAE", rotate: -1   },
-  { title: "ADHD Skills",                 href: "/adhd-skills",        borderColor: "#7E91A8", rotate:  1   },
-  { title: "OCD Skills",                  href: "/ocd-skills",         borderColor: "#71849D", rotate: -2   },
+  { title: "ASD Skills",                  href: "/asd-skills",         borderColor: "#A7B7C8", rotate: -1   },
+  { title: "ADHD Skills",                 href: "/adhd-skills",        borderColor: "#A7B7C8", rotate:  1   },
+  { title: "OCD Skills",                  href: "/ocd-skills",         borderColor: "#A7B7C8", rotate: -2   },
   // Row 3
-  { title: "Mindfulness",                 href: "/mindfulness",        borderColor: "#5F779A", rotate:  0.5 },
-  { title: "Brain Games",                 href: "/brain-games",        borderColor: "#527090", rotate: -1.5 },
-  { title: "Madrone Love, PsyD",          href: "https://v0-madronelove-website.vercel.app/", borderColor: "#466384", rotate: -0.5 },
+  { title: "Mindfulness",                 href: "/mindfulness",        borderColor: "#A7B7C8", rotate:  0.5 },
+  { title: "Brain Games",                 href: "/brain-games",        borderColor: "#A7B7C8", rotate: -1.5 },
+  { title: "Madrone Love, PsyD",          href: "https://v0-madronelove-website.vercel.app/", borderColor: "#A7B7C8", rotate: -0.5 },
 ]
 
 export function HeroCards() {
@@ -57,7 +57,7 @@ function HeroCard({
           aspectRatio: "17 / 20",
           height: undefined,
           backgroundColor: "rgba(248, 244, 238, 0.92)",
-          backgroundImage: `${PAPER_BG}, linear-gradient(160deg, rgba(138,154,174,0.20) 0%, rgba(138,154,174,0.12) 100%)`,
+          backgroundImage: `${PAPER_BG}, linear-gradient(160deg, rgba(138,154,174,0.25) 0%, rgba(138,154,174,0.17) 100%)`,
           backgroundSize: "200px 200px, cover",
           backdropFilter: "blur(8px)",
           WebkitBackdropFilter: "blur(8px)",

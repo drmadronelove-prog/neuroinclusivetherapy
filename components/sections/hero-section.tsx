@@ -27,7 +27,8 @@ export function HeroSection() {
           fontWeight: 400,
           color: "#8A9AAE",
           lineHeight: 1,
-          letterSpacing: "0.005em",
+          letterSpacing: "0.06em",
+          textTransform: "uppercase",
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -109,7 +110,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex justify-center lg:absolute lg:left-1/2 lg:bottom-[6rem] lg:-translate-x-1/2"
+            className="flex justify-center lg:absolute lg:left-[calc(50%+3rem)] lg:bottom-[6rem] lg:-translate-x-1/2"
           >
             <HeroCards />
           </motion.div>
