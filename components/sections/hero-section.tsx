@@ -70,13 +70,13 @@ export function HeroSection() {
 
       {/* Main content — flex-col on mobile so footer anchors to bottom */}
       <div
-        className="relative min-h-[100svh] flex flex-col justify-between lg:justify-end px-6 lg:px-16 pt-20 pb-0 lg:pt-0"
+        className="relative min-h-[100svh] flex flex-col justify-between lg:justify-end px-6 lg:px-0 pt-20 pb-0 lg:pt-0"
         style={{ zIndex: 2 }}
       >
-        {/* Heading + cards */}
-        <div className="flex flex-col lg:grid lg:grid-cols-2 lg:items-end gap-6 lg:gap-12 w-full max-w-6xl mx-auto lg:pb-16">
+        {/* Heading + cards (absolute positioned on desktop, in flex flow on mobile) */}
+        <div className="flex flex-col gap-6 w-full lg:max-w-none mx-auto">
 
-          <div className="shrink-0 space-y-1 text-center lg:text-left mx-auto lg:mx-0 lg:self-start lg:mt-[11rem]" style={{ maxWidth: "340px" }}>
+          <div className="shrink-0 space-y-1 text-center lg:text-left mx-auto lg:mx-0 lg:absolute lg:left-5 lg:bottom-[19rem]" style={{ maxWidth: "340px" }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -109,7 +109,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex justify-center lg:justify-start"
+            className="flex justify-center lg:absolute lg:left-1/2 lg:bottom-[6rem] lg:-translate-x-1/2"
           >
             <HeroCards />
           </motion.div>
