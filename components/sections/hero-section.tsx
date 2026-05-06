@@ -36,9 +36,9 @@ export function HeroSection() {
           alt="O"
           style={{
             display: "block",
-            height: "1em",
+            height: "0.85em",
             width: "auto",
-            marginRight: "0.02em",
+            marginRight: "0.04em",
             flexShrink: 0,
           }}
         />
