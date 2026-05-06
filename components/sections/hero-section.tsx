@@ -38,7 +38,7 @@ export function HeroSection() {
             display: "block",
             height: "3.2em",
             width: "auto",
-            marginRight: "-0.18em",
+            marginRight: "-0.5em",
             marginTop: "-0.55em",
             flexShrink: 0,
           }}
