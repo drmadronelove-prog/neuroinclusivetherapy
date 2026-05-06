@@ -52,7 +52,7 @@ export function HeroSection() {
           width: "100%", height: "100%",
           objectFit: "cover", objectPosition: "center",
         }}>
-          <source src="/ceramics.mp4" type="video/mp4" />
+          <source src="/istockphoto-1156202697-640_adpp_is.mp4" type="video/mp4" />
         </video>
 
         {/* Desktop gradient */}
