@@ -22,12 +22,12 @@ export function HeroSection() {
         style={{
           display: "flex",
           alignItems: "center",
-          fontFamily: "var(--font-accent)",
-          fontSize: "2.4rem",
-          fontWeight: 700,
+          fontFamily: "var(--font-body)",
+          fontSize: "2rem",
+          fontWeight: 600,
           color: "#8A9AAE",
           lineHeight: 1,
-          letterSpacing: "0.01em",
+          letterSpacing: "0.005em",
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -36,9 +36,9 @@ export function HeroSection() {
           alt="O"
           style={{
             display: "block",
-            height: "1.9em",
+            height: "1.5em",
             width: "auto",
-            marginRight: "-0.05em",
+            marginRight: "-0.02em",
             marginTop: 0,
             flexShrink: 0,
           }}
