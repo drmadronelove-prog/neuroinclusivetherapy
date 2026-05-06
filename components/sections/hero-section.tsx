@@ -13,7 +13,7 @@ export function HeroSection() {
       style={{ minHeight: "100svh" }}
     >
 
-      {/* Logo + name — fixed top-left, front page only. Links to Madrone's personal site. */}
+      {/* Logo + name — fixed top-left, front page only. */}
       <a
         href="https://v0-madronelove-website.vercel.app/"
         target="_blank"
@@ -22,7 +22,7 @@ export function HeroSection() {
         style={{ display: "flex", alignItems: "center", gap: "10px" }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo.png" alt="" width={52} height={52} style={{ display: "block", flexShrink: 0 }} />
+        <img src="/olive-logo.svg" alt="" width={52} height={52} style={{ display: "block", flexShrink: 0, color: "#3D5230" }} />
         <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
           <span style={{
             fontFamily: "var(--font-accent)",
@@ -31,15 +31,7 @@ export function HeroSection() {
             color: "#8A7E6E",
             lineHeight: 1.1,
             letterSpacing: "0.02em",
-          }}>Madrone Love, PsyD</span>
-          <span className="hidden md:inline" style={{
-            fontFamily: "var(--font-accent)",
-            fontSize: "1.1rem",
-            fontWeight: 400,
-            color: "#9A8E7E",
-            lineHeight: 1.15,
-            letterSpacing: "0.15em",
-          }}>Clinical Psychologist</span>
+          }}>Olive Clinical</span>
         </div>
       </a>
 

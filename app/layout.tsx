@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   description: 'Compassionate, neuroinclusive therapy services by Madrone Love, PsyD. Specializing in neurodivergent-affirming care, ADHD, autism, and holistic mental wellness.',
   generator: 'v0.app',
   icons: {
-    icon: '/logo.png',
-    apple: '/logo.png',
+    icon: '/olive-logo.svg',
+    apple: '/olive-logo.svg',
   },
 }
 
