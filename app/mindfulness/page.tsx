@@ -22,7 +22,7 @@ const resources = [
     body: "Gil Fronsdal's home center. Weekly dharma talks, sitting groups, and daylong retreats. Sliding-scale and free offerings available. Particularly welcoming to those new to meditation.",
     linkLabel: "insightmeditationcenter.org",
     href: "https://www.insightmeditationcenter.org",
-    color: "#7D805F",
+    color: "#5F779A",
   },
   {
     title: "Spirit Rock",
