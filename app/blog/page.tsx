@@ -3,7 +3,7 @@ import { BlogPostArticle } from "@/components/blog/blog-post"
 import type { BlogPost } from "@/components/blog/blog-post"
 
 export const metadata = {
-  title: "Blog | Madrone Love, PsyD",
+  title: "Blog | Olive Clinical",
   description: "Thoughts on neurodivergent-affirming therapy, mental wellness, and living differently.",
 }
 

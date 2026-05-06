@@ -9,7 +9,7 @@ import { GSQ } from "@/components/assessments/gsq"
 import { OEQ2 } from "@/components/assessments/oeq2"
 
 export const metadata = {
-  title: "Tests | Madrone Love, PsyD",
+  title: "Tests | Olive Clinical",
   description: "Self-report screening tools for ADHD, autism, alexithymia, mental imagery, sensory processing, camouflaging, and misophonia.",
 }
 

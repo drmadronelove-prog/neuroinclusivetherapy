@@ -1,7 +1,7 @@
 import { ToolPageLayout } from "@/components/tool-page-layout"
 
 export const metadata = {
-  title: "Autism-Affirming Care | Madrone Love, PsyD",
+  title: "Autism-Affirming Care | Olive Clinical",
   description: "Therapy that honors autistic identity and addresses masking burnout.",
 }
 

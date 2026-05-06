@@ -4,7 +4,7 @@ import { MeltdownWorksheet } from "@/components/tools/meltdown-worksheet"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "ASD Skills — Madrone Love, PsyD",
+  title: "ASD Skills — Olive Clinical",
   description: "Interactive tools for autistic adults — a dysregulation log and a fillable meltdown awareness & recovery workbook.",
 }
 

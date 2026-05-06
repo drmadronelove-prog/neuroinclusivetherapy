@@ -3,7 +3,7 @@ import { DeepWorkPlanner } from "@/components/tools/deep-work-planner"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "ADHD Skills — Madrone Love, PsyD",
+  title: "ADHD Skills — Olive Clinical",
 }
 
 const bodyDoublingResources = [

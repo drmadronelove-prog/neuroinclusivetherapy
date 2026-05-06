@@ -3,7 +3,7 @@ import { ICBTTrueSelfWorksheet } from "@/components/tools/icbt-true-self-workshe
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "OCD Skills — Madrone Love, PsyD",
+  title: "OCD Skills — Olive Clinical",
   description: "Interactive Inference-Based CBT worksheet for uncovering the true self.",
 }
 

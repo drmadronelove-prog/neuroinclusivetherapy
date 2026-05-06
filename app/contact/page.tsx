@@ -2,8 +2,8 @@ import { ToolPageLayout } from "@/components/tool-page-layout"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Contact — Madrone Love, PsyD",
-  description: "Get in touch with Madrone Love, PsyD. In-person therapy in San Francisco and Berkeley, CA. Telehealth throughout California.",
+  title: "Contact — Olive Clinical",
+  description: "Get in touch with Olive Clinical. In-person therapy in San Francisco and Berkeley, CA. Telehealth throughout California.",
 }
 
 const locations = [

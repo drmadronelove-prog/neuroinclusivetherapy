@@ -36,7 +36,7 @@ export function SiteFooter() {
         {/* Bottom row */}
         <div className="border-t border-border pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-muted-foreground">
           <p>
-            © {new Date().getFullYear()} Madrone Love, PsyD · San Francisco &amp; Berkeley, CA · Telehealth throughout California
+            © {new Date().getFullYear()} Olive Clinical · San Francisco &amp; Berkeley, CA · Telehealth throughout California
           </p>
           <p>
             <a href="tel:+14159152183" className="hover:text-foreground transition-colors">(415) 915-2183</a>
