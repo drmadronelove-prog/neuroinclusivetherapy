@@ -38,7 +38,7 @@ export function HeroSection() {
             display: "block",
             height: "3.2em",
             width: "auto",
-            marginRight: "0.04em",
+            marginRight: "-0.18em",
             marginTop: "-0.55em",
             flexShrink: 0,
           }}
@@ -88,7 +88,7 @@ export function HeroSection() {
                 fontFamily: "var(--font-accent)",
                 fontSize: "clamp(3.8rem, 6.5vw, 6rem)",
                 fontWeight: 700,
-                color: "#7D805F",
+                color: "#5F779A",
                 lineHeight: 1.05,
                 letterSpacing: "-0.01em",
                 margin: 0,
