@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   description: 'Compassionate, neuroinclusive therapy services from Olive Clinical. Specializing in neurodivergent-affirming care, ADHD, autism, and holistic mental wellness.',
   generator: 'v0.app',
   icons: {
-    icon: '/olive-logo.png',
-    apple: '/olive-logo.png',
+    icon: '/favicon.png',
+    apple: '/favicon.png',
   },
 }
 

@@ -36,10 +36,10 @@ export function HeroSection() {
           alt="O"
           style={{
             display: "block",
-            height: "3.2em",
+            height: "1.9em",
             width: "auto",
-            marginRight: "0.02em",
-            marginTop: "-0.05em",
+            marginRight: "-0.05em",
+            marginTop: 0,
             flexShrink: 0,
           }}
         />
