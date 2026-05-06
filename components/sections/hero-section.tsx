@@ -22,7 +22,7 @@ export function HeroSection() {
         style={{ display: "flex", alignItems: "center", gap: "14px" }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/olive-logo.svg" alt="" width={64} height={64} style={{ display: "block", flexShrink: 0, color: "#7D805F" }} />
+        <img src="/olive-logo.png" alt="" width={64} height={64} style={{ display: "block", flexShrink: 0 }} />
         <span style={{
           fontFamily: "var(--font-accent)",
           fontSize: "2.4rem",
