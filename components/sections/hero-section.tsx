@@ -62,7 +62,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex justify-center lg:absolute lg:right-[2.9rem] lg:bottom-[6rem]"
+            className="flex justify-center lg:absolute lg:right-[2.9rem] lg:bottom-[9rem]"
           >
             <HeroCards />
           </motion.div>
