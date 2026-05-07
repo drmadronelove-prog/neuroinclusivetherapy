@@ -97,10 +97,12 @@ export function BlogHeroCard({
           </div>
 
           <h3
-            className="text-[1.15rem] sm:text-[1.4rem] font-black leading-tight tracking-tight"
+            className="text-[1.25rem] sm:text-[1.55rem] leading-tight"
             style={{
-              fontFamily: "var(--font-display)",
+              fontFamily: "var(--font-accent)",
+              fontWeight: 400,
               color: variant.accent,
+              lineHeight: 1.15,
             }}
           >
             {post.title}

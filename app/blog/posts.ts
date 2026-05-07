@@ -169,6 +169,377 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "time-is-a-rainbow",
+    title: "Time Is a Rainbow: ADHD and the Many Ways We Move Through Time",
+    subtitle: "Clock time is one color in the spectrum. ADHD time, queer time, Indigenous time, CP time, crip time — they are not failed approximations of clock time. They are their own colors.",
+    author: "Madrone Love",
+    credential: "PsyD",
+    category: "Neurodivergence & Self-Understanding",
+    date: "2025",
+    blocks: [
+      {
+        type: "paragraph",
+        dropCap: true,
+        text: "If you have ADHD, you probably already know that your relationship to time is unusual. You have been late, miscalculated, lost hours inside an interesting task while urgent ones waited untouched. You may have decided this means something is wrong with you. I want to offer a different frame entirely: that time is not a single, fixed thing, but something more like a rainbow. Clock time is one color in that spectrum. It is bright and dominant in our culture, treated as though it is the only color there is. But humans have always related to time in many ways, and the diversity of those relationships is not a collection of failures to keep up. It is the full spectrum. This piece is about ADHD time and the rich company it keeps.",
+      },
+      {
+        type: "heading",
+        text: "The basic architecture of ADHD time",
+      },
+      {
+        type: "paragraph",
+        text: "For most people with ADHD, time essentially has two categories: now, and not now. The present moment is vivid, real, textured, fully alive. Everything outside of it, including the future, including deadlines, including things that are scheduled to happen in twenty minutes, exists in a kind of fog. The future is abstract in a way that makes it genuinely difficult to act on, not because of carelessness, but because the nervous system has not yet registered it as real.",
+      },
+      {
+        type: "paragraph",
+        text: "This is why \"but it's due tomorrow\" lands so differently for an ADHDer than for a neurotypical person. For someone whose nervous system treats the future as vague and distant until it collapses suddenly into now, tomorrow might as well be a rumor. Until it is tonight. Until it is this hour. Until the deadline is close enough to feel real, and then everything mobilizes at once, often in a rush of stress that gets the work done but extracts a significant toll.",
+      },
+      {
+        type: "paragraph",
+        text: "Understanding this is not about making excuses. It is about understanding the actual terrain you are navigating and building strategies that fit that terrain, rather than strategies designed for a nervous system that works differently.",
+      },
+      {
+        type: "heading",
+        text: "Time optimism, or: this will only take a second",
+      },
+      {
+        type: "paragraph",
+        text: "There is a particular phenomenon that many ADHDers recognize immediately when it is named: time optimism. This is the consistent, sincere, often baffling tendency to underestimate how long things will take, not by a little, but sometimes by a factor of three or four or ten.",
+      },
+      {
+        type: "paragraph",
+        text: "The person who says \"I just need five minutes to get ready\" and genuinely believes it is not lying or being cavalier. They are calculating something real: the core time required for the task itself, stripped of everything surrounding it. They are not accounting for finding their keys, the transition between mental states, the three-minute detour into something interesting, the time to remember what they were doing, or the fact that \"getting ready\" involves a sequence of smaller tasks each of which takes its own time. In their mind, they have performed the task in compressed form and it took no time at all. The calculation is internally coherent. It is simply operating on ideal time rather than actual time.",
+      },
+      {
+        type: "paragraph",
+        text: "Time optimism is not stupidity or denial. It is a consistent feature of how the ADHD mind models tasks, and it has real consequences for relationships, for work, and for the accumulating shame of being late and miscalculated across an entire life. Naming it, and understanding its internal logic, is the first step toward working with it rather than simply suffering it.",
+      },
+      {
+        type: "callout",
+        heading: "What time optimism can sound like from the inside",
+        text: "\"I can definitely do this before I leave.\"  \"I have plenty of time.\"  \"It won't take long.\"  \"I'll just quickly...\"  \"I can fit one more thing in.\"  These are not statements of intention. They are statements of genuine, sincere belief, based on an internal model that leaves out the texture of time.",
+      },
+      {
+        type: "heading",
+        text: "Queer time: refusing the straight line",
+      },
+      {
+        type: "paragraph",
+        text: "ADHD time is not the only framework that sits outside the mainstream Western model of linear, productive, clock-regulated time. Queer theorists have written extensively about what they call queer time: the way that queer lives have historically refused, or been refused entry into, the normative timeline of modern life. Graduate by this age. Marry by that one. Career, house, children, retirement, in sequence, on schedule. This is what scholar Jack Halberstam calls \"straight time,\" the temporal logic of reproductive capitalism, which organizes life into a progression toward legible, socially recognized milestones.",
+      },
+      {
+        type: "paragraph",
+        text: "Queer lives have always exceeded and confounded this timeline, not only by necessity but sometimes by choice, as a refusal of the idea that a life's value is measured by how well it tracks a particular sequence. Philosopher José Muñoz wrote about queer futurity as something that does not fit neatly into the present and cannot be reduced to it, a kind of reaching toward what is not yet legible. Queer time makes room for lives that do not move in straight lines.",
+      },
+      {
+        type: "paragraph",
+        text: "ADHD time does something structurally similar. It resists the clean, linear, schedule-forward logic of modern productivity. It is episodic rather than sequential, present-pulled rather than future-oriented, organized around aliveness and interest rather than obligation and progression. This does not make it the same as queer time, and the political stakes are different. But there is something clarifying in recognizing that linear clock time is not the only real time. It is a particular cultural invention, and ADHD time is one of many ways of living outside it.",
+      },
+      {
+        type: "pull-quote",
+        text: "Clock time is a cultural invention. ADHD time is not a failure to keep up with it. It is a different relationship to time itself.",
+      },
+      {
+        type: "heading",
+        text: "Indigenous time: cyclical, relational, present",
+      },
+      {
+        type: "paragraph",
+        text: "Many Indigenous frameworks understand time not as a line moving from past through present toward future, but as cyclical, relational, and deeply embedded in place and community. Time is not an abstract container that events are placed into. It is something lived, seasonal, storied. It moves with the land, with the community, with the relationships between beings and generations. You are not late to a meeting on the calendar. You arrive when you arrive, in relation to everything else that is happening.",
+      },
+      {
+        type: "paragraph",
+        text: "This is not a romanticization, and it is important not to collapse the specificity of Indigenous temporal frameworks into a single tidy concept. They are enormously varied across nations, cultures, and traditions. But what many of them share is a resistance to the idea that clock time is neutral, universal, or natural. Clock time, as we know it, is relatively recent and historically entangled with colonialism and industrial capitalism. The insistence that everyone organize their lives around it is not a timeless truth. It is a political project.",
+      },
+      {
+        type: "paragraph",
+        text: "For ADHDers who have spent their lives being told they are bad at time, there is something important in this. The standard they are being measured against is not simply \"time.\" It is a specific, historically situated, culturally enforced relationship to time. And many of the features of ADHD time, its present-centeredness, its responsiveness to what is alive and meaningful right now, its difficulty with abstract future obligations, have more in common with relational and cyclical models of time than with the industrial clock.",
+      },
+      {
+        type: "heading",
+        text: "CP time: when lateness is a cultural inheritance",
+      },
+      {
+        type: "paragraph",
+        text: "I grew up with CP time. Colored People's Time. It was spoken about in my community with a mixture of knowing laughter and mild exasperation, a shorthand for the fact that Black gatherings, Black celebrations, Black family events operated on their own schedule, one that rarely corresponded to the hour printed on the invitation. You showed up when you showed up. The party started when the people arrived. The meal happened when it was ready. And somehow, it was always fine.",
+      },
+      {
+        type: "paragraph",
+        text: "CP time has been weaponized as a stereotype, used to dismiss and demean Black people as irresponsible or disorganized, and that use is harmful and worth naming directly. But reclaiming it from the inside looks different. What I grew up experiencing as CP time was not laziness. It was a relational orientation to time: one that prioritized presence, community, and the actual texture of the moment over the authority of the clock. You did not leave a good conversation because it was 7:00. You stayed until the conversation was finished. The gathering mattered more than the schedule.",
+      },
+      {
+        type: "paragraph",
+        text: "This is not unique to Black communities. Many cultures organized around community and relationship rather than individualism and industrial productivity share some version of this orientation. Time is not a container you fill with tasks. It is a medium in which relationships happen. And relationships do not run on schedules.",
+      },
+      {
+        type: "paragraph",
+        text: "For Black ADHDers especially, there is something layered here worth sitting with. The shame that accumulates around time and lateness does not always come from a neutral place. It is often steeped in racialized judgment about who counts as competent, professional, or worthy of respect. Understanding CP time as a genuine cultural relationship to time, one with its own logic and values, does not make every missed deadline fine. But it does complicate the story of what it means to be \"bad at time,\" and who gets to decide that.",
+      },
+      {
+        type: "heading",
+        text: "Crip time: when the body sets the clock",
+      },
+      {
+        type: "paragraph",
+        text: "The disability community has developed its own concept for the experience of time outside the dominant framework: crip time. The term, reclaimed from the word \"cripple\" as an act of self-definition, describes the way that disability reshapes a person's relationship to time in ways that the world rarely accommodates.",
+      },
+      {
+        type: "paragraph",
+        text: "Crip time shows up in many forms. It is the extra hour needed to get a body ready to leave the house when that body requires more assistance, more rest, or more unpredictable management than a neurotypical, nondisabled body. It is the way chronic pain or fatigue makes some days simply unavailable for the things that were planned. It is the waiting: for accessible transportation, for accommodations to be processed, for the medical system to catch up. Disabled time is often slower not by choice but by the genuine demands of living in a body or mind that requires more of time than the standard allocation.",
+      },
+      {
+        type: "paragraph",
+        text: "And yet crip time is also something else. It is a refusal to apologize for that. It is the understanding, hard-won in disability community and culture, that the pace of the nondisabled world is not neutral or natural. It is built for a particular kind of body and penalizes everyone who does not have one. Crip time asks: what if we built schedules, workplaces, and social expectations around the actual range of human bodies and minds, rather than the fastest and most able ones?",
+      },
+      {
+        type: "paragraph",
+        text: "ADHD time and crip time are not identical, and the specific challenges are different. But they are kin. Both describe what happens when a person's genuine relationship to time does not fit the mold, and both carry a political edge: the insistence that the problem is not the person. The problem is a world that was built too narrow.",
+      },
+      {
+        type: "heading",
+        text: "What Einstein knew: time is not fixed",
+      },
+      {
+        type: "paragraph",
+        text: "There is one more place where ADHD time finds unexpected company, and it is physics. Einstein's theory of relativity established something that still feels slightly impossible even after a century of evidence: time is not a fixed, universal thing. It moves at different rates depending on where you are and how fast you are moving. A clock on a fast-moving spacecraft runs slower than one on the ground. Time near a massive gravitational field moves differently than time in open space. The twin who goes on a near-speed-of-light journey returns younger than the sibling who stayed home. Time, it turns out, is not the neutral backdrop we assumed. It is a property of the universe that bends, stretches, and varies by position and velocity.",
+      },
+      {
+        type: "paragraph",
+        text: "This is not a metaphor for ADHD, but it is a useful companion thought. The subjective experience of time is also genuinely variable. Twenty minutes inside a hyperfocus state can feel like five. Twenty minutes waiting for something to start can feel like an hour. The ADHDer is not imagining this. The felt texture of time is real information, not a distortion to be corrected. What physics teaches us, in its own register, is that there is no single correct experience of time. There are many, depending on conditions. And the idea that the clock on the wall represents time in its truest, most authoritative form is, from a physics standpoint, not actually true.",
+      },
+      {
+        type: "callout",
+        heading: "ADHD time",
+        text: "Now and not-now. Organized around interest, aliveness, and urgency. Future is abstract until it collapses into present.",
+      },
+      {
+        type: "callout",
+        heading: "Queer time",
+        text: "Refuses the normative sequence of milestones. Lives outside straight, reproductive, clock-forward progression.",
+      },
+      {
+        type: "callout",
+        heading: "Indigenous time",
+        text: "Cyclical, relational, place-based. Time is lived in relationship, not measured in abstraction.",
+      },
+      {
+        type: "callout",
+        heading: "CP time",
+        text: "Relational and community-centered. The gathering matters more than the schedule. Presence over punctuality.",
+      },
+      {
+        type: "callout",
+        heading: "Disabled time",
+        text: "Time shaped by the real demands of body and mind. A refusal to apologize for needing more time than the world allocates.",
+      },
+      {
+        type: "callout",
+        heading: "Relativistic time",
+        text: "No fixed, universal clock. Time varies by position, velocity, and proximity to mass. There is no single correct rate.",
+      },
+      {
+        type: "heading",
+        text: "What this means, practically",
+      },
+      {
+        type: "paragraph",
+        text: "None of this means the real difficulties of ADHD time can simply be thought away. The consequences of living outside the dominant temporal framework are real. Relationships are strained by chronic lateness. Careers are damaged by missed deadlines. The accumulated shame of a lifetime of time struggles is serious, and it deserves direct, practical attention.",
+      },
+      {
+        type: "paragraph",
+        text: "But the way a person understands their relationship to time shapes everything about how they approach it. Someone who believes they are simply bad at time, defective, undisciplined, constitutionally irresponsible, will approach the problem with shame as their primary tool. And shame, as anyone who works with ADHDers knows, is one of the least effective things available. It tends to produce avoidance, paralysis, and more of the same, not genuine change.",
+      },
+      {
+        type: "paragraph",
+        text: "Someone who understands that they have a specific, describable relationship to time, one with its own logic, its own strengths, and its own real vulnerabilities, can approach it with curiosity instead. They can build structures that account for the gap between ideal time and actual time. They can create conditions that make the future feel real before it becomes an emergency. They can stop punishing themselves for failing to work like a different kind of mind and start learning, seriously and practically, to work like their own.",
+      },
+      {
+        type: "pull-quote",
+        text: "The goal is not to become a person for whom clock time comes naturally. The goal is to understand your own relationship to time well enough to stop being ambushed by it.",
+      },
+      {
+        type: "heading",
+        text: "Time is a rainbow",
+      },
+      {
+        type: "paragraph",
+        text: "Light passing through a prism does not produce a hierarchy. Violet is not more correct than red. Each wavelength is its own thing, with its own properties, its own beauty, its own way of moving through the world. The visible spectrum is what it is because all of the colors are present, not because one of them won.",
+      },
+      {
+        type: "paragraph",
+        text: "I think about time this way. Clock time is one color in the spectrum. It is the color that dominant Western culture has held up as the whole thing, the standard against which every other relationship to time gets measured and found wanting. But it is not the whole thing. It never was. ADHD time, queer time, Indigenous time, CP time, crip time, relativistic time: these are not failed approximations of clock time. They are their own colors. Each carries real information about what it means to be a particular kind of mind, body, or community moving through time in the world.",
+      },
+      {
+        type: "paragraph",
+        text: "What would it mean to actually hold that? Not as a thought experiment but as a genuine cultural shift: to stop treating clock time as the default setting of a properly functioning human, and to recognize that the diversity of temporal experience is not a problem to be corrected but a feature of what it means to be human in all our variation. Dominant culture has something to learn here. The insistence on a single, uniform, clock-forward relationship to time has costs for everyone, not only for those who cannot keep up with it. It flattens human experience. It rewards a narrow bandwidth of ways of being. And it produces a great deal of unnecessary shame in people whose ways of moving through time are simply different, not deficient.",
+      },
+      {
+        type: "paragraph",
+        text: "For ADHDers specifically, I want to be clear: the shame that accumulates around time is one of the most corrosive features of this particular neurodivergence. It compounds over a lifetime. It gets into the self-concept in ways that are genuinely hard to undo. And so much of it rests on the unexamined assumption that clock time is the correct time, and that any relationship to time that diverges from it is a personal failure. That assumption is worth questioning directly, not to let yourself off the hook for consequences that are real, but to stop treating a difference as a defect.",
+      },
+      {
+        type: "paragraph",
+        text: "Your relationship to time has its own color. It belongs in the spectrum. And the spectrum, all of it together, is closer to the truth of human experience than any single color held up alone and called the light.",
+      },
+      {
+        type: "footer-note",
+        text: "Dr. Madrone Love, PsyD (PSY35899), is a licensed clinical psychologist in private practice in Berkeley and San Francisco, specializing in neurodivergent adults, OCD, and trauma. She is an Assistant Professor of Integral Counseling Psychology at the California Institute of Integral Studies and serves as Director of the Sati Center for Buddhist Studies. Her work integrates contemporary clinical psychology with mindfulness, attachment, and a deep respect for neurodivergent ways of being in the world.",
+      },
+    ],
+  },
+  {
+    slug: "windows-of-interest",
+    title: "Windows of Interest: Rethinking Focus, Motivation, and the Neurodivergent Mind",
+    subtitle: "A genuine framework for understanding something many neurodivergent people have known about themselves their whole lives but have never had words for: that access to focus, energy, and capability is not distributed evenly.",
+    author: "Madrone Love",
+    credential: "PsyD",
+    category: "Neurodivergence & Self-Understanding",
+    date: "2025",
+    blocks: [
+      {
+        type: "paragraph",
+        dropCap: true,
+        text: "You have probably heard of the window of tolerance, the idea that there is a zone of activation where a person can think, feel, and function well, and that trauma or chronic stress can narrow that window until almost nothing fits inside it. I want to introduce a related idea, one I have found just as essential for understanding neurodivergent people: the window of interest.",
+      },
+      {
+        type: "paragraph",
+        text: "This is not a metaphor for distraction or a polite way of describing difficulty with motivation. It is a genuine framework for understanding something that many neurodivergent people have known about themselves their whole lives but have never had words for: that their access to focus, energy, and capability is not distributed evenly across all tasks at all times. It flows. It concentrates. It requires conditions. And when those conditions are not present, it is not a matter of trying harder.",
+      },
+      {
+        type: "heading",
+        text: "What is a window of interest?",
+      },
+      {
+        type: "paragraph",
+        text: "The window of interest describes the zone in which a neurodivergent person can genuinely engage. Not perform engagement, not white-knuckle their way through a task, but actually access their attention, their thinking, and their capacity to do good work. Inside the window, something sparks. Outside it, the lights simply do not come on, no matter how important the task, no matter how many consequences are on the line.",
+      },
+      {
+        type: "paragraph",
+        text: "Just as the window of tolerance has states above and below it, so does the window of interest. Above it is hyperfocus: the state where interest has become so consuming that everything else vanishes. The person is fully alive inside the task and completely inaccessible to everything outside it. Below it is what I call interest shutdown: a state that can look like laziness, procrastination, or resistance, but which is better understood as a kind of genuine functional freeze. The nervous system simply will not move in the direction of something that holds no interest, urgency, or meaning.",
+      },
+      {
+        type: "callout",
+        heading: "Above the window: hyperfocus",
+        text: "Fully absorbed, time disappears, other needs go unmet. The task is everything. Difficult to interrupt or transition away from even when needed.",
+      },
+      {
+        type: "callout",
+        heading: "Inside the window: engaged presence",
+        text: "Interest is alive and accessible. Focus is available without force. Thinking is fluid, creativity is possible, and the person is both present and capable.",
+      },
+      {
+        type: "callout",
+        heading: "Below the window: interest shutdown",
+        text: "Flat activation, inability to start or sustain. Often misread as laziness, avoidance, or defiance. The nervous system is not withholding effort. It is genuinely without traction.",
+      },
+      {
+        type: "heading",
+        text: "The interest-based nervous system",
+      },
+      {
+        type: "paragraph",
+        text: "To understand why this window exists and why it matters so much, it helps to know something about how the neurodivergent nervous system, and particularly the ADHD nervous system, actually works. Psychiatrists Edward Hallowell and John Ratey, along with clinician William Dodson, have described what they call an interest-based nervous system: one that is not primarily motivated by importance, obligation, or reward, the way many neurotypical nervous systems are. Instead, it activates in response to interest, novelty, challenge, urgency, passion, and meaningful connection.",
+      },
+      {
+        type: "paragraph",
+        text: "This is not a character issue. It is a neurological one. The person who cannot make themselves write the report that is due tomorrow but spent four uninterrupted hours yesterday reading everything ever written about a particular obscure topic is not being difficult. They are showing you exactly how their nervous system works. It responds to what it responds to. The trouble is not a lack of will. It is that the standard scaffolding of modern life, deadlines, performance reviews, to-do lists, the general logic of \"this is important so you should do it,\" was built for a different kind of nervous system entirely.",
+      },
+      {
+        type: "pull-quote",
+        text: "The window of interest is not about what a person is willing to do. It is about what their nervous system can actually access.",
+      },
+      {
+        type: "paragraph",
+        text: "This has enormous implications for how we understand productivity, motivation, and what it means to be \"functional.\" A neurodivergent person who is struggling to do something outside their window is not failing. They are running into a genuine physiological limit, one that shaming, lecturing, or working harder will not resolve.",
+      },
+      {
+        type: "heading",
+        text: "Monotropism: when attention moves like water",
+      },
+      {
+        type: "paragraph",
+        text: "Another piece of this picture comes from a concept developed in the autistic community: monotropism. Proposed by researchers Dinah Murray, Wenn Lawson, and Mike Lesser, monotropism describes a style of attention that tends to flow in a single, deep channel rather than spreading broadly across multiple streams at once. When a monotropic person's attention lands on something, it lands fully. The interest pulls resources toward it like water finding a channel, and everything outside that channel becomes harder to access.",
+      },
+      {
+        type: "paragraph",
+        text: "This explains a great deal about autistic experience that gets misread as rigidity, rudeness, or being \"in their own world.\" It is not that the person is choosing to ignore what is outside their current channel of interest. It is that their attentional architecture genuinely concentrates rather than distributes. The depth is real. So is the difficulty of shifting.",
+      },
+      {
+        type: "paragraph",
+        text: "Monotropism and the interest-based nervous system are not identical concepts, and they emerge from different communities and different research traditions. But they are pointing at something overlapping: that for many neurodivergent people, attention and engagement are not a tap you can turn on at will. They are closer to a current. You can learn to work with the current, to understand its patterns and create conditions that allow it to move, but you cannot simply override it by deciding to.",
+      },
+      {
+        type: "callout",
+        heading: "What it can look like when someone is outside their window of interest",
+        text: "Staring at the page without beginning. Reopening the same task repeatedly without making progress. Elaborate avoidance that feels shameful and confusing even to the person doing it. A sense of blankness or wall where motivation should be. Moving in circles around a task for hours. Suddenly becoming absorbed in something entirely unrelated. Fatigue that descends not from exertion but from trying to force access to something that will not open.",
+      },
+      {
+        type: "heading",
+        text: "Why this is not about effort or character",
+      },
+      {
+        type: "paragraph",
+        text: "One of the most painful aspects of having a window of interest is how it looks from the outside, and often from the inside too. Because the same person who cannot begin the task that is due today may have, last week, worked on something else for twelve hours without stopping. The inconsistency is visible. And in a culture that prizes consistent, reliable productivity above almost everything else, that inconsistency is read as a moral failing.",
+      },
+      {
+        type: "paragraph",
+        text: "The neurodivergent person often internalizes this read. They know they are capable of extraordinary focus and output. They have seen it. So when it will not come on demand, the conclusion many reach is not \"my nervous system needs different conditions.\" It is \"I am lazy, broken, undisciplined, or secretly do not care enough.\"",
+      },
+      {
+        type: "paragraph",
+        text: "This is one of the most important things therapy can address: the gap between what a person is capable of under the right conditions and what they can produce when those conditions are absent, and the enormous shame that lives in that gap. The window of interest is not an excuse. It is an explanation. And explanations are the beginning of something other than self-blame.",
+      },
+      {
+        type: "pull-quote",
+        text: "Inconsistency is not evidence of not caring. It is evidence of a nervous system with specific conditions for access.",
+      },
+      {
+        type: "heading",
+        text: "Working with the window, not against it",
+      },
+      {
+        type: "paragraph",
+        text: "Understanding your own window of interest is practical work, not just conceptual. It involves getting genuinely curious about what moves you into the window and what keeps you out of it. For many people this includes novelty, meaning, a sense of real stakes, the presence of another person, a tight deadline, a problem that feels genuinely unsolved, or a task that connects to something they care about deeply. It also involves understanding your own particular above-the-window and below-the-window states, what they feel like in the body, what triggers them, and how to work with them rather than simply enduring them.",
+      },
+      {
+        type: "paragraph",
+        text: "Some things that can help widen or access the window:",
+      },
+      {
+        type: "list",
+        items: [
+          "Connecting a task to something that genuinely matters to you, even obliquely",
+          "Adding novelty or challenge to something that has gone flat",
+          "Working alongside another person, even silently (what many now call body doubling)",
+          "Breaking work into pieces small enough that each one has a real beginning and end",
+          "Noticing when you are above the window and building in transitions before shutdown follows",
+          "Releasing the expectation that willpower alone should be sufficient",
+          "Designing your environment around how your attention actually works, not how it is supposed to work",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "None of these are hacks or workarounds. They are accommodations in the truest sense of the word: meeting yourself where you actually are.",
+      },
+      {
+        type: "heading",
+        text: "A different relationship with your own mind",
+      },
+      {
+        type: "paragraph",
+        text: "For many neurodivergent people, coming to understand the window of interest is less an intellectual exercise than a kind of homecoming. It offers a framework that finally fits the shape of their experience, one that does not begin with pathology or deficit but with a genuine attempt to understand how a particular kind of mind actually works.",
+      },
+      {
+        type: "paragraph",
+        text: "This is normalizing in the deepest sense. Not \"it is fine, do not worry about it,\" but rather: what you have been experiencing has a shape and a logic. You are not broken. You are not making excuses. You have a nervous system with specific conditions for engagement, and learning those conditions, and building a life that honors them rather than fights them, is not self-indulgence. It is self-knowledge. And self-knowledge, for neurodivergent people who have spent years being told their experience is wrong, is one of the most subversive and healing things there is.",
+      },
+      {
+        type: "footer-note",
+        text: "Dr. Madrone Love, PsyD (PSY35899), is a licensed clinical psychologist in private practice in Berkeley and San Francisco, specializing in neurodivergent adults, OCD, and trauma. She is an Assistant Professor of Integral Counseling Psychology at the California Institute of Integral Studies and serves as Director of the Sati Center for Buddhist Studies. Her work integrates contemporary clinical psychology with mindfulness, attachment, and a deep respect for neurodivergent ways of being in the world.",
+      },
+    ],
+  },
 ]
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
