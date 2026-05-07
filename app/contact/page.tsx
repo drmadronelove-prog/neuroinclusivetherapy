@@ -27,15 +27,29 @@ const locations = [
   },
 ]
 
+const sectionHeading: React.CSSProperties = {
+  fontFamily: "var(--font-display)",
+  fontWeight: 500,
+  letterSpacing: "-0.018em",
+}
+
+const buttonText: React.CSSProperties = {
+  fontFamily: "var(--font-mono)",
+  fontWeight: 500,
+  letterSpacing: "0.08em",
+  textTransform: "uppercase",
+  fontSize: "0.78rem",
+}
+
 export default function ContactPage() {
   return (
-    <ToolPageLayout title="CONTACT" color="text-nav-seafoam">
+    <ToolPageLayout title="Contact" color="text-ink">
       <div className="space-y-14">
 
         {/* Get in Touch */}
         <div className="space-y-6 max-w-prose">
-          <h2 className="font-[var(--font-display)] text-2xl font-black text-foreground tracking-tight">
-            GET IN TOUCH
+          <h2 className="text-2xl text-foreground" style={sectionHeading}>
+            Get in touch
           </h2>
           <p className="text-muted-foreground leading-relaxed">
             I&apos;m currently accepting new clients. I offer a free 20-minute
@@ -47,10 +61,11 @@ export default function ContactPage() {
           <div className="flex flex-col sm:flex-row gap-4">
             <a
               href="tel:+14159152183"
-              className="inline-flex items-center gap-3 px-5 py-3 rounded-lg border-2 border-nav-seafoam text-nav-seafoam font-[var(--font-display)] font-bold tracking-wide text-sm hover:bg-nav-seafoam/10 transition-colors"
+              className="inline-flex items-center gap-3 px-5 py-3 border border-slate text-slate hover:bg-slate/10 transition-colors"
+              style={buttonText}
             >
               <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
                   d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
               (415) 915-2183
@@ -58,10 +73,11 @@ export default function ContactPage() {
 
             <a
               href="mailto:info@oliveclinical.com"
-              className="inline-flex items-center gap-3 px-5 py-3 rounded-lg border-2 border-nav-seafoam text-nav-seafoam font-[var(--font-display)] font-bold tracking-wide text-sm hover:bg-nav-seafoam/10 transition-colors"
+              className="inline-flex items-center gap-3 px-5 py-3 border border-slate text-slate hover:bg-slate/10 transition-colors"
+              style={buttonText}
             >
               <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
               info@oliveclinical.com
@@ -74,19 +90,21 @@ export default function ContactPage() {
               href="https://calendar.app.google/RRFFfpQpco81Bxek8"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-foreground text-background font-[var(--font-display)] font-bold tracking-wide text-sm hover:opacity-90 transition-opacity"
+              className="inline-flex items-center gap-2 px-5 py-3 bg-plum text-paper hover:opacity-90 transition-opacity"
+              style={buttonText}
             >
-              Schedule a Consultation
+              Schedule a consultation
             </a>
             <a
               href="https://www.psychologytoday.com/us/therapists/dr-madrone-love-neuro-inclusive-psychologist-san-francisco-ca/1554818"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-border text-muted-foreground font-[var(--font-display)] font-bold tracking-wide text-sm hover:bg-muted transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-3 border border-border text-muted-foreground hover:bg-linen transition-colors"
+              style={buttonText}
             >
-              Psychology Today Profile
+              Psychology Today profile
               <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
                   d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
             </a>
@@ -95,16 +113,19 @@ export default function ContactPage() {
 
         {/* Locations */}
         <div>
-          <h2 className="font-[var(--font-display)] text-2xl font-black text-foreground tracking-tight mb-6">
-            LOCATIONS
+          <h2 className="text-2xl text-foreground mb-6" style={sectionHeading}>
+            Locations
           </h2>
           <div className="grid sm:grid-cols-3 gap-4">
             {locations.map((loc) => (
               <div
                 key={loc.name}
-                className="bg-card border border-border border-l-2 border-l-nav-seafoam rounded-lg p-5 space-y-1"
+                className="bg-card border border-border border-l-2 border-l-slate p-5 space-y-1"
               >
-                <h3 className="font-[var(--font-display)] font-bold text-foreground text-sm tracking-wide mb-2">
+                <h3
+                  className="text-foreground text-base mb-2"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 500, letterSpacing: "-0.01em" }}
+                >
                   {loc.name}
                 </h3>
                 <p className="text-sm text-muted-foreground">{loc.detail}</p>
@@ -116,7 +137,7 @@ export default function ContactPage() {
         </div>
 
         {/* Additional info */}
-        <div className="border-l-2 border-nav-seafoam pl-6 space-y-2 max-w-prose">
+        <div className="border-l-2 border-slate pl-6 space-y-2 max-w-prose">
           <p className="text-sm text-muted-foreground leading-relaxed">
             Sessions are available in-person at both Bay Area offices and via
             telehealth for clients anywhere in California. I offer a sliding scale

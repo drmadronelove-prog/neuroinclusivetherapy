@@ -22,7 +22,7 @@ export function DisclosuresModal() {
           <div className="bg-background rounded-xl border border-border max-w-lg w-full max-h-[85vh] overflow-y-auto">
             {/* Header */}
             <div className="flex items-start justify-between gap-4 p-6 border-b border-border">
-              <h2 className="font-[var(--font-display)] font-black text-lg tracking-tight text-foreground leading-tight">
+              <h2 className="text-2xl text-foreground leading-tight" style={{ fontFamily: "var(--font-display)", fontWeight: 500, letterSpacing: "-0.02em" }}>
                 PROFESSIONAL DISCLOSURES
               </h2>
               <button
@@ -40,7 +40,7 @@ export function DisclosuresModal() {
             <div className="p-6 space-y-6 text-sm text-muted-foreground leading-relaxed">
 
               <div className="space-y-2">
-                <h3 className="font-[var(--font-display)] font-bold text-foreground text-xs tracking-widest uppercase">
+                <h3 className="text-foreground text-[0.7rem] uppercase">
                   Licensure
                 </h3>
                 <p>
@@ -51,7 +51,7 @@ export function DisclosuresModal() {
               </div>
 
               <div className="space-y-2">
-                <h3 className="font-[var(--font-display)] font-bold text-foreground text-xs tracking-widest uppercase">
+                <h3 className="text-foreground text-[0.7rem] uppercase">
                   Scope of Practice
                 </h3>
                 <p>
@@ -63,7 +63,7 @@ export function DisclosuresModal() {
               </div>
 
               <div className="space-y-2">
-                <h3 className="font-[var(--font-display)] font-bold text-foreground text-xs tracking-widest uppercase">
+                <h3 className="text-foreground text-[0.7rem] uppercase">
                   Telehealth
                 </h3>
                 <p>
@@ -75,7 +75,7 @@ export function DisclosuresModal() {
               </div>
 
               <div className="space-y-2">
-                <h3 className="font-[var(--font-display)] font-bold text-foreground text-xs tracking-widest uppercase">
+                <h3 className="text-foreground text-[0.7rem] uppercase">
                   Confidentiality &amp; HIPAA
                 </h3>
                 <p>
@@ -87,7 +87,7 @@ export function DisclosuresModal() {
               </div>
 
               <div className="space-y-2">
-                <h3 className="font-[var(--font-display)] font-bold text-foreground text-xs tracking-widest uppercase">
+                <h3 className="text-foreground text-[0.7rem] uppercase">
                   Fees &amp; Good Faith Estimate
                 </h3>
                 <p>
@@ -99,7 +99,7 @@ export function DisclosuresModal() {
               </div>
 
               <div className="space-y-2">
-                <h3 className="font-[var(--font-display)] font-bold text-foreground text-xs tracking-widest uppercase">
+                <h3 className="text-foreground text-[0.7rem] uppercase">
                   Website Disclaimer
                 </h3>
                 <p>

@@ -15,7 +15,7 @@ export const metadata = {
 
 export default function TestsPage() {
   return (
-    <ToolPageLayout title="TESTS" color="text-nav-teal">
+    <ToolPageLayout title="Tests" color="text-slate">
       <div className="space-y-4">
         <p className="text-lg text-foreground">
           Self-report screening tools. Not diagnostic instruments — bring results to a clinician for interpretation.

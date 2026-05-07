@@ -432,7 +432,7 @@ export function NetworkViz() {
         .join("text")
         .attr("text-anchor", "middle")
         .attr("fill", "white")
-        .attr("font-family", "DM Sans, sans-serif")
+        .attr("font-family", "Geist, system-ui, sans-serif")
         .attr("font-size", "9")
         .attr("font-weight", "500")
         .each(function(d: any) {
@@ -476,8 +476,15 @@ export function NetworkViz() {
 
   return (
     <section className="mt-16">
-      <h2 className="font-[var(--font-display)] text-4xl sm:text-5xl font-black text-foreground leading-tight tracking-tight mb-2">
-        NEUROINCLUSIVE CARE
+      <h2
+        className="text-4xl sm:text-5xl text-foreground leading-tight mb-2"
+        style={{
+          fontFamily: "var(--font-display)",
+          fontWeight: 500,
+          letterSpacing: "-0.025em",
+        }}
+      >
+        Neuroinclusive care
       </h2>
       <p className="text-sm text-muted-foreground mb-4">
         Click nodes to select. Select two or more to see shared mechanisms in gold.

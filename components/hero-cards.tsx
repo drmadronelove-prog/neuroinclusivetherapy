@@ -19,7 +19,7 @@ const CARD_DEFS: { title: string; href: string; rotate: number }[] = [
   { title: "OCD Skills",         href: "/ocd-skills",     rotate: -2   },
   { title: "Mindfulness",        href: "/mindfulness",    rotate:  0.5 },
   { title: "Brain Games",        href: "/brain-games",    rotate: -1.5 },
-  { title: "Madrone Love, PsyD", href: "https://v0-madronelove-website.vercel.app/", rotate: -0.5 },
+  { title: "Psychotherapy",      href: "https://v0-madronelove-website.vercel.app/", rotate: -0.5 },
 ]
 
 const cards = CARD_DEFS.map((c, i) => ({

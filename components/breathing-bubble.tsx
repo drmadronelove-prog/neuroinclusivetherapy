@@ -82,9 +82,9 @@ export function BreathingBubble() {
 
   return (
     <div style={{
-      border: "1.5px solid rgba(91,168,158,0.35)",
+      border: "1.5px solid rgba(159,179,176,0.35)",
       borderRadius: "20px",
-      background: "rgba(91,168,158,0.05)",
+      background: "rgba(159,179,176,0.05)",
       padding: "32px 24px 28px",
       display: "flex",
       flexDirection: "column",
@@ -113,12 +113,12 @@ export function BreathingBubble() {
       <div style={{ position: "relative", width: 180, height: 180 }}>
         <div style={{
           position: "absolute", inset: 0, borderRadius: "50%",
-          border: "1.5px dashed rgba(91,168,158,0.35)",
+          border: "1.5px dashed rgba(159,179,176,0.35)",
         }} />
 
         <div style={{
           position: "absolute", inset: 0, borderRadius: "50%",
-          background: "radial-gradient(circle at 38% 32%, rgba(107,191,181,0.85) 0%, rgba(74,155,146,0.55) 55%, rgba(58,130,122,0.30) 100%)",
+          background: "radial-gradient(circle at 38% 32%, rgba(140,155,176,0.85) 0%, rgba(91,110,136,0.55) 55%, rgba(60,80,110,0.30) 100%)",
           animation: "breathe 16s cubic-bezier(0.45,0,0.55,1) infinite, breathe-glow 16s ease-in-out infinite",
           transformOrigin: "center",
         }} />
@@ -129,17 +129,17 @@ export function BreathingBubble() {
           alignItems: "center", justifyContent: "center", gap: 4,
         }}>
           <span style={{
-            fontFamily: "var(--font-accent)",
-            fontSize: "1.1rem", fontWeight: 600,
-            color: "#1D5A54", letterSpacing: "0.02em",
+            fontFamily: "var(--font-display)",
+            fontSize: "1.4rem", fontWeight: 500,
+            color: "var(--ink)", letterSpacing: "-0.015em",
           }}>
             {PHASES[phase]}
           </span>
           <span style={{
-            fontFamily: "var(--font-display)",
-            fontSize: "0.65rem", fontWeight: 700,
+            fontFamily: "var(--font-mono)",
+            fontSize: "0.65rem", fontWeight: 500,
             letterSpacing: "0.14em", textTransform: "uppercase",
-            color: "rgba(29,90,84,0.55)",
+            color: "rgba(11,37,69,0.55)",
           }}>
             4 seconds
           </span>
@@ -152,14 +152,14 @@ export function BreathingBubble() {
           <div key={label + i} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
             <div style={{
               width: 8, height: 8, borderRadius: "50%",
-              background: phase === i ? "#5BA89E" : "rgba(91,168,158,0.25)",
+              background: phase === i ? "#5b6e88" : "rgba(159,179,176,0.25)",
               transition: "background 0.3s",
             }} />
             <span style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "0.55rem", fontWeight: 700,
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.55rem", fontWeight: 500,
               letterSpacing: "0.12em", textTransform: "uppercase",
-              color: phase === i ? "#5BA89E" : "rgba(91,168,158,0.45)",
+              color: phase === i ? "#5b6e88" : "rgba(159,179,176,0.55)",
               transition: "color 0.3s",
             }}>
               {label}
@@ -181,7 +181,7 @@ export function BreathingBubble() {
           padding: "4px 8px",
         }}
       >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5BA89E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5b6e88" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           {soundOn ? (
             <>
               <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
@@ -197,10 +197,10 @@ export function BreathingBubble() {
           )}
         </svg>
         <span style={{
-          fontFamily: "var(--font-display)",
-          fontSize: "0.6rem", fontWeight: 700,
+          fontFamily: "var(--font-mono)",
+          fontSize: "0.6rem", fontWeight: 500,
           letterSpacing: "0.12em", textTransform: "uppercase",
-          color: "#5BA89E",
+          color: "#5b6e88",
         }}>
           {soundOn ? "Sound on" : "Sound off"}
         </span>

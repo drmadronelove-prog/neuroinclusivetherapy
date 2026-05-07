@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function OCDSkillsPage() {
   return (
-    <ToolPageLayout title="OCD SKILLS" color="text-nav-teal">
+    <ToolPageLayout title="OCD Skills" color="text-slate">
       <ICBTTrueSelfWorksheet />
     </ToolPageLayout>
   )

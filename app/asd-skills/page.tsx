@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function ASDSkillsPage() {
   return (
-    <ToolPageLayout title="ASD SKILLS" color="text-[#8A9E96]">
+    <ToolPageLayout title="ASD Skills" color="text-glass">
       <DysregulationLog />
       <MeltdownWorksheet />
     </ToolPageLayout>

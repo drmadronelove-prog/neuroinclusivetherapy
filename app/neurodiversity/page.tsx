@@ -94,13 +94,28 @@ export default function NeurodiversityPage() {
 
               {/* Header */}
               <div className="mb-16">
-                <span className="text-nav-amber font-[var(--font-display)] font-bold tracking-wider text-sm">
-                  (01) NEURODIVERSITY
+                <span
+                  className="text-slate text-xs"
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontWeight: 500,
+                    letterSpacing: "0.16em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  (01) Neurodiversity
                 </span>
-                <h1 className="font-[var(--font-display)] text-5xl sm:text-6xl lg:text-7xl font-black text-nav-amber leading-[0.9] tracking-tight mt-4">
-                  NEURO-
-                  <br />DIVERGENCE
-                  <br />MAP
+                <h1
+                  className="text-5xl sm:text-6xl lg:text-7xl text-ink leading-[1.0] mt-4"
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontWeight: 400,
+                    letterSpacing: "-0.035em",
+                  }}
+                >
+                  Neuro-
+                  <br />divergence
+                  <br />map
                 </h1>
                 <p className="text-muted-foreground mt-6 max-w-xl leading-relaxed">
                   Interactive networks showing how diagnoses, non-DSM presentations, and cognitive mechanisms overlap.
@@ -112,15 +127,15 @@ export default function NeurodiversityPage() {
                 graphId="big"
                 nodes={BIG_NODES}
                 links={BIG_LINKS}
-                title="COMPREHENSIVE OVERLAP MAP"
+                title="Comprehensive overlap map"
                 description="DSM diagnoses, non-DSM constructs, and shared cognitive mechanisms. Drag nodes to rearrange."
               />
 
               {/* Spectrum Foundations */}
               <div className="mt-16">
                 <div className="mb-4">
-                  <h2 className="font-[var(--font-display)] text-xl font-black text-foreground tracking-tight">
-                    SPECTRUM FOUNDATIONS
+                  <h2 className="text-2xl text-foreground" style={{ fontFamily: "var(--font-display)", fontWeight: 500, letterSpacing: "-0.018em" }}>
+                    Spectrum foundations
                   </h2>
                   <p className="text-sm text-muted-foreground mt-1">
                     Four cognitive spectra with their defining mechanisms and associated conditions. Click a condition pill to see its mechanism profile.
@@ -132,8 +147,8 @@ export default function NeurodiversityPage() {
               {/* Mechanism Matrix */}
               <div className="mt-16">
                 <div className="mb-4">
-                  <h2 className="font-[var(--font-display)] text-xl font-black text-foreground tracking-tight">
-                    MECHANISM MATRIX
+                  <h2 className="text-2xl text-foreground" style={{ fontFamily: "var(--font-display)", fontWeight: 500, letterSpacing: "-0.018em" }}>
+                    Mechanism matrix
                   </h2>
                   <p className="text-sm text-muted-foreground mt-1">
                     Which cognitive mechanisms are present across each condition. Hover to highlight, click to select.

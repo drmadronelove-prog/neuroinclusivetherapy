@@ -11,10 +11,20 @@ export function SiteFooter() {
         {/* Top row */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <p className="font-[var(--font-display)] font-bold text-foreground tracking-wider text-sm">
-              MADRONE LOVE, PSYD
+            <p
+              className="text-foreground text-base"
+              style={{
+                fontFamily: "var(--font-display)",
+                fontWeight: 500,
+                letterSpacing: "-0.01em",
+              }}
+            >
+              Madrone Love, PsyD
             </p>
-            <p className="text-xs text-muted-foreground mt-0.5">
+            <p
+              className="text-xs text-muted-foreground mt-0.5"
+              style={{ fontFamily: "var(--font-mono)", letterSpacing: "0.04em" }}
+            >
               Licensed Psychologist · California #35899
             </p>
           </div>

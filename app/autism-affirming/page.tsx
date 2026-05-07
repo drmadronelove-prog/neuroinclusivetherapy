@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function AutismAffirmingPage() {
   return (
-    <ToolPageLayout title="AUTISM-AFFIRMING" color="text-nav-coral">
+    <ToolPageLayout title="Autism-Affirming" color="text-plum">
       <div className="space-y-6 text-muted-foreground leading-relaxed">
         <p className="text-lg text-foreground">
           Therapy that honors autistic identity and addresses masking burnout.

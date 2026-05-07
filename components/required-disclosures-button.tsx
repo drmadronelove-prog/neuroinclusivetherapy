@@ -9,7 +9,14 @@ export function RequiredDisclosuresButton() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="inline-flex items-center gap-2 text-sm font-[var(--font-display)] font-bold tracking-wide text-nav-coral border-2 border-nav-coral rounded-lg px-4 py-2.5 hover:bg-nav-coral/10 transition-colors"
+        className="inline-flex items-center gap-2 text-plum border border-plum px-4 py-2.5 hover:bg-plum/10 transition-colors"
+        style={{
+          fontFamily: "var(--font-mono)",
+          fontWeight: 500,
+          letterSpacing: "0.08em",
+          textTransform: "uppercase",
+          fontSize: "0.72rem",
+        }}
       >
         <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />

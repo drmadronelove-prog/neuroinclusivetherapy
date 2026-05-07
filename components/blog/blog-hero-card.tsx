@@ -86,7 +86,7 @@ export function BlogHeroCard({
           </div>
 
           <h3
-            className="text-[1.4rem] sm:text-[1.7rem] leading-tight"
+            className="text-[1.4rem] sm:text-[1.7rem] leading-tight text-center px-2"
             style={{
               fontFamily: "var(--font-display)",
               fontWeight: 400,

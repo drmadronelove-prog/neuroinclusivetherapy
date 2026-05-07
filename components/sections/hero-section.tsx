@@ -15,15 +15,12 @@ export function HeroSection() {
     >
 
       {/* Wordmark — Olive Clinical lockup. */}
-      <a
-        href="https://v0-madronelove-website.vercel.app/"
-        target="_blank"
-        rel="noopener noreferrer"
+      <div
         className="no-print fixed top-4 left-5 z-[60]"
         style={{ display: "inline-flex", alignItems: "center" }}
       >
         <OliveLockup size={0.34} />
-      </a>
+      </div>
 
       {/* Full-bleed video */}
       <div aria-hidden="true" style={{ position: "absolute", inset: 0, overflow: "hidden", zIndex: 0 }}>

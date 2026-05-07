@@ -9,7 +9,14 @@ export function NoSurprisesButton() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="inline-flex items-center gap-2 text-sm font-[var(--font-display)] font-bold tracking-wide text-nav-coral border-2 border-nav-coral rounded-lg px-4 py-2.5 hover:bg-nav-coral/10 transition-colors"
+        className="inline-flex items-center gap-2 text-plum border border-plum px-4 py-2.5 hover:bg-plum/10 transition-colors"
+        style={{
+          fontFamily: "var(--font-mono)",
+          fontWeight: 500,
+          letterSpacing: "0.08em",
+          textTransform: "uppercase",
+          fontSize: "0.72rem",
+        }}
       >
         <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -25,8 +32,15 @@ export function NoSurprisesButton() {
           <div className="bg-background rounded-xl border border-border max-w-lg w-full max-h-[85vh] overflow-y-auto">
             {/* Header */}
             <div className="flex items-start justify-between gap-4 p-6 border-b border-border">
-              <h2 className="font-[var(--font-display)] font-black text-lg tracking-tight text-foreground leading-tight">
-                YOUR RIGHTS UNDER THE NO SURPRISES ACT
+              <h2
+                className="text-2xl text-foreground leading-tight"
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 500,
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                Your rights under the No Surprises Act
               </h2>
               <button
                 onClick={() => setOpen(false)}

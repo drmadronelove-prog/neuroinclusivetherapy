@@ -90,18 +90,32 @@ const games = [
 
 export default function BrainGamesPage() {
   return (
-    <ToolPageLayout title="BRAIN GAMES" color="text-nav-amber">
+    <ToolPageLayout title="Brain Games" color="text-gold">
       <div className="space-y-16">
         {games.map((game) => (
           <section key={game.id} className="space-y-4">
             {/* Card header */}
             <div className="space-y-2">
               <span
-                className={`inline-block text-xs font-bold tracking-widest uppercase border rounded-full px-3 py-1 ${game.categoryColor}`}
+                className={`inline-block px-3 py-1 border ${game.categoryColor}`}
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontWeight: 500,
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  fontSize: "0.65rem",
+                }}
               >
                 {game.category}
               </span>
-              <h2 className="font-[var(--font-display)] text-2xl sm:text-3xl font-black text-foreground tracking-tight">
+              <h2
+                className="text-2xl sm:text-3xl text-foreground"
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 500,
+                  letterSpacing: "-0.02em",
+                }}
+              >
                 {game.title}
               </h2>
               <p className="text-muted-foreground leading-relaxed max-w-xl">

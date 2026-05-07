@@ -247,7 +247,7 @@ export function NetworkGraph({
         .join("text")
         .attr("text-anchor", "middle")
         .attr("fill",        "rgba(20,20,20,0.92)")
-        .attr("font-family", "DM Sans, sans-serif")
+        .attr("font-family", "Geist, system-ui, sans-serif")
         .attr("font-size",   "13")
         .attr("font-weight", "700")
         .each(function(d: any) {
@@ -286,7 +286,14 @@ export function NetworkGraph({
 
   return (
     <div className="mb-20">
-      <h2 className="font-[var(--font-display)] text-3xl sm:text-4xl font-black text-foreground tracking-tight mb-2">
+      <h2
+        className="text-3xl sm:text-4xl text-foreground mb-2"
+        style={{
+          fontFamily: "var(--font-display)",
+          fontWeight: 500,
+          letterSpacing: "-0.022em",
+        }}
+      >
         {title}
       </h2>
       <p className="text-sm text-muted-foreground mb-4 max-w-2xl">{description}</p>
