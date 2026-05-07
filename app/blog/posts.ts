@@ -929,8 +929,8 @@ export const posts: BlogPost[] = [
     ],
   },
   {
-    slug: "the-system-is-the-protagonist",
-    title: "The System Is the Protagonist: An Autistic Cultural Canon Hiding in Plain Sight",
+    slug: "its-2026-and-autistic-culture-is-flourishing",
+    title: "It's 2026 and Autistic Culture is Flourishing",
     subtitle: "There is a body of work, scattered across decades and genres, that is autistic not because of who its characters are but because of how the storytelling itself is built — stories that approach the world the way an autistic mind often does: as a system to be understood.",
     author: "Madrone Love",
     credential: "PsyD",
