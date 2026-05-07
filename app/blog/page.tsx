@@ -9,10 +9,10 @@ export const metadata = {
 
 export default function BlogPage() {
   return (
-    <ToolPageLayout title="BLOG" color="text-[#4F5D6E]">
+    <ToolPageLayout title="Blog" color="text-ink">
       <p
-        className="max-w-2xl mb-10 text-[1.05rem] leading-relaxed"
-        style={{ color: "#6B7B8C" }}
+        className="max-w-2xl mb-10 text-[1.05rem] leading-relaxed italic"
+        style={{ fontFamily: "var(--font-display)", color: "rgba(11,37,69,0.65)" }}
       >
         Thoughts on neurodivergent-affirming therapy, mental wellness, and living
         differently. Choose an essay below.

@@ -1,4 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92 100" fill="none">
-  <ellipse cx="46" cy="50" rx="42" ry="46" stroke="#8A9AAE" stroke-width="9" fill="none" />
-  <circle cx="34" cy="24" r="7" fill="#C9A938" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <path
+    d="M 100 30 C 138 30, 166 60, 166 100 C 166 140, 138 170, 100 170 C 62 170, 34 140, 34 100 C 34 60, 62 30, 100 30 Z M 108 46 C 120.15 46, 130 55.85, 130 68 C 130 80.15, 120.15 90, 108 90 C 95.85 90, 86 80.15, 86 68 C 86 55.85, 95.85 46, 108 46 Z"
+    fill="#0b2545"
+    fill-rule="evenodd"
+  />
 </svg>

@@ -21,43 +21,55 @@ export type BlogPost = {
   blocks: Block[]
 }
 
-// ── Blue-grey palette ─────────────────────────────────────────────────────────
-// All text and accents in the blog post use variations of blue-grey.
-const BG = {
-  lightest: "#BFCAD6",
-  light: "#A7B7C8",
-  medium: "#8A9AAE",
-  dark: "#6B7B8C",
-  darker: "#4F5D6E",
-  darkest: "#2F3B47",
+// ── Olive Clinical settled palette tokens ────────────────────────────────────
+const C = {
+  ink:    "#0b2545",
+  paper:  "#fbf8f3",
+  linen:  "#efeae0",
+  mist:   "#8c9bb0",
+  slate:  "#5b6e88",
+  plum:   "#7a4f6e",
+  rule:   "rgba(11,37,69,0.18)",
+  inkSoft: "rgba(11,37,69,0.65)",
+  inkMute: "rgba(11,37,69,0.5)",
 } as const
 
 // ── Renderer ──────────────────────────────────────────────────────────────────
 
 export function BlogPostArticle({ post }: { post: BlogPost }) {
   return (
-    <article className="max-w-2xl mx-auto space-y-8">
+    <article
+      className="max-w-2xl mx-auto space-y-8"
+      style={{ fontFamily: "var(--font-body)" }}
+    >
       {/* Header */}
       <header
-        className="space-y-4 pb-6"
-        style={{ borderBottom: `1px solid ${BG.lightest}` }}
+        className="space-y-5 pb-8"
+        style={{ borderBottom: `1px solid ${C.rule}` }}
       >
-        {/* Category tag */}
-        <span
-          className="inline-block text-xs font-bold tracking-widest uppercase rounded-full px-3 py-1"
+        {/* Category eyebrow */}
+        <div
+          className="text-[0.7rem]"
           style={{
-            color: BG.dark,
-            border: `1px solid ${BG.light}`,
-            backgroundColor: "rgba(167,183,200,0.10)",
+            fontFamily: "var(--font-mono)",
+            fontWeight: 500,
+            letterSpacing: "0.16em",
+            textTransform: "uppercase",
+            color: C.slate,
           }}
         >
           {post.category}
-        </span>
+        </div>
 
         {/* Title */}
         <h1
-          className="text-4xl sm:text-5xl font-black leading-tight tracking-tight"
-          style={{ fontFamily: "var(--font-display)", color: BG.darkest }}
+          className="text-4xl sm:text-5xl leading-[1.05] tracking-tight"
+          style={{
+            fontFamily: "var(--font-display)",
+            fontWeight: 400,
+            letterSpacing: "-0.025em",
+            color: C.ink,
+          }}
         >
           {post.title}
         </h1>
@@ -65,28 +77,33 @@ export function BlogPostArticle({ post }: { post: BlogPost }) {
         {/* Subtitle */}
         {post.subtitle && (
           <p
-            className="text-xl leading-snug font-medium"
-            style={{ color: BG.dark }}
+            className="text-lg sm:text-xl italic leading-snug"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontWeight: 400,
+              color: C.inkSoft,
+            }}
           >
             {post.subtitle}
           </p>
         )}
 
         {/* Byline */}
-        <div className="flex items-center gap-2 pt-1">
-          <span className="text-sm font-semibold" style={{ color: BG.darker }}>
-            {post.author}
-          </span>
-          <span className="text-sm" style={{ color: BG.medium }}>·</span>
-          <span className="text-sm" style={{ color: BG.dark }}>
-            {post.credential}
-          </span>
+        <div
+          className="flex items-center gap-2 pt-1 text-[0.78rem]"
+          style={{
+            fontFamily: "var(--font-mono)",
+            letterSpacing: "0.06em",
+            color: C.slate,
+          }}
+        >
+          <span style={{ color: C.ink }}>{post.author}</span>
+          <span style={{ color: C.mist }}>·</span>
+          <span>{post.credential}</span>
           {post.date && (
             <>
-              <span className="text-sm" style={{ color: BG.medium }}>·</span>
-              <span className="text-sm" style={{ color: BG.dark }}>
-                {post.date}
-              </span>
+              <span style={{ color: C.mist }}>·</span>
+              <span>{post.date}</span>
             </>
           )}
         </div>
@@ -101,7 +118,7 @@ export function BlogPostArticle({ post }: { post: BlogPost }) {
                 <p
                   key={i}
                   className={`leading-relaxed text-[1.05rem]${block.dropCap ? " prose-drop-cap-bg" : ""}`}
-                  style={{ color: BG.darker }}
+                  style={{ color: C.ink }}
                 >
                   {block.text}
                 </p>
@@ -111,10 +128,12 @@ export function BlogPostArticle({ post }: { post: BlogPost }) {
               return (
                 <h2
                   key={i}
-                  className="text-2xl sm:text-3xl font-black tracking-tight pt-4"
+                  className="text-2xl sm:text-3xl tracking-tight pt-4"
                   style={{
                     fontFamily: "var(--font-display)",
-                    color: BG.darkest,
+                    fontWeight: 500,
+                    letterSpacing: "-0.018em",
+                    color: C.ink,
                   }}
                 >
                   {block.text}
@@ -125,15 +144,17 @@ export function BlogPostArticle({ post }: { post: BlogPost }) {
               return (
                 <blockquote
                   key={i}
-                  className="pl-5 py-2 my-8 rounded-r-lg"
-                  style={{
-                    borderLeft: `4px solid ${BG.medium}`,
-                    backgroundColor: "rgba(138,154,174,0.08)",
-                  }}
+                  className="pl-6 py-2 my-10"
+                  style={{ borderLeft: `3px solid ${C.plum}` }}
                 >
                   <p
-                    className="text-lg sm:text-xl font-medium leading-snug italic"
-                    style={{ color: BG.darker }}
+                    className="text-xl sm:text-2xl italic leading-snug"
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontWeight: 400,
+                      color: C.plum,
+                      letterSpacing: "-0.01em",
+                    }}
                   >
                     {block.text}
                   </p>
@@ -146,8 +167,8 @@ export function BlogPostArticle({ post }: { post: BlogPost }) {
                   key={i}
                   className="mt-12 pt-6 text-sm leading-relaxed"
                   style={{
-                    borderTop: `1px solid ${BG.lightest}`,
-                    color: BG.dark,
+                    borderTop: `1px solid ${C.rule}`,
+                    color: C.inkSoft,
                   }}
                 >
                   <p>{block.text}</p>
@@ -156,41 +177,44 @@ export function BlogPostArticle({ post }: { post: BlogPost }) {
 
             case "callout":
               return (
-                <div
+                <aside
                   key={i}
-                  className="rounded-lg px-6 py-5 my-6"
-                  style={{
-                    backgroundColor: "rgba(138,154,174,0.10)",
-                    border: `1px solid ${BG.light}`,
-                  }}
+                  className="px-6 py-5 my-8"
+                  style={{ backgroundColor: C.linen }}
                 >
                   <p
-                    className="font-semibold text-[0.95rem] mb-2"
-                    style={{ color: BG.darkest }}
+                    className="text-[0.7rem] mb-3"
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontWeight: 500,
+                      letterSpacing: "0.14em",
+                      textTransform: "uppercase",
+                      color: C.slate,
+                    }}
                   >
                     {block.heading}
                   </p>
                   <p
-                    className="text-[0.95rem] leading-relaxed"
-                    style={{ color: BG.dark }}
+                    className="text-[0.98rem] leading-relaxed"
+                    style={{ color: C.ink }}
                   >
                     {block.text}
                   </p>
-                </div>
+                </aside>
               )
 
             case "list":
               return (
-                <ul key={i} className="space-y-2 my-4">
+                <ul key={i} className="space-y-2.5 my-4">
                   {block.items.map((item, j) => (
                     <li
                       key={j}
                       className="flex gap-3 text-[1.05rem] leading-relaxed"
-                      style={{ color: BG.darker }}
+                      style={{ color: C.ink }}
                     >
                       <span
-                        className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full"
-                        style={{ backgroundColor: BG.medium }}
+                        className="mt-2.5 h-1 w-1 flex-shrink-0 rounded-full"
+                        style={{ backgroundColor: C.slate }}
                       />
                       <span>{item}</span>
                     </li>

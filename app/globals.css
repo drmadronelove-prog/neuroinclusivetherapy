@@ -4,95 +4,128 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Palette aligned with madronelove.com — warm cream, sage, dusty rose */
-  --background: #F0EBE3;
-  --foreground: #3D5230;
-  --card: #F5F2EC;
-  --card-foreground: #3D5230;
-  --popover: #F5F2EC;
-  --popover-foreground: #3D5230;
-  --primary: #7A9A78;           /* sage green */
-  --primary-foreground: #F5F2EC;
-  --secondary: #B8949C;         /* dusty rose */
-  --secondary-foreground: #3D5230;
-  --muted: #E6E0D8;
-  --muted-foreground: #6B7860;
-  --accent: #9AADA0;            /* muted seafoam sage */
-  --accent-foreground: #3D5230;
-  --destructive: #C4755A;
-  --destructive-foreground: #F5F2EC;
-  --border: #D4CCB8;
-  --input: #E6E0D8;
-  --ring: #7A9A78;
+  /* ── Olive Clinical settled palette ────────────────────────────
+     Ink + Paper carry the system. Linen · Soft soften.
+     Cools: Glass · Mist · Slate. Warms: Plum · Rose · Dusk.
+     Gold seals.                                                  */
+  --ink:    #0b2545;
+  --paper:  #fbf8f3;
+  --linen:  #efeae0;
+  --soft:   #e8e3d8;
+  --glass:  #9fb3b0;
+  --mist:   #8c9bb0;
+  --slate:  #5b6e88;
+  --plum:   #7a4f6e;
+  --rose:   #c4877e;
+  --dusk:   #b88894;
+  --gold:   #c5a572;
 
-  /* Semantic nav color aliases — unique values set per-component in spines */
-  --nav-teal:    #7A9A78;   /* sage green   */
-  --nav-coral:   #7A9A78;   /* sage green   */
-  --nav-salmon:  #9AADA0;   /* seafoam sage */
-  --nav-amber:   #C17C74;   /* adobe clay   */
-  --nav-rose:    #B8949C;   /* dusty rose   */
-  --nav-seafoam: #9AADA0;   /* seafoam sage */
-  --nav-orange:  #9AADA0;   /* seafoam sage */
-  --nav-gold:    #7A9A78;   /* sage green   */
-  --nav-mauve:   #B8949C;   /* dusty rose   */
+  /* Semantic tokens — most components consume these via Tailwind. */
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--paper);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
+  --primary: var(--plum);                /* primary CTA */
+  --primary-foreground: var(--paper);
+  --secondary: var(--linen);             /* secondary surface */
+  --secondary-foreground: var(--ink);
+  --muted: var(--linen);
+  --muted-foreground: var(--slate);
+  --accent: var(--glass);
+  --accent-foreground: var(--ink);
+  --destructive: var(--rose);
+  --destructive-foreground: var(--paper);
+  --border: rgba(11, 37, 69, 0.18);      /* hairline rule on Ink */
+  --input: var(--soft);
+  --ring: var(--plum);
 
-  --chart-1: #7A9A78;
-  --chart-2: #B8949C;
-  --chart-3: #9AADA0;
-  --chart-4: #5E8060;
-  --chart-5: #3D5230;
-  --radius: 0.625rem;
-  --sidebar: #F0EBE3;
-  --sidebar-foreground: #3D5230;
-  --sidebar-primary: #7A9A78;
-  --sidebar-primary-foreground: #F5F2EC;
-  --sidebar-accent: #E6E0D8;
-  --sidebar-accent-foreground: #3D5230;
-  --sidebar-border: #D4CCB8;
-  --sidebar-ring: #7A9A78;
+  /* Per-section heading aliases — variation drawn from the cool +
+     warm accent families. All sit on Paper or Linen surfaces. */
+  --nav-teal:    var(--slate);
+  --nav-coral:   var(--plum);
+  --nav-salmon:  var(--rose);
+  --nav-amber:   var(--gold);
+  --nav-rose:    var(--plum);
+  --nav-seafoam: var(--glass);
+  --nav-orange:  var(--rose);
+  --nav-gold:    var(--gold);
+  --nav-mauve:   var(--dusk);
+
+  --chart-1: var(--ink);
+  --chart-2: var(--plum);
+  --chart-3: var(--slate);
+  --chart-4: var(--glass);
+  --chart-5: var(--gold);
+  --radius: 0.5rem;
+
+  --sidebar: var(--paper);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--plum);
+  --sidebar-primary-foreground: var(--paper);
+  --sidebar-accent: var(--linen);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: rgba(11, 37, 69, 0.18);
+  --sidebar-ring: var(--plum);
 }
 
 .dark {
-  --background: #252E22;
-  --foreground: #E8E4DA;
-  --card: #2E3829;
-  --card-foreground: #E8E4DA;
-  --popover: #2E3829;
-  --popover-foreground: #E8E4DA;
-  --primary: #9AB898;
-  --primary-foreground: #252E22;
-  --secondary: #C4A0A8;
-  --secondary-foreground: #252E22;
-  --muted: #2E3829;
-  --muted-foreground: #A8B0A0;
-  --accent: #AEC0B8;
-  --accent-foreground: #252E22;
-  --destructive: #D4856A;
-  --destructive-foreground: #252E22;
-  --border: #3E4A38;
-  --input: #2E3829;
-  --ring: #9AB898;
-  --chart-1: #9AB898;
-  --chart-2: #C4A0A8;
-  --chart-3: #AEC0B8;
-  --chart-4: #7A9A78;
-  --chart-5: #E8E4DA;
-  --sidebar: #252E22;
-  --sidebar-foreground: #E8E4DA;
-  --sidebar-primary: #9AB898;
-  --sidebar-primary-foreground: #252E22;
-  --sidebar-accent: #2E3829;
-  --sidebar-accent-foreground: #E8E4DA;
-  --sidebar-border: #3E4A38;
-  --sidebar-ring: #9AB898;
+  --background: var(--ink);
+  --foreground: var(--paper);
+  --card: #122a4d;
+  --card-foreground: var(--paper);
+  --popover: #122a4d;
+  --popover-foreground: var(--paper);
+  --primary: var(--rose);
+  --primary-foreground: var(--ink);
+  --secondary: #1a3158;
+  --secondary-foreground: var(--paper);
+  --muted: #1a3158;
+  --muted-foreground: var(--mist);
+  --accent: var(--glass);
+  --accent-foreground: var(--ink);
+  --destructive: var(--rose);
+  --destructive-foreground: var(--ink);
+  --border: rgba(251, 248, 243, 0.18);
+  --input: #1a3158;
+  --ring: var(--rose);
+
+  --chart-1: var(--paper);
+  --chart-2: var(--rose);
+  --chart-3: var(--glass);
+  --chart-4: var(--mist);
+  --chart-5: var(--gold);
+
+  --sidebar: var(--ink);
+  --sidebar-foreground: var(--paper);
+  --sidebar-primary: var(--rose);
+  --sidebar-primary-foreground: var(--ink);
+  --sidebar-accent: #1a3158;
+  --sidebar-accent-foreground: var(--paper);
+  --sidebar-border: rgba(251, 248, 243, 0.18);
+  --sidebar-ring: var(--rose);
 }
 
 @theme inline {
-  --font-display: var(--font-display), 'Barlow Condensed', sans-serif;
-  --font-body: var(--font-body), 'DM Sans', sans-serif;
-  --font-sans: var(--font-body), 'DM Sans', sans-serif;
-  --font-mono: 'Geist Mono', monospace;
-  --font-accent: var(--font-accent), 'Caveat', cursive;
+  --font-display: var(--font-display), 'Fraunces', Georgia, serif;
+  --font-body: var(--font-body), 'Geist', system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-body), 'Geist', system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-mono), 'Geist Mono', ui-monospace, monospace;
+  --font-accent: var(--font-display), 'Fraunces', Georgia, serif;
+
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-linen: var(--linen);
+  --color-soft: var(--soft);
+  --color-glass: var(--glass);
+  --color-mist: var(--mist);
+  --color-slate: var(--slate);
+  --color-plum: var(--plum);
+  --color-rose: var(--rose);
+  --color-dusk: var(--dusk);
+  --color-gold: var(--gold);
+
   --color-nav-teal: var(--nav-teal);
   --color-nav-coral: var(--nav-coral);
   --color-nav-salmon: var(--nav-salmon);
@@ -102,6 +135,7 @@
   --color-nav-orange: var(--nav-orange);
   --color-nav-gold: var(--nav-gold);
   --color-nav-mauve: var(--nav-mauve);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -149,57 +183,36 @@
   }
 }
 
-/* Drop cap for blog article opening paragraphs */
-.prose-drop-cap::first-letter {
-  float: left;
-  font-family: var(--font-display), 'Barlow Condensed', sans-serif;
-  font-size: 4.5rem;
-  font-weight: 900;
-  line-height: 0.8;
-  color: #7A9A78;
-  padding-right: 0.12em;
-  padding-top: 0.05em;
-}
-
-/* Blue-grey drop cap variant used by blog articles */
+/* Drop cap for blog article opening paragraphs — ink on paper. */
+.prose-drop-cap::first-letter,
 .prose-drop-cap-bg::first-letter {
   float: left;
-  font-family: var(--font-display), 'Barlow Condensed', sans-serif;
+  font-family: var(--font-display), 'Fraunces', Georgia, serif;
   font-size: 4.5rem;
-  font-weight: 900;
-  line-height: 0.8;
-  color: #4F5D6E;
+  font-weight: 600;
+  line-height: 0.85;
+  color: var(--ink);
   padding-right: 0.12em;
   padding-top: 0.05em;
 }
 
 @media print {
-  /* Hide all navigation and UI chrome */
   .no-print {
     display: none !important;
   }
-
-  /* Force assessment content visible even when the accordion is collapsed */
   .assessment-content {
     display: block !important;
   }
-
-  /* Remove right margin reserved for the fixed nav */
   body > * [class*="md:mr-"] {
     margin-right: 0 !important;
   }
-
-  /* Clean white background */
   body {
     background: white !important;
     color: black !important;
   }
-
-  /* Avoid page breaks inside checklist items */
   li, label {
     break-inside: avoid;
   }
-
   section {
     break-inside: avoid;
   }

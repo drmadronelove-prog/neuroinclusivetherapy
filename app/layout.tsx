@@ -1,31 +1,26 @@
 import type { Metadata } from 'next'
-import { Barlow_Condensed, DM_Sans, Dancing_Script, Caveat } from 'next/font/google'
+import { Fraunces, Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const barlowCondensed = Barlow_Condensed({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: ["700", "800", "900"],
-  variable: "--font-display"
-});
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-display",
+})
 
-const dmSans = DM_Sans({
+const geist = Geist({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-  variable: "--font-body"
-});
+  variable: "--font-body",
+})
 
-const dancingScript = Dancing_Script({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  weight: ["600", "700"],
-  variable: "--font-script",
-});
-
-const caveat = Caveat({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-accent",
-});
+  weight: ["400", "500"],
+  variable: "--font-mono",
+})
 
 export const metadata: Metadata = {
   title: 'Olive Clinical | Neuroinclusive Therapy',
@@ -43,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${barlowCondensed.variable} ${dmSans.variable} ${dancingScript.variable} ${caveat.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${geist.variable} ${geistMono.variable}`}>
       <body className="font-body antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

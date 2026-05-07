@@ -31,7 +31,7 @@ export default async function BlogPostPage({
   if (!post) notFound()
 
   return (
-    <ToolPageLayout color="text-[#4F5D6E]">
+    <ToolPageLayout color="text-ink">
       <BlogPostArticle post={post} />
     </ToolPageLayout>
   )
