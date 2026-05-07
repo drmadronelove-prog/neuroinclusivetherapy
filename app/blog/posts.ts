@@ -929,9 +929,8 @@ export const posts: BlogPost[] = [
     ],
   },
   {
-    slug: "its-2026-and-autistic-culture-is-flourishing",
-    title: "It's 2026 and Autistic Culture is Flourishing",
-    subtitle: "There is a body of work, scattered across decades and genres, that is autistic not because of who its characters are but because of how the storytelling itself is built — stories that approach the world the way an autistic mind often does: as a system to be understood.",
+    slug: "autistic-culture-is-flourishing",
+    title: "Autistic Culture is Flourishing",
     author: "Madrone Love",
     credential: "PsyD",
     category: "Neurodivergence & Culture",

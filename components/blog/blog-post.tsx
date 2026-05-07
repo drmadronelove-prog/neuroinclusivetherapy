@@ -13,7 +13,7 @@ export type Block =
 export type BlogPost = {
   slug: string
   title: string
-  subtitle: string
+  subtitle?: string
   author: string
   credential: string
   category: string
@@ -63,12 +63,14 @@ export function BlogPostArticle({ post }: { post: BlogPost }) {
         </h1>
 
         {/* Subtitle */}
-        <p
-          className="text-xl leading-snug font-medium"
-          style={{ color: BG.dark }}
-        >
-          {post.subtitle}
-        </p>
+        {post.subtitle && (
+          <p
+            className="text-xl leading-snug font-medium"
+            style={{ color: BG.dark }}
+          >
+            {post.subtitle}
+          </p>
+        )}
 
         {/* Byline */}
         <div className="flex items-center gap-2 pt-1">
