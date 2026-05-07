@@ -928,6 +928,268 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "the-system-is-the-protagonist",
+    title: "The System Is the Protagonist: An Autistic Cultural Canon Hiding in Plain Sight",
+    subtitle: "There is a body of work, scattered across decades and genres, that is autistic not because of who its characters are but because of how the storytelling itself is built — stories that approach the world the way an autistic mind often does: as a system to be understood.",
+    author: "Madrone Love",
+    credential: "PsyD",
+    category: "Neurodivergence & Culture",
+    date: "2025",
+    blocks: [
+      {
+        type: "paragraph",
+        dropCap: true,
+        text: "When we talk about autistic representation in film and television, the conversation usually centers on shows that feature an explicitly autistic character. The savant. The quirky genius. The earnest awkward boy learning to love. I want to point at something different. There is a body of work, scattered across decades and genres, that is autistic not because of who the characters are but because of how the storytelling itself is built. These are stories that approach the world the way an autistic mind often does: as a system to be understood, with the social niceties left out and the underlying mechanics laid bare. They are largely unsentimental. They treat patterns as primary and feelings as data. And for many of my autistic clients, they feel like home in a way that explicitly autistic-themed media often does not.",
+      },
+      {
+        type: "heading",
+        text: "What I mean by autistic storytelling",
+      },
+      {
+        type: "paragraph",
+        text: "The autistic mind, at its most characteristic, tends toward systems thinking. This is not a stereotype. It is a real cognitive feature, described in different language by different researchers, but recognizable across all of them: an orientation toward pattern, structure, mechanism, and the unspoken rules that govern how something actually works. Where a more typical narrative might be organized around emotional beats, character arcs in the conventional sense, and resolutions that affirm shared social meaning, an autistic narrative tends to be organized around the system itself. What are the rules? What happens when you push on them? What is actually going on underneath?",
+      },
+      {
+        type: "paragraph",
+        text: "This is a different storytelling logic, and it produces a different aesthetic. Sentiment is rarely the point. When emotion appears, it is often delivered without softening, without the cushioning that mainstream narrative usually provides. The story does not reassure you that everything will be fine, that the characters love each other underneath it all, that there is a moral lesson on the way. It looks at the thing it is looking at, and it tells you what it sees.",
+      },
+      {
+        type: "paragraph",
+        text: "For autistic viewers and readers, this is recognizable on a deep level. Not because every autistic person is unsentimental, but because the cognitive shape of these stories matches a cognitive shape many autistic people live inside.",
+      },
+      {
+        type: "heading",
+        text: "The Rehearsal",
+      },
+      {
+        type: "callout",
+        heading: "Television · Nathan Fielder · 2022 to present",
+        text: "Possibly the most fully autistic piece of television ever made by someone who has spoken openly about being autistic. Fielder treats human social interaction as a system to be modeled, rehearsed, and engineered. The premise of the show is to build full-scale physical replicas of locations, hire actors to play the people in someone's life, and rehearse a difficult conversation hundreds of times before it happens for real. The premise is delivered without irony. The implication is that this is what social life would actually require if the inferential layer that most people use to navigate it were not available to you. The show does not soften this. It does not turn it into a redemption arc. It builds the system and watches what happens.",
+      },
+      {
+        type: "paragraph",
+        text: "What makes The Rehearsal autistic is not that Fielder has talked about being autistic. It is that the show's whole logic is the logic of someone who has decided to take seriously the project of preparing for a social interaction, and who has the resources to do so at industrial scale. The wincing humor, when it comes, comes from the gap between the precision of the system and the messiness of the humans inside it. There is no condescension in the framing. The system is the protagonist.",
+      },
+      {
+        type: "heading",
+        text: "SpongeBob SquarePants",
+      },
+      {
+        type: "callout",
+        heading: "Animation · Stephen Hillenburg · 1999 to present",
+        text: "Hillenburg, a marine biology educator turned animator, built an entire town with internally consistent rules and populated it with characters whose personalities are essentially single sustained intensities. SpongeBob's sincerity is total and unbroken. Squidward's misery is total and unbroken. Patrick's stupidity is total and unbroken. Each character is a system, and the comedy emerges from the collision of those systems with each other and with the rules of Bikini Bottom. The emotional register does not modulate the way other children's television modulates. SpongeBob does not learn his lesson. He returns next week as exactly what he was. The world is stable, the rules are stable, the personalities are stable, and the pleasure is in watching the system run.",
+      },
+      {
+        type: "paragraph",
+        text: "I have lost count of how many of my autistic clients have told me, often a little sheepishly, that SpongeBob is one of their primary comfort objects. The reason is structural. The show is predictable in the deep sense. Its predictability is not lazy. It is a feature. The viewer does not have to track shifting subtext or evolving character. They get to watch a clean machine operate, with delight on top.",
+      },
+      {
+        type: "heading",
+        text: "Curb Your Enthusiasm",
+      },
+      {
+        type: "callout",
+        heading: "Television · Larry David · 2000 to 2024",
+        text: "Curb is a sustained ethnographic study of the unspoken social contract. Each episode begins with Larry David noticing a social rule, often one that most people follow without ever articulating it, and choosing to litigate it. Should you really have to pretend to like a gift you did not want? Why are we obligated to attend an event we have no interest in? What does it actually mean when someone says we should get together sometime? The show treats these questions with complete seriousness. The humor comes from the fact that the rest of the world, which has agreed to leave these conventions unexamined, will punish anyone who refuses to leave them alone.",
+      },
+      {
+        type: "paragraph",
+        text: "Larry David is not playing an autistic character. He is doing something arguably more useful for autistic viewers: he is making the implicit social rules explicit, and then asking, with a kind of plainness that is rare in mainstream comedy, whether they actually make sense. For people who have spent their lives being told they are missing something obvious, watching someone hold the thing up to the light and ask \"what is this, exactly?\" is a real relief.",
+      },
+      {
+        type: "pull-quote",
+        text: "Larry David does what many autistic people are punished for doing. He notices the social rule, asks if it makes sense, and refuses to pretend he did not see it.",
+      },
+      {
+        type: "heading",
+        text: "Wes Anderson",
+      },
+      {
+        type: "callout",
+        heading: "Film · 1996 to present",
+        text: "Anderson's films are essentially elaborate dollhouses. The framing is symmetrical. The color palette is exact. The dialogue is delivered without the warming inflections that signal feeling in conventional acting. Characters announce their grief in flat tones over carefully composed shots of meticulously labeled objects. The emotional content is enormous. The presentation is rigorously controlled. This is not a style choice that happens to coexist with the stories. It is the storytelling. Anderson is showing you that the system, the dollhouse, the precise arrangement of objects and lines, is how some people hold what would otherwise be unbearable.",
+      },
+      {
+        type: "paragraph",
+        text: "Many of my autistic clients describe a felt recognition in Anderson's work that they have struggled to find elsewhere. The emotion is not absent. It is, if anything, more present than in conventional film, because it is not being modulated to make the viewer comfortable. It is being held inside a structure precise enough to contain it.",
+      },
+      {
+        type: "heading",
+        text: "Severance",
+      },
+      {
+        type: "callout",
+        heading: "Television · Dan Erickson · 2022 to present",
+        text: "The premise is a system, and the show takes the system seriously. Workers undergo a procedure that surgically separates their work memories from their non-work memories, producing two functionally distinct selves who share a body. The show then asks, with patience and rigor, what follows. What rights does the work self have? What does the non-work self owe to the work self? What happens when the system meets the human? The aesthetic matches the premise: corporate corridors of inhuman cleanliness, dialogue stripped of the social lubricant most workplaces rely on, characters navigating procedures whose purposes are deliberately withheld.",
+      },
+      {
+        type: "paragraph",
+        text: "What makes Severance resonate for autistic viewers is partly the bureaucratic horror, which is recognizable to anyone who has tried to navigate institutions whose rules are not transparent to them, and partly the show's willingness to follow the system through to its actual implications without retreating into easy emotional resolution.",
+      },
+      {
+        type: "heading",
+        text: "The Three-Body Problem",
+      },
+      {
+        type: "callout",
+        heading: "Literature and television · Liu Cixin · trilogy 2008 to 2010, Netflix adaptation 2024",
+        text: "Liu Cixin's trilogy is possibly the purest example of system-thinking as narrative form in contemporary fiction. The story is built around the actual physics problem of three gravitational bodies interacting, a problem with no closed-form solution, and follows the implications outward into first contact, civilizational survival, and the structure of the universe itself. Liu does not modulate the material to make it palatable. Characters die. Civilizations end. Cosmic indifference is treated as cosmic indifference. The trilogy's most famous device, the dark forest, is a game-theoretic argument about why the universe is silent, and the argument is presented with the rigor of a proof. Sentiment is not the engine. The system is.",
+      },
+      {
+        type: "paragraph",
+        text: "The Netflix adaptation, by the showrunners behind Game of Thrones, softens some of this in the way television almost always softens novels, but the underlying architecture survives. The story is still about what follows when you take a strange premise seriously and trace its consequences without flinching. The characters are vehicles for working out the implications of the system, and the show, at its best, knows it. For autistic readers and viewers, the appeal is not the science fiction trappings. It is the willingness to treat ideas as things that have consequences, and to follow those consequences wherever they lead, including to places that more sentimental fiction would refuse to go.",
+      },
+      {
+        type: "paragraph",
+        text: "Liu has written that he is interested in what he calls the worst of all possible universes, a phrase that captures something specific about this kind of storytelling. The point is not to be bleak for its own sake. It is to refuse the comfort that most narrative provides, and to look at what is actually there. Many of my autistic clients describe a particular kind of relief in reading or watching work that does this. Not because they enjoy bleakness, but because they have spent their lives being asked to participate in social agreements about reality that did not match what they were actually seeing, and there is a real pleasure in encountering art that simply tells the truth about the system it has built.",
+      },
+      {
+        type: "heading",
+        text: "Kafka",
+      },
+      {
+        type: "callout",
+        heading: "Literature · Franz Kafka · early 20th century",
+        text: "Kafka, who has been retrospectively read by some scholars as autistic, built fictional worlds that operate as systems whose logic is opaque to the protagonist and that punish him for failing to grasp the rules he was never given. The Trial is a man trying to navigate a legal system that will not tell him what he is accused of. The Castle is a man trying to access a bureaucracy whose internal workings remain permanently unavailable. The horror is not violent. It is procedural. The world has rules, and you are expected to know them, and no one will tell you what they are.",
+      },
+      {
+        type: "paragraph",
+        text: "For autistic readers, Kafka's work often lands as documentary rather than allegory. The experience of being held accountable to social and institutional rules that were never made explicit is not, for many autistic people, a metaphor.",
+      },
+      {
+        type: "heading",
+        text: "I Think You Should Leave",
+      },
+      {
+        type: "callout",
+        heading: "Television · Tim Robinson · 2019 to present",
+        text: "Robinson's sketch comedy is built around characters who refuse to drop a position once they have taken it, regardless of how absurd the position becomes or how clearly the social situation is asking them to move on. The comedic engine is the gap between the social pressure to release a stance and the character's complete inability or refusal to do so. There is no neurotypical lubricant. The character does not save face. They double down, and double down again, until the entire system around them buckles.",
+      },
+      {
+        type: "paragraph",
+        text: "Many autistic people have been on both sides of this. They have been the person whose refusal to drop a point was treated as a social violation, and they have watched, with relief, a comedy that takes that refusal seriously enough to build entire pieces around it. Robinson is not making fun of the rigidity. He is showing what it actually looks like, and what it costs, when a person and a social situation reach an impasse and neither will move.",
+      },
+      {
+        type: "heading",
+        text: "Documentary as natural autistic form",
+      },
+      {
+        type: "paragraph",
+        text: "Documentary, as a form, is structurally autistic in a way that fiction often is not. It is committed to looking at the thing it is looking at. It is suspicious of sentiment that has not been earned by the material. It tends to organize its presentation around systems: how a place works, how a process unfolds, how a community functions. Filmmakers like Frederick Wiseman, who has spent decades making long, unnarrated films about institutions, hospitals, schools, courts, government offices, are doing something many autistic viewers find profoundly satisfying. He shows the system. He does not tell you what to think about it. He lets the rules and rhythms reveal themselves.",
+      },
+      {
+        type: "paragraph",
+        text: "Nature documentaries occupy a similar place in many autistic viewers' lives. Attenborough's voice, the patient observation of how an ecosystem operates, the willingness to spend twenty minutes watching a particular kind of beetle do what it does, all of this is system-observation as entertainment. The pleasure is in seeing how something works.",
+      },
+      {
+        type: "heading",
+        text: "Other entries in the canon",
+      },
+      {
+        type: "callout",
+        heading: "How To with John Wilson — Television · 2020 to 2023",
+        text: "An anthropologist of New York City who treats the most ordinary human behavior as a system worthy of close attention. Wilson's voice is flat in the most useful way. He is not telling you how to feel. He is showing you what he saw and following the thread until it leads somewhere unexpected.",
+      },
+      {
+        type: "callout",
+        heading: "Yorgos Lanthimos films — Film · The Lobster, Dogtooth, The Favourite",
+        text: "Each film begins with a strange social rule and follows its logic through to the end without flinching. The dialogue is delivered without inflection. The emotion is not absent. It has simply been moved out of the performance and into the structure of the world the characters are trapped in.",
+      },
+      {
+        type: "callout",
+        heading: "Borges — Literature · 20th century",
+        text: "Stories that are essentially closed systems. The Library of Babel. The map at the scale of the territory it represents. Each story sets up a rule and follows it until the implications become vertiginous. Feeling is present, but it lives in the geometry rather than in the characters.",
+      },
+      {
+        type: "callout",
+        heading: "Ursula K. Le Guin — Literature · 20th century",
+        text: "Her thought-experiment novels, particularly The Left Hand of Darkness and The Dispossessed, work by constructing a society with a different organizing principle and following the implications all the way through. Anthropology as fiction. The system is the story.",
+      },
+      {
+        type: "callout",
+        heading: "Buster Keaton — Film · silent era",
+        text: "Keaton's face does not modulate. The world keeps escalating around him, and he keeps responding with the same quiet, methodical attention to whatever the situation actually requires. The comedy is in the precision of his interaction with a physical and social system that refuses to be reasonable.",
+      },
+      {
+        type: "callout",
+        heading: "Nathan For You — Television · Nathan Fielder · 2013 to 2017",
+        text: "The precursor to The Rehearsal. Fielder offers small businesses absurdly logical solutions to ordinary problems, follows the logic through to its conclusion, and watches what happens. The premise that absurd outcomes follow from rigorous adherence to a flawed system is, structurally, an autistic observation about the world.",
+      },
+      {
+        type: "callout",
+        heading: "Office Space and Mike Judge generally — Film and television · 1999 onward",
+        text: "Judge's work is a sustained study of the gap between the stated logic of institutions and how they actually function. Office Space, Idiocracy, and Silicon Valley all proceed by treating the institutional system as the object of attention and watching what its rules produce.",
+      },
+      {
+        type: "callout",
+        heading: "Adventure Time and Steven Universe — Animation · 2010s",
+        text: "Worlds with rigorous internal logic in which the rules of magic, biology, and identity are worked out with care. Both shows have substantial autistic followings, partly because they treat their fantasy systems with the seriousness usually reserved for hard science fiction.",
+      },
+      {
+        type: "callout",
+        heading: "Procedural mysteries done well — Television · long tradition",
+        text: "The pleasure of Columbo, of Poirot, of Mare of Easttown, of The Wire, is the pleasure of watching a system be solved. The conventions are stable. The detective applies attention. The world yields its logic. This is a deeply autistic-friendly form, and its enduring popularity is partly a measure of how widely the appeal of system-solving runs.",
+      },
+      {
+        type: "heading",
+        text: "What these works share",
+      },
+      {
+        type: "paragraph",
+        text: "If you put these works next to each other and squint, the family resemblance becomes visible. They share a set of features that, taken together, constitute something like a stylistic signature.",
+      },
+      {
+        type: "list",
+        items: [
+          "The world is treated as a system with rules, and the rules are taken seriously enough to follow through to their actual implications",
+          "Sentiment is not used to soften the material. Emotion, when it appears, is delivered without modulation",
+          "Character is often closer to a sustained intensity than to a conventional psychological portrait. People are who they are, and the comedy or drama emerges from how their fixed natures interact with the system around them",
+          "The implicit social rules that other narratives leave unexamined are made explicit and held up for inspection",
+          "Repetition, ritual, and structural precision are foregrounded rather than hidden",
+          "The viewer is trusted to do interpretive work without being told what to feel",
+          "Resolution, when it comes, is structural rather than emotional. The system completes itself, or fails to, and that is the ending",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Why this matters",
+      },
+      {
+        type: "paragraph",
+        text: "For autistic people, recognizing this canon as a canon is a small act with real consequences. It means that the cognitive shape that has so often been pathologized, the system-thinking, the unsentimentality, the willingness to take rules seriously and follow them through, has been producing some of the most interesting cultural work of the last century. It is not that autistic people made all of these works. Some did. Some did not. The point is that the way of seeing that runs through them, that committed, structural, unmodulated attention to how things actually work, is not a deficit. It is an aesthetic. And like any aesthetic, it has produced art that other people find valuable, including many people who would not describe themselves as autistic.",
+      },
+      {
+        type: "paragraph",
+        text: "This reframes something important. The autistic gaze, when it appears in culture, is not a curiosity or a limitation that the artist had to overcome. It is a genuine way of looking at the world, with its own pleasures and its own rigor, and it has been quietly shaping comedy, drama, documentary, and literature for a long time.",
+      },
+      {
+        type: "pull-quote",
+        text: "The autistic gaze has been quietly making some of the best art of the last century. Not despite its refusal to soften. Because of it.",
+      },
+      {
+        type: "heading",
+        text: "For the autistic viewer or reader",
+      },
+      {
+        type: "paragraph",
+        text: "If you have spent your life feeling that most narrative art is asking you to feel something it has not quite earned, that the emotional cushioning of mainstream film and television feels like static between you and what is actually happening, that you would rather watch a system run cleanly than be guided through a sentimental arc, you have not been failing to enjoy art correctly. You have been responding to a real difference in how stories can be built. And there is a body of work, much larger than is usually acknowledged, that is built the way you prefer. Finding it, and naming it, is its own kind of homecoming.",
+      },
+      {
+        type: "paragraph",
+        text: "The works in this canon are not autistic representation. They are something more interesting. They are autistic culture, in the sense of culture made from a particular cognitive orientation, available to anyone who finds it nourishing. For many of my clients, finding their way to this kind of work has done something that explicitly autistic-themed media has rarely managed: it has made them feel that their way of seeing is not only valid but generative. That the mind that organizes the world into systems is not a mind to be corrected. It is a mind that, when given the room, makes things worth looking at.",
+      },
+      {
+        type: "callout",
+        heading: "A small invitation",
+        text: "If something in this list catches your attention, consider that the recognition you may feel is not coincidence. It is your nervous system noticing a kindred structure. Pay attention to what you find pleasurable in narrative form. The pattern that emerges may tell you more about how your mind works, and what it needs from culture, than any list of diagnostic criteria ever has.",
+      },
+      {
+        type: "footer-note",
+        text: "Dr. Madrone Love, PsyD (PSY35899), is a licensed clinical psychologist in private practice in Berkeley and San Francisco, specializing in neurodivergent adults, OCD, and trauma. She is an Assistant Professor of Integral Counseling Psychology at the California Institute of Integral Studies and serves as Director of the Sati Center for Buddhist Studies. Her work integrates contemporary clinical psychology with mindfulness, attachment, and a deep respect for neurodivergent ways of being in the world.",
+      },
+    ],
+  },
 ]
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
