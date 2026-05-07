@@ -540,6 +540,394 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "loving-across-the-wiring",
+    title: "Loving Across the Wiring: ADHD, Neurodivergence, and the Work of Being Together",
+    subtitle: "Most ADHD-in-love stories imagine a neurotypical partner enduring an ADHD one. What happens when there is no neurotypical reference point in the room — when two non-standard nervous systems are trying to meet each other?",
+    author: "Madrone Love",
+    credential: "PsyD",
+    category: "Relationships & Neurodivergence",
+    date: "2025",
+    blocks: [
+      {
+        type: "paragraph",
+        dropCap: true,
+        text: "When my clients with ADHD describe their closest relationships, I rarely hear a story about a neurotypical partner enduring an ADHD one. I hear something more layered: two neurodivergent people, often one with ADHD and one with autism, OCD, or a complex trauma history, trying to build a shared life across genuinely different operating systems. There is research on this now, and there is the kind of knowing that comes from living it. This piece draws on both.",
+      },
+      {
+        type: "heading",
+        text: "Two nervous systems, one relationship",
+      },
+      {
+        type: "paragraph",
+        text: "The popular narrative about ADHD in love still tends to imagine a neurotypical partner contending with an ADHD one. That framing is not what most of my clients describe, and it is not what the research is increasingly finding either. A 2025 qualitative study by O'Brien and colleagues at University College Dublin, analyzing the lived experiences of 355 adults with ADHD, identified the importance of feeling \"finally seen\" through self-discovery, and noted that some participants experienced having a neurodivergent romantic partner as a supportive factor in feeling understood. The dominant story has a missing chapter, and the missing chapter is what happens when both people are neurodivergent.",
+      },
+      {
+        type: "paragraph",
+        text: "This matters because the assumption that one partner is the standard and the other is the deviation does not fit when there is no neurotypical reference point in the room. There are two nervous systems with genuinely different operating logics, trying to meet each other at the dinner table, the bedroom door, the unanswered text, the unfinished project on the kitchen counter.",
+      },
+      {
+        type: "paragraph",
+        text: "Once a person can see this clearly, the question shifts. It is no longer \"what is wrong with you, or with me?\" It is \"how do our two systems actually work, and where do they meet, and where do they miss?\"",
+      },
+      {
+        type: "heading",
+        text: "The ADHD nervous system, briefly",
+      },
+      {
+        type: "paragraph",
+        text: "The ADHD nervous system runs on interest, novelty, urgency, and meaning. Psychiatrist William Dodson, who has written extensively about adult ADHD, describes it as an interest-based nervous system, one that activates around what is alive and present rather than around what is important and scheduled. Psychiatrists Edward Hallowell and John Ratey, in their foundational work on adult ADHD beginning with Driven to Distraction in 1994 and continuing through ADHD 2.0 in 2021, describe similar terrain, including the characteristic experience of hyperfocus and the difficulty of moving between activation states.",
+      },
+      {
+        type: "paragraph",
+        text: "It is not a deficit of attention. It is attention that responds to a different set of signals than the standard productive logic of modern life rewards. The future remains abstract until it becomes the present, which is one reason \"but it is due tomorrow\" lands so differently for someone with ADHD than for someone without.",
+      },
+      {
+        type: "heading",
+        text: "The other partner, who is also not the standard",
+      },
+      {
+        type: "paragraph",
+        text: "If the non-ADHD partner is autistic, their nervous system likely runs on something closer to monotropism, a concept developed by autistic researchers Dinah Murray, Wenn Lawson, and Mike Lesser, and first published in their 2005 paper in the journal Autism. Monotropism describes a tendency for attention to flow deeply through a small number of channels at a time, rather than spreading across many at once. When a monotropic person's attention lands somewhere, it lands fully, and shifting away is genuinely effortful. Notably, Murray and colleagues observed that this kind of hyper-focus on interests is also common in ADHD, which is part of why these two neurotypes often resonate with one another even as their daily rhythms differ.",
+      },
+      {
+        type: "paragraph",
+        text: "If the partner has OCD or a trauma history, they may carry a nervous system that fills uncertainty with threat. The unanswered text becomes evidence of something. The forgotten plan becomes data about what they are worth.",
+      },
+      {
+        type: "paragraph",
+        text: "If they are highly sensitive, anxious, or otherwise attuned, they may notice and feel everything, and require time and steadiness to regulate.",
+      },
+      {
+        type: "paragraph",
+        text: "None of these are the same as ADHD, and none of them are the same as one another. But they share a feature that puts them in particular relation to ADHD: they tend to depend on consistency, on follow-through, on the felt sense that what was agreed yesterday will still be true today. And ADHD, by its nature, struggles with consistency in ways that are not about caring.",
+      },
+      {
+        type: "pull-quote",
+        text: "The conflict is rarely about the missed plan. It is about what the missed plan means in a nervous system that uses consistency as ground.",
+      },
+      {
+        type: "heading",
+        text: "The double empathy problem, between two neurodivergent people",
+      },
+      {
+        type: "paragraph",
+        text: "Autistic researcher Damian Milton introduced the concept of the double empathy problem in 2012, originally to describe the mutual misunderstanding that arises between autistic and non-autistic people. His insight was that the communicative breakdown is not a one-sided deficit. It is a disjuncture in reciprocity between two differently disposed people, each making sense of the world through their own framework, each finding the other's responses harder to predict.",
+      },
+      {
+        type: "paragraph",
+        text: "The original framing was about autistic and non-autistic interaction. But the O'Brien team in their 2025 paper explicitly suggested that the same dynamic likely applies to ADHD or other mental health differences, and that cross-neurotype communication challenges are heightened in adults with ADHD who are also autistic. What happens between an ADHD partner and an autistic or otherwise neurodivergent partner, then, is not one nervous system meeting the standard. It is two non-standard systems meeting each other, with the asymmetry of who gets to define \"correct\" still hanging in the air, often invisibly.",
+      },
+      {
+        type: "heading",
+        text: "The same moment, two experiences",
+      },
+      {
+        type: "paragraph",
+        text: "Many of the painful moments my clients describe are not really one moment. They are two, happening in parallel, in the same room, between two people who think they are talking about the same thing.",
+      },
+      {
+        type: "callout",
+        heading: "From inside ADHD",
+        text: "I genuinely meant to do it. When I said yes, I meant yes. Then I got pulled into something else and the task slid out of the present moment into the not-now fog. I am realizing right now, watching your face, that I forgot. My stomach drops. The shame is fast and large. I want to explain, but every explanation sounds like an excuse. I love you. I did not forget because you do not matter. I forgot because my brain works this way.",
+      },
+      {
+        type: "callout",
+        heading: "From inside the partner",
+        text: "We agreed. I structured my afternoon around it. When the time came and nothing happened, my nervous system started filling in what it meant. That I am not a priority. That my needs are smaller than your interests. That I cannot rely on what we say to each other, which means I cannot rely on the ground under us. The hurt is not really about the task. It is about what the task became evidence of.",
+      },
+      {
+        type: "paragraph",
+        text: "Both of these are true. Neither person is misreading their own experience. The work is not to decide who is right. It is to recognize that both nervous systems are responding accurately to their own logic, and that the conflict between them is not a moral failing on either side.",
+      },
+      {
+        type: "heading",
+        text: "What gets read as something it is not",
+      },
+      {
+        type: "paragraph",
+        text: "A great deal of the suffering in these relationships comes from one nervous system reading another's behavior through its own framework, and arriving at a conclusion that feels obvious but is not actually what is happening.",
+      },
+      {
+        type: "paragraph",
+        text: "The ADHD partner's distractibility gets read as not caring. It is not. As Hallowell and Ratey have described across decades of writing on adult ADHD, it is a nervous system that responds to interest, novelty, and urgency rather than to abstract importance, and the relationship task may not yet have crossed the threshold into active foreground.",
+      },
+      {
+        type: "paragraph",
+        text: "The ADHD partner's hyperfocus on something else gets read as a choice to prioritize that thing over the partner. It is rarely a deliberate choice. As Murray, Lawson, and Lesser noted in their work on monotropism, deep focus states are entered by the nervous system and can be genuinely difficult to exit, a feature also documented in ADHD-related hyperfocus. The person inside the focus is not actively choosing the partner out. They are inside something they cannot easily step away from, and the world outside, including the person they love, becomes faint.",
+      },
+      {
+        type: "paragraph",
+        text: "The partner's need for structure and follow-through gets read as controlling, rigid, anxious, or too much. It is rarely any of those things in the way the ADHDer fears. It is often a nervous system that needs reliable scaffolding to function well, and that experiences inconsistency as a kind of low-grade ongoing threat. Their requests for clarity, for plans, for predictability, are not attempts to constrain the ADHDer. They are attempts to make the world livable for their own system.",
+      },
+      {
+        type: "paragraph",
+        text: "The partner's hurt over a forgotten thing gets read as overreaction. It is rarely overreaction. It is a nervous system reading a small event through a larger pattern, and finding evidence in it that touches something old and tender about being unseen, unprioritized, or alone.",
+      },
+      {
+        type: "callout",
+        heading: "Common misreads, and what is actually happening",
+        text: "\"You don't care\" usually means: my nervous system has not registered this as urgent yet, and I have not yet found my way into the task. \"You're being controlling\" usually means: I need predictability to feel safe, and the ground keeps shifting. \"You always\" and \"you never\" usually mean: this pattern has happened enough times that my nervous system now anticipates it. \"I'm trying my best\" usually means: I am genuinely trying, and my best does not always look the way you need it to.",
+      },
+      {
+        type: "heading",
+        text: "The asymmetry of effort, and the parent-child trap",
+      },
+      {
+        type: "paragraph",
+        text: "One of the hardest dynamics for my ADHD clients to name is the asymmetry of cognitive and emotional labor that often emerges in their relationships. Marriage consultant Melissa Orlov, who has written extensively on ADHD-impacted relationships, has described what she calls the parent-child dynamic, in which the non-ADHD partner gradually takes on the role of household manager and the ADHD partner falls into a more childlike position, deferring decisions, missing follow-through, and losing standing in the relationship. Orlov argues that this dynamic is corrosive for both people: it leaves the non-ADHD partner exhausted and resentful, and it leaves the ADHD partner ashamed and disempowered.",
+      },
+      {
+        type: "paragraph",
+        text: "The same 2025 O'Brien study found \"I Felt Like a Burden\" to be the title and central theme of the paper, with participants describing a fractured self-concept that often led adults with ADHD to feel like a burden to those they loved most. The shame is not abstract. It is shaped by the lived experience of being the partner who keeps falling short of the rhythms the other person needs.",
+      },
+      {
+        type: "paragraph",
+        text: "The way out, in what I see in my work and in the literature, is not the ADHD partner repeatedly promising to do better while the cycle continues. It is both partners looking honestly at the actual shape of the load and redesigning it around what each nervous system can carry. Sometimes that means using external scaffolding rather than relying on the ADHD partner's memory. Sometimes it means the ADHD partner contributes in different categories, the things their nervous system does well, rather than performing tasks they consistently struggle with. Sometimes it means accepting that an even split of certain tasks is not realistic and finding other ways to keep the relationship balanced.",
+      },
+      {
+        type: "pull-quote",
+        text: "Fairness in a neurodivergent relationship is rarely a clean split. It is the honest accounting of what each nervous system can carry, and the willingness to design the load around that.",
+      },
+      {
+        type: "heading",
+        text: "Rejection sensitivity meets relational injury",
+      },
+      {
+        type: "paragraph",
+        text: "Many people with ADHD experience what Dodson has called rejection sensitive dysphoria, a tendency for the nervous system to register criticism, disappointment, or perceived rejection with overwhelming intensity. Dodson has reported that the great majority of adults with ADHD describe this experience, and that for some it is the single most impairing aspect of their ADHD. A small piece of feedback can land as devastation. A partner's frustration can feel like an annihilating verdict on the whole self.",
+      },
+      {
+        type: "paragraph",
+        text: "Many partners of people with ADHD, especially if they are autistic or trauma-shaped, carry their own deep sensitivity to relational injury. A pattern of being let down, misread, or unmet can accumulate into something that is no longer about any single event.",
+      },
+      {
+        type: "paragraph",
+        text: "When these two sensitivities collide, what could have been a small conversation about a missed task can escalate quickly. The ADHD partner, hearing disappointment, drops into shame and either shuts down or becomes defensive. The other partner, watching the shutdown or the defensiveness, reads it as not being taken seriously, and the hurt deepens. Now both people are flooded, and the actual issue, the missed task, has long since left the room.",
+      },
+      {
+        type: "paragraph",
+        text: "Naming this dynamic, when it is happening, can interrupt it. \"I think we are both flooded right now and neither of us can hear the other. Can we come back to this in twenty minutes?\" is one of the most useful sentences in a neurodivergent relationship. It does not resolve anything. It simply allows both nervous systems to come down enough that the conversation can actually happen.",
+      },
+      {
+        type: "heading",
+        text: "What helps, in what I see and what I have lived",
+      },
+      {
+        type: "paragraph",
+        text: "None of what follows is a fix. There is no fix. But these are the things I see help my clients build a life that honors both partners.",
+      },
+      {
+        type: "list",
+        items: [
+          "Both partners learning their own nervous system in detail, and learning their partner's with the same care",
+          "Externalizing the logistical load onto shared systems rather than relying on one partner's memory or follow-through",
+          "Creating clear, written agreements about the things that matter most, so that the load is not carried in someone's head",
+          "Naming dynamics as they happen (\"I think I am hyperfocused and not really hearing you\") rather than after the damage is done",
+          "Treating the ADHD partner's forgetting as nervous system, not character, while still taking the impact seriously",
+          "Treating the other partner's need for consistency as a real need, not as control or anxiety",
+          "Building rituals of repair that both partners trust, so that ruptures do not have to become catastrophes",
+          "Working with therapists who actually understand neurodivergent relationships, rather than ones who frame one partner as the patient and the other as the long-suffering observer",
+        ],
+      },
+      {
+        type: "heading",
+        text: "The thing underneath",
+      },
+      {
+        type: "paragraph",
+        text: "What I want my clients in these relationships to know, on either side, is that the love is real. The frustration is real too. They are not in competition.",
+      },
+      {
+        type: "paragraph",
+        text: "Neither partner is a project to be managed, and neither is a difficulty to be tolerated. Both are people whose nervous systems work in particular ways, and whose ways were shaped by genetics and by a world that mostly did not know how to make room for them. They are now, often for the first time, attempting to build a relationship that does make room.",
+      },
+      {
+        type: "paragraph",
+        text: "When it goes well, neurodivergent partnership can hold a quality of mutual recognition that is genuinely rare. The participants in the O'Brien study who described a sense of being finally seen and understood with another neurodivergent partner were pointing at this. Two people who have spent their lives feeling slightly off the standard, finding each other and saying, with the texture of their daily life together, you do not have to be different than you are. I see how you actually work. I am building this with that in mind, not against it.",
+      },
+      {
+        type: "paragraph",
+        text: "That is not a small thing to offer another person. And it is not a small thing to receive.",
+      },
+      {
+        type: "footer-note",
+        text: "References — O'Brien, M., Kini-Seery, C., Kelly, C., Kilbride, K., Wrigley, M., Nearchou, F., & Bramham, J. (2025). \"I Felt Like a Burden\": An Exploration Into the Experience of Romantic Relationships for People With ADHD. Journal of Marital and Family Therapy, 52, 1–14. — Dodson, W. (2016). Emotion regulation and rejection sensitivity. Attention magazine (CHADD). — Hallowell, E. M., & Ratey, J. J. (1994, rev. 2011). Driven to Distraction. Anchor Books; Hallowell & Ratey (2021), ADHD 2.0. — Murray, D., Lesser, M., & Lawson, W. (2005). Attention, monotropism and the diagnostic criteria for autism. Autism, 9(2), 139–156. — Milton, D. E. M. (2012). On the ontological status of autism: The \"double empathy problem.\" Disability & Society, 27(6), 883–887. — Orlov, M. (2010). The ADHD Effect on Marriage. Specialty Press.",
+      },
+    ],
+  },
+  {
+    slug: "the-invisible-wound",
+    title: "The Invisible Wound: Growing Up as an Emotional Orphan",
+    subtitle: "Your parents were there. They fed you, drove you to school, showed up for the holidays. And yet something essential was missing — something you may have spent years unable to name.",
+    author: "Madrone Love",
+    credential: "PsyD",
+    category: "Relationships & Inner Life",
+    date: "2025",
+    blocks: [
+      {
+        type: "paragraph",
+        dropCap: true,
+        text: "Your parents were there. They fed you, drove you to school, showed up for the holidays. And yet something essential was missing, something you may have spent years unable to name. If you grew up without a parent who was truly curious about your inner world, you may have experienced a profound and invisible loss: the loss of being truly known.",
+      },
+      {
+        type: "paragraph",
+        text: "I call this experience emotional orphanhood. Not the orphanhood of absence, but of presence without curiosity, or understanding. A parent who was in the room but never quite arrived.",
+      },
+      {
+        type: "heading",
+        text: "What is an emotional orphan?",
+      },
+      {
+        type: "paragraph",
+        text: "An emotional orphan is someone who grew up without a parent who could truly be present with them emotionally. Their caregivers may have been physically present, financially responsible, and even well-intentioned. But the capacity for genuine emotional connection, for sitting with a child's feelings without pulling away, talking over them, or shutting them down, was largely absent.",
+      },
+      {
+        type: "paragraph",
+        text: "Psychologist Lindsay Gibson, who has written extensively on this topic, describes these caregivers as people who struggle to sit with their own emotional discomfort. As a result, they cannot really be present with their children's emotions either. The child learns quickly: my feelings are too much, too inconvenient, or simply not welcome here.",
+      },
+      {
+        type: "paragraph",
+        text: "It is worth pausing here to hold something important: the reasons a parent may have been emotionally unavailable are many, and most of them have nothing to do with not loving their child. A parent may have been neurodivergent in ways that were never identified or supported, making the intuitive reading of social and emotional cues genuinely difficult for them. They may have come from a cultural background where emotions were considered private, even dangerous to express, where stoicism was survival and not coldness. They may have been living with untreated depression, anxiety, or trauma of their own. They may have been struggling with addiction, using substances to manage an inner world they had no other tools for. They may have been carrying generational wounds passed down so quietly they never knew the weight was theirs to question.",
+      },
+      {
+        type: "paragraph",
+        text: "None of this erases the impact on the child. Both things are true: your parent may have been doing their imperfect best, and what you needed was not fully available. Understanding the why can soften the story over time. But it does not mean you did not experience a real loss.",
+      },
+      {
+        type: "pull-quote",
+        text: "You were not abandoned in the way the world would recognize. You were abandoned in the way that leaves no visible bruise.",
+      },
+      {
+        type: "heading",
+        text: "Why it can be so hard to recognize",
+      },
+      {
+        type: "paragraph",
+        text: "One of the most disorienting aspects of this experience is how hard it can be to name it. When people think of neglect or emotional deprivation, they often imagine dramatic absence. But what about the parent who was physically present nearly every day? What about the parent who worked hard, who may have even said \"I love you,\" who in some respects was trying their best?",
+      },
+      {
+        type: "paragraph",
+        text: "This is where many people get stuck. Because the evidence of your parents' presence is real. You have birthday photos. You remember family dinners. You know your parents were not absent in the conventional sense. And so when a deep, aching loneliness begins to surface in adulthood, you may find yourself dismissing it: But they were there. I have no right to feel this way.",
+      },
+      {
+        type: "paragraph",
+        text: "For some, there is another layer of complexity. Perhaps you could see that your parent was struggling. Perhaps you watched them drink to get through the evening, or witnessed their depression as something heavy and ungovernable, or understood from a young age that they were carrying something they had never been helped to put down. When the parent's pain is visible, children often become caretakers of that pain rather than recipients of care themselves. And this can make it even harder to claim the grief later: How can I mourn what I lost when they were suffering too?",
+      },
+      {
+        type: "paragraph",
+        text: "The answer is that your grief and their struggle are not in competition. You can hold compassion for what your parent was up against and still tend to the wound of not having been held yourself.",
+      },
+      {
+        type: "paragraph",
+        text: "What you needed was not simply proximity. You needed someone who was genuinely curious about what was happening inside you, who could help you name it, make sense of it, and not feel so alone in it. If that was not available, the loss is real, regardless of how many evenings your parent sat at the same table.",
+      },
+      {
+        type: "callout",
+        heading: "Signs you may have grown up with emotionally immature parents",
+        text: "Your emotional needs were met with dismissal, lectures, or deflection rather than curiosity. Conflict in the household was avoided, denied, or resolved by someone simply leaving the room. You felt responsible for managing your parent's emotional state. You learned to hide or shrink your inner world to keep the peace. You often felt profoundly alone even when surrounded by family.",
+      },
+      {
+        type: "heading",
+        text: "Why being seen is not a luxury",
+      },
+      {
+        type: "paragraph",
+        text: "When we think about what children need to survive, we tend to think in the visible and concrete: food, shelter, safety, medical care. Being truly understood emotionally rarely makes that list, and yet decades of research make clear that it is just as foundational, and that its absence leaves a mark that can last a lifetime.",
+      },
+      {
+        type: "paragraph",
+        text: "Attachment theory, developed by psychiatrist John Bowlby and later built on by developmental psychologist Mary Ainsworth, holds that human beings are wired from birth to seek closeness with a caregiver, not only for physical protection, but for a felt sense that the world is safe and that they matter. When a caregiver responds to a child's distress with consistent warmth and availability, the child develops what Bowlby called a secure base: a deep knowing, held in the body, that says the world is manageable and I am not alone in it.",
+      },
+      {
+        type: "paragraph",
+        text: "This is not a luxury. It is the foundation from which a child learns to explore, to tolerate hard things, to recover after conflict, and eventually to find their own steadiness when emotions rise. Ainsworth's research showed that even subtle, repeated moments of disconnection, a caregiver who is physically present but mentally elsewhere, distracted, dismissive, or simply somewhere far away inside themselves, shape how a child learns to relate to others in lasting ways.",
+      },
+      {
+        type: "paragraph",
+        text: "What makes this so easy to overlook is that what was missing leaves no visible trace. No one can photograph it or point to its absence in a report. A child whose parent was emotionally unavailable may have been fed, clothed, and kept safe by every external measure. The deprivation was happening in a way that leaves no record: in the pauses, in the responses that never came, in the feelings that were consistently met with silence or a change of subject. The impact of that invisible deprivation is not invisible at all. It lives in the body, in the patterns people carry into every close relationship they will ever have.",
+      },
+      {
+        type: "heading",
+        text: "The cost that accumulates over a lifetime",
+      },
+      {
+        type: "paragraph",
+        text: "The tax of this kind of upbringing is enormous, and it often does not become fully visible until adulthood. Here is what was not transmitted: the foundational skill of knowing how to be with your own feelings. When a caregiver consistently helps a child ride out difficult emotions, sitting with them through fear, frustration, disappointment, and shame without shutting it down or leaving the room, the child gradually learns to do that for themselves. They build an inner steadiness.",
+      },
+      {
+        type: "paragraph",
+        text: "When that steady presence is absent or inconsistent, the child does not develop a reliable sense of how to find their footing when things feel hard. They may grow up to feel emotions intensely but without a way to find their way through them. Or they may learn to cut off from feeling altogether. Or they may swing between the two, overwhelmed one moment and completely closed off the next.",
+      },
+      {
+        type: "paragraph",
+        text: "As adults, this can look like chronic anxiety, difficulty in close relationships, an inner critic that never quiets, a sense of emptiness that is hard to locate or explain, or a pattern of looking to others to soothe feelings that were never given a home inside.",
+      },
+      {
+        type: "paragraph",
+        text: "None of this is a character flaw. It is a developmental inheritance.",
+      },
+      {
+        type: "heading",
+        text: "The grief that must be allowed",
+      },
+      {
+        type: "paragraph",
+        text: "Healing from emotional orphanhood requires something that our culture tends to resist: grief. Not grief for what was taken from you in some dramatic way, but grief for what was simply never there. The parent who could not ask \"how are you feeling?\" and truly want to know. The comfort that never came. The version of yourself that kept waiting to be seen.",
+      },
+      {
+        type: "paragraph",
+        text: "This grief is often a grief without a name, because it is loss without a clear event to point to, without a death to mourn, without the social permission that more legible losses are given. People around you may not understand what you are grieving. You may not fully understand it yourself at first.",
+      },
+      {
+        type: "pull-quote",
+        text: "To grieve a living parent is one of the lonelier forms of mourning. It asks you to hold love and loss at the same time.",
+      },
+      {
+        type: "paragraph",
+        text: "And yet this grief, when it is allowed to move through rather than being pushed down or bypassed, is profoundly clarifying. It begins to free the person from the unconscious project of waiting. Waiting for the parent to finally understand. Waiting to finally feel worthy of their curiosity. When the grief is honored, that waiting can end, and the work of learning to give yourself what you needed can truly begin.",
+      },
+      {
+        type: "heading",
+        text: "What the grief can include",
+      },
+      {
+        type: "paragraph",
+        text: "Grieving an emotionally unavailable parent is not a single event. It is a layered, nonlinear process. It may include:",
+      },
+      {
+        type: "list",
+        items: [
+          "Mourning the childhood version of yourself who worked so hard to be enough",
+          "Releasing the fantasy of the parent you needed but did not have",
+          "Grieving the closeness and safety that was not available to you",
+          "Coming to terms with the ways this shaped your relationship with yourself and others",
+          "Allowing anger, alongside sadness, without guilt",
+          "Discovering, perhaps for the first time, what it feels like to be witnessed",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Therapy can be a powerful space for this grief, particularly approaches that center the relationship itself as part of the healing: a consistent, genuinely present person who meets you where you are and does not look away. Over time, many people find that what began as grief slowly opens into something else, a new relationship with their own emotional life, and a capacity for connection that feels less fraught, more true.",
+      },
+      {
+        type: "heading",
+        text: "You were not too much. You were too often alone with it.",
+      },
+      {
+        type: "paragraph",
+        text: "If you recognize yourself in these pages, know this: the hunger you have felt for deeper connection, for being truly known, is not a weakness or a wound that defines you. It is evidence of your intact longing for what all humans need. It is the part of you that always knew something was missing, and kept looking anyway.",
+      },
+      {
+        type: "paragraph",
+        text: "That longing is a place to begin.",
+      },
+      {
+        type: "footer-note",
+        text: "If you are exploring these themes in your own life and are curious about therapy, Dr. Madrone Love works with adults navigating complex family histories, old relational wounds, and the process of learning to be at home in themselves.",
+      },
+    ],
+  },
 ]
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
