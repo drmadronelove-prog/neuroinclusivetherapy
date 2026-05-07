@@ -57,7 +57,7 @@ function HeroCard({
         transition={{ type: "spring", stiffness: 260, damping: 18 }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="w-full lg:w-[8.5rem]"
+        className="w-full lg:w-[9rem]"
         style={{
           aspectRatio: "17 / 20",
           height: undefined,
@@ -95,13 +95,15 @@ function HeroCard({
           }}>
             {String(index + 1).padStart(2, "0")}
           </span>
-          <h3 className="text-[0.95rem] md:text-[1.25rem]" style={{
+          <h3 className="text-[0.78rem] md:text-[0.98rem]" style={{
             fontFamily: "var(--font-display)",
             fontWeight: 500,
             color: "var(--ink)",
             textAlign: "center",
             lineHeight: 1.1,
-            letterSpacing: "-0.01em",
+            letterSpacing: "-0.012em",
+            wordBreak: "break-word",
+            hyphens: "auto",
           }}>
             {card.title}
           </h3>

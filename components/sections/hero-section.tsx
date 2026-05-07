@@ -11,43 +11,20 @@ export function HeroSection() {
     <section
       id="home"
       className="relative"
-      style={{ minHeight: "100svh" }}
+      style={{ minHeight: "100svh", background: "var(--paper)" }}
     >
 
       {/* Wordmark — Olive Clinical lockup. */}
       <div
-        className="no-print fixed top-4 left-5 z-[60]"
+        className="no-print fixed top-5 left-6 z-[60]"
         style={{ display: "inline-flex", alignItems: "center" }}
       >
-        <OliveLockup size={0.34} />
-      </div>
-
-      {/* Full-bleed video */}
-      <div aria-hidden="true" style={{ position: "absolute", inset: 0, overflow: "hidden", zIndex: 0 }}>
-        <video autoPlay muted loop playsInline style={{
-          position: "absolute", inset: 0,
-          width: "100%", height: "100%",
-          objectFit: "cover", objectPosition: "center",
-        }}>
-          <source src="/istockphoto-1477463233-640_adpp_is.mp4" type="video/mp4" />
-        </video>
-
-        {/* Desktop gradient */}
-        <div className="hidden lg:block" style={{
-          position: "absolute", inset: 0,
-          background: "linear-gradient(to right, rgba(251,248,243,0.94) 0%, rgba(251,248,243,0.82) 28%, rgba(251,248,243,0.52) 55%, rgba(251,248,243,0.28) 85%, rgba(251,248,243,0.15) 100%)",
-        }} />
-
-        {/* Mobile gradient */}
-        <div className="lg:hidden" style={{
-          position: "absolute", inset: 0,
-          background: "rgba(251,248,243,0.82)",
-        }} />
+        <OliveLockup size={0.55} />
       </div>
 
       {/* Main content — flex-col on mobile so footer anchors to bottom */}
       <div
-        className="relative min-h-[100svh] flex flex-col justify-between lg:justify-end px-6 lg:px-0 pt-20 pb-0 lg:pt-0"
+        className="relative min-h-[100svh] flex flex-col justify-between lg:justify-end px-6 lg:px-0 pt-28 pb-0 lg:pt-0"
         style={{ zIndex: 2 }}
       >
         {/* Heading + cards (absolute positioned on desktop, in flex flow on mobile) */}
@@ -58,7 +35,6 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              style={{ textShadow: "0 2px 18px rgba(251,248,243,0.9)" }}
             >
               <h1 style={{
                 fontFamily: "var(--font-display)",
@@ -86,7 +62,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex justify-center lg:absolute lg:left-[calc(50%+3rem)] lg:bottom-[6rem] lg:-translate-x-1/2"
+            className="flex justify-center lg:absolute lg:right-[2.9rem] lg:bottom-[6rem]"
           >
             <HeroCards />
           </motion.div>
@@ -94,7 +70,7 @@ export function HeroSection() {
         </div>
 
         {/* Mobile footer — sits at bottom of viewport */}
-        <div className="no-print lg:hidden py-6" style={{ fontFamily: "var(--font-body)", color: "rgba(11,37,69,0.62)", lineHeight: 1.4, fontSize: "0.95rem" }}>
+        <div className="no-print lg:hidden py-6" style={{ fontFamily: "var(--font-mono)", color: "rgba(11,37,69,0.65)", lineHeight: 1.4, fontSize: "0.78rem", letterSpacing: "0.02em" }}>
           <p className="whitespace-nowrap overflow-x-auto">
             San Francisco &amp; Berkeley &nbsp;·&nbsp;{" "}
             <a href="tel:+14159152183" className="hover:opacity-100 transition-opacity">(415) 915-2183</a>
@@ -109,7 +85,6 @@ export function HeroSection() {
         className="no-print hidden lg:block absolute bottom-0 left-0 right-0"
         style={{
           zIndex: 3,
-          background: "linear-gradient(to top, rgba(251,248,243,0.88) 0%, rgba(251,248,243,0.60) 60%, transparent 100%)",
           paddingBottom: "18px",
           paddingTop: "32px",
           paddingLeft: "1.5rem",
@@ -117,7 +92,7 @@ export function HeroSection() {
         }}
       >
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1">
-          <p style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "0.85rem", letterSpacing: "0.04em", textTransform: "uppercase", color: "rgba(11,37,69,0.55)" }}>
+          <p style={{ fontFamily: "var(--font-mono)", color: "rgba(11,37,69,0.65)", fontSize: "0.78rem", letterSpacing: "0.02em" }}>
             Hayes Valley, San Francisco &amp; Berkeley, CA
           </p>
           <div className="flex flex-wrap gap-x-5 gap-y-1" style={{ fontFamily: "var(--font-mono)", color: "rgba(11,37,69,0.65)", fontSize: "0.78rem", letterSpacing: "0.02em" }}>
