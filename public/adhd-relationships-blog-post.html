@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loving Across the Wiring: ADHD, Neurodivergence, and the Work of Being Together</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    background-color: #F4F6F8;
+    color: #2C2A26;
+    line-height: 1.85;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 80px 40px 120px;
+  }
+
+  .category {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #7A8896;
+    margin-bottom: 28px;
+    display: block;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 5vw, 54px);
+    font-weight: 500;
+    line-height: 1.12;
+    color: #1E1C18;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .byline {
+    font-size: 14px;
+    color: #7A8896;
+    margin-bottom: 52px;
+    font-weight: 400;
+  }
+
+  .byline strong {
+    color: #3A4A5C;
+    font-weight: 500;
+  }
+
+  .lede {
+    font-size: 19px;
+    font-weight: 400;
+    color: #5A5248;
+    line-height: 1.75;
+    margin-bottom: 52px;
+    padding-bottom: 52px;
+    border-bottom: 1px solid #D4DAE2;
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: #1E1C18;
+    margin-top: 56px;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  p {
+    margin-bottom: 24px;
+    color: #3A3530;
+  }
+
+  .pullquote {
+    border-left: 3px solid #8FA0B5;
+    padding: 4px 0 4px 28px;
+    margin: 44px 0;
+  }
+
+  .pullquote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.55;
+    color: #3A4A5C;
+    margin: 0;
+  }
+
+  .callout {
+    background-color: #E6EBF0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin: 44px 0;
+  }
+
+  .callout p {
+    margin: 0;
+    font-size: 16px;
+    color: #384452;
+    line-height: 1.75;
+  }
+
+  .callout p + p {
+    margin-top: 16px;
+  }
+
+  .callout strong {
+    font-weight: 500;
+    color: #2A3848;
+  }
+
+  .perspective-pair {
+    margin: 44px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #D4DAE2;
+  }
+
+  .perspective {
+    padding: 22px 26px;
+    font-size: 15.5px;
+    line-height: 1.7;
+  }
+
+  .perspective-label {
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .perspective-adhd {
+    background-color: #E6EBF0;
+    color: #2A3848;
+  }
+  .perspective-adhd .perspective-label { color: #3A4E68; }
+
+  .perspective-partner {
+    background-color: #DDE3EA;
+    color: #3D4654;
+    border-top: 1px solid #D4DAE2;
+  }
+  .perspective-partner .perspective-label { color: #5A6878; }
+
+  .example-list {
+    list-style: none;
+    padding: 0;
+    margin: 28px 0;
+  }
+
+  .example-list li {
+    padding: 14px 0 14px 24px;
+    border-bottom: 1px solid #D4DAE2;
+    position: relative;
+    font-size: 16.5px;
+    color: #3A3530;
+  }
+
+  .example-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 22px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #8FA0B5;
+  }
+
+  .example-list li:last-child {
+    border-bottom: none;
+  }
+
+  .references {
+    margin-top: 56px;
+    padding-top: 36px;
+    border-top: 1px solid #D4DAE2;
+  }
+
+  .references h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #1E1C18;
+    margin-bottom: 18px;
+  }
+
+  .references ol {
+    padding-left: 22px;
+  }
+
+  .references li {
+    font-size: 14px;
+    color: #5A5248;
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+
+  .author-bio {
+    margin-top: 64px;
+    padding: 28px 32px;
+    background-color: #E6EBF0;
+    border-radius: 8px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .author-initial {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 50%;
+    background-color: #8FA0B5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #2A3848;
+  }
+
+  .author-bio-text p {
+    margin: 0;
+    font-size: 15px;
+    color: #384452;
+    line-height: 1.7;
+  }
+
+  .author-bio-text strong {
+    font-weight: 500;
+    color: #2A3848;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+
+  @media (max-width: 600px) {
+    .wrapper { padding: 48px 24px 80px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <span class="category">Relationships &amp; Neurodivergence</span>
+
+  <h1>Loving Across the Wiring: ADHD, Neurodivergence, and the Work of Being Together</h1>
+
+  <p class="byline">By <strong>Dr. Madrone Love, PsyD</strong></p>
+
+  <p class="lede">When my clients with ADHD describe their closest relationships, I rarely hear a story about a neurotypical partner enduring an ADHD one. I hear something more layered: two neurodivergent people, often one with ADHD and one with autism, OCD, or a complex trauma history, trying to build a shared life across genuinely different operating systems. There is research on this now, and there is the kind of knowing that comes from living it. This piece draws on both.</p>
+
+  <h2>Two nervous systems, one relationship</h2>
+
+  <p>The popular narrative about ADHD in love still tends to imagine a neurotypical partner contending with an ADHD one. That framing is not what most of my clients describe, and it is not what the research is increasingly finding either. A 2025 qualitative study by O'Brien and colleagues at University College Dublin, analyzing the lived experiences of 355 adults with ADHD, identified the importance of feeling "finally seen" through self-discovery, and noted that some participants experienced having a neurodivergent romantic partner as a supportive factor in feeling understood.<sup>1</sup> The dominant story has a missing chapter, and the missing chapter is what happens when both people are neurodivergent.</p>
+
+  <p>This matters because the assumption that one partner is the standard and the other is the deviation does not fit when there is no neurotypical reference point in the room. There are two nervous systems with genuinely different operating logics, trying to meet each other at the dinner table, the bedroom door, the unanswered text, the unfinished project on the kitchen counter.</p>
+
+  <p>Once a person can see this clearly, the question shifts. It is no longer "what is wrong with you, or with me?" It is "how do our two systems actually work, and where do they meet, and where do they miss?"</p>
+
+  <h2>The ADHD nervous system, briefly</h2>
+
+  <p>The ADHD nervous system runs on interest, novelty, urgency, and meaning. Psychiatrist William Dodson, who has written extensively about adult ADHD, describes it as an interest-based nervous system, one that activates around what is alive and present rather than around what is important and scheduled.<sup>2</sup> Psychiatrists Edward Hallowell and John Ratey, in their foundational work on adult ADHD beginning with <em>Driven to Distraction</em> in 1994 and continuing through <em>ADHD 2.0</em> in 2021, describe similar terrain, including the characteristic experience of hyperfocus and the difficulty of moving between activation states.<sup>3</sup></p>
+
+  <p>It is not a deficit of attention. It is attention that responds to a different set of signals than the standard productive logic of modern life rewards. The future remains abstract until it becomes the present, which is one reason "but it is due tomorrow" lands so differently for someone with ADHD than for someone without.</p>
+
+  <h2>The other partner, who is also not the standard</h2>
+
+  <p>If the non-ADHD partner is autistic, their nervous system likely runs on something closer to monotropism, a concept developed by autistic researchers Dinah Murray, Wenn Lawson, and Mike Lesser, and first published in their 2005 paper in the journal <em>Autism</em>.<sup>4</sup> Monotropism describes a tendency for attention to flow deeply through a small number of channels at a time, rather than spreading across many at once. When a monotropic person's attention lands somewhere, it lands fully, and shifting away is genuinely effortful. Notably, Murray and colleagues observed that this kind of hyper-focus on interests is also common in ADHD, which is part of why these two neurotypes often resonate with one another even as their daily rhythms differ.<sup>4</sup></p>
+
+  <p>If the partner has OCD or a trauma history, they may carry a nervous system that fills uncertainty with threat. The unanswered text becomes evidence of something. The forgotten plan becomes data about what they are worth.</p>
+
+  <p>If they are highly sensitive, anxious, or otherwise attuned, they may notice and feel everything, and require time and steadiness to regulate.</p>
+
+  <p>None of these are the same as ADHD, and none of them are the same as one another. But they share a feature that puts them in particular relation to ADHD: they tend to depend on consistency, on follow-through, on the felt sense that what was agreed yesterday will still be true today. And ADHD, by its nature, struggles with consistency in ways that are not about caring.</p>
+
+  <div class="pullquote">
+    <p>The conflict is rarely about the missed plan. It is about what the missed plan means in a nervous system that uses consistency as ground.</p>
+  </div>
+
+  <h2>The double empathy problem, between two neurodivergent people</h2>
+
+  <p>Autistic researcher Damian Milton introduced the concept of the double empathy problem in 2012, originally to describe the mutual misunderstanding that arises between autistic and non-autistic people.<sup>5</sup> His insight was that the communicative breakdown is not a one-sided deficit. It is a disjuncture in reciprocity between two differently disposed people, each making sense of the world through their own framework, each finding the other's responses harder to predict.</p>
+
+  <p>The original framing was about autistic and non-autistic interaction. But the O'Brien team in their 2025 paper explicitly suggested that the same dynamic likely applies to ADHD or other mental health differences, and that cross-neurotype communication challenges are heightened in adults with ADHD who are also autistic.<sup>1</sup> What happens between an ADHD partner and an autistic or otherwise neurodivergent partner, then, is not one nervous system meeting the standard. It is two non-standard systems meeting each other, with the asymmetry of who gets to define "correct" still hanging in the air, often invisibly.</p>
+
+  <h2>The same moment, two experiences</h2>
+
+  <p>Many of the painful moments my clients describe are not really one moment. They are two, happening in parallel, in the same room, between two people who think they are talking about the same thing.</p>
+
+  <div class="perspective-pair">
+    <div class="perspective perspective-adhd">
+      <span class="perspective-label">From inside ADHD</span>
+      I genuinely meant to do it. When I said yes, I meant yes. Then I got pulled into something else and the task slid out of the present moment into the not-now fog. I am realizing right now, watching your face, that I forgot. My stomach drops. The shame is fast and large. I want to explain, but every explanation sounds like an excuse. I love you. I did not forget because you do not matter. I forgot because my brain works this way.
+    </div>
+    <div class="perspective perspective-partner">
+      <span class="perspective-label">From inside the partner</span>
+      We agreed. I structured my afternoon around it. When the time came and nothing happened, my nervous system started filling in what it meant. That I am not a priority. That my needs are smaller than your interests. That I cannot rely on what we say to each other, which means I cannot rely on the ground under us. The hurt is not really about the task. It is about what the task became evidence of.
+    </div>
+  </div>
+
+  <p>Both of these are true. Neither person is misreading their own experience. The work is not to decide who is right. It is to recognize that both nervous systems are responding accurately to their own logic, and that the conflict between them is not a moral failing on either side.</p>
+
+  <h2>What gets read as something it is not</h2>
+
+  <p>A great deal of the suffering in these relationships comes from one nervous system reading another's behavior through its own framework, and arriving at a conclusion that feels obvious but is not actually what is happening.</p>
+
+  <p>The ADHD partner's distractibility gets read as not caring. It is not. As Hallowell and Ratey have described across decades of writing on adult ADHD, it is a nervous system that responds to interest, novelty, and urgency rather than to abstract importance, and the relationship task may not yet have crossed the threshold into active foreground.<sup>3</sup></p>
+
+  <p>The ADHD partner's hyperfocus on something else gets read as a choice to prioritize that thing over the partner. It is rarely a deliberate choice. As Murray, Lawson, and Lesser noted in their work on monotropism, deep focus states are entered by the nervous system and can be genuinely difficult to exit, a feature also documented in ADHD-related hyperfocus.<sup>4</sup> The person inside the focus is not actively choosing the partner out. They are inside something they cannot easily step away from, and the world outside, including the person they love, becomes faint.</p>
+
+  <p>The partner's need for structure and follow-through gets read as controlling, rigid, anxious, or too much. It is rarely any of those things in the way the ADHDer fears. It is often a nervous system that needs reliable scaffolding to function well, and that experiences inconsistency as a kind of low-grade ongoing threat. Their requests for clarity, for plans, for predictability, are not attempts to constrain the ADHDer. They are attempts to make the world livable for their own system.</p>
+
+  <p>The partner's hurt over a forgotten thing gets read as overreaction. It is rarely overreaction. It is a nervous system reading a small event through a larger pattern, and finding evidence in it that touches something old and tender about being unseen, unprioritized, or alone.</p>
+
+  <div class="callout">
+    <p><strong>Common misreads, and what is actually happening:</strong></p>
+    <p>"You don't care" usually means: my nervous system has not registered this as urgent yet, and I have not yet found my way into the task. "You're being controlling" usually means: I need predictability to feel safe, and the ground keeps shifting. "You always" and "you never" usually mean: this pattern has happened enough times that my nervous system now anticipates it. "I'm trying my best" usually means: I am genuinely trying, and my best does not always look the way you need it to.</p>
+  </div>
+
+  <h2>The asymmetry of effort, and the parent-child trap</h2>
+
+  <p>One of the hardest dynamics for my ADHD clients to name is the asymmetry of cognitive and emotional labor that often emerges in their relationships. Marriage consultant Melissa Orlov, who has written extensively on ADHD-impacted relationships, has described what she calls the parent-child dynamic, in which the non-ADHD partner gradually takes on the role of household manager and the ADHD partner falls into a more childlike position, deferring decisions, missing follow-through, and losing standing in the relationship.<sup>6</sup> Orlov argues that this dynamic is corrosive for both people: it leaves the non-ADHD partner exhausted and resentful, and it leaves the ADHD partner ashamed and disempowered.<sup>6</sup></p>
+
+  <p>The same 2025 O'Brien study found "I Felt Like a Burden" to be the title and central theme of the paper, with participants describing a fractured self-concept that often led adults with ADHD to feel like a burden to those they loved most.<sup>1</sup> The shame is not abstract. It is shaped by the lived experience of being the partner who keeps falling short of the rhythms the other person needs.</p>
+
+  <p>The way out, in what I see in my work and in the literature, is not the ADHD partner repeatedly promising to do better while the cycle continues. It is both partners looking honestly at the actual shape of the load and redesigning it around what each nervous system can carry. Sometimes that means using external scaffolding rather than relying on the ADHD partner's memory. Sometimes it means the ADHD partner contributes in different categories, the things their nervous system does well, rather than performing tasks they consistently struggle with. Sometimes it means accepting that an even split of certain tasks is not realistic and finding other ways to keep the relationship balanced.<sup>6</sup></p>
+
+  <div class="pullquote">
+    <p>Fairness in a neurodivergent relationship is rarely a clean split. It is the honest accounting of what each nervous system can carry, and the willingness to design the load around that.</p>
+  </div>
+
+  <h2>Rejection sensitivity meets relational injury</h2>
+
+  <p>Many people with ADHD experience what Dodson has called rejection sensitive dysphoria, a tendency for the nervous system to register criticism, disappointment, or perceived rejection with overwhelming intensity.<sup>2</sup> Dodson has reported that the great majority of adults with ADHD describe this experience, and that for some it is the single most impairing aspect of their ADHD.<sup>2</sup> A small piece of feedback can land as devastation. A partner's frustration can feel like an annihilating verdict on the whole self.</p>
+
+  <p>Many partners of people with ADHD, especially if they are autistic or trauma-shaped, carry their own deep sensitivity to relational injury. A pattern of being let down, misread, or unmet can accumulate into something that is no longer about any single event.</p>
+
+  <p>When these two sensitivities collide, what could have been a small conversation about a missed task can escalate quickly. The ADHD partner, hearing disappointment, drops into shame and either shuts down or becomes defensive. The other partner, watching the shutdown or the defensiveness, reads it as not being taken seriously, and the hurt deepens. Now both people are flooded, and the actual issue, the missed task, has long since left the room.</p>
+
+  <p>Naming this dynamic, when it is happening, can interrupt it. "I think we are both flooded right now and neither of us can hear the other. Can we come back to this in twenty minutes?" is one of the most useful sentences in a neurodivergent relationship. It does not resolve anything. It simply allows both nervous systems to come down enough that the conversation can actually happen.</p>
+
+  <h2>What helps, in what I see and what I have lived</h2>
+
+  <p>None of what follows is a fix. There is no fix. But these are the things I see help my clients build a life that honors both partners.</p>
+
+  <ul class="example-list">
+    <li>Both partners learning their own nervous system in detail, and learning their partner's with the same care</li>
+    <li>Externalizing the logistical load onto shared systems rather than relying on one partner's memory or follow-through<sup>6</sup></li>
+    <li>Creating clear, written agreements about the things that matter most, so that the load is not carried in someone's head</li>
+    <li>Naming dynamics as they happen ("I think I am hyperfocused and not really hearing you") rather than after the damage is done</li>
+    <li>Treating the ADHD partner's forgetting as nervous system, not character, while still taking the impact seriously</li>
+    <li>Treating the other partner's need for consistency as a real need, not as control or anxiety</li>
+    <li>Building rituals of repair that both partners trust, so that ruptures do not have to become catastrophes</li>
+    <li>Working with therapists who actually understand neurodivergent relationships, rather than ones who frame one partner as the patient and the other as the long-suffering observer</li>
+  </ul>
+
+  <h2>The thing underneath</h2>
+
+  <p>What I want my clients in these relationships to know, on either side, is that the love is real. The frustration is real too. They are not in competition.</p>
+
+  <p>Neither partner is a project to be managed, and neither is a difficulty to be tolerated. Both are people whose nervous systems work in particular ways, and whose ways were shaped by genetics and by a world that mostly did not know how to make room for them. They are now, often for the first time, attempting to build a relationship that does make room.</p>
+
+  <p>When it goes well, neurodivergent partnership can hold a quality of mutual recognition that is genuinely rare. The participants in the O'Brien study who described a sense of being finally seen and understood with another neurodivergent partner were pointing at this.<sup>1</sup> Two people who have spent their lives feeling slightly off the standard, finding each other and saying, with the texture of their daily life together, you do not have to be different than you are. I see how you actually work. I am building this with that in mind, not against it.</p>
+
+  <p>That is not a small thing to offer another person. And it is not a small thing to receive.</p>
+
+  <div class="references">
+    <h3>References</h3>
+    <ol>
+      <li>O'Brien, M., Kini-Seery, C., Kelly, C., Kilbride, K., Wrigley, M., Nearchou, F., &amp; Bramham, J. (2025). "I Felt Like a Burden": An Exploration Into the Experience of Romantic Relationships for People With ADHD. <em>Journal of Marital and Family Therapy</em>, 52, 1–14. https://doi.org/10.1111/jmft.70097</li>
+      <li>Dodson, W. (2016). Emotion regulation and rejection sensitivity. <em>Attention</em> magazine (CHADD), October 2016. See also Dodson's articles on rejection sensitive dysphoria and the interest-based nervous system at ADDitude magazine.</li>
+      <li>Hallowell, E. M., &amp; Ratey, J. J. (1994, rev. 2011). <em>Driven to Distraction: Recognizing and Coping with Attention Deficit Disorder</em>. Anchor Books. See also Hallowell &amp; Ratey (2021), <em>ADHD 2.0</em>, Ballantine Books.</li>
+      <li>Murray, D., Lesser, M., &amp; Lawson, W. (2005). Attention, monotropism and the diagnostic criteria for autism. <em>Autism</em>, 9(2), 139–156. https://doi.org/10.1177/1362361305051398</li>
+      <li>Milton, D. E. M. (2012). On the ontological status of autism: The "double empathy problem." <em>Disability &amp; Society</em>, 27(6), 883–887. See also Milton, Gurbuz, &amp; López (2022), "The 'double empathy problem': Ten years on," <em>Autism</em>, 26(8).</li>
+      <li>Orlov, M. (2010). <em>The ADHD Effect on Marriage</em>. Specialty Press. See also Orlov &amp; Kohlenberger (2014), <em>The Couple's Guide to Thriving with ADHD</em>, Specialty Press.</li>
+    </ol>
+  </div>
+
+  <div class="author-bio">
+    <div class="author-initial">ML</div>
+    <div class="author-bio-text">
+      <p><strong>Dr. Madrone Love, PsyD (PSY35899)</strong>
+      Dr. Love is a licensed clinical psychologist in private practice in Berkeley and San Francisco, specializing in neurodivergent adults, OCD, and trauma. She is an Assistant Professor of Integral Counseling Psychology at the California Institute of Integral Studies and serves as Director of the Sati Center for Buddhist Studies. Her work integrates contemporary clinical psychology with mindfulness, attachment, and a deep respect for neurodivergent ways of being in the world.</p>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
