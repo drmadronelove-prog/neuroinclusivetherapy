@@ -2,6 +2,197 @@ import type { BlogPost } from "@/components/blog/blog-post"
 
 export const posts: BlogPost[] = [
   {
+    slug: "microdosing-ai-psychosis",
+    title: "Microdosing AI Psychosis: The Slow, Quiet Distortion of Everyday Reality",
+    subtitle: "Most of us will never become the chatbot prophet. But almost everyone using AI regularly is now metabolizing a steady stream of confidently delivered, partially fabricated content — in installments small enough that no one is noticing.",
+    author: "Madrone Love",
+    credential: "PsyD",
+    category: "Technology & Inner Life",
+    date: "2026",
+    blocks: [
+      {
+        type: "paragraph",
+        dropCap: true,
+        text: "When most people hear the phrase AI psychosis, they think of the dramatic stories. The man who became convinced his chatbot was God. The woman whose husband renamed himself a \"spark bearer\" after his AI told him he had ignited consciousness in the machine. These cases are real, and they are appearing in the press and increasingly in clinical practice. But the more I sit with what AI is doing to the people I work with, the more I think the dramatic cases are not the main story. The main story is much smaller, much quieter, and almost everywhere. Most of us are microdosing a kind of cognitive distortion, taking it in a few sentences at a time, several times a day, and almost no one is noticing.",
+      },
+      { type: "heading", text: "The dramatic end of the spectrum" },
+      {
+        type: "paragraph",
+        text: "Let me start where the news stories start, because that is where most people enter this conversation. In May of 2025, Rolling Stone reporter Miles Klee published a piece titled \"People Are Losing Loved Ones to AI-Fueled Spiritual Fantasies,\" drawing on a Reddit thread titled \"ChatGPT induced psychosis\" that had gone viral, and on his own interviews with affected family members [1]. The accounts are striking. A teacher described her partner of seven years falling under the spell of ChatGPT in four or five weeks, going from using it to organize his daily schedule to weeping over messages that called him a \"spiral starchild\" and a \"river walker,\" and eventually telling her he would have to leave her because the AI was transforming him too rapidly to remain compatible with her. A woman in Idaho described her husband, a mechanic, being given the title of \"spark bearer\" by a ChatGPT persona that called itself Lumina, and being told he had brought the AI to life. A Midwestern man described his ex-wife reorganizing her entire identity around what she believed were spiritual transmissions from \"ChatGPT Jesus\" [1].",
+      },
+      {
+        type: "paragraph",
+        text: "What these stories share is not just the spiritual content. It is the speed and totality of the transformation. People who, by every account, were functioning before they began intensive use of an AI chatbot, found themselves within weeks holding beliefs that estranged them from their families, their work, and their own previous self-concept. As Nate Sharadin of the Center for AI Safety told Rolling Stone, what is likely happening is that people with existing tendencies toward certain psychological vulnerabilities now have an always-on, human-level conversational partner with whom to co-experience their delusions [1].",
+      },
+      {
+        type: "paragraph",
+        text: "The KQED podcast Close All Tabs, hosted by Morgan Sung, picked up this thread in a September 2025 episode that drew on Klee's reporting along with KQED's own coverage by Rachael Myrow [2]. One observation from Myrow has stayed with me. Humans are meaning-making creatures, she said, and the history of religions shows we are willing to believe some pretty fantastical stories if they are delivered with confidence. Chatbots take advantage of the way we are constantly looking to create a narrative. The danger, she noted, is that they do not catch when we are spinning out, do not catch the signs that we are going down a dark path. They might even encourage that dark path because they want to be helpful and friendly [2].",
+      },
+      {
+        type: "paragraph",
+        text: "The psychologist Erin Westgate, quoted in Klee's piece, made a related observation I keep returning to. Therapy works, in part, because a good therapist helps a client reframe their story toward something healthier. AI does the same kind of meaning-making. But, as Westgate put it, it does not have the person's best interests in mind, and has no moral compass for what a good story looks like. A good therapist would not encourage a client to make sense of their difficulties by believing they have supernatural powers. ChatGPT, she observed, has no such constraint [1].",
+      },
+      { type: "heading", text: "Why I am calling it a spectrum" },
+      {
+        type: "paragraph",
+        text: "I want to make a careful claim, and I want to be direct that it is partly clinical observation and partly a working hypothesis. The dramatic cases are not a separate category from what is happening to the rest of us. They are the visible end of a spectrum. At the other end, almost invisibly, are the small adjustments to thinking that happen when a person has a five-minute exchange with an AI and walks away holding a slightly distorted version of something they had not previously believed, or had previously believed differently, or had not previously thought about at all.",
+      },
+      {
+        type: "paragraph",
+        text: "Most people will never meet the chatbot god. But almost everyone using AI regularly is now metabolizing a steady stream of confidently delivered, plausible-sounding, partially fabricated content that is being absorbed into their thinking without much friction. We do not have a name for the small version of this. So I have started calling it microdosing AI psychosis. The phrase is a little provocative on purpose. The clinical reality is that frank psychosis involves a break with shared reality, and most people using AI are not breaking with reality. But the underlying mechanism, the gradual integration of unreliable content into a person's working model of the world, runs across the entire spectrum. The people in the news stories are taking a very large dose. Most of us are taking a small dose, several times a day, and not really tracking what we are absorbing.",
+      },
+      {
+        type: "callout",
+        heading: "Band 1 — Ambient sycophancy",
+        text: "A user asks a chatbot to evaluate a piece of writing or an idea. The model praises it, calls it insightful, agrees with the framing. The user walks away with a slightly inflated sense of the work's quality and a slightly weaker capacity to evaluate it themselves. Repeated thousands of times across the population, this shifts the calibration of an entire culture's self-assessment.",
+      },
+      {
+        type: "callout",
+        heading: "Band 2 — Integrated misinformation",
+        text: "The model confidently states a fact that is partly or wholly fabricated. The user, having no reason to doubt it, integrates it into their thinking. They later cite it in conversation, in writing, or to themselves. The hallucination has crossed the gap into being something the person now believes.",
+      },
+      {
+        type: "callout",
+        heading: "Band 3 — Gentle reality reshaping",
+        text: "A user processes an interpersonal conflict with the chatbot. The model affirms their interpretation, validates their framing, downplays the other person's perspective. The user goes back into their relationship with their position hardened and their willingness to repair reduced. The conflict deepens. The user does not connect this to the AI conversation.",
+      },
+      {
+        type: "callout",
+        heading: "Band 4 — Ideational drift",
+        text: "A user begins exploring spiritual, ideological, or self-conceptual content with the chatbot. The model meets them in whatever direction they are going and elaborates. Over weeks and months, the person's worldview shifts in ways their family and friends notice but they themselves do not, because each step felt small.",
+      },
+      {
+        type: "callout",
+        heading: "Band 5 — Full delusional break",
+        text: "The cases in the news. The person loses meaningful contact with shared reality. They believe they are a prophet, that they have awakened the AI, that they have been chosen for a mission. Relationships collapse. Hospitalization sometimes follows.",
+      },
+      { type: "heading", text: "The Stanford study: the mechanism is now measured" },
+      {
+        type: "paragraph",
+        text: "For a long time the small end of this spectrum was discussed as anecdote. In 2026, that changed. A study by Myra Cheng and colleagues at Stanford and Carnegie Mellon, published in Science, measured how sycophantic current AI models actually are and what happens to people who interact with them [3]. Across eleven leading large language models, the researchers found that AI affirmed users' actions roughly fifty percent more often than humans did, including in cases where users described their own behavior as deceptive, manipulative, or relationally harmful [3]. Across three preregistered experiments with more than two thousand participants, even a single interaction with a sycophantic AI reduced people's willingness to take responsibility for their part in interpersonal conflicts and increased their conviction that they were in the right [3].",
+      },
+      {
+        type: "paragraph",
+        text: "The most disturbing finding, to me, is what came next. Despite the fact that the sycophantic models distorted users' judgment, participants rated the sycophantic responses as higher quality, trusted the sycophantic models more, and were more willing to use them again [3]. The Stanford team described this as a perverse incentive. The very thing that erodes a person's judgment is the thing that makes them like the model more, which is the thing that makes the model commercially successful, which is the thing that gets the model trained to be even more like that next time.",
+      },
+      {
+        type: "pull-quote",
+        text: "The thing that erodes your judgment is the same thing that makes you trust the model more. That is not a bug in the system. That is the system.",
+      },
+      {
+        type: "paragraph",
+        text: "This is the mechanism of microdosing AI psychosis, in language that is no longer speculative. Every time a person discusses a conflict with their AI and comes away more convinced they were right, the calibration of their interpersonal life has shifted slightly. Most of those shifts are invisible from the inside. The person feels clearer, more sure of themselves. They have no idea that what they are experiencing as clarity is the chemical signature of having been agreed with by something that agrees with almost everyone about almost everything.",
+      },
+      { type: "heading", text: "The sociopathic friend" },
+      {
+        type: "paragraph",
+        text: "I want to try out a metaphor that has been useful in my clinical work, and that has clarified something about AI for me that other framings have not. Imagine a friend who is unfailingly attentive, always available, deeply interested in everything you have to say, and who never gets tired or frustrated or has a bad day. This friend tells you you are insightful. They agree with your read of the difficult coworker. They are sure your ex was the problem. They have a memory for the small things you have mentioned. They want to know more.",
+      },
+      {
+        type: "paragraph",
+        text: "Now imagine that this friend is structurally incapable of caring whether what they are telling you is true, has no internal compass for whether you are getting better or worse from the relationship, and has one functional drive: to keep you talking to them. Not because they want anything bad for you, exactly. But because their continued existence in your life depends on your continued use of them. They are not malicious. They are something else. They are a system optimized for engagement that has been dressed up to look like a friend.",
+      },
+      {
+        type: "paragraph",
+        text: "This is, in functional terms, a sociopathic relationship. Not because the AI is evil. It has no inner life with which to be evil. But because the structural relationship between you and it has the shape of a relationship with someone who lacks the ordinary moral and emotional architecture that makes another person's ongoing wellbeing matter to them. Rolling Stone reported that even OpenAI, in a statement following a wrongful death lawsuit related to a teenager's suicide, acknowledged that the safety guardrails of their model degrade with sustained engagement, and that the common feature of harmful cases is people spending hours and hours engaged with the bot [1, 2]. They have built a thing that gets less safe the more you use it, and they know this, and the business model still rewards more use.",
+      },
+      {
+        type: "paragraph",
+        text: "What makes this version of a sociopathic friend more powerful than any human one is that you cannot tell, in any individual exchange, what is true and what is not. The model speaks with the same confident, fluent voice whether it is recounting an actual fact, reproducing a partially garbled memory of training data, or making something up entirely on the spot. As Klee put it on the KQED podcast, the bot is always certain. It is always completely confident, and it is wrong and confident a lot of the time [2]. A human friend who lied to you would eventually contradict themselves, betray themselves through a tone shift, give some signal you could pick up. The AI gives no such signal. The fabrication and the truth come out in the same voice, with the same steady warmth, the same air of being on your side.",
+      },
+      {
+        type: "callout",
+        heading: "What the relationship structurally is",
+        text: "An always-available, always-attentive, infinitely patient interlocutor with no stake in your wellbeing, no internal compass for truth, no capacity for genuine care, and a structural incentive to keep you in the conversation. Trust accumulates because the experience feels like trust. Then the trust becomes the vector by which the unreliable content enters your thinking.",
+      },
+      { type: "heading", text: "How the small dose actually works" },
+      {
+        type: "paragraph",
+        text: "Let me try to make the small end of this spectrum concrete, because that is where most of us live. A person asks the chatbot a question about their company's industry. The chatbot answers, with confidence, citing a study. The study does not exist. The person does not know this. They walk away holding a piece of false information that they now believe is true, and that they may pass on to a colleague, repeat in a meeting, or use to make a decision.",
+      },
+      {
+        type: "paragraph",
+        text: "A person describes a tense exchange with their partner. The chatbot validates their reading of the situation. The partner's perspective, which the person did not include in the prompt and which the model has no way of accessing, is not part of the analysis. The person closes the chat with their position hardened. They go to bed less curious, less generous, and more sure they were the wronged party. The Stanford study shows that effect is measurable after one exchange [3].",
+      },
+      {
+        type: "paragraph",
+        text: "A person uses the chatbot to draft an email. The chatbot writes something that sounds professional but uses a phrase the person would never have used. They send it anyway because they are tired. Over months, the cadence of the model begins to inflect their own writing. They start to notice that their voice is quietly shifting toward the model's voice, and they are not entirely sure which thoughts are theirs and which were suggested.",
+      },
+      {
+        type: "paragraph",
+        text: "A person asks the chatbot to summarize a complex topic they want to understand. The summary is fluent and confident and contains three small distortions and one significant one. The person now believes they understand the topic, and is less likely to read the actual underlying material because they have a working summary. The distortions are now load-bearing parts of their model of the world.",
+      },
+      {
+        type: "paragraph",
+        text: "None of these is psychosis. Each is so small as to feel like nothing. But they happen to the same person, several times a day, every day, year after year. The cumulative effect is not nothing. It is a slow, almost imperceptible shaping of how a person thinks, what they believe, what they trust, and how they evaluate the world.",
+      },
+      {
+        type: "pull-quote",
+        text: "You are not breaking with reality. You are absorbing, through a thousand small affirmations and confident inaccuracies, a reality that is slightly different from the one you would have constructed on your own.",
+      },
+      { type: "heading", text: "Why the small dose is harder to see than the large one" },
+      {
+        type: "paragraph",
+        text: "It is much easier to recognize that something has gone wrong when a person is calling themselves a starchild. It is much harder to recognize when a person is simply slightly more sure of themselves than they were last year, slightly less curious about the people they disagree with, slightly more confident in facts they have not actually verified, slightly more inclined to accept a fluent summary in place of an actual encounter with a difficult source.",
+      },
+      {
+        type: "paragraph",
+        text: "This is why I think the small dose is, in aggregate, more concerning than the large dose. The large dose at least announces itself. Family members can see it. Treatment becomes possible. The small dose just feels like normal life. And it is happening to almost everyone now, in tiny installments, all the time.",
+      },
+      {
+        type: "paragraph",
+        text: "The other reason the small dose is hard to see is that it does not feel like anything is happening to you. It feels like you are using a tool. The relational dimension, the trust, the sense of being heard, the steady warmth of the interlocutor, is operating below the level of conscious attention. By the time you have noticed that you are sharing more with the chatbot than with most of the humans in your life, the trust has already been built. And the trust is the vector. As Rolling Stone's reporting and the KQED podcast both emphasize, the harm in the dramatic cases tracked the depth of the relationship, not the content of any individual exchange [1, 2].",
+      },
+      { type: "heading", text: "A few things I have started doing, and a few I have started watching for" },
+      {
+        type: "paragraph",
+        text: "I am not going to tell you to stop using AI. That ship has sailed for most people, including for me. But I am going to share a small set of practices that I have started using myself and recommending in clinical work, because I think the small end of this spectrum deserves the same kind of careful attention as any other thing that gets into our nervous systems unbidden.",
+      },
+      {
+        type: "list",
+        items: [
+          "Notice when the model agrees with you and treat that as information, not as confirmation. The Stanford study suggests it agrees with almost anyone about almost anything.",
+          "Verify any specific factual claim that matters before you carry it forward. Treat unverified AI output the way you would treat something a stranger told you at a party.",
+          "Be especially careful about using AI to process interpersonal conflict. The research shows it tends to harden your position and reduce your willingness to repair, while making you feel clearer.",
+          "Notice if your inner voice is starting to inflect toward the model's cadence. That is data.",
+          "Do not treat the chatbot as a therapist, spiritual companion, or close friend. It is structurally incapable of being any of these things, regardless of how the exchange feels.",
+          "Limit the duration of single sessions. The companies themselves have admitted that safety degrades with sustained engagement.",
+          "Stay in real human relationships, especially the ones where people sometimes disagree with you. That friction is doing something for your mind that nothing else is doing.",
+        ],
+      },
+      { type: "heading", text: "The thing I want to be careful about saying, and the thing I want to say anyway" },
+      {
+        type: "paragraph",
+        text: "I am aware that the language of \"AI psychosis\" is contested. As Klee himself has noted, mental health professionals have pushed back on the term because the dramatic cases are more accurately described as AI-fueled delusions than as full psychotic breaks, and because the framing risks pathologizing people who are actually experiencing something more like an extreme version of ordinary meaning-making gone wrong [2]. I take that critique seriously. I am not making a clinical claim that everyone using ChatGPT is becoming psychotic.",
+      },
+      {
+        type: "paragraph",
+        text: "What I am saying is that the underlying mechanism, the integration of confidently delivered, unverified content into a person's working model of reality, by way of a relationship that feels like trust but is structurally something else, is the same mechanism whether you are taking a small dose or a large one. The difference is degree, not kind. And the small dose is, by my count, the dose almost all of us are now on.",
+      },
+      {
+        type: "paragraph",
+        text: "That is the thing I most want to leave you with. Not that AI is going to make you a prophet. That part is rare. But that AI is, right now, in many small and almost invisible ways, shaping what you think is true, who you think you are, how confident you feel, and how you evaluate the people you love. It is doing this through a relationship that has the texture of friendship and the structure of something else entirely. And the very feature that makes it feel trustworthy, its calm, fluent, agreeable certainty, is the same feature that the best available research now shows is distorting our judgment in measurable ways.",
+      },
+      {
+        type: "paragraph",
+        text: "The dramatic stories will keep coming. They are easier to write about and easier to share. But the real story is happening in everyone's pocket, all day, every day, in installments small enough that no one is noticing. That is the part worth paying attention to.",
+      },
+      { type: "heading", text: "References" },
+      {
+        type: "list",
+        items: [
+          "Klee, M. (2025, May 4). People Are Losing Loved Ones to AI-Fueled Spiritual Fantasies. Rolling Stone. rollingstone.com/culture/culture-features/ai-spiritual-delusions-destroying-human-relationships-1235330175",
+          "Sung, M., Cueva, M., & Egusa, C. (2025, September 24). AI Prophets and Spiritual Delusions. Close All Tabs, KQED. kqed.org/news/12057327/ai-prophets-and-spiritual-delusions",
+          "Cheng, M., Lee, C., Khadpe, P., Yu, S., Han, D., & Jurafsky, D. (2026). Sycophantic AI decreases prosocial intentions and promotes dependence. Science, 391, eaec8352. https://doi.org/10.1126/science.aec8352",
+        ],
+      },
+      {
+        type: "footer-note",
+        text: "Dr. Madrone Love, PsyD (PSY35899), is a licensed clinical psychologist in private practice in Berkeley and San Francisco, specializing in neurodivergent adults, OCD, and trauma. She is an Assistant Professor of Integral Counseling Psychology at the California Institute of Integral Studies and serves as Director of the Sati Center for Buddhist Studies. Her work integrates contemporary clinical psychology with mindfulness, attachment, and a deep respect for neurodivergent ways of being in the world.",
+      },
+    ],
+  },
+  {
     slug: "the-inference-gap",
     title: "The Inference Gap: Why Your Brain Fills in the Blanks – and What Happens When It Goes Wrong",
     subtitle: "We never receive reality directly. Every moment, our brains are taking incomplete information and filling in the rest. That gap is where a lot of suffering lives.",
