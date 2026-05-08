@@ -12,14 +12,14 @@ const PALETTE_BORDERS = ["#8c9bb0", "#9fb3b0", "#5b6e88", "#7a4f6e", "#b88894", 
 
 const CARD_DEFS: { title: string; href: string; rotate: number }[] = [
   { title: "Neurodiversity",     href: "/neurodiversity", rotate: -2   },
-  { title: "Tests",              href: "/tests",          rotate:  1   },
-  { title: "Blog",               href: "/blog",           rotate:  1.5 },
+  { title: "Assessment",         href: "/tests",          rotate:  1   },
+  { title: "Psychotherapy",      href: "https://v0-madronelove-website.vercel.app/", rotate:  1.5 },
   { title: "ASD Skills",         href: "/asd-skills",     rotate: -1   },
   { title: "ADHD Skills",        href: "/adhd-skills",    rotate:  1   },
   { title: "OCD Skills",         href: "/ocd-skills",     rotate: -2   },
   { title: "Mindfulness",        href: "/mindfulness",    rotate:  0.5 },
   { title: "Brain Games",        href: "/brain-games",    rotate: -1.5 },
-  { title: "Psychotherapy",      href: "https://v0-madronelove-website.vercel.app/", rotate: -0.5 },
+  { title: "Blog",               href: "/blog",           rotate: -0.5 },
 ]
 
 const cards = CARD_DEFS.map((c, i) => ({

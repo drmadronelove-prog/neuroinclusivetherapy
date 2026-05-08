@@ -7,9 +7,9 @@ export function AnimatedHeading() {
         textShadow: "0 1px 6px rgba(251,248,243,0.6)",
       }}
     >
-      therapy and tools for people who{" "}
+      therapy and assessment for people who{" "}
       <span className="whitespace-nowrap">
-        are{" "}
+        think{" "}
         <span
           className="italic"
           style={{
