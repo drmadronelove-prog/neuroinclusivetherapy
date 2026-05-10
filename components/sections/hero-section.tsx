@@ -18,9 +18,9 @@ export function HeroSection() {
       <div
         className="no-print fixed top-0 left-0 right-0 z-[60] sm:hidden flex items-center px-4 py-2.5 border-b"
         style={{
-          background: "#E8DCC4",
-          borderColor: "rgba(11,37,69,0.12)",
-          boxShadow: "0 1px 6px rgba(11,37,69,0.06)",
+          background: "#fdfbf7",
+          borderColor: "rgba(11,37,69,0.10)",
+          boxShadow: "0 1px 6px rgba(11,37,69,0.04)",
         }}
       >
         <OliveLockup size={0.42} />
