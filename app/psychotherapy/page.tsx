@@ -12,16 +12,43 @@ export default function PsychotherapyPage() {
         className="relative"
         style={{ minHeight: "100svh", background: "var(--paper)" }}
       >
-        {/* Logo — upper right */}
+        {/* Logo — smaller mark only on phones (back link is on the left), full lockup on sm+ */}
         <div
-          className="no-print fixed top-5 right-6 z-[60]"
-          style={{ display: "inline-flex", alignItems: "center" }}
+          className="no-print fixed top-3 right-3 z-[60] sm:hidden rounded-full px-3 py-1.5"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            background: "rgba(251,248,243,0.82)",
+            backdropFilter: "blur(8px)",
+            WebkitBackdropFilter: "blur(8px)",
+            boxShadow: "0 1px 8px rgba(11,37,69,0.06)",
+          }}
+        >
+          <OliveLockup size={0.32} />
+        </div>
+        <div
+          className="no-print fixed top-4 right-4 z-[60] hidden sm:inline-flex rounded-full px-4 py-2"
+          style={{
+            alignItems: "center",
+            background: "rgba(251,248,243,0.82)",
+            backdropFilter: "blur(8px)",
+            WebkitBackdropFilter: "blur(8px)",
+            boxShadow: "0 1px 8px rgba(11,37,69,0.06)",
+          }}
         >
           <OliveLockup size={0.55} />
         </div>
 
         {/* Back link — upper left */}
-        <div className="no-print fixed top-7 left-6 z-[60]">
+        <div
+          className="no-print fixed top-3 sm:top-5 left-3 sm:left-4 z-[60] rounded-full px-3 py-1.5"
+          style={{
+            background: "rgba(251,248,243,0.82)",
+            backdropFilter: "blur(8px)",
+            WebkitBackdropFilter: "blur(8px)",
+            boxShadow: "0 1px 8px rgba(11,37,69,0.06)",
+          }}
+        >
           <Link
             href="/"
             style={{
@@ -36,7 +63,7 @@ export default function PsychotherapyPage() {
           </Link>
         </div>
 
-        <div className="relative px-6 lg:px-12 pt-32 pb-20 flex flex-col items-center gap-12">
+        <div className="relative px-5 sm:px-6 lg:px-12 pt-24 sm:pt-32 pb-20 flex flex-col items-center gap-10 sm:gap-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -46,12 +73,14 @@ export default function PsychotherapyPage() {
             <h1
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "clamp(2.6rem, 5vw, 4.2rem)",
+                fontSize: "clamp(2rem, 8vw, 4.2rem)",
                 fontWeight: 400,
                 color: "var(--ink)",
                 lineHeight: 1.05,
                 letterSpacing: "-0.025em",
                 margin: 0,
+                wordBreak: "break-word",
+                hyphens: "auto",
               }}
             >
               Neuroinclusive

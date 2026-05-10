@@ -14,7 +14,7 @@ export function ToolPageLayout({ title, color, children }: ToolPageLayoutProps) 
   return (
     <HoverProvider>
     <main className="relative min-h-screen bg-background overflow-x-hidden">
-      <section className="min-h-screen flex flex-col px-6 lg:px-16 pt-16 md:pt-12 pb-12">
+      <section className="min-h-screen flex flex-col px-5 sm:px-6 lg:px-16 pt-12 sm:pt-16 md:pt-12 pb-12">
         <div className="max-w-4xl mx-auto w-full">
           {/* Back link */}
           <motion.div
@@ -43,7 +43,7 @@ export function ToolPageLayout({ title, color, children }: ToolPageLayoutProps) 
               className="mb-12"
             >
               <h1
-                className={`text-5xl sm:text-7xl lg:text-8xl leading-[0.95] ${color}`}
+                className={`text-[2.5rem] sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] break-words hyphens-auto ${color}`}
                 style={{
                   fontFamily: "var(--font-display)",
                   fontWeight: 400,

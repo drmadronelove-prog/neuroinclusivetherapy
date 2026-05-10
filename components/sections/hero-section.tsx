@@ -14,17 +14,36 @@ export function HeroSection() {
       style={{ minHeight: "100svh", background: "var(--paper)" }}
     >
 
-      {/* Wordmark — Olive Clinical lockup. */}
+      {/* Wordmark — Olive Clinical lockup. Smaller on phones to avoid overflow. */}
       <div
-        className="no-print fixed top-5 left-6 z-[60]"
-        style={{ display: "inline-flex", alignItems: "center" }}
+        className="no-print fixed top-3 sm:top-4 left-3 sm:left-4 z-[60] sm:hidden rounded-full px-3 py-1.5"
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          background: "rgba(251,248,243,0.82)",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
+          boxShadow: "0 1px 8px rgba(11,37,69,0.06)",
+        }}
+      >
+        <OliveLockup size={0.42} />
+      </div>
+      <div
+        className="no-print fixed top-4 left-4 z-[60] hidden sm:inline-flex rounded-full px-4 py-2"
+        style={{
+          alignItems: "center",
+          background: "rgba(251,248,243,0.82)",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
+          boxShadow: "0 1px 8px rgba(11,37,69,0.06)",
+        }}
       >
         <OliveLockup size={0.55} />
       </div>
 
       {/* Main content — flex-col on mobile so footer anchors to bottom */}
       <div
-        className="relative min-h-[100svh] flex flex-col justify-between lg:justify-end px-6 lg:px-0 pt-28 pb-0 lg:pt-0"
+        className="relative min-h-[100svh] flex flex-col justify-between lg:justify-end px-5 sm:px-6 lg:px-0 pt-20 sm:pt-28 pb-0 lg:pt-0"
         style={{ zIndex: 2 }}
       >
         {/* Heading + cards (absolute positioned on desktop, in flex flow on mobile) */}
@@ -38,12 +57,14 @@ export function HeroSection() {
             >
               <h1 style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "clamp(3.8rem, 6.5vw, 6rem)",
+                fontSize: "clamp(2.2rem, 11vw, 6rem)",
                 fontWeight: 400,
                 color: "var(--ink)",
                 lineHeight: 1.05,
                 letterSpacing: "-0.025em",
                 margin: 0,
+                wordBreak: "break-word",
+                hyphens: "auto",
               }}>
                 Neuroinclusive
               </h1>
@@ -70,12 +91,13 @@ export function HeroSection() {
         </div>
 
         {/* Mobile footer — sits at bottom of viewport */}
-        <div className="no-print lg:hidden py-6" style={{ fontFamily: "var(--font-mono)", color: "rgba(11,37,69,0.65)", lineHeight: 1.4, fontSize: "0.78rem", letterSpacing: "0.02em" }}>
-          <p className="whitespace-nowrap overflow-x-auto">
-            San Francisco &amp; Berkeley &nbsp;·&nbsp;{" "}
+        <div className="no-print lg:hidden py-6" style={{ fontFamily: "var(--font-mono)", color: "rgba(11,37,69,0.65)", lineHeight: 1.5, fontSize: "0.72rem", letterSpacing: "0.02em" }}>
+          <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
+            <span>San Francisco &amp; Berkeley</span>
+            <span aria-hidden="true">·</span>
             <a href="tel:+14159152183" className="hover:opacity-100 transition-opacity">(415) 915-2183</a>
-            {" "}&nbsp;·&nbsp;{" "}
-            <a href="mailto:info@oliveclinical.com" className="hover:opacity-100 transition-opacity">info@oliveclinical.com</a>
+            <span aria-hidden="true">·</span>
+            <a href="mailto:info@oliveclinical.com" className="hover:opacity-100 transition-opacity break-all">info@oliveclinical.com</a>
           </p>
         </div>
       </div>
