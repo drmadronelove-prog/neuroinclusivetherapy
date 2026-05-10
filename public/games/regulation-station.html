@@ -50,7 +50,13 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-.gw{max-width:560px;margin:0 auto;padding:1rem 0;font-family:var(--font-sans);position:relative}
+body{overflow-x:hidden}
+.gw{max-width:560px;margin:0 auto;padding:1rem 14px;font-family:var(--font-sans);position:relative}
+@media (max-width:640px){
+  .gw{padding:.75rem 12px 1.5rem}
+  .card{padding:1rem}
+  .bchoice{padding:.7rem .9rem;font-size:13.5px}
+}
 .sc{display:none}.sc.on{display:block}
 .card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem;margin-bottom:.75rem}
 .bchoice{display:block;width:100%;text-align:left;padding:.85rem 1rem;background:var(--color-background-secondary);border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);cursor:pointer;font-family:var(--font-sans);font-size:14px;line-height:1.5;color:var(--color-text-primary);margin-bottom:8px;transition:background .12s}

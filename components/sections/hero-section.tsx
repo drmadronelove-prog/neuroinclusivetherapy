@@ -14,20 +14,18 @@ export function HeroSection() {
       style={{ minHeight: "100svh", background: "var(--paper)" }}
     >
 
-      {/* Wordmark — Olive Clinical lockup. Smaller on phones to avoid overflow. */}
+      {/* Mobile header bar — full-width bone strip across the top */}
       <div
-        className="no-print fixed top-3 sm:top-4 left-3 sm:left-4 z-[60] sm:hidden rounded-full px-3 py-1.5"
+        className="no-print fixed top-0 left-0 right-0 z-[60] sm:hidden flex items-center px-4 py-2.5 border-b"
         style={{
-          display: "inline-flex",
-          alignItems: "center",
-          background: "rgba(251,248,243,0.82)",
-          backdropFilter: "blur(8px)",
-          WebkitBackdropFilter: "blur(8px)",
-          boxShadow: "0 1px 8px rgba(11,37,69,0.06)",
+          background: "#E8DCC4",
+          borderColor: "rgba(11,37,69,0.12)",
+          boxShadow: "0 1px 6px rgba(11,37,69,0.06)",
         }}
       >
         <OliveLockup size={0.42} />
       </div>
+      {/* Desktop wordmark — pill at top-left */}
       <div
         className="no-print fixed top-4 left-4 z-[60] hidden sm:inline-flex rounded-full px-4 py-2"
         style={{
