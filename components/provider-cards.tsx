@@ -133,10 +133,10 @@ function ProviderCard({
         }}
       />
 
-      <div className="relative h-full flex flex-col items-center justify-start gap-3 p-5">
+      <div className="relative h-full flex flex-col items-center justify-start gap-2 sm:gap-3 p-3 sm:p-5">
         <div
+          className="w-[74%] sm:w-[62%]"
           style={{
-            width: "62%",
             aspectRatio: "1 / 1",
             borderRadius: "9999px",
             overflow: "hidden",
@@ -150,17 +150,17 @@ function ProviderCard({
             src={provider.image}
             alt={provider.name}
             fill
-            sizes="(max-width: 768px) 40vw, 220px"
+            sizes="(max-width: 768px) 60vw, 220px"
             style={{ objectFit: "cover" }}
           />
         </div>
 
-        <div className="flex flex-col items-center text-center gap-1 mt-1">
+        <div className="flex flex-col items-center text-center gap-0.5 sm:gap-1 mt-0.5 sm:mt-1">
           <h3
+            className="text-[0.85rem] sm:text-[1.05rem]"
             style={{
               fontFamily: "var(--font-display)",
               fontWeight: 500,
-              fontSize: "1.05rem",
               color: "var(--ink)",
               lineHeight: 1.15,
               letterSpacing: "-0.012em",
@@ -169,9 +169,9 @@ function ProviderCard({
             {provider.name}
           </h3>
           <p
+            className="text-[0.55rem] sm:text-[0.65rem]"
             style={{
               fontFamily: "var(--font-mono)",
-              fontSize: "0.65rem",
               fontWeight: 500,
               letterSpacing: "0.1em",
               textTransform: "uppercase",
@@ -182,9 +182,9 @@ function ProviderCard({
             {provider.role}
           </p>
           <p
+            className="text-[0.7rem] sm:text-[0.82rem] hidden sm:block"
             style={{
               fontFamily: "var(--font-body)",
-              fontSize: "0.82rem",
               color: "rgba(11,37,69,0.72)",
               lineHeight: 1.3,
               marginTop: "0.15rem",
