@@ -12,16 +12,22 @@ export default function PsychotherapyPage() {
         className="relative"
         style={{ minHeight: "100svh", background: "var(--paper)" }}
       >
-        {/* Logo — upper right */}
+        {/* Logo — smaller mark only on phones (back link is on the left), full lockup on sm+ */}
         <div
-          className="no-print fixed top-5 right-6 z-[60]"
+          className="no-print fixed top-4 sm:top-5 right-4 sm:right-6 z-[60] sm:hidden"
           style={{ display: "inline-flex", alignItems: "center" }}
+        >
+          <OliveLockup size={0.32} />
+        </div>
+        <div
+          className="no-print fixed top-5 right-6 z-[60] hidden sm:inline-flex"
+          style={{ alignItems: "center" }}
         >
           <OliveLockup size={0.55} />
         </div>
 
         {/* Back link — upper left */}
-        <div className="no-print fixed top-7 left-6 z-[60]">
+        <div className="no-print fixed top-4 sm:top-7 left-4 sm:left-6 z-[60]">
           <Link
             href="/"
             style={{
@@ -36,7 +42,7 @@ export default function PsychotherapyPage() {
           </Link>
         </div>
 
-        <div className="relative px-6 lg:px-12 pt-32 pb-20 flex flex-col items-center gap-12">
+        <div className="relative px-5 sm:px-6 lg:px-12 pt-24 sm:pt-32 pb-20 flex flex-col items-center gap-10 sm:gap-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

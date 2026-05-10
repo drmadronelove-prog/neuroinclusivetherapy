@@ -123,10 +123,10 @@ export default function BrainGamesPage() {
               </p>
             </div>
 
-            {/* Game iframe */}
+            {/* Game iframe — height scales down on small viewports so a single game doesn't take multiple screens */}
             <div
               className="w-full rounded-xl overflow-hidden border border-border shadow-sm bg-card"
-              style={{ height: game.height }}
+              style={{ height: `clamp(440px, 78svh, ${game.height}px)` }}
             >
               <iframe
                 src={game.src}

@@ -29,7 +29,7 @@ const cards = CARD_DEFS.map((c, i) => ({
 
 export function HeroCards() {
   return (
-    <div className="grid grid-cols-3 gap-2 lg:gap-4 w-full lg:w-auto">
+    <div className="grid grid-cols-3 gap-1.5 sm:gap-2 lg:gap-4 w-full lg:w-auto">
       {cards.map((card, index) => (
         <HeroCard key={card.title} card={card} index={index} />
       ))}
@@ -85,8 +85,8 @@ function HeroCard({
           pointerEvents: "none",
         }} />
 
-        <div className="relative h-full flex flex-col justify-center items-center gap-2 p-3">
-          <span className="text-[0.55rem] md:text-[0.7rem]" style={{
+        <div className="relative h-full flex flex-col justify-center items-center gap-1.5 sm:gap-2 p-2 sm:p-3">
+          <span className="text-[0.55rem] sm:text-[0.62rem] md:text-[0.7rem]" style={{
             fontFamily: "var(--font-mono)",
             fontWeight: 500,
             letterSpacing: "0.12em",
@@ -95,7 +95,7 @@ function HeroCard({
           }}>
             {String(index + 1).padStart(2, "0")}
           </span>
-          <h3 className="text-[0.78rem] md:text-[0.98rem]" style={{
+          <h3 className="text-[0.7rem] sm:text-[0.82rem] md:text-[0.98rem]" style={{
             fontFamily: "var(--font-display)",
             fontWeight: 500,
             color: "var(--ink)",

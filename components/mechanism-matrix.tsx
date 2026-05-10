@@ -63,7 +63,10 @@ export function MechanismMatrix() {
 
   return (
     <div className="w-full">
-      <div className="overflow-x-auto pb-1">
+      <p className="sm:hidden text-[11px] text-muted-foreground mb-2 mx-0.5 italic">
+        Scroll horizontally to view all mechanisms →
+      </p>
+      <div className="overflow-x-auto pb-1 -mx-6 px-6 sm:mx-0 sm:px-0">
         <table style={{ borderCollapse: "collapse", whiteSpace: "nowrap", fontSize: "inherit" }}>
           <thead>
             {/* Spectrum group headers */}
