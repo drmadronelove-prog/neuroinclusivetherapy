@@ -12,20 +12,31 @@ export default function PsychotherapyPage() {
         className="relative"
         style={{ minHeight: "100svh", background: "var(--paper)" }}
       >
-        {/* Logo — smaller mark only on phones (back link is on the left), full lockup on sm+ */}
+        {/* Mobile header bar — full-width bone strip across the top with back link + lockup */}
         <div
-          className="no-print fixed top-3 right-3 z-[60] sm:hidden rounded-full px-3 py-1.5"
+          className="no-print fixed top-0 left-0 right-0 z-[60] sm:hidden flex items-center justify-between gap-3 px-4 py-2.5 border-b"
           style={{
-            display: "inline-flex",
-            alignItems: "center",
-            background: "rgba(251,248,243,0.82)",
-            backdropFilter: "blur(8px)",
-            WebkitBackdropFilter: "blur(8px)",
-            boxShadow: "0 1px 8px rgba(11,37,69,0.06)",
+            background: "#E8DCC4",
+            borderColor: "rgba(11,37,69,0.12)",
+            boxShadow: "0 1px 6px rgba(11,37,69,0.06)",
           }}
         >
+          <Link
+            href="/"
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.78rem",
+              letterSpacing: "0.04em",
+              color: "rgba(11,37,69,0.78)",
+            }}
+            className="hover:opacity-100 transition-opacity shrink-0"
+          >
+            ← Home
+          </Link>
           <OliveLockup size={0.32} />
         </div>
+
+        {/* Desktop logo — pill at top-right */}
         <div
           className="no-print fixed top-4 right-4 z-[60] hidden sm:inline-flex rounded-full px-4 py-2"
           style={{
@@ -39,9 +50,9 @@ export default function PsychotherapyPage() {
           <OliveLockup size={0.55} />
         </div>
 
-        {/* Back link — upper left */}
+        {/* Desktop back link — pill at top-left */}
         <div
-          className="no-print fixed top-3 sm:top-5 left-3 sm:left-4 z-[60] rounded-full px-3 py-1.5"
+          className="no-print fixed top-5 left-4 z-[60] hidden sm:block rounded-full px-3 py-1.5"
           style={{
             background: "rgba(251,248,243,0.82)",
             backdropFilter: "blur(8px)",
@@ -63,7 +74,7 @@ export default function PsychotherapyPage() {
           </Link>
         </div>
 
-        <div className="relative px-5 sm:px-6 lg:px-12 pt-24 sm:pt-32 pb-20 flex flex-col items-center gap-10 sm:gap-12">
+        <div className="relative px-5 sm:px-6 lg:px-12 pt-20 sm:pt-32 pb-20 flex flex-col items-center gap-10 sm:gap-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
