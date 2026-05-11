@@ -6,15 +6,14 @@ import { motion } from "framer-motion"
 const PAPER_BG =
   "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E\")"
 
-// Brighter palette for the brain games — warmer surfaces, more saturated
-// accents than the muted slate/plum/mist used elsewhere.
+// 80s arcade neon palette — bright accents on near-black surfaces.
 const VARIANTS = [
-  { accent: "#c4877e", surface: "#fbeae3" }, // warm rose on peach
-  { accent: "#c5a572", surface: "#f9efd6" }, // gold on warm cream
-  { accent: "#5b6e88", surface: "#e2eaf2" }, // slate-blue on cool wash
-  { accent: "#7a4f6e", surface: "#f1e3eb" }, // plum on lavender
-  { accent: "#9fb3b0", surface: "#e3eee9" }, // glass on mint
-  { accent: "#b88894", surface: "#f4e3e8" }, // dusk on pink
+  { accent: "#ff2e8b", surface: "#1a0e2e" }, // hot pink on deep purple
+  { accent: "#00e5ff", surface: "#0e1a2e" }, // cyan on dark navy
+  { accent: "#39ff14", surface: "#0e1a14" }, // neon green on dark forest
+  { accent: "#ffe600", surface: "#1f0e2e" }, // electric yellow on plum-black
+  { accent: "#ff7a00", surface: "#0f1018" }, // neon orange on near-black
+  { accent: "#c724ff", surface: "#0c0f1f" }, // electric purple on midnight
 ]
 
 export interface BrainGameCardData {
@@ -46,10 +45,10 @@ export function BrainGameCard({ game, index }: { game: BrainGameCardData; index:
           backgroundColor: variant.surface,
           backgroundImage: PAPER_BG,
           backgroundSize: "200px 200px",
-          border: `1px solid rgba(11,37,69,0.18)`,
+          border: `1.5px solid ${variant.accent}`,
           boxShadow: hovered
-            ? `0 14px 32px rgba(11,37,69,0.18)`
-            : `0 6px 18px rgba(11,37,69,0.08)`,
+            ? `0 14px 32px rgba(0,0,0,0.55), 0 0 30px ${variant.accent}80, inset 0 0 22px ${variant.accent}1f`
+            : `0 6px 18px rgba(0,0,0,0.40), 0 0 14px ${variant.accent}55, inset 0 0 14px ${variant.accent}14`,
           cursor: "pointer",
           overflow: "hidden",
           transition: "box-shadow 0.2s ease",
@@ -65,7 +64,7 @@ export function BrainGameCard({ game, index }: { game: BrainGameCardData; index:
                 letterSpacing: "0.14em",
                 textTransform: "uppercase",
                 color: variant.accent,
-                opacity: 0.9,
+                textShadow: `0 0 6px ${variant.accent}99`,
               }}
             >
               {game.category}
@@ -74,7 +73,7 @@ export function BrainGameCard({ game, index }: { game: BrainGameCardData; index:
               className="text-[0.7rem] shrink-0"
               style={{
                 fontFamily: "var(--font-mono)",
-                color: "rgba(11,37,69,0.5)",
+                color: "rgba(255,255,255,0.55)",
                 letterSpacing: "0.1em",
               }}
             >
@@ -87,10 +86,11 @@ export function BrainGameCard({ game, index }: { game: BrainGameCardData; index:
             style={{
               fontFamily: "var(--font-atari), 'Courier New', monospace",
               fontWeight: 400,
-              color: "var(--ink)",
+              color: variant.accent,
               fontSize: "clamp(0.78rem, 1.6vw, 1.05rem)",
               lineHeight: 1.55,
               letterSpacing: "0.02em",
+              textShadow: `0 0 6px ${variant.accent}80, 0 0 14px ${variant.accent}40`,
             }}
           >
             {game.title}
@@ -104,6 +104,7 @@ export function BrainGameCard({ game, index }: { game: BrainGameCardData; index:
               letterSpacing: "0.14em",
               textTransform: "uppercase",
               fontWeight: 600,
+              textShadow: `0 0 6px ${variant.accent}99`,
             }}
           >
             <span>Play game</span>
