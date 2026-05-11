@@ -83,12 +83,14 @@ export function BrainGameCard({ game, index }: { game: BrainGameCardData; index:
           </div>
 
           <h3
-            className="text-[1.6rem] sm:text-[2.2rem] md:text-[2.6rem] leading-[1.05] text-center px-2"
+            className="text-center px-2"
             style={{
-              fontFamily: "var(--font-display)",
+              fontFamily: "var(--font-atari), 'Courier New', monospace",
               fontWeight: 400,
               color: "var(--ink)",
-              letterSpacing: "-0.02em",
+              fontSize: "clamp(0.78rem, 1.6vw, 1.05rem)",
+              lineHeight: 1.55,
+              letterSpacing: "0.02em",
             }}
           >
             {game.title}
