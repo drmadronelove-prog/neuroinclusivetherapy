@@ -70,7 +70,7 @@ const BIG_LINKS: [string, string][] = [
 
 export default function NeurodiversityPage() {
   return (
-    <ToolPageLayout title="Neurodivergence map" color="text-ink">
+    <ToolPageLayout title="Neurodivergent Maps" color="text-ink">
       <LeftAccent />
       <NeurodiversityCards bigNodes={BIG_NODES} bigLinks={BIG_LINKS} />
     </ToolPageLayout>
