@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Fraunces, Geist, Geist_Mono, Press_Start_2P } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { SiteHeader } from '@/components/site-header'
+import { SiteFooter } from '@/components/site-footer'
 import './globals.css'
 
 const fraunces = Fraunces({
@@ -50,6 +51,7 @@ export default function RootLayout({
       <body className="font-body antialiased">
         <SiteHeader />
         {children}
+        <SiteFooter />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

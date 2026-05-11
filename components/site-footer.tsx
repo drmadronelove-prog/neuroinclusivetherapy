@@ -1,60 +1,38 @@
-"use client"
-
 import Link from "next/link"
-import { NoSurprisesButton } from "@/components/no-surprises-button"
-import { DisclosuresModal } from "@/components/disclosures-modal"
 
 export function SiteFooter() {
   return (
-    <footer className="no-print border-t border-border bg-background mt-16 px-6 lg:px-16 py-10">
-      <div className="max-w-4xl mx-auto space-y-6">
-        {/* Top row */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div>
-            <p
-              className="text-foreground text-base"
-              style={{
-                fontFamily: "var(--font-display)",
-                fontWeight: 500,
-                letterSpacing: "-0.01em",
-              }}
-            >
-              Madrone Love, PsyD
-            </p>
-            <p
-              className="text-xs text-muted-foreground mt-0.5"
-              style={{ fontFamily: "var(--font-mono)", letterSpacing: "0.04em" }}
-            >
-              Licensed Psychologist · California #35899
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3 items-center">
-            <NoSurprisesButton />
-            <DisclosuresModal />
-          </div>
-        </div>
-
-        {/* Quick links */}
-        <div className="flex flex-wrap gap-x-5 gap-y-1 text-xs text-muted-foreground">
-          <a href="https://v0-madronelove-website.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Therapy</a>
-          <Link href="/tests" className="hover:text-foreground transition-colors">Tests &amp; Tools</Link>
-          <Link href="/neurodiversity" className="hover:text-foreground transition-colors">Neurodiversity</Link>
-          <Link href="/blog" className="hover:text-foreground transition-colors">Blog</Link>
-          <Link href="/contact" className="hover:text-foreground transition-colors">Contact</Link>
-        </div>
-
-        {/* Bottom row */}
-        <div className="border-t border-border pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-muted-foreground">
-          <p>
-            © {new Date().getFullYear()} Olive Clinical · San Francisco &amp; Berkeley, CA · Telehealth throughout California
-          </p>
-          <p>
-            <a href="tel:+14159152183" className="hover:text-foreground transition-colors">(415) 915-2183</a>
-            {" · "}
-            <a href="mailto:info@oliveclinical.com" className="hover:text-foreground transition-colors">
-              info@oliveclinical.com
-            </a>
-          </p>
+    <footer
+      className="no-print w-full px-5 sm:px-6 lg:px-12 py-8 border-t"
+      style={{
+        fontFamily: "var(--font-mono)",
+        color: "rgba(11,37,69,0.65)",
+        fontSize: "0.78rem",
+        letterSpacing: "0.02em",
+        borderColor: "rgba(11,37,69,0.10)",
+      }}
+    >
+      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <p>Hayes Valley, San Francisco &amp; Berkeley, CA</p>
+        <div className="flex flex-wrap gap-x-5 gap-y-1">
+          <a
+            href="tel:+14159152183"
+            className="hover:text-foreground transition-colors"
+          >
+            (415) 915-2183
+          </a>
+          <a
+            href="mailto:info@oliveclinical.com"
+            className="hover:text-foreground transition-colors"
+          >
+            info@oliveclinical.com
+          </a>
+          <Link
+            href="/contact"
+            className="hover:text-foreground transition-colors"
+          >
+            Book a consultation
+          </Link>
         </div>
       </div>
     </footer>

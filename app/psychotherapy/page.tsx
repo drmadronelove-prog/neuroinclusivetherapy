@@ -2,7 +2,6 @@
 
 import { ProviderCards } from "@/components/provider-cards"
 import { motion } from "framer-motion"
-import Link from "next/link"
 
 export default function PsychotherapyPage() {
   return (
@@ -76,51 +75,6 @@ export default function PsychotherapyPage() {
             <ProviderCards />
           </motion.div>
         </div>
-
-        <footer
-          className="no-print absolute bottom-0 left-0 right-0"
-          style={{
-            paddingBottom: "18px",
-            paddingTop: "32px",
-            paddingLeft: "1.5rem",
-            paddingRight: "1.5rem",
-          }}
-        >
-          <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1">
-            <p
-              style={{
-                fontFamily: "var(--font-mono)",
-                color: "rgba(11,37,69,0.65)",
-                fontSize: "0.78rem",
-                letterSpacing: "0.02em",
-              }}
-            >
-              Hayes Valley, San Francisco &amp; Berkeley, CA
-            </p>
-            <div
-              className="flex flex-wrap gap-x-5 gap-y-1"
-              style={{
-                fontFamily: "var(--font-mono)",
-                color: "rgba(11,37,69,0.65)",
-                fontSize: "0.78rem",
-                letterSpacing: "0.02em",
-              }}
-            >
-              <a href="tel:+14159152183" className="hover:opacity-100 transition-opacity">
-                (415) 915-2183
-              </a>
-              <a
-                href="mailto:info@oliveclinical.com"
-                className="hover:opacity-100 transition-opacity"
-              >
-                info@oliveclinical.com
-              </a>
-              <Link href="/contact" className="hover:opacity-100 transition-opacity">
-                Book a consultation
-              </Link>
-            </div>
-          </div>
-        </footer>
       </section>
     </main>
   )
