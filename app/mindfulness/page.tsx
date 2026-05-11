@@ -10,10 +10,6 @@ export const metadata: Metadata = {
 export default function MindfulnessPage() {
   return (
     <ToolPageLayout title="Mindfulness" color="text-ink">
-      <p className="text-muted-foreground leading-relaxed mb-10 max-w-2xl">
-        A breathing circle, a guided meditation, and three places to keep going.
-        Tap a card to open it.
-      </p>
       <MindfulnessCards />
     </ToolPageLayout>
   )

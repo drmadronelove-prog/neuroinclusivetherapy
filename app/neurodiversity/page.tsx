@@ -105,10 +105,6 @@ export default function NeurodiversityPage() {
                   <br />divergence
                   <br />map
                 </h1>
-                <p className="text-muted-foreground mt-6 max-w-xl leading-relaxed">
-                  Interactive networks showing how diagnoses, non-DSM presentations, and cognitive mechanisms overlap.
-                  Click nodes to explore connections. Select two or more to reveal shared mechanisms in gold.
-                </p>
               </div>
 
               <NetworkGraph

@@ -10,13 +10,6 @@ export const metadata = {
 export default function BlogPage() {
   return (
     <ToolPageLayout title="Blog" color="text-ink">
-      <p
-        className="max-w-2xl mb-10 text-[1.05rem] leading-relaxed italic"
-        style={{ fontFamily: "var(--font-display)", color: "rgba(11,37,69,0.65)" }}
-      >
-        Thoughts on neurodivergent-affirming therapy, mental wellness, and living
-        differently. Choose an essay below.
-      </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
         {posts.map((post, i) => (
           <BlogHeroCard
