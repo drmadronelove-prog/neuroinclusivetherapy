@@ -68,7 +68,7 @@ const games: BrainGameCardData[] = [
 export default function BrainGamesPage() {
   return (
     <ToolPageLayout title="Brain Games" color="text-gold">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-[80%] mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 sm:max-w-[80%] sm:mx-auto">
         {games.map((game, i) => (
           <BrainGameCard key={game.id} game={game} index={i} />
         ))}
