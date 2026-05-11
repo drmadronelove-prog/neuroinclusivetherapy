@@ -2,7 +2,6 @@
 
 import { HeroCards } from "@/components/hero-cards"
 import { AnimatedHeading } from "@/components/animated-heading"
-import { OliveLockup } from "@/components/olive-logo"
 import { motion } from "framer-motion"
 import Link from "next/link"
 
@@ -14,28 +13,9 @@ export function HeroSection() {
       style={{ minHeight: "100svh", background: "var(--paper)" }}
     >
 
-      {/* Mobile header bar — full-width bone strip across the top */}
-      <div
-        className="no-print fixed top-0 left-0 right-0 z-[60] sm:hidden flex items-center px-4 py-2.5 border-b"
-        style={{
-          background: "#fdfbf7",
-          borderColor: "rgba(11,37,69,0.10)",
-          boxShadow: "0 1px 6px rgba(11,37,69,0.04)",
-        }}
-      >
-        <OliveLockup size={0.42} />
-      </div>
-      {/* Desktop wordmark — bare lockup */}
-      <div
-        className="no-print fixed top-5 left-6 z-[60] hidden sm:inline-flex"
-        style={{ alignItems: "center" }}
-      >
-        <OliveLockup size={0.55} />
-      </div>
-
       {/* Main content — flex-col on mobile so footer anchors to bottom */}
       <div
-        className="relative min-h-[100svh] flex flex-col justify-between lg:justify-end px-5 sm:px-6 lg:px-0 pt-20 sm:pt-28 pb-0 lg:pt-0"
+        className="relative min-h-[100svh] flex flex-col justify-between lg:justify-end px-5 sm:px-6 lg:px-0 pt-20 sm:pt-24 pb-0"
         style={{ zIndex: 2 }}
       >
         {/* Heading + cards (absolute positioned on desktop, in flex flow on mobile) */}

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Fraunces, Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { SiteHeader } from '@/components/site-header'
 import './globals.css'
 
 const fraunces = Fraunces({
@@ -40,6 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fraunces.variable} ${geist.variable} ${geistMono.variable}`}>
       <body className="font-body antialiased">
+        <SiteHeader />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
