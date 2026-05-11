@@ -68,10 +68,6 @@ const games: BrainGameCardData[] = [
 export default function BrainGamesPage() {
   return (
     <ToolPageLayout title="Brain Games" color="text-gold">
-      <p className="text-muted-foreground leading-relaxed mb-10 max-w-2xl">
-        Eight interactive games for practicing psychological skills — ACT defusion,
-        I-CBT reality-testing, OCD narrative work, and emotion regulation. Tap a card to play.
-      </p>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
         {games.map((game, i) => (
           <BrainGameCard key={game.id} game={game} index={i} />
