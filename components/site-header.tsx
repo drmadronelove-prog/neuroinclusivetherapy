@@ -12,9 +12,9 @@ export function SiteHeader() {
     <header
       className="no-print fixed top-0 left-0 right-0 z-[60] flex items-center justify-between gap-3 px-4 sm:px-6 py-2.5 sm:py-3 border-b"
       style={{
-        background: "#fbfaf7",
-        borderColor: "rgba(11,37,69,0.08)",
-        boxShadow: "0 2px 12px rgba(11,37,69,0.07)",
+        background: "#efeeea",
+        borderColor: "rgba(11,37,69,0.10)",
+        boxShadow: "0 2px 12px rgba(11,37,69,0.08)",
       }}
     >
       {isHome ? (
