@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Fraunces, Geist, Geist_Mono, Press_Start_2P } from 'next/font/google'
+import { Fraunces, Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
@@ -24,13 +24,6 @@ const geistMono = Geist_Mono({
   variable: "--font-mono",
 })
 
-const atari = Press_Start_2P({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-atari",
-  display: "swap",
-})
-
 export const metadata: Metadata = {
   title: 'Olive Clinical | Neuroinclusive Therapy',
   description: 'Compassionate, neuroinclusive therapy services from Olive Clinical. Specializing in neurodivergent-affirming care, ADHD, autism, and holistic mental wellness.',
@@ -47,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${geist.variable} ${geistMono.variable} ${atari.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${geist.variable} ${geistMono.variable}`}>
       <body className="font-body antialiased">
         <SiteHeader />
         {children}
