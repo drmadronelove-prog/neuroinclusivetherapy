@@ -1,141 +1,80 @@
 import { ToolPageLayout } from "@/components/tool-page-layout"
+import { BrainGameCard, type BrainGameCardData } from "@/components/brain-game-card"
 
 export const metadata = {
   title: "Brain Games | Olive Clinical",
   description: "Interactive games for building psychological skills — ACT defusion, I-CBT reality-testing, OCD narrative work, and more.",
 }
 
-const games = [
+const games: BrainGameCardData[] = [
   {
     id: "thought-emotion-sensation",
     title: "Thought, Emotion, or Sensation?",
     category: "ACT · Defusion",
-    categoryColor: "text-nav-teal border-nav-teal",
-    description:
-      "Practice the foundational ACT skill of distinguishing between thoughts, emotions, and somatic sensations — the first step toward defusion and mindful awareness.",
-    src: "/games/thought-emotion-sensation.html",
-    height: 760,
+    href: "/games/thought-emotion-sensation.html",
+    rotate: -2,
   },
   {
     id: "spark",
     title: "Spark",
     category: "ACT · Values",
-    categoryColor: "text-nav-amber border-nav-amber",
-    description:
-      "Your light is yours. Practice the skill of protecting it — moving toward what matters and learning when to say no. That's it. That's the whole game.",
-    src: "/games/spark.html",
-    height: 820,
+    href: "/games/spark.html",
+    rotate: 1.5,
   },
   {
     id: "dont-make-it-worse",
     title: "Don't Make It Worse!",
     category: "DBT · Compassion",
-    categoryColor: "text-nav-teal border-nav-teal",
-    description:
-      "Someone is struggling. Your job: don't pile on. Drag comforting responses toward them and avoid the ones that make it worse. Three kind things and they feel better — three harmful ones and you made it worse.",
-    src: "/games/dont_make_it_worse.html",
-    height: 820,
+    href: "/games/dont_make_it_worse.html",
+    rotate: -1.5,
   },
   {
     id: "fake-news",
     title: "Real News or Fake News?",
     category: "I-CBT · Reality Testing",
-    categoryColor: "text-nav-coral border-nav-coral",
-    description:
-      "Train your inner investigative journalist. Practice the I-CBT skill of distinguishing OCD-generated narratives from evidence-based reality — and learn to recognize when your mind is filling airtime.",
-    src: "/games/fake-news.html",
-    height: 700,
+    href: "/games/fake-news.html",
+    rotate: 1,
   },
   {
     id: "moment-one-incoming",
     title: "Incoming",
     category: "I-CBT · Thought Catching",
-    categoryColor: "text-nav-amber border-nav-amber",
-    description:
-      "Practice catching thoughts at moment one — before they become stories. Ten thoughts are about to arrive. Your only job: recognize each one as a thought rather than a fact, and don't let Tucker get the airtime.",
-    src: "/games/moment-one-incoming.html",
-    height: 700,
+    href: "/games/moment-one-incoming.html",
+    rotate: -1,
   },
   {
     id: "am-i-a-monster",
     title: "Am I a Monster?",
     category: "OCD · Narrative Work",
-    categoryColor: "text-nav-salmon border-nav-salmon",
-    description:
-      "A guided narrative reconstruction exercise for the feared self in OCD. Trace the \"Am I a bad person?\" loop back to its origin — not to argue with it, but to find out who wrote that story, and whether the evidence actually holds up.",
-    src: "/games/am-i-a-monster.html",
-    height: 820,
+    href: "/games/am-i-a-monster.html",
+    rotate: 2,
   },
   {
     id: "mindfulness-game",
     title: "What Do I Do With This?",
     category: "ACT · Mindfulness",
-    categoryColor: "text-nav-teal border-nav-teal",
-    description:
-      "A skill-matching game for working with difficult emotions, thoughts, and sensations. Match what's arising to evidence-based ACT, DBT, and mindfulness responses — and build an intuition for which tools actually fit.",
-    src: "/games/mindfulness-game.html",
-    height: 820,
+    href: "/games/mindfulness-game.html",
+    rotate: -0.5,
   },
   {
     id: "regulation-station",
     title: "Regulation Station",
     category: "Neurodivergent · Dysregulation",
-    categoryColor: "text-nav-coral border-nav-coral",
-    description:
-      "An interactive tool for tracking and understanding emotional dysregulation episodes — identifying patterns, triggers, and building your personal regulation toolkit. Four real-life scenarios, each with visible warning signs and a live nervous system meter.",
-    src: "/games/regulation-station.html",
-    height: 700,
+    href: "/games/regulation-station.html",
+    rotate: 1.25,
   },
 ]
 
 export default function BrainGamesPage() {
   return (
     <ToolPageLayout title="Brain Games" color="text-gold">
-      <div className="space-y-16">
-        {games.map((game) => (
-          <section key={game.id} className="space-y-4">
-            {/* Card header */}
-            <div className="space-y-2">
-              <span
-                className={`inline-block px-3 py-1 border ${game.categoryColor}`}
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontWeight: 500,
-                  letterSpacing: "0.12em",
-                  textTransform: "uppercase",
-                  fontSize: "0.65rem",
-                }}
-              >
-                {game.category}
-              </span>
-              <h2
-                className="text-2xl sm:text-3xl text-foreground"
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 500,
-                  letterSpacing: "-0.02em",
-                }}
-              >
-                {game.title}
-              </h2>
-              <p className="text-muted-foreground leading-relaxed max-w-xl">
-                {game.description}
-              </p>
-            </div>
-
-            {/* Game iframe — height tracks viewport on phones so a single game stays in one screen */}
-            <div
-              className="w-full rounded-xl overflow-hidden border border-border shadow-sm bg-card"
-              style={{ height: `min(${game.height}px, calc(100svh - 96px))`, minHeight: "440px" }}
-            >
-              <iframe
-                src={game.src}
-                title={game.title}
-                className="w-full h-full border-0"
-                loading="lazy"
-              />
-            </div>
-          </section>
+      <p className="text-muted-foreground leading-relaxed mb-10 max-w-2xl">
+        Eight interactive games for practicing psychological skills — ACT defusion,
+        I-CBT reality-testing, OCD narrative work, and emotion regulation. Tap a card to play.
+      </p>
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
+        {games.map((game, i) => (
+          <BrainGameCard key={game.id} game={game} index={i} />
         ))}
       </div>
     </ToolPageLayout>
