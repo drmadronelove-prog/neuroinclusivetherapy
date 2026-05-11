@@ -262,7 +262,7 @@ function ChecklistSection({
 // ── Main component ────────────────────────────────────────────────────────────
 
 export function AdhdChecklist() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
   const [checks, setChecks] = useState<CheckMap>({})
 
   function toggle(key: string) {

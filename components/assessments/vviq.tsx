@@ -155,7 +155,7 @@ function SceneBlock({ scene, startIndex, answers, onSelect }: SceneBlockProps) {
 // ── Main component ────────────────────────────────────────────────────────────
 
 export function VVIQ() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
   const [answers, setAnswers] = useState<Answers>({})
 
   function select(itemNum: number, value: number) {

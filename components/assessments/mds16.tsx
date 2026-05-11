@@ -192,7 +192,7 @@ function SliderItem({ num, question, lowLabel, highLabel, value, isRated, onChan
 // ── Main component ────────────────────────────────────────────────────────────
 
 export function MDS16() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
   const [values, setValues] = useState<SliderValues>({})
   const [rated, setRated] = useState<Set<number>>(new Set())
 

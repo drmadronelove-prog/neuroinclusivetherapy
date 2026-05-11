@@ -161,7 +161,7 @@ function SubscaleRow({ label, abbr, items, max, answers }: SubscaleRowProps) {
 // ── Main component ────────────────────────────────────────────────────────────
 
 export function CATQ() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
   const [answers, setAnswers] = useState<Answers>({})
 
   function select(itemNum: number, value: number) {

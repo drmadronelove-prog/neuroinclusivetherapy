@@ -259,7 +259,7 @@ function ModalitySection({ modIdx, modality, answers, onSelect }: ModalitySectio
 // ── Main component ────────────────────────────────────────────────────────────
 
 export function GSQ() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
   const [answers, setAnswers] = useState<Answers>({})
 
   function select(key: string, value: number) {
