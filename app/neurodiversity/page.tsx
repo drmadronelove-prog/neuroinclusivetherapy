@@ -1,4 +1,3 @@
-import { LeftAccent } from "@/components/left-accent"
 import { ToolPageLayout } from "@/components/tool-page-layout"
 import { NeurodiversityCards } from "@/components/neurodiversity-cards"
 import { type GraphNode } from "@/components/neurodivergence-network"
@@ -71,7 +70,6 @@ const BIG_LINKS: [string, string][] = [
 export default function NeurodiversityPage() {
   return (
     <ToolPageLayout title="Neurodivergent Maps" color="text-ink">
-      <LeftAccent />
       <NeurodiversityCards bigNodes={BIG_NODES} bigLinks={BIG_LINKS} />
     </ToolPageLayout>
   )

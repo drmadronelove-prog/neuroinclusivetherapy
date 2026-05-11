@@ -39,9 +39,9 @@ export function SiteHeader() {
       className="no-print fixed top-0 left-0 right-0 z-[60] flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 lg:py-5"
       style={{
         background:
-          "linear-gradient(180deg, #efeeea 0%, #e8e7e3 45%, #e0dfda 100%)",
+          "linear-gradient(180deg, #f3f2ee 0%, #e8e7e3 50%, #d6d5d0 100%)",
         boxShadow:
-          "0 2px 12px rgba(11,37,69,0.08), inset 0 1px 0 rgba(255,255,255,0.45), inset 0 -1px 0 rgba(11,37,69,0.06)",
+          "0 4px 18px rgba(11,37,69,0.16), inset 0 2px 0 rgba(255,255,255,0.85), inset 0 1px 0 rgba(255,255,255,0.55), inset 0 -2px 0 rgba(11,37,69,0.18), inset 0 -3px 4px rgba(11,37,69,0.06)",
       }}
     >
       <div className="shrink-0 w-[3.25rem] sm:w-20">
