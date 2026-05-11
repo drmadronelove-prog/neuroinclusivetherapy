@@ -46,6 +46,20 @@ const CARDS: FeatureCard[] = [
   },
   {
     kind: "link",
+    title: "Thought, Emotion, or Sensation? Game",
+    category: "ACT · Defusion",
+    footerLabel: "Play",
+    href: "/games/thought-emotion-sensation.html",
+  },
+  {
+    kind: "link",
+    title: "What Do I Do With This? Game",
+    category: "ACT · Mindfulness",
+    footerLabel: "Play",
+    href: "/games/mindfulness-game.html",
+  },
+  {
+    kind: "link",
     title: "Audiodharma",
     category: "Free dharma archive",
     footerLabel: "Visit",

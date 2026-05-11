@@ -23,6 +23,13 @@ const CARDS: FeatureCard[] = [
     modalSubtitle: "A personal tracking workbook. Saved locally.",
     content: <MeltdownWorksheet />,
   },
+  {
+    kind: "link",
+    title: "Regulation Station Game",
+    category: "Neurodivergent · Dysregulation",
+    footerLabel: "Play",
+    href: "/games/regulation-station.html",
+  },
 ]
 
 export function ASDSkillsCards() {
