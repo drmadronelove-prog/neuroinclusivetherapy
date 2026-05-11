@@ -4,35 +4,30 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { OliveLockup } from "@/components/olive-logo"
 
-interface PageMeta {
-  title: string
-  color: string
+const PAGE_TITLES: Record<string, string> = {
+  "/neurodiversity":   "Neurodivergent Maps",
+  "/blog":             "Blog",
+  "/brain-games":      "Brain Games",
+  "/contact":          "Contact",
+  "/mindfulness":      "Mindfulness",
+  "/adhd-skills":      "ADHD Skills",
+  "/adhd-support":     "ADHD Support",
+  "/asd-skills":       "ASD Skills",
+  "/autism-affirming": "Autism-Affirming",
+  "/ocd-skills":       "OCD Skills",
+  "/tests":            "Tests",
 }
 
-const PAGE_META: Record<string, PageMeta> = {
-  "/neurodiversity":   { title: "Neurodivergent Maps", color: "text-ink"   },
-  "/blog":             { title: "Blog",                 color: "text-ink"   },
-  "/brain-games":      { title: "Brain Games",          color: "text-gold"  },
-  "/contact":          { title: "Contact",              color: "text-ink"   },
-  "/mindfulness":      { title: "Mindfulness",          color: "text-ink"   },
-  "/adhd-skills":      { title: "ADHD Skills",          color: "text-plum"  },
-  "/adhd-support":     { title: "ADHD Support",         color: "text-rose"  },
-  "/asd-skills":       { title: "ASD Skills",           color: "text-glass" },
-  "/autism-affirming": { title: "Autism-Affirming",     color: "text-plum"  },
-  "/ocd-skills":       { title: "OCD Skills",           color: "text-slate" },
-  "/tests":            { title: "Tests",                color: "text-slate" },
-}
-
-function metaForPath(pathname: string): PageMeta | null {
-  if (PAGE_META[pathname]) return PAGE_META[pathname]
-  if (pathname.startsWith("/blog/")) return PAGE_META["/blog"]
+function titleForPath(pathname: string): string | null {
+  if (PAGE_TITLES[pathname]) return PAGE_TITLES[pathname]
+  if (pathname.startsWith("/blog/")) return PAGE_TITLES["/blog"]
   return null
 }
 
 export function SiteHeader() {
   const pathname = usePathname()
   const isHome = pathname === "/"
-  const meta = metaForPath(pathname)
+  const title = titleForPath(pathname)
 
   return (
     <header
@@ -62,9 +57,9 @@ export function SiteHeader() {
       </div>
 
       <div className="flex-1 min-w-0 flex items-center justify-center">
-        {meta && (
+        {title && (
           <h1
-            className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center leading-tight ${meta.color}`}
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center leading-tight text-gold"
             style={{
               fontFamily: "var(--font-display)",
               fontWeight: 400,
@@ -74,7 +69,7 @@ export function SiteHeader() {
               textOverflow: "ellipsis",
             }}
           >
-            {meta.title}
+            {title}
           </h1>
         )}
       </div>
