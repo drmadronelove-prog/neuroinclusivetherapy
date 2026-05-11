@@ -25,16 +25,10 @@ export function HeroSection() {
       >
         <OliveLockup size={0.42} />
       </div>
-      {/* Desktop wordmark — pill at top-left */}
+      {/* Desktop wordmark — bare lockup */}
       <div
-        className="no-print fixed top-4 left-4 z-[60] hidden sm:inline-flex rounded-full px-4 py-2"
-        style={{
-          alignItems: "center",
-          background: "rgba(251,248,243,0.82)",
-          backdropFilter: "blur(8px)",
-          WebkitBackdropFilter: "blur(8px)",
-          boxShadow: "0 1px 8px rgba(11,37,69,0.06)",
-        }}
+        className="no-print fixed top-5 left-6 z-[60] hidden sm:inline-flex"
+        style={{ alignItems: "center" }}
       >
         <OliveLockup size={0.55} />
       </div>
@@ -55,14 +49,13 @@ export function HeroSection() {
             >
               <h1 style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "clamp(2.2rem, 11vw, 6rem)",
+                fontSize: "clamp(1.9rem, 7vw, 6rem)",
                 fontWeight: 400,
                 color: "var(--ink)",
                 lineHeight: 1.05,
                 letterSpacing: "-0.025em",
                 margin: 0,
-                wordBreak: "break-word",
-                hyphens: "auto",
+                whiteSpace: "nowrap",
               }}>
                 Neuroinclusive
               </h1>

@@ -36,30 +36,16 @@ export default function PsychotherapyPage() {
           <OliveLockup size={0.32} />
         </div>
 
-        {/* Desktop logo — pill at top-right */}
+        {/* Desktop logo — bare lockup at top-right */}
         <div
-          className="no-print fixed top-4 right-4 z-[60] hidden sm:inline-flex rounded-full px-4 py-2"
-          style={{
-            alignItems: "center",
-            background: "rgba(251,248,243,0.82)",
-            backdropFilter: "blur(8px)",
-            WebkitBackdropFilter: "blur(8px)",
-            boxShadow: "0 1px 8px rgba(11,37,69,0.06)",
-          }}
+          className="no-print fixed top-5 right-6 z-[60] hidden sm:inline-flex"
+          style={{ alignItems: "center" }}
         >
           <OliveLockup size={0.55} />
         </div>
 
-        {/* Desktop back link — pill at top-left */}
-        <div
-          className="no-print fixed top-5 left-4 z-[60] hidden sm:block rounded-full px-3 py-1.5"
-          style={{
-            background: "rgba(251,248,243,0.82)",
-            backdropFilter: "blur(8px)",
-            WebkitBackdropFilter: "blur(8px)",
-            boxShadow: "0 1px 8px rgba(11,37,69,0.06)",
-          }}
-        >
+        {/* Desktop back link — bare at top-left */}
+        <div className="no-print fixed top-7 left-6 z-[60] hidden sm:block">
           <Link
             href="/"
             style={{
@@ -84,14 +70,13 @@ export default function PsychotherapyPage() {
             <h1
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "clamp(2rem, 8vw, 4.2rem)",
+                fontSize: "clamp(1.9rem, 6vw, 4.2rem)",
                 fontWeight: 400,
                 color: "var(--ink)",
                 lineHeight: 1.05,
                 letterSpacing: "-0.025em",
                 margin: 0,
-                wordBreak: "break-word",
-                hyphens: "auto",
+                whiteSpace: "nowrap",
               }}
             >
               Neuroinclusive
