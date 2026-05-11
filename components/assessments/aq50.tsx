@@ -165,7 +165,7 @@ function AQItemRow({ num, text, response, onSelect }: AQItemRowProps) {
 // ── Main component ────────────────────────────────────────────────────────────
 
 export function AQ50() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
   const [answers, setAnswers] = useState<Answers>({})
 
   function select(itemNum: number, response: Response) {

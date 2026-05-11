@@ -1,5 +1,5 @@
 import { ToolPageLayout } from "@/components/tool-page-layout"
-import { ICBTTrueSelfWorksheet } from "@/components/tools/icbt-true-self-worksheet"
+import { OCDSkillsCards } from "@/components/ocd-skills-cards"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function OCDSkillsPage() {
   return (
     <ToolPageLayout title="OCD Skills" color="text-slate">
-      <ICBTTrueSelfWorksheet />
+      <OCDSkillsCards />
     </ToolPageLayout>
   )
 }

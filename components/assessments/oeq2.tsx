@@ -236,7 +236,7 @@ function SubscaleSection({ subIdx, subscale, startItem, answers, onSelect }: Sub
 // ── Main component ────────────────────────────────────────────────────────────
 
 export function OEQ2() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
   const [answers, setAnswers] = useState<Answers>({})
 
   function select(n: number, v: number) {
