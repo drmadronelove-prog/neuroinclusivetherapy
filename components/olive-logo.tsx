@@ -47,7 +47,7 @@ export function OliveLockup({
       <OliveMark ink={ink} size={ms} />
       <span
         aria-hidden="true"
-        style={{ width: 1.5, height: rh, background: "#d4af37" }}
+        style={{ width: 1.5, height: rh, background: "#cba558" }}
       />
       <span
         style={{
