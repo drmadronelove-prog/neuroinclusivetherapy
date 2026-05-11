@@ -1,8 +1,7 @@
 import { LeftAccent } from "@/components/left-accent"
-import { HoverProvider } from "@/components/hover-context"
-import { NetworkGraph, type GraphNode } from "@/components/neurodivergence-network"
-import { MechanismMatrix } from "@/components/mechanism-matrix"
-import { TwoLevelFoundations } from "@/components/two-level-foundations"
+import { ToolPageLayout } from "@/components/tool-page-layout"
+import { NeurodiversityCards } from "@/components/neurodiversity-cards"
+import { type GraphNode } from "@/components/neurodivergence-network"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -69,81 +68,11 @@ const BIG_LINKS: [string, string][] = [
   ["absorption","prefint"],["dopamine","motivated"],["persist","inferential"],["motivated","prefint"],
 ]
 
-// ── Page ─────────────────────────────────────────────────────────────────────
-
 export default function NeurodiversityPage() {
   return (
-    <HoverProvider>
-      <main className="relative bg-background overflow-x-hidden">
-        <LeftAccent />
-
-        <section className="min-h-screen px-6 lg:px-16 pt-20 sm:pt-24 pb-20">
-          <div className="max-w-6xl mx-auto w-full">
-
-              {/* Header */}
-              <div className="mb-16">
-                <span
-                  className="text-slate text-xs"
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontWeight: 500,
-                    letterSpacing: "0.16em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  (01) Neurodiversity
-                </span>
-                <h1
-                  className="text-5xl sm:text-6xl lg:text-7xl text-ink leading-[1.0] mt-4"
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontWeight: 400,
-                    letterSpacing: "-0.035em",
-                  }}
-                >
-                  Neuro-
-                  <br />divergence
-                  <br />map
-                </h1>
-              </div>
-
-              <NetworkGraph
-                graphId="big"
-                nodes={BIG_NODES}
-                links={BIG_LINKS}
-                title="Comprehensive overlap map"
-                description="DSM diagnoses, non-DSM constructs, and shared cognitive mechanisms. Drag nodes to rearrange."
-              />
-
-              {/* Spectrum Foundations */}
-              <div className="mt-16">
-                <div className="mb-4">
-                  <h2 className="text-2xl text-foreground" style={{ fontFamily: "var(--font-display)", fontWeight: 500, letterSpacing: "-0.018em" }}>
-                    Spectrum foundations
-                  </h2>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Four cognitive spectra with their defining mechanisms and associated conditions. Click a condition pill to see its mechanism profile.
-                  </p>
-                </div>
-                <TwoLevelFoundations />
-              </div>
-
-              {/* Mechanism Matrix */}
-              <div className="mt-16">
-                <div className="mb-4">
-                  <h2 className="text-2xl text-foreground" style={{ fontFamily: "var(--font-display)", fontWeight: 500, letterSpacing: "-0.018em" }}>
-                    Mechanism matrix
-                  </h2>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Which cognitive mechanisms are present across each condition. Hover to highlight, click to select.
-                  </p>
-                </div>
-                <MechanismMatrix />
-              </div>
-
-          </div>
-        </section>
-      </main>
-    </HoverProvider>
+    <ToolPageLayout title="Neurodivergence map" color="text-ink">
+      <LeftAccent />
+      <NeurodiversityCards bigNodes={BIG_NODES} bigLinks={BIG_LINKS} />
+    </ToolPageLayout>
   )
 }
