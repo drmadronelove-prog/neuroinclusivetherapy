@@ -39,8 +39,9 @@ export function SiteHeader() {
           "0 4px 17px rgba(11,37,69,0.149), inset 0 2px 0 rgba(255,255,255,0.79), inset 0 1px 0 rgba(255,255,255,0.51), inset 0 -2px 0 rgba(11,37,69,0.167), inset 0 -3px 4px rgba(11,37,69,0.056)",
       }}
     >
-      <div className="shrink-0 w-12 sm:w-20">
-        {!isHome && (
+      {/* Left: back link (suppressed on home) */}
+      {!isHome && (
+        <div className="shrink-0 w-12 sm:w-20">
           <Link
             href="/"
             className="hover:opacity-100 transition-opacity text-[0.72rem] sm:text-[0.85rem]"
@@ -52,11 +53,21 @@ export function SiteHeader() {
           >
             ← Home
           </Link>
-        )}
-      </div>
+        </div>
+      )}
 
+      {/* Center: page title on subpages, or the full Olive Clinical lockup on home */}
       <div className="flex-1 min-w-0 flex items-center justify-center">
-        {title && (
+        {isHome ? (
+          <>
+            <div className="sm:hidden">
+              <OliveLockup size={0.42} />
+            </div>
+            <div className="hidden sm:inline-flex" style={{ alignItems: "center" }}>
+              <OliveLockup size={0.6} />
+            </div>
+          </>
+        ) : title ? (
           <h1
             className="text-xl sm:text-3xl md:text-4xl lg:text-5xl text-center leading-tight text-gold truncate max-w-full"
             style={{
@@ -67,17 +78,20 @@ export function SiteHeader() {
           >
             {title}
           </h1>
-        )}
+        ) : null}
       </div>
 
-      {/* Phone: just the olive mark to leave room for the title */}
-      <div className="shrink-0 sm:hidden">
-        <OliveMark size={32} />
-      </div>
-      {/* Tablet+: full lockup with the wordmark */}
-      <div className="shrink-0 hidden sm:inline-flex" style={{ alignItems: "center" }}>
-        <OliveLockup size={0.55} />
-      </div>
+      {/* Right: mark (mobile) / lockup (desktop) — suppressed on home, where the lockup is centered */}
+      {!isHome && (
+        <>
+          <div className="shrink-0 sm:hidden">
+            <OliveMark size={32} />
+          </div>
+          <div className="shrink-0 hidden sm:inline-flex" style={{ alignItems: "center" }}>
+            <OliveLockup size={0.55} />
+          </div>
+        </>
+      )}
     </header>
   )
 }
