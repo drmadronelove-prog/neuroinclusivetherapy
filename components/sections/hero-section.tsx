@@ -13,7 +13,7 @@ export function HeroSection() {
     >
       {/* Main content */}
       <div
-        className="relative min-h-[100svh] flex flex-col justify-end px-5 sm:px-6 lg:px-0 pt-24 sm:pt-28 lg:pt-32 pb-10"
+        className="relative min-h-[100svh] flex flex-col justify-end px-5 sm:px-6 lg:px-0 pt-40 sm:pt-44 lg:pt-48 pb-10"
         style={{ zIndex: 2 }}
       >
         <div className="flex flex-col gap-6 w-full lg:max-w-none mx-auto">
