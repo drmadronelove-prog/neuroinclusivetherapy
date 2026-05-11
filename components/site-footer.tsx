@@ -26,7 +26,7 @@ export function SiteFooter() {
           </a>
           <a
             href="mailto:info@oliveclinical.com"
-            className="hover:text-foreground transition-colors"
+            className="hover:text-foreground transition-colors break-all"
           >
             info@oliveclinical.com
           </a>
