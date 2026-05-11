@@ -36,11 +36,12 @@ export function SiteHeader() {
 
   return (
     <header
-      className="no-print fixed top-0 left-0 right-0 z-[60] flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 lg:py-5 border-b"
+      className="no-print fixed top-0 left-0 right-0 z-[60] flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 lg:py-5"
       style={{
-        background: "#e8e7e3",
-        borderColor: "rgba(11,37,69,0.12)",
-        boxShadow: "0 2px 12px rgba(11,37,69,0.09)",
+        background:
+          "linear-gradient(180deg, #efeeea 0%, #e8e7e3 45%, #e0dfda 100%)",
+        boxShadow:
+          "0 2px 12px rgba(11,37,69,0.08), inset 0 1px 0 rgba(255,255,255,0.45), inset 0 -1px 0 rgba(11,37,69,0.06)",
       }}
     >
       <div className="shrink-0 w-[3.25rem] sm:w-20">
