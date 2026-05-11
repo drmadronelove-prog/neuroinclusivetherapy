@@ -14,6 +14,27 @@ const CARDS: FeatureCard[] = [
       "An Inference-Based CBT exercise for distinguishing the OCD self from the true self.",
     content: <ICBTTrueSelfWorksheet />,
   },
+  {
+    kind: "link",
+    title: "Incoming Game",
+    category: "I-CBT · Thought Catching",
+    footerLabel: "Play",
+    href: "/games/moment-one-incoming.html",
+  },
+  {
+    kind: "link",
+    title: "Am I a Monster? Game",
+    category: "OCD · Narrative Work",
+    footerLabel: "Play",
+    href: "/games/am-i-a-monster.html",
+  },
+  {
+    kind: "link",
+    title: "Real News or Fake News? Game",
+    category: "I-CBT · Reality Testing",
+    footerLabel: "Play",
+    href: "/games/fake-news.html",
+  },
 ]
 
 export function OCDSkillsCards() {
