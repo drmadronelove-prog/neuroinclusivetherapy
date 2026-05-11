@@ -113,14 +113,6 @@ export function DysregulationLog() {
 
   return (
     <div className="mb-16">
-      <h2 className="font-[var(--font-display)] text-3xl sm:text-4xl font-black text-foreground tracking-tight mb-2">
-        DYSREGULATION LOG
-      </h2>
-      <p className="text-sm text-muted-foreground mb-6 max-w-2xl leading-relaxed">
-        Track patterns in dysregulation episodes — triggers, body signals, what helps, and insights for next time.
-        All entries saved locally to your device.
-      </p>
-
       {/* Tab strip */}
       <div className="flex gap-1 bg-card border border-border rounded p-1 mb-8 w-fit flex-wrap">
         <button className={tabCls("plan")} onClick={() => setTab("plan")}>Know Your Pattern</button>

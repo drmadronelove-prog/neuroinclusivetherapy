@@ -1,6 +1,5 @@
 import { ToolPageLayout } from "@/components/tool-page-layout"
-import { DysregulationLog } from "@/components/tools/dysregulation-log"
-import { MeltdownWorksheet } from "@/components/tools/meltdown-worksheet"
+import { ASDSkillsCards } from "@/components/asd-skills-cards"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -11,8 +10,7 @@ export const metadata: Metadata = {
 export default function ASDSkillsPage() {
   return (
     <ToolPageLayout title="ASD Skills" color="text-glass">
-      <DysregulationLog />
-      <MeltdownWorksheet />
+      <ASDSkillsCards />
     </ToolPageLayout>
   )
 }
