@@ -3,7 +3,6 @@ import { HoverProvider } from "@/components/hover-context"
 import { NetworkGraph, type GraphNode } from "@/components/neurodivergence-network"
 import { MechanismMatrix } from "@/components/mechanism-matrix"
 import { TwoLevelFoundations } from "@/components/two-level-foundations"
-import Link from "next/link"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -78,19 +77,8 @@ export default function NeurodiversityPage() {
       <main className="relative bg-background overflow-x-hidden">
         <LeftAccent />
 
-        <section className="min-h-screen px-6 lg:px-16 pt-16 md:pt-12 pb-20">
+        <section className="min-h-screen px-6 lg:px-16 pt-20 sm:pt-24 pb-20">
           <div className="max-w-6xl mx-auto w-full">
-
-              {/* Back link */}
-              <Link
-                href="/"
-                className="no-print inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-                </svg>
-                Back to Home
-              </Link>
 
               {/* Header */}
               <div className="mb-16">

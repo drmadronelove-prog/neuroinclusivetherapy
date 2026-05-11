@@ -1,6 +1,5 @@
 "use client"
 
-import { OliveLockup } from "@/components/olive-logo"
 import { ProviderCards } from "@/components/provider-cards"
 import { motion } from "framer-motion"
 import Link from "next/link"
@@ -12,55 +11,7 @@ export default function PsychotherapyPage() {
         className="relative"
         style={{ minHeight: "100svh", background: "var(--paper)" }}
       >
-        {/* Mobile header bar — full-width bone strip across the top with back link + lockup */}
-        <div
-          className="no-print fixed top-0 left-0 right-0 z-[60] sm:hidden flex items-center justify-between gap-3 px-4 py-2.5 border-b"
-          style={{
-            background: "#fdfbf7",
-            borderColor: "rgba(11,37,69,0.10)",
-            boxShadow: "0 1px 6px rgba(11,37,69,0.04)",
-          }}
-        >
-          <Link
-            href="/"
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.78rem",
-              letterSpacing: "0.04em",
-              color: "rgba(11,37,69,0.78)",
-            }}
-            className="hover:opacity-100 transition-opacity shrink-0"
-          >
-            ← Home
-          </Link>
-          <OliveLockup size={0.32} />
-        </div>
-
-        {/* Desktop logo — bare lockup at top-right */}
-        <div
-          className="no-print fixed top-5 right-6 z-[60] hidden sm:inline-flex"
-          style={{ alignItems: "center" }}
-        >
-          <OliveLockup size={0.55} />
-        </div>
-
-        {/* Desktop back link — bare at top-left */}
-        <div className="no-print fixed top-7 left-6 z-[60] hidden sm:block">
-          <Link
-            href="/"
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.78rem",
-              letterSpacing: "0.04em",
-              color: "rgba(11,37,69,0.7)",
-            }}
-            className="hover:opacity-100 transition-opacity"
-          >
-            ← Home
-          </Link>
-        </div>
-
-        <div className="relative px-5 sm:px-6 lg:px-12 pt-20 sm:pt-32 pb-20 flex flex-col items-center gap-10 sm:gap-12">
+        <div className="relative px-5 sm:px-6 lg:px-12 pt-20 sm:pt-24 pb-20 flex flex-col items-center gap-10 sm:gap-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
