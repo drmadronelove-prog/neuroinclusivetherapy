@@ -56,18 +56,9 @@ export function SiteHeader() {
         </div>
       )}
 
-      {/* Center: page title on subpages, or the full Olive Clinical lockup on home */}
+      {/* Center: page title (subpages only) */}
       <div className="flex-1 min-w-0 flex items-center justify-center">
-        {isHome ? (
-          <>
-            <div className="sm:hidden">
-              <OliveLockup size={0.42} />
-            </div>
-            <div className="hidden sm:inline-flex" style={{ alignItems: "center" }}>
-              <OliveLockup size={0.6} />
-            </div>
-          </>
-        ) : title ? (
+        {!isHome && title && (
           <h1
             className="text-xl sm:text-3xl md:text-4xl lg:text-5xl text-center leading-tight text-gold truncate max-w-full"
             style={{
@@ -78,11 +69,21 @@ export function SiteHeader() {
           >
             {title}
           </h1>
-        ) : null}
+        )}
       </div>
 
-      {/* Right: mark (mobile) / lockup (desktop) — suppressed on home, where the lockup is centered */}
-      {!isHome && (
+      {/* Right: lockup. On home, show the full lockup at every size (no title to make room for).
+          On subpages, mobile shows just the mark and tablet+ shows the full lockup. */}
+      {isHome ? (
+        <>
+          <div className="shrink-0 sm:hidden">
+            <OliveLockup size={0.42} />
+          </div>
+          <div className="shrink-0 hidden sm:inline-flex" style={{ alignItems: "center" }}>
+            <OliveLockup size={0.55} />
+          </div>
+        </>
+      ) : (
         <>
           <div className="shrink-0 sm:hidden">
             <OliveMark size={32} />
