@@ -342,17 +342,22 @@ export function AdhdChecklist() {
             count={hyperactivityCount}
           />
 
-          {/* Community-reported sections */}
+          {/* Community-reported sections — Executive Function starts a new
+              print page so the DSM-5 sections land cleanly above it. */}
           {communityCategories.map((cat) => (
-            <ChecklistSection
+            <div
               key={cat.id}
-              label={cat.label}
-              sublabel="Community-reported"
-              items={cat.items}
-              prefix={cat.id}
-              checks={checks}
-              onToggle={toggle}
-            />
+              className={cat.id === "executive" ? "print:break-before-page" : undefined}
+            >
+              <ChecklistSection
+                label={cat.label}
+                sublabel="Community-reported"
+                items={cat.items}
+                prefix={cat.id}
+                checks={checks}
+                onToggle={toggle}
+              />
+            </div>
           ))}
 
           {/* Footer citation */}
