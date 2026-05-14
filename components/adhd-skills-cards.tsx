@@ -42,6 +42,13 @@ const CARDS: FeatureCard[] = [
     footerLabel: "Read essay",
     href: "/blog/loving-across-the-wiring",
   },
+  {
+    kind: "link",
+    title: "Windows of Interest",
+    category: "Blog · Neurodivergence",
+    footerLabel: "Read essay",
+    href: "/blog/windows-of-interest",
+  },
 ]
 
 export function ADHDSkillsCards() {
