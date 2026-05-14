@@ -32,12 +32,14 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.05 }}
+              className="lg:mt-12"
             >
               <div
                 className="relative w-full overflow-hidden aspect-[4/1] lg:aspect-auto lg:h-[10.59rem]"
                 style={{
                   borderRadius: "10px",
                   border: "1.5px solid #5b6e88",
+                  background: "var(--paper)",
                   boxShadow:
                     "0 8px 22px rgba(11,37,69,0.16), 0 2px 6px rgba(11,37,69,0.10), 0 0 0 1px rgba(255,255,255,0.4) inset",
                 }}
@@ -46,7 +48,7 @@ export function HeroSection() {
                 <img
                   src="/header%20photo.png"
                   alt=""
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-contain"
                 />
               </div>
             </motion.div>
