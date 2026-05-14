@@ -217,16 +217,11 @@
     break-inside: avoid;
   }
 
-  /* When a FeatureCardGrid modal is open, print just the modal content.
-     Hide everything else with visibility:hidden (so layout is preserved
-     enough for the modal to render), then re-show the modal subtree and
-     flatten it to a normal document. */
-  html.fcg-modal-open body * {
-    visibility: hidden;
-  }
-  html.fcg-modal-open .fcg-modal-content,
-  html.fcg-modal-open .fcg-modal-content * {
-    visibility: visible;
+  /* When a FeatureCardGrid modal is open it's rendered as a body-level
+     portal. Hide every other body child and flatten the modal so the
+     assessment / worksheet content prints as a normal document. */
+  html.fcg-modal-open body > *:not(.fcg-modal-backdrop) {
+    display: none !important;
   }
   html.fcg-modal-open .fcg-modal-backdrop {
     position: static !important;
@@ -240,8 +235,8 @@
     opacity: 1 !important;
   }
   html.fcg-modal-open .fcg-modal-content {
-    position: absolute !important;
-    inset: 0 !important;
+    position: static !important;
+    inset: auto !important;
     width: 100% !important;
     max-width: none !important;
     max-height: none !important;
@@ -255,5 +250,8 @@
     margin: 0 !important;
     transform: none !important;
     opacity: 1 !important;
+  }
+  html.fcg-modal-open .fcg-modal-content > button[aria-label="Close"] {
+    display: none !important;
   }
 }

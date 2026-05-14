@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, type ReactNode } from "react"
+import { createPortal } from "react-dom"
 import { motion, AnimatePresence } from "framer-motion"
 
 const PAPER_BG =
@@ -229,8 +230,14 @@ function Modal({
   onClose: () => void
   size: ModalSize
 }) {
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   const maxW = size === "wide" ? "max-w-5xl" : "max-w-xl"
-  return (
+
+  const modal = (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -262,4 +269,7 @@ function Modal({
       </motion.div>
     </motion.div>
   )
+
+  if (!mounted) return null
+  return createPortal(modal, document.body)
 }
