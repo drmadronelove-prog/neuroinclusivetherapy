@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, type ReactNode } from "react"
+import { useState, useEffect, type ReactNode } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
 const PAPER_BG =
@@ -38,6 +38,18 @@ export function FeatureCardGrid({
 }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const active = activeIndex != null ? cards[activeIndex] : null
+
+  // While a modal is open, mark the document so @media print rules can
+  // collapse everything except the modal content. This makes the
+  // "Print / Save as PDF" buttons inside assessments and worksheets
+  // print just the modal contents instead of the whole page (with the
+  // modal hidden by `.no-print`).
+  useEffect(() => {
+    const root = document.documentElement
+    if (active) root.classList.add("fcg-modal-open")
+    else root.classList.remove("fcg-modal-open")
+    return () => root.classList.remove("fcg-modal-open")
+  }, [active])
 
   return (
     <>
@@ -224,7 +236,7 @@ function Modal({
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
-      className="no-print fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-black/55"
+      className="fcg-modal-backdrop fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-black/55"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose()
       }}
@@ -234,13 +246,13 @@ function Modal({
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 16, scale: 0.96 }}
         transition={{ type: "spring", stiffness: 240, damping: 22 }}
-        className={`bg-background rounded-xl border border-border w-full ${maxW} max-h-[92vh] overflow-y-auto p-5 sm:p-7 relative`}
+        className={`fcg-modal-content bg-background rounded-xl border border-border w-full ${maxW} max-h-[92vh] overflow-y-auto p-5 sm:p-7 relative`}
       >
         <button
           type="button"
           onClick={onClose}
           aria-label="Close"
-          className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 p-1.5 sm:p-1 rounded-full bg-background/70 backdrop-blur-sm text-muted-foreground hover:text-foreground transition-colors z-10"
+          className="no-print absolute top-2.5 right-2.5 sm:top-3 sm:right-3 p-1.5 sm:p-1 rounded-full bg-background/70 backdrop-blur-sm text-muted-foreground hover:text-foreground transition-colors z-10"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
