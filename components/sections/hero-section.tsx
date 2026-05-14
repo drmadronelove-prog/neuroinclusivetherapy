@@ -18,28 +18,28 @@ export function HeroSection() {
       >
         <div className="flex flex-col gap-6 w-full lg:max-w-none mx-auto">
 
-          {/* Image + heading share one inline-flex column so the banner
-              stretches to the same width as the word "Neuroinclusive" (the
-              h1 sets the column width via white-space: nowrap; items-stretch
-              makes the image fill that width). On desktop the column is fixed
-              to 29.75rem tall with justify-between, which pins the image to
-              the top row of HeroCards and the heading group to bottom-13rem. */}
+          {/* Image + heading share one inline-flex column so the banner is
+              "as long as Neuroinclusive" at every breakpoint. On desktop the
+              column has no fixed height — it grows to its content — and the
+              image uses the photo's natural 1981/793 aspect so the frame
+              fits the image exactly (no letterboxing). lg:gap-2 keeps the
+              image just above the heading, which puts it visually between
+              the top of the first row and the bottom of the second row of
+              HeroCards. */}
           <div
-            className="shrink-0 mx-auto lg:mx-0 lg:absolute lg:left-[2.9rem] lg:bottom-[13rem] lg:h-[29.75rem] flex flex-col items-stretch lg:justify-between max-w-[340px] lg:max-w-none gap-4 lg:gap-0 text-center lg:text-left"
+            className="shrink-0 mx-auto lg:mx-0 lg:absolute lg:left-[2.9rem] lg:bottom-[13rem] flex flex-col items-stretch max-w-[340px] lg:max-w-none gap-4 lg:gap-2 text-center lg:text-left"
           >
             {/* Banner image */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.05 }}
-              className="lg:mt-12"
             >
               <div
-                className="relative w-full overflow-hidden aspect-[4/1] lg:aspect-auto lg:h-[10.59rem]"
+                className="relative w-full overflow-hidden aspect-[1981/793]"
                 style={{
                   borderRadius: "10px",
                   border: "1.5px solid #5b6e88",
-                  background: "var(--paper)",
                   boxShadow:
                     "0 8px 22px rgba(11,37,69,0.16), 0 2px 6px rgba(11,37,69,0.10), 0 0 0 1px rgba(255,255,255,0.4) inset",
                 }}
@@ -48,7 +48,7 @@ export function HeroSection() {
                 <img
                   src="/header%20photo.png"
                   alt=""
-                  className="absolute inset-0 w-full h-full object-contain"
+                  className="absolute inset-0 w-full h-full object-cover opacity-90"
                 />
               </div>
             </motion.div>
