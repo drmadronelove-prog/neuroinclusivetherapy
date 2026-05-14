@@ -29,28 +29,21 @@ export function HeroSection() {
             style={{ width: "100%", maxWidth: "340px" }}
           >
             <div
-              className="relative w-full overflow-hidden flex items-center justify-center"
+              className="relative w-full overflow-hidden"
               style={{
                 aspectRatio: "4 / 1",
                 borderRadius: "10px",
                 border: "1.5px solid #5b6e88",
-                background: "var(--linen)",
                 boxShadow:
                   "0 8px 22px rgba(11,37,69,0.16), 0 2px 6px rgba(11,37,69,0.10), 0 0 0 1px rgba(255,255,255,0.4) inset",
               }}
             >
-              <span
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "0.78rem",
-                  fontWeight: 500,
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase",
-                  color: "rgba(11,37,69,0.55)",
-                }}
-              >
-                header image
-              </span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/header%20photo.png"
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover"
+              />
             </div>
           </motion.div>
 
