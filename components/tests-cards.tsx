@@ -8,6 +8,7 @@ import { CATQ } from "@/components/assessments/catq"
 import { MDS16 } from "@/components/assessments/mds16"
 import { GSQ } from "@/components/assessments/gsq"
 import { OEQ2 } from "@/components/assessments/oeq2"
+import { ICQEV } from "@/components/assessments/icqev"
 import { FeatureCardGrid, type FeatureCard } from "@/components/feature-card-grid"
 
 const CARDS: FeatureCard[] = [
@@ -84,6 +85,15 @@ const CARDS: FeatureCard[] = [
     modalSubtitle:
       "Five Dabrowskian overexcitabilities — psychomotor, sensual, intellectual, imaginational, emotional.",
     content: <OEQ2 />,
+  },
+  {
+    kind: "modal",
+    title: "ICQ-EV",
+    category: "Inferential confusion",
+    footerLabel: "Take questionnaire",
+    modalTitle: "ICQ-EV: Inferential Confusion Questionnaire (Expanded Version)",
+    modalSubtitle: "30-item measure of inferential confusion · Aardema et al., 2010.",
+    content: <ICQEV />,
   },
 ]
 
