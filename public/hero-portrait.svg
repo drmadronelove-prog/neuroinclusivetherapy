@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8e3d8"/>
+      <stop offset="100%" stop-color="#d4cdbe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="300" fill="url(#bg)"/>
+  <text
+    x="50%"
+    y="50%"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-family="Georgia, serif"
+    font-size="22"
+    fill="#0b2545"
+    fill-opacity="0.45"
+    letter-spacing="3">
+    replace /public/hero-portrait.jpg with your licensed image
+  </text>
+</svg>
