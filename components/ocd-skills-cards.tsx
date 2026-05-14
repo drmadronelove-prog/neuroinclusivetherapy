@@ -35,6 +35,20 @@ const CARDS: FeatureCard[] = [
     footerLabel: "Play",
     href: "/games/fake-news.html",
   },
+  {
+    kind: "link",
+    title: "The Inference Gap",
+    category: "Blog · OCD",
+    footerLabel: "Read essay",
+    href: "/blog/the-inference-gap",
+  },
+  {
+    kind: "link",
+    title: "When Imagination Becomes Evidence",
+    category: "Blog · OCD",
+    footerLabel: "Read essay",
+    href: "/blog/when-imagination-becomes-evidence",
+  },
 ]
 
 export function OCDSkillsCards() {

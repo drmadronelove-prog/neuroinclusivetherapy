@@ -28,6 +28,20 @@ const CARDS: FeatureCard[] = [
     footerLabel: "Watch",
     href: "https://www.youtube.com/watch?v=HSVqiA3sRdU",
   },
+  {
+    kind: "link",
+    title: "Time Is a Rainbow",
+    category: "Blog · ADHD",
+    footerLabel: "Read essay",
+    href: "/blog/time-is-a-rainbow",
+  },
+  {
+    kind: "link",
+    title: "Loving Across the Wiring",
+    category: "Blog · ADHD",
+    footerLabel: "Read essay",
+    href: "/blog/loving-across-the-wiring",
+  },
 ]
 
 export function ADHDSkillsCards() {

@@ -141,7 +141,8 @@ function ProviderCard({
             borderRadius: "9999px",
             overflow: "hidden",
             border: `1.5px solid ${borderColor}`,
-            boxShadow: `0 2px 8px rgba(11,37,69,0.10)`,
+            boxShadow:
+              "0 8px 22px rgba(11,37,69,0.28), 0 3px 8px rgba(11,37,69,0.18), 0 1px 2px rgba(11,37,69,0.10)",
             position: "relative",
             backgroundColor: "rgba(11,37,69,0.04)",
           }}
