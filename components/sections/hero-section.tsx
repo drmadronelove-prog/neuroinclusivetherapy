@@ -18,64 +18,68 @@ export function HeroSection() {
       >
         <div className="flex flex-col gap-6 w-full lg:max-w-none mx-auto">
 
-          {/* Header image — placeholder banner. On desktop it sits at the same
-              vertical line as the top row of the hero cards. On phone/tablet
-              it flows above the heading. */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.05 }}
-            className="shrink-0 mx-auto lg:mx-0 lg:absolute lg:left-[2.9rem] lg:bottom-[32.16rem]"
-            style={{ width: "100%", maxWidth: "340px" }}
+          {/* Image + heading share one inline-flex column so the banner
+              stretches to the same width as the word "Neuroinclusive" (the
+              h1 sets the column width via white-space: nowrap; items-stretch
+              makes the image fill that width). On desktop the column is fixed
+              to 29.75rem tall with justify-between, which pins the image to
+              the top row of HeroCards and the heading group to bottom-13rem. */}
+          <div
+            className="shrink-0 mx-auto lg:mx-0 lg:absolute lg:left-[2.9rem] lg:bottom-[13rem] lg:h-[29.75rem] flex flex-col items-stretch lg:justify-between max-w-[340px] lg:max-w-none gap-4 lg:gap-0 text-center lg:text-left"
           >
-            {/* On phone/tablet keep the 4:1 banner shape. On desktop fix the
-                height to a single HeroCard row (9rem × 17/20 aspect ≈
-                10.59rem) so the banner aligns with just the top row. */}
-            <div
-              className="relative w-full overflow-hidden aspect-[4/1] lg:aspect-auto lg:h-[10.59rem]"
-              style={{
-                borderRadius: "10px",
-                border: "1.5px solid #5b6e88",
-                boxShadow:
-                  "0 8px 22px rgba(11,37,69,0.16), 0 2px 6px rgba(11,37,69,0.10), 0 0 0 1px rgba(255,255,255,0.4) inset",
-              }}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/header%20photo.png"
-                alt=""
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            </div>
-          </motion.div>
-
-          <div className="shrink-0 space-y-1 text-center lg:text-left mx-auto lg:mx-0 lg:absolute lg:left-[2.9rem] lg:bottom-[13rem]" style={{ maxWidth: "340px" }}>
+            {/* Banner image */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.6, delay: 0.05 }}
             >
-              <h1 style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "clamp(1.9rem, 7vw, 6rem)",
-                fontWeight: 400,
-                color: "var(--ink)",
-                lineHeight: 1.05,
-                letterSpacing: "-0.025em",
-                margin: 0,
-                whiteSpace: "nowrap",
-              }}>
-                Neuroinclusive
-              </h1>
+              <div
+                className="relative w-full overflow-hidden aspect-[4/1] lg:aspect-auto lg:h-[10.59rem]"
+                style={{
+                  borderRadius: "10px",
+                  border: "1.5px solid #5b6e88",
+                  boxShadow:
+                    "0 8px 22px rgba(11,37,69,0.16), 0 2px 6px rgba(11,37,69,0.10), 0 0 0 1px rgba(255,255,255,0.4) inset",
+                }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/header%20photo.png"
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <AnimatedHeading />
-            </motion.div>
+            {/* Heading group */}
+            <div className="space-y-1">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <h1 style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(1.9rem, 7vw, 6rem)",
+                  fontWeight: 400,
+                  color: "var(--ink)",
+                  lineHeight: 1.05,
+                  letterSpacing: "-0.025em",
+                  margin: 0,
+                  whiteSpace: "nowrap",
+                }}>
+                  Neuroinclusive
+                </h1>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <AnimatedHeading />
+              </motion.div>
+            </div>
           </div>
 
           <motion.div
