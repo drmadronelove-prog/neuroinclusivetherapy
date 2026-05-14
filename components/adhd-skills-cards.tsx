@@ -1,6 +1,7 @@
 "use client"
 
 import { DeepWorkPlanner } from "@/components/tools/deep-work-planner"
+import { AdhdChecklist } from "@/components/assessments/adhd-checklist"
 import { FeatureCardGrid, type FeatureCard } from "@/components/feature-card-grid"
 
 const CARDS: FeatureCard[] = [
@@ -13,6 +14,15 @@ const CARDS: FeatureCard[] = [
     modalSubtitle:
       "Long-term goals, weekly goals, and values + activities. Saved locally.",
     content: <DeepWorkPlanner />,
+  },
+  {
+    kind: "modal",
+    title: "ADHD Symptom Checklist",
+    category: "DSM-5 + community",
+    footerLabel: "Take checklist",
+    modalTitle: "ADHD Symptom Checklist",
+    modalSubtitle: "DSM-5 criteria · community-reported symptoms.",
+    content: <AdhdChecklist />,
   },
   {
     kind: "link",
