@@ -1,6 +1,7 @@
 "use client"
 
 import { ICBTTrueSelfWorksheet } from "@/components/tools/icbt-true-self-worksheet"
+import { ICQEV } from "@/components/assessments/icqev"
 import { FeatureCardGrid, type FeatureCard } from "@/components/feature-card-grid"
 
 const CARDS: FeatureCard[] = [
@@ -13,6 +14,15 @@ const CARDS: FeatureCard[] = [
     modalSubtitle:
       "An Inference-Based CBT exercise for distinguishing the OCD self from the true self.",
     content: <ICBTTrueSelfWorksheet />,
+  },
+  {
+    kind: "modal",
+    title: "ICQ-EV",
+    category: "Inferential confusion",
+    footerLabel: "Take questionnaire",
+    modalTitle: "ICQ-EV: Inferential Confusion Questionnaire (Expanded Version)",
+    modalSubtitle: "30-item measure of inferential confusion · Aardema et al., 2010.",
+    content: <ICQEV />,
   },
   {
     kind: "link",

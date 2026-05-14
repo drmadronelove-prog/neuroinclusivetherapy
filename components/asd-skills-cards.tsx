@@ -2,6 +2,7 @@
 
 import { DysregulationLog } from "@/components/tools/dysregulation-log"
 import { MeltdownWorksheet } from "@/components/tools/meltdown-worksheet"
+import { AQ50 } from "@/components/assessments/aq50"
 import { FeatureCardGrid, type FeatureCard } from "@/components/feature-card-grid"
 
 const CARDS: FeatureCard[] = [
@@ -22,6 +23,15 @@ const CARDS: FeatureCard[] = [
     modalTitle: "Meltdown Awareness & Recovery Workbook",
     modalSubtitle: "A personal tracking workbook. Saved locally.",
     content: <MeltdownWorksheet />,
+  },
+  {
+    kind: "modal",
+    title: "AQ-50",
+    category: "Autism Spectrum Quotient",
+    footerLabel: "Take screen",
+    modalTitle: "AQ-50: Autism Spectrum Quotient",
+    modalSubtitle: "50-item screening questionnaire · Baron-Cohen et al., 2001.",
+    content: <AQ50 />,
   },
   {
     kind: "link",
