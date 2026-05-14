@@ -24,18 +24,40 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <h1 style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "clamp(1.9rem, 7vw, 6rem)",
-                fontWeight: 400,
-                color: "var(--ink)",
-                lineHeight: 1.05,
-                letterSpacing: "-0.025em",
-                margin: 0,
-                whiteSpace: "nowrap",
-              }}>
-                Neuroinclusive
-              </h1>
+              {/* Image + heading share a width so the banner stretches to match
+                  the word "Neuroinclusive". Swap /hero-portrait.svg for the
+                  licensed unwatermarked photo (jpg/png/webp) at the same path. */}
+              <div className="inline-flex flex-col items-stretch gap-3 align-top">
+                <div
+                  className="relative w-full overflow-hidden"
+                  style={{
+                    aspectRatio: "4 / 1",
+                    borderRadius: "10px",
+                    border: "1.5px solid #5b6e88",
+                    boxShadow:
+                      "0 8px 22px rgba(11,37,69,0.16), 0 2px 6px rgba(11,37,69,0.10), 0 0 0 1px rgba(255,255,255,0.4) inset",
+                  }}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/hero-portrait.svg"
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
+                <h1 style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(1.9rem, 7vw, 6rem)",
+                  fontWeight: 400,
+                  color: "var(--ink)",
+                  lineHeight: 1.05,
+                  letterSpacing: "-0.025em",
+                  margin: 0,
+                  whiteSpace: "nowrap",
+                }}>
+                  Neuroinclusive
+                </h1>
+              </div>
             </motion.div>
 
             <motion.div
