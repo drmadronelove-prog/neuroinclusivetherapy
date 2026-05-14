@@ -25,13 +25,16 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.05 }}
-            className="shrink-0 mx-auto lg:mx-0 lg:absolute lg:left-[2.9rem] lg:bottom-[36rem]"
+            className="shrink-0 mx-auto lg:mx-0 lg:absolute lg:left-[2.9rem] lg:bottom-[9rem]"
             style={{ width: "100%", maxWidth: "340px" }}
           >
+            {/* On phone/tablet keep the 4:1 banner shape. On desktop fix the
+                height to match the HeroCards grid (3 cards tall + 2 gaps ≈
+                33.75rem) so the banner's top edge lines up with the top row
+                of cards and its bottom edge with the bottom row. */}
             <div
-              className="relative w-full overflow-hidden"
+              className="relative w-full overflow-hidden aspect-[4/1] lg:aspect-auto lg:h-[33.75rem]"
               style={{
-                aspectRatio: "4 / 1",
                 borderRadius: "10px",
                 border: "1.5px solid #5b6e88",
                 boxShadow:
