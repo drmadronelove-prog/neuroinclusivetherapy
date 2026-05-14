@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 
@@ -176,26 +176,12 @@ function ItemReadout({ num, text, response }: { num: number; text: string; respo
   )
 }
 
-// Today's date as YYYY-MM-DD for the <input type="date"> default.
-function todayIso(): string {
-  const d = new Date()
-  const m = String(d.getMonth() + 1).padStart(2, "0")
-  const day = String(d.getDate()).padStart(2, "0")
-  return `${d.getFullYear()}-${m}-${day}`
-}
-
 // ── Main component ────────────────────────────────────────────────────────────
 
 export function ICQEV() {
   const [open, setOpen] = useState(true)
   const [answers, setAnswers] = useState<Answers>({})
-  const [name, setName] = useState("")
-  const [date, setDate] = useState("")
   const [submitted, setSubmitted] = useState(false)
-
-  useEffect(() => {
-    if (!date) setDate(todayIso())
-  }, [date])
 
   function select(itemNum: number, value: number) {
     setAnswers((prev) => ({ ...prev, [itemNum]: value }))
@@ -203,8 +189,6 @@ export function ICQEV() {
 
   function reset() {
     setAnswers({})
-    setName("")
-    setDate(todayIso())
     setSubmitted(false)
   }
 
@@ -259,12 +243,6 @@ export function ICQEV() {
               ICQ-EV: Inferential Confusion Questionnaire (Expanded Version)
             </h1>
             <p className="text-sm">Aardema et al., 2010 · 30-item self-report</p>
-            <dl className="text-sm grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 mt-3">
-              <dt className="font-semibold">Name:</dt>
-              <dd>{name || " "}</dd>
-              <dt className="font-semibold">Date:</dt>
-              <dd>{date}</dd>
-            </dl>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-8">
@@ -285,33 +263,6 @@ export function ICQEV() {
                   ))}
                 </ol>
               </div>
-            </div>
-
-            {/* Optional name + date, available before or after submit */}
-            <div className="no-print grid sm:grid-cols-2 gap-3">
-              <label className="block">
-                <span className="block text-xs uppercase tracking-wider text-muted-foreground mb-1">
-                  Name (optional)
-                </span>
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Client or patient name"
-                  className="w-full bg-background border border-border rounded px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground/40"
-                />
-              </label>
-              <label className="block">
-                <span className="block text-xs uppercase tracking-wider text-muted-foreground mb-1">
-                  Date
-                </span>
-                <input
-                  type="date"
-                  value={date}
-                  onChange={(e) => setDate(e.target.value)}
-                  className="w-full bg-background border border-border rounded px-3 py-2 text-sm text-foreground focus:outline-none focus:border-foreground/40"
-                />
-              </label>
             </div>
 
             {/* Items */}
@@ -395,18 +346,6 @@ export function ICQEV() {
                     />
                   ))}
                 </div>
-              </div>
-
-              {/* Identifying info on results / print */}
-              <div className="grid sm:grid-cols-2 gap-x-6 gap-y-1 text-sm border-t border-border pt-3">
-                <p>
-                  <span className="text-muted-foreground">Name: </span>
-                  <span className="text-foreground">{name || "(not provided)"}</span>
-                </p>
-                <p>
-                  <span className="text-muted-foreground">Date: </span>
-                  <span className="text-foreground">{date}</span>
-                </p>
               </div>
 
               {/* All 30 items with selected responses */}
