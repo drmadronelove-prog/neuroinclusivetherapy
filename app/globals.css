@@ -216,4 +216,44 @@
   section {
     break-inside: avoid;
   }
+
+  /* When a FeatureCardGrid modal is open, print just the modal content.
+     Hide everything else with visibility:hidden (so layout is preserved
+     enough for the modal to render), then re-show the modal subtree and
+     flatten it to a normal document. */
+  html.fcg-modal-open body * {
+    visibility: hidden;
+  }
+  html.fcg-modal-open .fcg-modal-content,
+  html.fcg-modal-open .fcg-modal-content * {
+    visibility: visible;
+  }
+  html.fcg-modal-open .fcg-modal-backdrop {
+    position: static !important;
+    inset: auto !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    z-index: auto !important;
+    display: block !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  html.fcg-modal-open .fcg-modal-content {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    overflow: visible !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background: white !important;
+    color: black !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
 }
