@@ -30,6 +30,20 @@ const CARDS: FeatureCard[] = [
     footerLabel: "Play",
     href: "/games/regulation-station.html",
   },
+  {
+    kind: "link",
+    title: "Windows of Interest",
+    category: "Blog · Neurodivergence",
+    footerLabel: "Read essay",
+    href: "/blog/windows-of-interest",
+  },
+  {
+    kind: "link",
+    title: "Autistic Culture Is Flourishing",
+    category: "Blog · Autism",
+    footerLabel: "Read essay",
+    href: "/blog/autistic-culture-is-flourishing",
+  },
 ]
 
 export function ASDSkillsCards() {
