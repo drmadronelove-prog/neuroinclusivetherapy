@@ -27,7 +27,7 @@ export function HeroSection() {
               the top of the first row and the bottom of the second row of
               HeroCards. */}
           <div
-            className="shrink-0 mx-auto lg:mx-0 lg:absolute lg:left-[2.9rem] lg:bottom-[13rem] flex flex-col items-stretch max-w-[340px] lg:max-w-none gap-4 lg:gap-[0.9rem] text-center lg:text-left"
+            className="shrink-0 mx-auto lg:mx-0 lg:absolute lg:left-[2.9rem] lg:bottom-[7.5rem] flex flex-col items-stretch max-w-[340px] lg:max-w-none gap-4 lg:gap-[0.9rem] text-center lg:text-left"
           >
             {/* Banner image */}
             <motion.div
