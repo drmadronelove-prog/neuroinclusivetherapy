@@ -43,7 +43,7 @@ export function HeroSection() {
                   { src: "/image%203.jpeg", left: 80, top: 41, d: 34 },
                   { src: "/image%204.jpeg", left: 45, top: 56, d: 46 },
                   { src: "/image%205.jpeg", left: 14, top: 65, d: 20 },
-                  { src: "/image%201.jpeg", left: 76, top: 69, d: 26 },
+                  { src: "/image%201.jpeg", left: 76, top: 66, d: 26 },
                 ].map((c, i) => (
                   <div
                     key={i}
