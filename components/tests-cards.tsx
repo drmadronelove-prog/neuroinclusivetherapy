@@ -9,6 +9,8 @@ import { MDS16 } from "@/components/assessments/mds16"
 import { GSQ } from "@/components/assessments/gsq"
 import { OEQ2 } from "@/components/assessments/oeq2"
 import { ICQEV } from "@/components/assessments/icqev"
+import { OCTRS } from "@/components/assessments/octrs"
+import { AQ10 } from "@/components/assessments/aq10"
 import { FeatureCardGrid, type FeatureCard } from "@/components/feature-card-grid"
 
 const CARDS: FeatureCard[] = [
@@ -94,6 +96,24 @@ const CARDS: FeatureCard[] = [
     modalTitle: "ICQ-EV: Inferential Confusion Questionnaire (Expanded Version)",
     modalSubtitle: "30-item measure of inferential confusion · Aardema et al., 2010.",
     content: <ICQEV />,
+  },
+  {
+    kind: "modal",
+    title: "OCT-RS",
+    category: "Overcontrol traits",
+    footerLabel: "Take scale",
+    modalTitle: "OCT-RS: OC Trait Rating Scale",
+    modalSubtitle: "24-item measure of maladaptive overcontrol · Seretis, Hempel & Lynch, 2015.",
+    content: <OCTRS />,
+  },
+  {
+    kind: "modal",
+    title: "AQ-10",
+    category: "Autism referral screen",
+    footerLabel: "Take screen",
+    modalTitle: "AQ-10: Autism Spectrum Quotient (short)",
+    modalSubtitle: "10-item adult referral screen · Allison, Auyeung & Baron-Cohen, 2012.",
+    content: <AQ10 />,
   },
 ]
 
