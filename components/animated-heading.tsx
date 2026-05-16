@@ -15,7 +15,7 @@ export function AnimatedHeading() {
           style={{
             fontFamily: "var(--font-display)",
             fontWeight: 500,
-            color: "var(--plum)",
+            color: "#946284",
           }}
         >
           different
@@ -24,7 +24,7 @@ export function AnimatedHeading() {
           style={{
             fontFamily: "var(--font-display)",
             fontWeight: 500,
-            color: "var(--plum)",
+            color: "#946284",
           }}
         >
           .
