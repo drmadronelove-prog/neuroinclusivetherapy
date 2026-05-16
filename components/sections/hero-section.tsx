@@ -38,12 +38,12 @@ export function HeroSection() {
             >
               <div className="relative w-full aspect-[1.3]">
                 {[
-                  { src: "/image%206.jpeg", left: 24, top: 32, d: 44, color: "#7a4f6e", pos: "center" },
-                  { src: "/image%202.jpeg", left: 58, top: 22, d: 30, color: "#9fb3b0", pos: "center" },
-                  { src: "/image%203.jpeg", left: 87, top: 48, d: 36, color: "#c4877e", pos: "center" },
-                  { src: "/image%204.jpeg", left: 48, top: 60, d: 50, color: "#5b6e88", pos: "center 22%" },
-                  { src: "/image%205.jpeg", left: 11, top: 78, d: 22, color: "#c5a572", pos: "center" },
-                  { src: "/image%201.jpeg", left: 80, top: 84, d: 28, color: "#8c9bb0", pos: "center" },
+                  { src: "/image%206%20(1).jpeg", left: 24, top: 32, d: 44 },
+                  { src: "/image%202.jpeg", left: 58, top: 22, d: 30 },
+                  { src: "/image%203.jpeg", left: 87, top: 48, d: 36 },
+                  { src: "/image%204.jpeg", left: 48, top: 60, d: 50 },
+                  { src: "/image%205.jpeg", left: 11, top: 78, d: 22 },
+                  { src: "/image%201.jpeg", left: 80, top: 84, d: 28 },
                 ].map((c, i) => (
                   <div
                     key={i}
@@ -54,7 +54,7 @@ export function HeroSection() {
                       width: `${c.d}%`,
                       transform: "translate(-50%, -50%)",
                       borderRadius: "9999px",
-                      border: `2px solid ${c.color}`,
+                      border: "1.5px solid #5b6e88",
                       boxShadow:
                         "0 8px 22px rgba(11,37,69,0.16), 0 2px 6px rgba(11,37,69,0.10), 0 0 0 1px rgba(255,255,255,0.4) inset",
                     }}
@@ -64,7 +64,6 @@ export function HeroSection() {
                       src={c.src}
                       alt=""
                       className="absolute inset-0 w-full h-full object-cover"
-                      style={{ objectPosition: c.pos }}
                     />
                   </div>
                 ))}
