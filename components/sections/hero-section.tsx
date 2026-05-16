@@ -34,16 +34,16 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.05 }}
-              className="lg:absolute lg:left-[2.9rem] lg:top-[7rem] lg:w-[32rem]"
+              className="lg:absolute lg:left-[2.9rem] lg:top-[7rem] lg:w-[38rem]"
             >
-              <div className="relative w-full aspect-[1.1]">
+              <div className="relative w-full aspect-[0.95]">
                 {[
-                  { src: "/image%206%20(1).jpeg", left: 18, top: 30, d: 38 },
-                  { src: "/image%202.jpeg", left: 52, top: 20, d: 28 },
-                  { src: "/image%203.jpeg", left: 80, top: 40, d: 34 },
-                  { src: "/image%204.jpeg", left: 45, top: 44, d: 46 },
-                  { src: "/image%205.jpeg", left: 14, top: 64, d: 20 },
-                  { src: "/image%201.jpeg", left: 73, top: 68, d: 26 },
+                  { src: "/image%206%20(1).jpeg", left: 19, top: 31, d: 42 },
+                  { src: "/image%202.jpeg", left: 54, top: 20, d: 28 },
+                  { src: "/image%203.jpeg", left: 80, top: 41, d: 34 },
+                  { src: "/image%204.jpeg", left: 45, top: 56, d: 46 },
+                  { src: "/image%205.jpeg", left: 14, top: 71, d: 20 },
+                  { src: "/image%201.jpeg", left: 76, top: 76, d: 26 },
                 ].map((c, i) => (
                   <div
                     key={i}
