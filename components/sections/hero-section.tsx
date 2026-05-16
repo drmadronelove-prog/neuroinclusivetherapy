@@ -38,12 +38,12 @@ export function HeroSection() {
             >
               <div className="relative w-full aspect-[1.3]">
                 {[
-                  { src: "/image%206%20(1).jpeg", left: 24, top: 32, d: 44 },
-                  { src: "/image%202.jpeg", left: 58, top: 22, d: 30 },
-                  { src: "/image%203.jpeg", left: 87, top: 48, d: 36 },
-                  { src: "/image%204.jpeg", left: 48, top: 60, d: 50 },
-                  { src: "/image%205.jpeg", left: 11, top: 78, d: 22 },
-                  { src: "/image%201.jpeg", left: 80, top: 84, d: 28 },
+                  { src: "/image%206%20(1).jpeg", left: 22, top: 33, d: 44 },
+                  { src: "/image%202.jpeg", left: 52, top: 24, d: 30 },
+                  { src: "/image%203.jpeg", left: 78, top: 45, d: 36 },
+                  { src: "/image%204.jpeg", left: 44, top: 55, d: 50 },
+                  { src: "/image%205.jpeg", left: 16, top: 72, d: 22 },
+                  { src: "/image%201.jpeg", left: 72, top: 78, d: 28 },
                 ].map((c, i) => (
                   <div
                     key={i}
