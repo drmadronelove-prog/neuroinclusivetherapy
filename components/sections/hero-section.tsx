@@ -29,27 +29,45 @@ export function HeroSection() {
           <div
             className="shrink-0 mx-auto lg:mx-0 lg:absolute lg:left-[2.9rem] lg:bottom-[9rem] flex flex-col items-stretch max-w-[340px] lg:max-w-none gap-4 lg:gap-[4.9rem] text-center lg:text-left"
           >
-            {/* Banner image */}
+            {/* Scattered cluster of 6 circular photos, sized + placed to echo
+                the reference layout. Each circle is framed like the hero
+                cards (slate hairline + soft drop shadow + inner highlight). */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.05 }}
             >
-              <div
-                className="relative w-full overflow-hidden aspect-[1981/793]"
-                style={{
-                  borderRadius: "10px",
-                  border: "1.5px solid #5b6e88",
-                  boxShadow:
-                    "0 8px 22px rgba(11,37,69,0.16), 0 2px 6px rgba(11,37,69,0.10), 0 0 0 1px rgba(255,255,255,0.4) inset",
-                }}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/header%20photo.png"
-                  alt=""
-                  className="absolute inset-0 w-full h-full object-cover opacity-85"
-                />
+              <div className="relative w-full aspect-[1.15]">
+                {[
+                  { src: "/image%201.jpeg", left: 22, top: 28, d: 40 },
+                  { src: "/image%202.jpeg", left: 60, top: 16, d: 31 },
+                  { src: "/image%203.jpeg", left: 88, top: 45, d: 34 },
+                  { src: "/image%204.jpeg", left: 50, top: 62, d: 42 },
+                  { src: "/image%205.jpeg", left: 12, top: 80, d: 27 },
+                  { src: "/image%206.jpeg", left: 80, top: 83, d: 36 },
+                ].map((c, i) => (
+                  <div
+                    key={i}
+                    className="absolute aspect-square overflow-hidden"
+                    style={{
+                      left: `${c.left}%`,
+                      top: `${c.top}%`,
+                      width: `${c.d}%`,
+                      transform: "translate(-50%, -50%)",
+                      borderRadius: "9999px",
+                      border: "1.5px solid #5b6e88",
+                      boxShadow:
+                        "0 8px 22px rgba(11,37,69,0.16), 0 2px 6px rgba(11,37,69,0.10), 0 0 0 1px rgba(255,255,255,0.4) inset",
+                    }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={c.src}
+                      alt=""
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
               </div>
             </motion.div>
 
