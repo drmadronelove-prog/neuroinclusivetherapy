@@ -18,33 +18,32 @@ export function HeroSection() {
       >
         <div className="flex flex-col gap-6 w-full lg:max-w-none mx-auto">
 
-          {/* Image + heading share one inline-flex column so the banner is
-              "as long as Neuroinclusive" at every breakpoint. On desktop the
-              column has no fixed height — it grows to its content — and the
-              image uses the photo's natural 1981/793 aspect so the frame
-              fits the image exactly (no letterboxing). lg:gap-2 keeps the
-              image just above the heading, which puts it visually between
-              the top of the first row and the bottom of the second row of
-              HeroCards. */}
-          <div
-            className="shrink-0 mx-auto lg:mx-0 lg:absolute lg:left-[2.9rem] lg:bottom-[9rem] flex flex-col items-stretch max-w-[340px] lg:max-w-none gap-4 lg:gap-[4.9rem] text-center lg:text-left"
-          >
-            {/* Scattered cluster of 6 circular photos, sized + placed to echo
-                the reference layout. Each circle is framed like the hero
-                cards (slate hairline + soft drop shadow + inner highlight). */}
+          {/* On phone/tablet the cluster + heading stack in one centered
+              column. On desktop `lg:contents` dissolves this wrapper so the
+              cluster and heading become independent absolutely-positioned
+              blocks (the cluster sits below the fixed header; the heading
+              anchors to the lower-left). */}
+          <div className="shrink-0 mx-auto flex flex-col items-stretch max-w-[340px] gap-6 text-center lg:text-left lg:contents">
+
+            {/* Scattered cluster of 6 circular photos, framed like the hero
+                cards (slate hairline + soft drop shadow + inner highlight).
+                On desktop it's pinned at lg:top-[7rem] so it always clears
+                the fixed header, and the circle `top` values keep every
+                circle inside the box (no upward overflow behind the bar). */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.05 }}
+              className="lg:absolute lg:left-[2.9rem] lg:top-[7rem] lg:w-[38rem]"
             >
-              <div className="relative w-full aspect-[1.15]">
+              <div className="relative w-full aspect-[1.3]">
                 {[
-                  { src: "/image%201.jpeg", left: 22, top: 28, d: 40 },
-                  { src: "/image%202.jpeg", left: 60, top: 16, d: 31 },
-                  { src: "/image%203.jpeg", left: 88, top: 45, d: 34 },
-                  { src: "/image%204.jpeg", left: 50, top: 62, d: 42 },
-                  { src: "/image%205.jpeg", left: 12, top: 80, d: 27 },
-                  { src: "/image%206.jpeg", left: 80, top: 83, d: 36 },
+                  { src: "/image%206.jpeg", left: 22, top: 30, d: 40 },
+                  { src: "/image%202.jpeg", left: 60, top: 24, d: 31 },
+                  { src: "/image%203.jpeg", left: 88, top: 50, d: 34 },
+                  { src: "/image%204.jpeg", left: 50, top: 66, d: 42 },
+                  { src: "/image%205.jpeg", left: 12, top: 82, d: 27 },
+                  { src: "/image%201.jpeg", left: 80, top: 85, d: 36 },
                 ].map((c, i) => (
                   <div
                     key={i}
@@ -72,7 +71,7 @@ export function HeroSection() {
             </motion.div>
 
             {/* Heading group */}
-            <div className="space-y-1">
+            <div className="space-y-1 lg:absolute lg:left-[2.9rem] lg:bottom-[9rem] lg:max-w-none">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
