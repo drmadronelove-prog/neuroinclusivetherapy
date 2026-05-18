@@ -14,7 +14,6 @@ type Provider = {
   specialty: string
   href: string
   image: string
-  rotate: number
 }
 
 const PROVIDERS: Provider[] = [
@@ -24,7 +23,20 @@ const PROVIDERS: Provider[] = [
     specialty: "Psychotherapy and Assessment",
     href: "https://madronelove.com",
     image: "/dr-love.jpg",
-    rotate: -1.5,
+  },
+  {
+    name: "Jasmin Canfield, LCSW",
+    role: "Network Provider",
+    specialty: "Psychotherapy",
+    href: "https://healingwithintention.org/",
+    image: "/jasmin canfield.png",
+  },
+  {
+    name: "Melinda Mahler, LPCC",
+    role: "Network Provider",
+    specialty: "Psychotherapy",
+    href: "https://www.psychologytoday.com/us/therapists/melinda-malher-san-francisco-ca/1566575",
+    image: "/Melinda Mahler.png",
   },
   {
     name: "Network Provider",
@@ -32,7 +44,6 @@ const PROVIDERS: Provider[] = [
     specialty: "Psychotherapy",
     href: "#",
     image: "/placeholder-user.jpg",
-    rotate: 1,
   },
   {
     name: "Network Provider",
@@ -40,7 +51,6 @@ const PROVIDERS: Provider[] = [
     specialty: "Psychotherapy",
     href: "#",
     image: "/placeholder-user.jpg",
-    rotate: -0.75,
   },
   {
     name: "Network Provider",
@@ -48,23 +58,6 @@ const PROVIDERS: Provider[] = [
     specialty: "Psychotherapy",
     href: "#",
     image: "/placeholder-user.jpg",
-    rotate: 1.5,
-  },
-  {
-    name: "Network Provider",
-    role: "Clinician",
-    specialty: "Psychotherapy",
-    href: "#",
-    image: "/placeholder-user.jpg",
-    rotate: -1,
-  },
-  {
-    name: "Network Provider",
-    role: "Clinician",
-    specialty: "Psychotherapy",
-    href: "#",
-    image: "/placeholder-user.jpg",
-    rotate: 0.75,
   },
 ]
 
@@ -98,7 +91,7 @@ function ProviderCard({
       animate={{
         y: hovered ? -6 : 0,
         scale: hovered ? 1.04 : 1,
-        rotate: hovered ? 0 : provider.rotate,
+        rotate: 0,
       }}
       transition={{ type: "spring", stiffness: 260, damping: 18 }}
       onMouseEnter={() => setHovered(true)}

@@ -52,9 +52,8 @@ export default function ContactPage() {
             Get in touch
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            I&apos;m currently accepting new clients. I offer a free 20-minute
-            consultation to see whether we are a good fit. Reach out by phone or
-            email — I typically respond within one business day.
+            We are currently accepting new clients. Please reach out by phone or
+            email to schedule a free 20 minute consultation.
           </p>
 
           {/* Contact actions */}
@@ -81,32 +80,6 @@ export default function ContactPage() {
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
               info@oliveclinical.com
-            </a>
-          </div>
-
-          {/* Schedule + Psychology Today */}
-          <div className="flex flex-col sm:flex-row gap-3 pt-2">
-            <a
-              href="https://calendar.app.google/RRFFfpQpco81Bxek8"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 bg-plum text-paper hover:opacity-90 transition-opacity"
-              style={buttonText}
-            >
-              Schedule a consultation
-            </a>
-            <a
-              href="https://www.psychologytoday.com/us/therapists/dr-madrone-love-neuro-inclusive-psychologist-san-francisco-ca/1554818"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 border border-border text-muted-foreground hover:bg-linen transition-colors"
-              style={buttonText}
-            >
-              Psychology Today profile
-              <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
             </a>
           </div>
         </div>

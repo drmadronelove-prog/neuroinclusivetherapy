@@ -3,13 +3,6 @@
 import Link from "next/link"
 import { OliveLockup } from "@/components/olive-logo"
 
-const NAV_LINKS: { label: string; href: string }[] = [
-  { label: "Practice",               href: "/psychotherapy" },
-  { label: "Clinicians",             href: "/psychotherapy" },
-  { label: "Writing",                href: "/blog" },
-  { label: "For referring clinicians", href: "/contact" },
-]
-
 export function SiteHeader() {
   return (
     <header
@@ -24,22 +17,8 @@ export function SiteHeader() {
           </Link>
         </div>
 
-        {/* Center: nav links */}
-        <nav className="hidden md:flex flex-1 items-center justify-center gap-7 lg:gap-9">
-          {NAV_LINKS.map((l) => (
-            <Link
-              key={l.label}
-              href={l.href}
-              className="text-[0.95rem] text-foreground/85 hover:text-foreground transition-colors whitespace-nowrap"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-            >
-              {l.label}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Right: appointment CTA */}
-        <div className="flex flex-1 md:flex-none items-center justify-end">
+        {/* Right: contact CTA */}
+        <div className="flex flex-1 items-center justify-end">
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 sm:px-5 text-[0.9rem] transition-opacity hover:opacity-90"
@@ -50,7 +29,7 @@ export function SiteHeader() {
               color: "var(--paper)",
             }}
           >
-            Make an appointment
+            Get in touch
             <span aria-hidden="true">→</span>
           </Link>
         </div>

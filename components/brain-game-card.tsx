@@ -34,7 +34,7 @@ export function BrainGameCard({ game, index }: { game: BrainGameCardData; index:
         animate={{
           y: hovered ? -6 : 0,
           scale: hovered ? 1.03 : 1,
-          rotate: hovered ? 0 : game.rotate,
+          rotate: 0,
         }}
         transition={{ type: "spring", stiffness: 260, damping: 18 }}
         onMouseEnter={() => setHovered(true)}
