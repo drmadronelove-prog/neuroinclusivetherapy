@@ -26,14 +26,14 @@ export function HeroSection() {
               blocks. */}
           <div className="shrink-0 mx-auto flex flex-col items-stretch max-w-[340px] gap-6 text-center lg:text-left lg:contents">
 
-            {/* Wet paint-dab cluster — six organic daubs with a glossy
-                wet sheen, a tiny bright glint, and pooled darker edges so
-                each reads like a fresh dab of paint, not a solid ball. */}
+            {/* Wet paint-dab cluster — six organic daubs: flat pigment
+                pooling to a darker rim under a soft diffuse wet sheen
+                (no specular glint, so it reads as paint, not plastic). */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.05 }}
-              className="lg:absolute lg:left-12 lg:top-[1rem] lg:w-[38rem]"
+              className="lg:absolute lg:left-12 lg:top-[3rem] lg:w-[38rem]"
             >
               <div className="relative w-full aspect-[0.95]">
                 {[
@@ -67,20 +67,17 @@ export function HeroSection() {
                       borderRadius: c.radius,
                       backgroundColor: c.base,
                       backgroundImage: [
-                        // tiny bright wet glint
-                        `radial-gradient(ellipse 13% 9% at 31% 24%, rgba(255,255,255,0.65), rgba(255,255,255,0) 70%)`,
-                        // broad soft wet sheen
-                        `radial-gradient(ellipse 44% 30% at 36% 28%, rgba(255,255,255,0.42), rgba(255,255,255,0) 64%)`,
-                        // wet body: light core pooling to a darker, richer rim
-                        `radial-gradient(circle at 42% 40%, ${c.light} 0%, ${c.base} 52%, ${c.shade} 100%)`,
+                        // broad, soft, diffuse wet sheen — a satin streak, not a hard specular glint
+                        `radial-gradient(ellipse 58% 42% at 39% 31%, rgba(255,255,255,0.22), rgba(255,255,255,0) 72%)`,
+                        // pigment pooling: thin lighter centre thickening to an even, darker rim —
+                        // centred, with no single light direction, so it reads as paint not a lit sphere
+                        `radial-gradient(circle at 50% 50%, ${c.light} 0%, ${c.base} 36%, ${c.shade} 100%)`,
                       ].join(", "),
                       boxShadow: [
-                        // glistening cast shadow
-                        `0 13px 24px -10px rgba(60,40,30,0.30)`,
-                        // pooled, deepened lower rim
-                        `inset 0 -11px 17px -11px rgba(0,0,0,0.22)`,
-                        // glossy inner top light
-                        `inset 0 7px 11px -8px rgba(255,255,255,0.4)`,
+                        // soft, flat contact shadow — the dab sits on the paper, it doesn't float
+                        `0 6px 12px -8px rgba(60,40,30,0.22)`,
+                        // darker pooled paint edge all the way around the rim
+                        `inset 0 0 15px -6px rgba(0,0,0,0.20)`,
                       ].join(", "),
                     }}
                   />
@@ -89,7 +86,7 @@ export function HeroSection() {
             </motion.div>
 
             {/* Heading group */}
-            <div className="space-y-1 lg:absolute lg:left-12 lg:bottom-[9rem] lg:max-w-none">
+            <div className="space-y-1 lg:absolute lg:left-12 lg:bottom-[10rem] lg:max-w-none">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -123,7 +120,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex justify-center lg:absolute lg:right-12 lg:bottom-[9rem]"
+            className="flex justify-center lg:absolute lg:right-12 lg:top-1/2 lg:-translate-y-1/2"
           >
             <HeroCards />
           </motion.div>
