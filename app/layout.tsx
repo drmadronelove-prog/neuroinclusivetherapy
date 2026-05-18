@@ -36,7 +36,7 @@ const SITE_DESCRIPTION =
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://oliveclinical.com'),
-  title: 'Olive Clinical | Neuroinclusive Therapy',
+  title: 'Olive Clinical',
   description: SITE_DESCRIPTION,
   generator: 'v0.app',
   icons: {
