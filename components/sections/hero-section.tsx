@@ -31,7 +31,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.05 }}
-              className="lg:absolute lg:left-[2.9rem] lg:top-[7rem] lg:w-[38rem]"
+              className="lg:absolute lg:left-[2.9rem] lg:top-[1rem] lg:w-[38rem]"
             >
               <div className="relative w-full aspect-[0.95]">
                 {[

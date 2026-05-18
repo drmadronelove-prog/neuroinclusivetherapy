@@ -5,13 +5,17 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 
 const PAPER_BG =
-  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E\")"
+  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E\")"
 
-// Variant accents drawn from the settled palette.
+// Each card gets a clear colour identity from the settled palette: a
+// saturated accent (border + stripe + labels) over a soft matching tint.
 const VARIANTS = [
-  { accent: "#5b6e88", surface: "#fbf8f3" }, // slate on paper
-  { accent: "#7a4f6e", surface: "#efeae0" }, // plum on linen
-  { accent: "#8c9bb0", surface: "#fbf8f3" }, // mist on paper
+  { accent: "#5b6e88", surface: "#edf0f4" }, // slate
+  { accent: "#7a4f6e", surface: "#f2e9ef" }, // plum
+  { accent: "#c5a572", surface: "#f5efe0" }, // gold
+  { accent: "#9fb3b0", surface: "#e9f0ee" }, // glass
+  { accent: "#c4877e", surface: "#f6ece7" }, // rose
+  { accent: "#8c9bb0", surface: "#ecf0f4" }, // mist
 ]
 
 export type BlogHeroCardData = {
@@ -30,17 +34,12 @@ export function BlogHeroCard({
 }) {
   const [isHovered, setIsHovered] = useState(false)
   const variant = VARIANTS[index % VARIANTS.length]
-  const rotate = (index % 2 === 0 ? -1 : 1) * (1 + (index % 3) * 0.5)
 
   return (
     <Link href={`/blog/${post.slug}`} className="block">
       <motion.div
-        animate={{
-          y: isHovered ? -6 : 0,
-          scale: isHovered ? 1.03 : 1,
-          rotate: isHovered ? 0 : rotate,
-        }}
-        transition={{ type: "spring", stiffness: 260, damping: 18 }}
+        animate={{ y: isHovered ? -5 : 0 }}
+        transition={{ type: "spring", stiffness: 260, damping: 20 }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         className="relative w-full"
@@ -49,35 +48,42 @@ export function BlogHeroCard({
           backgroundColor: variant.surface,
           backgroundImage: PAPER_BG,
           backgroundSize: "200px 200px",
-          border: `1px solid rgba(11,37,69,0.18)`,
+          border: `1.5px solid ${variant.accent}`,
+          borderRadius: "4px",
           boxShadow: isHovered
-            ? `0 14px 32px rgba(11,37,69,0.18)`
-            : `0 6px 18px rgba(11,37,69,0.08)`,
+            ? `0 16px 34px -12px ${variant.accent}66`
+            : `0 6px 16px -8px rgba(11,37,69,0.18)`,
           cursor: "pointer",
           overflow: "hidden",
           transition: "box-shadow 0.2s ease",
         }}
       >
-        <div className="relative h-full flex flex-col justify-between p-5 sm:p-7">
-          <div className="flex items-center justify-between">
+        {/* Left accent stripe — editorial anchor */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-y-0 left-0"
+          style={{ width: "6px", background: variant.accent }}
+        />
+
+        <div className="relative h-full flex flex-col justify-between p-5 sm:p-7 pl-7 sm:pl-9">
+          <div className="flex items-start justify-between gap-3">
             <span
-              className="text-[0.65rem]"
+              className="text-[0.66rem]"
               style={{
                 fontFamily: "var(--font-mono)",
-                fontWeight: 500,
-                letterSpacing: "0.14em",
+                fontWeight: 600,
+                letterSpacing: "0.16em",
                 textTransform: "uppercase",
                 color: variant.accent,
-                opacity: 0.85,
               }}
             >
               {post.category ?? "Essay"}
             </span>
             <span
-              className="text-[0.65rem]"
+              className="text-[0.66rem] shrink-0 tabular-nums"
               style={{
                 fontFamily: "var(--font-mono)",
-                color: "rgba(11,37,69,0.5)",
+                color: "rgba(11,37,69,0.4)",
                 letterSpacing: "0.1em",
               }}
             >
@@ -86,41 +92,59 @@ export function BlogHeroCard({
           </div>
 
           <h3
-            className="text-[1.4rem] sm:text-[1.7rem] leading-tight text-center px-2"
+            className="text-[1.4rem] sm:text-[1.7rem] leading-tight text-left"
             style={{
               fontFamily: "var(--font-display)",
               fontWeight: 400,
               color: "var(--ink)",
-              lineHeight: 1.1,
+              lineHeight: 1.12,
               letterSpacing: "-0.02em",
             }}
           >
             {post.title}
           </h3>
 
-          <div
-            className="flex items-center gap-2 text-[0.7rem]"
-            style={{
-              fontFamily: "var(--font-mono)",
-              color: variant.accent,
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              fontWeight: 500,
-            }}
-          >
-            <span>Read essay</span>
-            <svg
-              width="14"
-              height="10"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+          <div className="flex items-center justify-between gap-3">
+            <span
+              className="flex items-center gap-2 text-[0.7rem]"
+              style={{
+                fontFamily: "var(--font-mono)",
+                color: variant.accent,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                fontWeight: 600,
+              }}
             >
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
+              Read essay
+              <svg
+                width="16"
+                height="11"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                style={{
+                  transform: isHovered ? "translateX(3px)" : "translateX(0)",
+                  transition: "transform 0.2s ease",
+                }}
+              >
+                <path d="M5 12h14M13 5l7 7-7 7" />
+              </svg>
+            </span>
+            {post.date && (
+              <span
+                className="text-[0.62rem] shrink-0"
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  color: "rgba(11,37,69,0.4)",
+                  letterSpacing: "0.08em",
+                }}
+              >
+                {post.date}
+              </span>
+            )}
           </div>
         </div>
       </motion.div>
