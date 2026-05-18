@@ -31,13 +31,38 @@ const atari = Press_Start_2P({
   display: "swap",
 })
 
+const SITE_DESCRIPTION =
+  'Compassionate, neuroinclusive therapy services from Olive Clinical. Specializing in neurodivergent-affirming care, ADHD, autism, and holistic mental wellness.'
+
 export const metadata: Metadata = {
+  metadataBase: new URL('https://oliveclinical.com'),
   title: 'Olive Clinical | Neuroinclusive Therapy',
-  description: 'Compassionate, neuroinclusive therapy services from Olive Clinical. Specializing in neurodivergent-affirming care, ADHD, autism, and holistic mental wellness.',
+  description: SITE_DESCRIPTION,
   generator: 'v0.app',
   icons: {
     icon: '/olive-logo.svg',
     apple: '/olive-logo.svg',
+  },
+  openGraph: {
+    title: 'Olive Clinical',
+    description: SITE_DESCRIPTION,
+    url: 'https://oliveclinical.com',
+    siteName: 'Olive Clinical',
+    type: 'website',
+    images: [
+      {
+        url: '/blobs1.png',
+        width: 842,
+        height: 806,
+        alt: 'Olive Clinical — neuroinclusive therapy and assessment',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Olive Clinical',
+    description: SITE_DESCRIPTION,
+    images: ['/blobs1.png'],
   },
 }
 
