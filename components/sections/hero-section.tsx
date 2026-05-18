@@ -38,7 +38,7 @@ export function HeroSection() {
             >
               <div className="relative w-full aspect-[0.95]">
                 {[
-                  { src: "/image%206%20(1).jpeg", left: 16, top: 29, d: 38 },
+                  { src: "/image%206.png", left: 16, top: 29, d: 38 },
                   { src: "/image%202.jpeg", left: 58, top: 20, d: 26 },
                   { src: "/image%203.jpeg", left: 82, top: 38, d: 32 },
                   { src: "/image%204.jpeg", left: 45, top: 56, d: 40 },
