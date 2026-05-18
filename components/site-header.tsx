@@ -1,98 +1,86 @@
 "use client"
 
 import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { OliveLockup, OliveMark } from "@/components/olive-logo"
+import { OliveLockup } from "@/components/olive-logo"
 
-const PAGE_TITLES: Record<string, string> = {
-  "/neurodiversity":   "Neurodivergent Maps",
-  "/blog":             "Blog",
-  "/brain-games":      "Brain Games",
-  "/contact":          "Contact",
-  "/mindfulness":      "Mindfulness",
-  "/adhd-skills":      "ADHD Skills",
-  "/adhd-support":     "ADHD Support",
-  "/asd-skills":       "ASD Skills",
-  "/autism-affirming": "Autism-Affirming",
-  "/ocd-skills":       "OCD Skills",
-  "/tests":            "Tests",
-}
-
-function titleForPath(pathname: string): string | null {
-  if (PAGE_TITLES[pathname]) return PAGE_TITLES[pathname]
-  if (pathname.startsWith("/blog/")) return PAGE_TITLES["/blog"]
-  return null
-}
+const NAV_LINKS: { label: string; href: string }[] = [
+  { label: "Practice",   href: "/psychotherapy" },
+  { label: "Assessment", href: "/tests" },
+  { label: "Therapy",    href: "/psychotherapy" },
+  { label: "Skills",     href: "/asd-skills" },
+  { label: "Writing",    href: "/blog" },
+]
 
 export function SiteHeader() {
-  const pathname = usePathname()
-  const isHome = pathname === "/"
-  const title = titleForPath(pathname)
-
   return (
-    <header
-      className="no-print fixed top-0 left-0 right-0 z-[60] flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 lg:py-5"
-      style={{
-        background:
-          "linear-gradient(180deg, #f2f1ed 0%, #e8e7e3 50%, #d8d7d2 100%)",
-        boxShadow:
-          "0 4px 17px rgba(11,37,69,0.149), inset 0 2px 0 rgba(255,255,255,0.79), inset 0 1px 0 rgba(255,255,255,0.51), inset 0 -2px 0 rgba(11,37,69,0.167), inset 0 -3px 4px rgba(11,37,69,0.056)",
-      }}
-    >
-      {/* Left: back link (suppressed on home) */}
-      {!isHome && (
-        <div className="shrink-0 w-12 sm:w-20">
-          <Link
-            href="/"
-            className="hover:opacity-100 transition-opacity text-[0.72rem] sm:text-[0.85rem]"
+    <header className="no-print w-full" style={{ background: "var(--paper)" }}>
+      {/* Eyebrow row */}
+      <div className="w-full border-b border-[rgba(11,37,69,0.08)]">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-1.5">
+          <p
+            className="text-[0.66rem] sm:text-[0.7rem]"
             style={{
               fontFamily: "var(--font-mono)",
-              letterSpacing: "0.04em",
-              color: "rgba(11,37,69,0.78)",
+              letterSpacing: "0.12em",
+              color: "rgba(11,37,69,0.5)",
             }}
           >
-            ← Home
-          </Link>
+            Olive Clinical
+            <span className="mx-2 opacity-50">·</span>
+            San Francisco &amp; Berkeley
+            <span className="mx-2 opacity-50">·</span>
+            By referral
+          </p>
         </div>
-      )}
-
-      {/* Center: page title (subpages only) */}
-      <div className="flex-1 min-w-0 flex items-center justify-center">
-        {!isHome && title && (
-          <h1
-            className="text-xl sm:text-3xl md:text-4xl lg:text-5xl text-center leading-tight text-gold truncate max-w-full"
-            style={{
-              fontFamily: "var(--font-display)",
-              fontWeight: 400,
-              letterSpacing: "-0.02em",
-            }}
-          >
-            {title}
-          </h1>
-        )}
       </div>
 
-      {/* Right: lockup. On home, show the full lockup at every size (no title to make room for).
-          On subpages, mobile shows just the mark and tablet+ shows the full lockup. */}
-      {isHome ? (
-        <>
-          <div className="shrink-0 sm:hidden">
-            <OliveLockup size={0.42} />
-          </div>
-          <div className="shrink-0 hidden sm:inline-flex" style={{ alignItems: "center" }}>
-            <OliveLockup size={0.55} />
-          </div>
-        </>
-      ) : (
-        <>
-          <div className="shrink-0 sm:hidden">
-            <OliveMark size={32} />
-          </div>
-          <div className="shrink-0 hidden sm:inline-flex" style={{ alignItems: "center" }}>
-            <OliveLockup size={0.55} />
-          </div>
-        </>
-      )}
+      {/* Nav row */}
+      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-4 sm:py-5 flex items-center gap-4">
+        {/* Left: lockup */}
+        <div className="shrink-0">
+          <Link href="/" aria-label="Olive Clinical home" className="inline-flex items-center">
+            <OliveLockup size={0.5} />
+          </Link>
+        </div>
+
+        {/* Center: nav links */}
+        <nav className="hidden md:flex flex-1 items-center justify-center gap-7 lg:gap-9">
+          {NAV_LINKS.map((l) => (
+            <Link
+              key={l.label}
+              href={l.href}
+              className="text-[0.95rem] text-foreground/85 hover:text-foreground transition-colors"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+            >
+              {l.label}
+            </Link>
+          ))}
+        </nav>
+
+        {/* Right: sign in + intake CTA */}
+        <div className="flex flex-1 md:flex-none items-center justify-end gap-4 sm:gap-6">
+          <Link
+            href="/contact"
+            className="hidden sm:inline text-[0.95rem] text-foreground/80 hover:text-foreground transition-colors"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+          >
+            Sign in
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 sm:px-5 text-[0.9rem] transition-opacity hover:opacity-90"
+            style={{
+              fontFamily: "var(--font-body)",
+              fontWeight: 600,
+              background: "var(--ink)",
+              color: "var(--paper)",
+            }}
+          >
+            Request an intake
+            <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+      </div>
     </header>
   )
 }
