@@ -26,10 +26,9 @@ export function HeroSection() {
               blocks. */}
           <div className="shrink-0 mx-auto flex flex-col items-stretch max-w-[340px] gap-6 text-center lg:text-left lg:contents">
 
-            {/* Matte organic paint-blob cluster — six soft daubs with a
-                gentle directional light and a faint sheen (not glossy
-                spheres). Organic per-blob border-radius + slight rotation
-                give a hand-placed, painterly feel. */}
+            {/* Wet paint-dab cluster — six organic daubs with a glossy
+                wet sheen, a tiny bright glint, and pooled darker edges so
+                each reads like a fresh dab of paint, not a solid ball. */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -39,22 +38,22 @@ export function HeroSection() {
               <div className="relative w-full aspect-[0.95]">
                 {[
                   // mauve / dusty purple — big, upper-left
-                  { left: 16, top: 29, d: 38, base: "#9c7d92", light: "#b89bb0", shade: "#7d6175",
+                  { left: 16, top: 29, d: 38, base: "#9c7d92", light: "#cbb4c5", shade: "#6e5366",
                     radius: "47% 53% 60% 40% / 52% 44% 56% 48%", rot: -8 },
                   // deep navy — small, top
-                  { left: 58, top: 20, d: 26, base: "#3c4a63", light: "#54637c", shade: "#2e3b52",
+                  { left: 58, top: 20, d: 26, base: "#3c4a63", light: "#6b7a93", shade: "#252f44",
                     radius: "58% 42% 45% 55% / 48% 56% 44% 52%", rot: 6 },
                   // terracotta / peach — right
-                  { left: 82, top: 38, d: 32, base: "#c4897a", light: "#d6a394", shade: "#a4705f",
+                  { left: 82, top: 38, d: 32, base: "#c4897a", light: "#e7bcae", shade: "#955f51",
                     radius: "42% 58% 52% 48% / 55% 45% 55% 45%", rot: -5 },
                   // warm sand — largest, central
-                  { left: 45, top: 56, d: 40, base: "#cdb392", light: "#dfcaa8", shade: "#ad9573",
+                  { left: 45, top: 56, d: 40, base: "#cdb392", light: "#edd9b8", shade: "#9d8463",
                     radius: "52% 48% 46% 54% / 50% 54% 46% 50%", rot: 3 },
                   // sage green — small, lower-left
-                  { left: 11, top: 65, d: 20, base: "#97a883", light: "#b0c09e", shade: "#788966",
+                  { left: 11, top: 65, d: 20, base: "#97a883", light: "#c2d0b1", shade: "#6c7d59",
                     radius: "55% 45% 58% 42% / 46% 52% 48% 54%", rot: 10 },
                   // dusty pink — lower-right
-                  { left: 79, top: 66, d: 24, base: "#c498a0", light: "#d7b1b8", shade: "#a67c83",
+                  { left: 79, top: 66, d: 24, base: "#c498a0", light: "#e7c6cc", shade: "#9a7178",
                     radius: "45% 55% 50% 50% / 56% 44% 58% 42%", rot: -7 },
                 ].map((c, i) => (
                   <div
@@ -68,12 +67,21 @@ export function HeroSection() {
                       borderRadius: c.radius,
                       backgroundColor: c.base,
                       backgroundImage: [
-                        // faint matte sheen, soft and off-center (not glossy)
-                        `radial-gradient(ellipse 34% 22% at 36% 28%, rgba(255,255,255,0.22), rgba(255,255,255,0) 72%)`,
-                        // gentle directional paint shading, low contrast
-                        `linear-gradient(152deg, ${c.light} 0%, ${c.base} 48%, ${c.shade} 100%)`,
+                        // tiny bright wet glint
+                        `radial-gradient(ellipse 13% 9% at 31% 24%, rgba(255,255,255,0.65), rgba(255,255,255,0) 70%)`,
+                        // broad soft wet sheen
+                        `radial-gradient(ellipse 44% 30% at 36% 28%, rgba(255,255,255,0.42), rgba(255,255,255,0) 64%)`,
+                        // wet body: light core pooling to a darker, richer rim
+                        `radial-gradient(circle at 42% 40%, ${c.light} 0%, ${c.base} 52%, ${c.shade} 100%)`,
                       ].join(", "),
-                      boxShadow: `0 10px 20px -12px rgba(60,40,30,0.18)`,
+                      boxShadow: [
+                        // glistening cast shadow
+                        `0 13px 24px -10px rgba(60,40,30,0.30)`,
+                        // pooled, deepened lower rim
+                        `inset 0 -11px 17px -11px rgba(0,0,0,0.22)`,
+                        // glossy inner top light
+                        `inset 0 7px 11px -8px rgba(255,255,255,0.4)`,
+                      ].join(", "),
                     }}
                   />
                 ))}
