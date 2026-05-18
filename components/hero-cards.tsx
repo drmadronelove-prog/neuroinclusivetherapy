@@ -52,7 +52,7 @@ function HeroCard({
         animate={{
           y: isHovered ? -6 : 0,
           scale: isHovered ? 1.05 : 1,
-          rotate: isHovered ? 0 : card.rotate,
+          rotate: 0,
         }}
         transition={{ type: "spring", stiffness: 260, damping: 18 }}
         onMouseEnter={() => setIsHovered(true)}
