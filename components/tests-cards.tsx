@@ -11,6 +11,8 @@ import { OEQ2 } from "@/components/assessments/oeq2"
 import { ICQEV } from "@/components/assessments/icqev"
 import { OCTRS } from "@/components/assessments/octrs"
 import { AQ10 } from "@/components/assessments/aq10"
+import { DESB } from "@/components/assessments/desb"
+import { DSS } from "@/components/assessments/dss"
 import { FeatureCardGrid, type FeatureCard } from "@/components/feature-card-grid"
 
 const CARDS: FeatureCard[] = [
@@ -114,6 +116,24 @@ const CARDS: FeatureCard[] = [
     modalTitle: "AQ-10: Autism Spectrum Quotient (short)",
     modalSubtitle: "10-item adult referral screen · Allison, Auyeung & Baron-Cohen, 2012.",
     content: <AQ10 />,
+  },
+  {
+    kind: "modal",
+    title: "DES-B",
+    category: "Dissociative symptoms",
+    footerLabel: "Take scale",
+    modalTitle: "DES-B: Brief Dissociative Experiences Scale (Modified)",
+    modalSubtitle: "8-item severity measure · Dalenberg & Carlson, 2010 (modified for DSM-5).",
+    content: <DESB />,
+  },
+  {
+    kind: "modal",
+    title: "DSS",
+    category: "Dissociative symptoms",
+    footerLabel: "Take scale",
+    modalTitle: "DSS: Dissociative Symptoms Scale",
+    modalSubtitle: "20-item self-report measure · Carlson et al., 2018.",
+    content: <DSS />,
   },
 ]
 
